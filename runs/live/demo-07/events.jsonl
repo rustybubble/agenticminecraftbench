@@ -1,0 +1,8 @@
+{"ts":"2026-11-06T20:31:12.003Z","epoch":1793997072003,"type":"spawn","pos":{"x":-124.5,"y":42,"z":97.5},"dimension":"the_nether","version":"1.16.5"}
+{"ts":"2026-11-06T20:31:12.242Z","epoch":1793997072242,"type":"stream","dimension":"the_nether"}
+{"ts":"2026-11-06T20:31:13.243Z","epoch":1793997073243,"type":"skill_start","skill":"travel_legs","args":{"x":-36,"z":32,"legs":8,"legLen":32},"timeoutMs":180000}
+{"ts":"2026-11-06T20:32:19.085Z","epoch":1793997139085,"type":"skill_warn","skill":"travelLegs","error":"Took to long to decide path to goal!"}
+{"ts":"2026-11-06T20:32:35.645Z","epoch":1793997155645,"type":"skill_warn","skill":"travelLegs","error":"Took to long to decide path to goal!"}
+{"ts":"2026-11-06T20:32:35.767Z","epoch":1793997155767,"type":"skill_warn","skill":"travelLegs","error":"lava ahead, sidestep"}
+{"ts":"2026-11-06T20:32:43.536Z","epoch":1793997163536,"type":"skill_warn","skill":"travelLegs","error":"Took to long to decide path to goal!"}
+{"ts":"2026-11-06T20:32:43.655Z","epoch":1793997163655,"type":"skill_warn","skill":"travelLegs","error":"lava ahead, sidestep"}

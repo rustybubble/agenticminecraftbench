@@ -1,0 +1,8 @@
+{"ts":"2026-11-06T20:27:54.670Z","epoch":1793996874670,"type":"spawn","pos":{"x":-135.60075131622224,"y":41,"z":98.51811417394585},"dimension":"the_nether","version":"1.16.5"}
+{"ts":"2026-11-06T20:27:54.903Z","epoch":1793996874903,"type":"stream","url":"http://localhost:3007","dimension":"the_nether"}
+{"ts":"2026-11-06T20:27:56.103Z","epoch":1793996876103,"type":"skill_start","skill":"travel_legs","args":{"x":-139,"z":100,"legs":16,"legLen":32},"timeoutMs":300000}
+{"ts":"2026-11-06T20:27:56.104Z","epoch":1793996876104,"type":"skill_result","ok":true,"skill":"travel_legs","args":{"x":-139,"z":100,"legs":16,"legLen":32},"ms":1,"result":{"ok":true,"legs":0,"dist":3.7}}
+{"ts":"2026-11-06T20:27:56.104Z","epoch":1793996876104,"type":"route_travel","result":{"ok":true,"legs":0,"dist":3.7},"pos":{"x":-135.60075131622224,"y":41,"z":98.51811417394585}}
+{"ts":"2026-11-06T20:27:56.104Z","epoch":1793996876104,"type":"skill_start","skill":"build_portal","args":{},"timeoutMs":180000}
+{"ts":"2026-11-06T20:30:56.247Z","epoch":1793997056247,"type":"skill_result","ok":false,"skill":"build_portal","args":{},"ms":180143,"error":"timeout after 180000ms"}
+{"ts":"2026-11-06T20:30:56.247Z","epoch":1793997056247,"type":"skill_start","skill":"build_portal_here","args":{},"timeoutMs":240000}

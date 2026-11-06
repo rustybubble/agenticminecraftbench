@@ -637,7 +637,9 @@ class Skills {
     // carve the ring plane, the interior, and a standing column 2 blocks out
     const cells = []
     for (let d = -1; d <= 4; d++) for (let h = -1; h <= 5; h++) cells.push(at(d, h))
-    for (let d = -1; d <= 4; d++) for (let h = 0; h <= 4; h++) cells.push(new V(x + 2, y + h, z + d))
+    // standing room: 3 deep and from one below the floor to one above the top row, so the
+    // bottom corner scaffolds and the far side column all have a face to click
+    for (let dx = 2; dx <= 4; dx++) for (let d = -1; d <= 4; d++) for (let h = -1; h <= 5; h++) cells.push(new V(x + dx, y + h, z + d))
     let dug = 0
     for (const c of cells) {
       this.check()
