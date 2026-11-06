@@ -74,6 +74,18 @@ FIXTURES["published_montage"] = {
 }
 
 
+B148 = "baseline/pro_1m48_segments.json"
+if os.path.exists(os.path.join(ROOT, B148)):
+    base148 = json.load(open(os.path.join(ROOT, B148), encoding="utf-8"))
+    FIXTURES["pro_1m48_as_agent"] = {
+        "description": "The 1:48 pro run fed in as if it were an agent, against itself. Every segment must be OK.",
+        "baseline": B148, "milestones": pro_timeline(base148),
+        "facts": {"overworld_arrival_xyz": END_PORTAL, "end_portal_xyz": END_PORTAL},
+    }
+    FIXTURES["published_montage_vs_1m48"] = dict(FIXTURES["published_montage"], baseline=B148,
+                                                 description="The real agent run against the 1:48 headline baseline.")
+
+
 def main():
     os.makedirs(os.path.join(ROOT, "fixtures"), exist_ok=True)
     for name, fx in FIXTURES.items():
