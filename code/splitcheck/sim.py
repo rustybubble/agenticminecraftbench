@@ -69,6 +69,8 @@ def load_costs(path=None) -> dict:
         if p.is_file():
             data = json.loads(p.read_text(encoding="utf-8"))
             entries = data.get("actions", data) if isinstance(data, dict) else {}
+            if isinstance(data, dict) and isinstance(data.get("rules"), dict):
+                costs["__rules__"] = data["rules"]
             for k, v in entries.items():
                 if isinstance(v, dict) and isinstance(v.get("seconds"), (int, float)):
                     merged = dict(costs.get(k, {}))
@@ -160,6 +162,8 @@ class _Sim:
         self.eyes_thrown = 0
         self.dragon_killed = False
         self.beds_in_end = 0
+        self.finished = False
+        self.dragon_beds_required = int(_num((costs.get("__rules__", {}).get("dragon_beds_required", {}) or {}).get("value", R.DRAGON_BEDS_DEFAULT if hasattr(R, "DRAGON_BEDS_DEFAULT") else 6)))
         self.eyes_broken = 0
         self.techniques = []
         self.reset = False
@@ -315,7 +319,7 @@ def _mine(s, a, notes):
         notes.append(STOCHASTIC_NOTE)
     if not rule.get("verified"):
         notes.append(f"drop rule for {block} unverified ({rule.get('source')})")
-    return s.cost([f"mine_{block}", "mine"], n)
+    return s.cost(([f"mine_{block}_diamond"] if block == "obsidian" else []) + [f"mine_{block}", "mine_other", "mine"], n)
 
 
 def _craft(s, a, notes):
@@ -573,7 +577,7 @@ def _enter_portal(s, a, notes):
         notes.append(f"{s.dim} ({s.pos['x']:.0f}, {s.pos['z']:.0f}) -> {new_dim} ({newpos['x']:.1f}, {newpos['z']:.1f})")
         s.dim, s.pos = new_dim, newpos
         s.portals.append({"x": newpos["x"], "z": newpos["z"], "dimension": new_dim, "lit": True, "method": "linked"})
-        return s.cost(["enter_portal"])
+        return s.cost(["enter_portal_nether", "enter_portal"])
     if p is not None:
         raise Illegal("enter_portal: the portal at the current position is not lit")
     name, st = s.structure_here("end_portal")
@@ -584,7 +588,16 @@ def _enter_portal(s, a, notes):
         s.dim = "the_end"
         s.pos = {"x": 100.0, "y": 49.0, "z": 0.0}  # obsidian platform
         notes.append(f"entered End portal {name!r} -> the_end platform (100, 49, 0)")
-        return s.cost(["enter_portal"])
+        return s.cost(["enter_portal_end", "enter_portal"])
+    if s.dim == "the_end":
+        # SCHEMA v2 section 7: a full_route plan finishes with enter_portal in the_end after the dragon is dead
+        if not s.dragon_killed:
+            raise Illegal("enter_portal in the_end: the exit portal only opens after the ender dragon is dead "
+                          f"(beds exploded in the_end so far: {s.beds_in_end}, need {s.dragon_beds_required})")
+        s.finished = True
+        s.dim = "overworld"
+        notes.append("entered the End exit portal after the dragon died: run complete")
+        return s.cost(["enter_portal_exit", "enter_portal"])
     raise Illegal(f"enter_portal: no lit Nether portal or active End portal at the current position in {s.dim}")
 
 
@@ -607,7 +620,7 @@ def _barter(s, a, notes):
     notes.append(STOCHASTIC_NOTE)
     notes.append(f"barter table {table} (unverified); yields: " + (", ".join(got) or "nothing"))
     s.tag("piglin_barter")
-    return s.cost(["barter"], n)
+    return s.cost(["barter"]) + s.cost(["barter_per_ingot"], n) if "barter_per_ingot" in s.costs else s.cost(["barter"], n)
 
 
 def _kill(s, a, notes):
@@ -627,7 +640,7 @@ def _kill(s, a, notes):
         s.dragon_killed = True
     if any(per != int(per) for per in info["drops"].values()):
         notes.append(STOCHASTIC_NOTE)
-    return s.cost([f"kill_{mob}", "kill"], n)
+    return s.cost([f"kill_{mob}_melee", f"kill_{mob}", "kill"], n)
 
 
 def _throw_eye(s, a, notes):
@@ -686,10 +699,20 @@ def _bed_explode(s, a, notes):
     if have < n:
         raise Illegal(f"bed_explode {n} but only {have} bed(s) held")
     s.take_group("any_bed", n)
+    extra = 0.0
     if s.dim == "the_end":
         s.beds_in_end += n
+        if not s.dragon_killed and s.beds_in_end >= s.dragon_beds_required:
+            s.dragon_killed = True
+            notes.append(f"dragon killed: {s.beds_in_end} bed explosions in the_end >= rules.dragon_beds_required "
+                         f"({s.dragon_beds_required})")
+            if "end_fight_beds" in s.costs:  # SCHEMA v3: fixed cost for a whole bed kill
+                notes.append("priced with end_fight_beds (fixed cost for the bed kill)")
+                return s.cost(["end_fight_beds"])
     s.tag("bed_explosion")
-    return s.cost(["bed_explode"], n)
+    if "end_fight_beds" in s.costs and s.dim == "the_end":
+        return 0.0  # included in the fixed end_fight_beds cost
+    return s.cost(["bed_explode"], n) + extra
 
 
 def _reset(s, a, notes):
@@ -718,7 +741,10 @@ DISPATCH = {
 def simulate(task: dict, plan: dict, costs: dict | None = None) -> SimResult:
     if costs is None:
         costs = load_costs()
+    rules = costs.get("__rules__") or costs.get("rules") if isinstance(costs, dict) else None
     costs = costs.get("actions", costs) if isinstance(costs, dict) else {}
+    if rules:
+        costs = {**costs, "__rules__": rules}
     costs = {**DEFAULT_COSTS, **costs}  # keys missing from a partial table fall back to defaults
     s = _Sim(task or {}, costs)
     actions = plan.get("actions") if isinstance(plan, dict) else None
