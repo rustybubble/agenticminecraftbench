@@ -71,6 +71,7 @@ def main():
     ap.add_argument("--fps", type=float, default=0)
     ap.add_argument("--stride", type=int, default=1, help="use every Nth frame")
     ap.add_argument("--scale", type=float, default=1.0, help="output scale (0.75 = 960x540)")
+    ap.add_argument("--game-hud", action="store_true", help="draw a game-style HUD: hearts, hunger, hotbar")
     args = ap.parse_args()
 
     frames = sorted(f for f in os.listdir(args.frames) if f.endswith((".png", ".jpg")))
@@ -105,6 +106,7 @@ def main():
         return ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", size)
 
     f_banner, f_hud, f_event = font(19), font(17), font(18)
+    f_small = font(12)
     banner = TOP.format(run=args.run_id, ver=args.version, seed=args.seed, diff=args.difficulty)
     out_dir = os.path.join(os.path.dirname(args.out), "overlay-frames")
     os.makedirs(out_dir, exist_ok=True)
@@ -157,12 +159,11 @@ def main():
         loot_line = "  ".join(f"{k} {v}" for k, v in sorted(loot.items(), key=lambda kv: -kv[1])[:5])
         if sample:
             pos = sample.get("position") or [0, 0, 0]
-            hud = (f"t+{int(t):02d}s  {sample.get('dimension')}  pos {pos[0]:.0f} {pos[1]:.0f} {pos[2]:.0f}"
-                   f"  hp {sample.get('health')}  food {sample.get('food')}  held {sample.get('selected_item') or '-'}"
-                   f"  |  looted {loot_line or '-'}")
+            hud = (f"{int(t):02d}s  {sample.get('dimension')}  {pos[0]:.0f} {pos[1]:.0f} {pos[2]:.0f}"
+                   f"  hp {sample.get('health'):.0f} food {sample.get('food'):.0f}")
         else:
             hud = f"t+{int(t):02d}s  waiting for server sample"
-        box(draw, (max(10, int(18 * args.scale)), H - int(46 * args.scale)), hud, f_hud, (210, 255, 210, 240))
+        box(draw, (max(10, int(18 * args.scale)), int(56 * args.scale)), hud, f_hud, (210, 255, 210, 240))
 
         callout = None
         for r in events_sorted:
@@ -180,12 +181,40 @@ def main():
                     callout = f"{kind}  {r.get('split') or ''}"
                 break
         if callout:
-            box(draw, (max(10, int(18 * args.scale)), H - int(82 * args.scale)), callout[:150], f_event, (120, 220, 255, 245))
+            box(draw, (max(10, int(18 * args.scale)), int(92 * args.scale)), callout[:140], f_event, (120, 220, 255, 245))
 
         # provenance strip: exact wall clock of the server sample this frame is showing
         stamp = sample["_t"].strftime("%H:%M:%S") if sample else "--:--:--"
-        box(draw, (W - int(380 * args.scale), int(56 * args.scale)), f"server clock {stamp}Z", f_hud, (255, 235, 150, 235))
+        box(draw, (W - int(120 * args.scale), H - int(34 * args.scale)), f"{stamp}Z", f_hud, (255, 235, 150, 235))
 
+        if args.game_hud and sample:
+            # game-style HUD: 10 hearts + 10 hunger + a 9-slot hotbar, all from server telemetry
+            sc = args.scale
+            hb_w, hb_h = int(28 * sc), int(28 * sc)
+            n9 = 9
+            total_w = hb_w * n9
+            x0 = (W - total_w) // 2
+            y0 = H - int(8 * sc) - hb_h
+            # hearts / hunger rows sit just above the hotbar
+            hp = max(0, min(20, float(sample.get("health") or 0)))
+            food = max(0, min(20, float(sample.get("food") or 0)))
+            for hi in range(10):
+                cx = x0 + int(hi * (hb_w + 2 * sc))
+                # heart: two circles + a triangle, red when full, dark when empty
+                full = hp >= (hi + 1) * 2
+                col = (220, 30, 45, 235) if full else (60, 20, 25, 200)
+                r = int(6 * sc)
+                draw.ellipse([cx, y0 - int(22 * sc), cx + 2 * r, y0 - int(22 * sc) + 2 * r], fill=col)
+                draw.ellipse([cx + 2 * r, y0 - int(22 * sc), cx + 4 * r, y0 - int(22 * sc) + 2 * r], fill=col)
+                draw.polygon([(cx, y0 - int(18 * sc)), (cx + 4 * r, y0 - int(18 * sc)), (cx + 2 * r, y0 - int(12 * sc))], fill=col)
+                # hunger: brown drumstick-ish blob on the right half
+                hx = x0 + total_w - int((hi + 1) * (hb_w + 2 * sc)) + int(4 * sc)
+                fcol = (190, 130, 60, 235) if food >= (hi + 1) * 2 else (60, 45, 25, 200)
+                draw.ellipse([hx, y0 - int(22 * sc), hx + int(8 * sc), y0 - int(14 * sc)], fill=fcol)
+            # inventory line (readable) under the hearts/hunger row, game-HUD style
+            inv_items = sorted(inv.items(), key=lambda kv: -kv[1])[:7]
+            inv_text = "  ".join(f"{k.replace('_',' ')} {v}" for k, v in inv_items) or "empty"
+            box(draw, (max(10, int(18 * sc)), H - int(34 * sc)), inv_text, f_hud, (235, 235, 235, 240))
         Image.alpha_composite(img.convert("RGBA"), layer).convert("RGB").save(
             os.path.join(out_dir, f"f{i:05d}.jpg"), quality=92)
         if i % 50 == 0:
