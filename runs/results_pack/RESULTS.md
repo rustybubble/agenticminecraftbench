@@ -250,6 +250,43 @@ Unvalidated fields: portal_lit, village_visible, lava_visible, water_visible, pl
 
 Perception findings: visible_feature_ignored
 
+### agent-06
+
+- Outcome: **did not finish**
+- Milestones reached: 1/5 (nether_entry)
+- Total time 383.041 s; attributed waste 324.821 s; efficiency 0.152; findings 10 {"claim": 4, "decision": 0, "micro": 5, "safety": 1}
+- Inputs: server log yes, perception no; full outputs in runs/agent-06-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 4
+  - line 40: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 34)
+  - line 40: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)
+  - line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)
+  - line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+
+**Top waste findings**
+
+1. `failed_action` (micro, 240 s): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost
+2. `failed_action` (micro, 58.975 s): line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost
+3. `idle` (micro, 22.418 s): lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)
+4. `death` (safety, 3.428 s): line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 12.969 | 29-33 | -20.031..-16.031 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 35.315 | 54 | -18.685..-18.685 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 39.864 | 49-51 | -11.136..-9.136 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 357.195 | 60-61 | 296.195..297.195 | first seen in inventory at line 37 (no craft event in the log); crafted after the flint pickup at t=39.864 (line 20) |
+| portal_build_attempted | yes | 41.312 | 55 | -13.688..-13.688 | build_portal skill started |
+| portal_built | yes | 58.216 | 63 | -4.784..-4.784 | build_portal ok |
+| portal_lit | yes | 58.221 | 63-64 | -5.779..-4.779 | implied by nether entry (no lit event) |
+| nether_entered | yes | 58.221 | 66.7 | -8.479..-8.479 | nether_entered |
+
 ## 3. Decision tasks (splitcheck.check)
 
 19 attempts checked across 21 tasks (21 task files: seed 7, generic 14).
@@ -311,4 +348,4 @@ python -m splitcheck.check --root <generic_root> --costs ../splits/time_costs.js
 cd .. && bash make_submission.sh
 ```
 
-Determinism: two packs built into separate temp dirs; 33 files compared with filecmp (shallow=False): **all byte-identical**
+Determinism: two packs built into separate temp dirs; 38 files compared with filecmp (shallow=False): **all byte-identical**

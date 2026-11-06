@@ -322,7 +322,11 @@ def _waste_extra(findings, bounds):
             continue
         lines = sorted({int(n) for n in (f.get("lines") or []) if n is not None})
         t0 = float(f.get("t_start") or 0.0)
-        seg = _seg_of(t0, bounds) or bounds[0][0]
+        # Assign by the midpoint of the finding's interval: a 240 s Nether timeout that starts
+        # 5 ms before the logged Nether entry belongs to the Nether segment, not spawn_to_nether.
+        t1 = f.get("t_end")
+        tmid = (t0 + float(t1)) / 2.0 if isinstance(t1, (int, float)) and t1 >= t0 else t0
+        seg = _seg_of(tmid, bounds) or bounds[0][0]
         span = (f"line {lines[0]}" if len(lines) == 1 else
                 f"lines {lines[0]}-{lines[-1]}" if lines else "no log line")
         out.append({

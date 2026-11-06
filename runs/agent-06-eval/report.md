@@ -8,8 +8,8 @@ Run median ratio: **0.873**
 
 | Segment | Agent s | Pro s | Ratio (low-high) | Verdict | Waste s (tagged, capped at excess) |
 |---|---|---|---|---|---|
-| spawn_to_nether | 58.221 | 66.683 | 0.873 | **OK** | 0.0 (raw 240.0) |
-| nether | - | 40.783 | - | **NOT_REACHED** | 84.821 |
+| spawn_to_nether | 58.221 | 66.683 | 0.873 | **OK** | - |
+| nether | - | 40.783 | - | **NOT_REACHED** | 324.821 |
 | exit_to_end_portal | - | 2.45 | - | **NOT_REACHED** | - |
 | end | - | 59.233 | - | **NOT_REACHED** | - |
 | **total** | - | 169.149 | - | | |
@@ -42,14 +42,13 @@ Waste never changes a verdict. Seconds are upper-bound estimates; RunEval entrie
 
 ### spawn_to_nether (OK)
 
-| Tag | Seconds | Evidence |
-|---|---|---|
-| failed_or_retried_action | 240.0 | RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost |
+No waste found.
 
 ### nether (NOT_REACHED)
 
 | Tag | Seconds | Evidence |
 |---|---|---|
+| failed_or_retried_action | 240.0 | RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost |
 | failed_or_retried_action | 58.975 | RunEval failed_action at t=298.216 s (line 34): line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost |
 | idle_wait | 22.418 | RunEval idle at t=357.195 s (lines 37-39): lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits) |
 | unnecessary_risk | 3.428 | RunEval death at t=379.613 s (line 39): line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s |

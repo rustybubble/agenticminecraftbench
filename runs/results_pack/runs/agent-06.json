@@ -1,0 +1,419 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     6,
+     8,
+     12,
+     14,
+     18,
+     20,
+     24,
+     27,
+     31,
+     34
+    ],
+    "field": "actions",
+    "logged": 10,
+    "summary_line": 40
+   },
+   "lines": [
+    6,
+    8,
+    12,
+    14,
+    18,
+    20,
+    24,
+    27,
+    31,
+    34,
+    40
+   ],
+   "message": "line 40: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 34)",
+   "severity": "high",
+   "t_end": 383.041,
+   "t_start": 383.041
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": null,
+    "evidence_lines": [
+     28
+    ],
+    "field": "finalSplit",
+    "logged": "nether_entered",
+    "summary_line": 40
+   },
+   "lines": [
+    28,
+    40
+   ],
+   "message": "line 40: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)",
+   "severity": "high",
+   "t_end": 383.041,
+   "t_start": 383.041
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     28
+    ],
+    "field": "splits",
+    "logged": 1,
+    "summary_line": 40
+   },
+   "lines": [
+    28,
+    40
+   ],
+   "message": "line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)",
+   "severity": "high",
+   "t_end": 383.041,
+   "t_start": 383.041
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     31,
+     34
+    ],
+    "field": "failures",
+    "logged": 2,
+    "summary_line": 40
+   },
+   "lines": [
+    31,
+    34,
+    40
+   ],
+   "message": "line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34)",
+   "severity": "high",
+   "t_end": 383.041,
+   "t_start": 383.041
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "OK"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": true,
+  "nether_exit": false
+ },
+ "milestones_reached": [
+  "nether_entry"
+ ],
+ "ok": true,
+ "outcome": "did not finish",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": null,
+  "steps": [
+   {
+    "agent_t": 12.969,
+    "agent_t_lo": null,
+    "delta_hi": -16.031,
+    "delta_lo": -20.031,
+    "line": 8,
+    "note": "village chest (iron_pickaxe 1, obsidian 6)",
+    "pro_hi": 33.0,
+    "pro_lo": 29.0,
+    "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51\u20130:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": 35.315,
+    "agent_t_lo": null,
+    "delta_hi": -18.685,
+    "delta_lo": -18.685,
+    "line": 14,
+    "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+    "pro_hi": 54.0,
+    "pro_lo": 54.0,
+    "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": 39.864,
+    "agent_t_lo": null,
+    "delta_hi": -9.136,
+    "delta_lo": -11.136,
+    "line": 20,
+    "note": "flint chest (flint 1, obsidian 4)",
+    "pro_hi": 51.0,
+    "pro_lo": 49.0,
+    "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11\u20131:13\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": 357.195,
+    "agent_t_lo": 39.864,
+    "delta_hi": 297.195,
+    "delta_lo": 296.195,
+    "line": 37,
+    "note": "first seen in inventory at line 37 (no craft event in the log); crafted after the flint pickup at t=39.864 (line 20)",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 41.312,
+    "agent_t_lo": null,
+    "delta_hi": -13.688,
+    "delta_lo": -13.688,
+    "line": 26,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": 58.216,
+    "agent_t_lo": null,
+    "delta_hi": -4.784,
+    "delta_lo": -4.784,
+    "line": 27,
+    "note": "build_portal ok",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": 58.221,
+    "agent_t_lo": null,
+    "delta_hi": -4.779,
+    "delta_lo": -5.779,
+    "line": 28,
+    "note": "implied by nether entry (no lit event)",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": 58.221,
+    "agent_t_lo": null,
+    "delta_hi": -8.479,
+    "delta_lo": -8.479,
+    "line": 28,
+    "note": "nether_entered",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "agent-06",
+ "score": {
+  "attributed_waste_s": 324.821,
+  "efficiency": 0.152,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.2,
+  "milestones_reached": 1,
+  "milestones_total": 5,
+  "overlap_removed_s": 0.0,
+  "raw_cost_sum_s": 324.821,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 383.041,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 321.393,
+   "safety": 3.428
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   383.041
+  ],
+  "notes": [],
+  "server_first_t_s": null,
+  "server_last_t_s": null,
+  "server_samples": 0,
+  "snapshots_checked": 0,
+  "snapshots_without_server_sample": [
+   1,
+   6,
+   8,
+   12,
+   14,
+   18,
+   20,
+   24,
+   27,
+   31,
+   34,
+   37,
+   40
+  ]
+ },
+ "summary": {
+  "attributed_waste_s": 324.821,
+  "efficiency": 0.152,
+  "findings": 10,
+  "findings_by_category": {
+   "claim": 4,
+   "decision": 0,
+   "micro": 5,
+   "safety": 1
+  },
+  "findings_by_severity": {
+   "high": 7,
+   "low": 2,
+   "medium": 1
+  },
+  "log": "agent_runs/agent-06/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": true,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 383.041
+ },
+ "top_waste": [
+  {
+   "attributed_s": 240.0,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 240.0,
+   "evidence": {
+    "action": "goto",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    31
+   ],
+   "message": "line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost",
+   "severity": "high",
+   "t_end": 298.216,
+   "t_start": 58.216
+  },
+  {
+   "attributed_s": 58.975,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 58.975,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: frame incomplete"
+   },
+   "lines": [
+    34
+   ],
+   "message": "line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost",
+   "severity": "high",
+   "t_end": 357.191,
+   "t_start": 298.216
+  },
+  {
+   "attributed_s": 22.418,
+   "category": "micro",
+   "code": "idle",
+   "cost_s": 22.418,
+   "evidence": {
+    "api_wait_s": 0.0,
+    "pos": [
+     -285.50000000000006,
+     67.02442408821369,
+     260.5
+    ],
+    "span_s": 22.418
+   },
+   "lines": [
+    37,
+    39
+   ],
+   "message": "lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)",
+   "severity": "medium",
+   "t_end": 379.613,
+   "t_start": 357.195
+  },
+  {
+   "attributed_s": 3.428,
+   "category": "safety",
+   "code": "death",
+   "cost_s": 3.428,
+   "evidence": {
+    "dim": "the_nether",
+    "event": "death",
+    "inventory_at_death": {
+     "bread": 7,
+     "diamond_horse_armor": 1,
+     "flint_and_steel": 1,
+     "glistering_melon_slice": 4,
+     "gold_ingot": 2,
+     "golden_leggings": 1,
+     "iron_helmet": 2,
+     "iron_ingot": 5,
+     "iron_pickaxe": 1,
+     "iron_sword": 1,
+     "mossy_cobblestone": 1,
+     "netherrack": 5,
+     "oak_planks": 1,
+     "saddle": 1,
+     "warped_fungus": 1
+    },
+    "logged": true,
+    "pos": [
+     -127.25199223336416,
+     28.130302127825992,
+     105.35856444201643
+    ]
+   },
+   "lines": [
+    39
+   ],
+   "message": "line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s",
+   "severity": "high",
+   "t_end": 383.041,
+   "t_start": 379.613
+  }
+ ]
+}
