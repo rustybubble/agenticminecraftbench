@@ -177,3 +177,8 @@ A plan is `{"actions": [ ... ]}`. Each action is an object with `"action"` plus 
   - `reference.pro_time_s` may be `null` for a `plan` task: then the checker prices `reference.answer` with `splits/time_costs.json` and uses that as the pro time. `reference.pro_time_note` explains any human upper bound.
   - New optional reference keys, informational only: `pro_time_note`, `verified_note`.
   - Section 7 added (drop rates, beds, dragon kill, finish, portal linking).
+- v3 (13:05):
+  - New optional reference key `fairness_note` (informational). `tolerance.choices` can hold more than one accepted option: T18 accepts both `B` (one-cycle) and `E` (zero-cycle).
+  - `splits/pro_splits.json` entries add `segment`, `segment_s`, `vod`, `timestamp_verified`, and (full_route only) `official_time_s`. `time_s` stays cumulative IGT.
+  - `splits/time_costs.json` adds a `tag` per entry (`wiki` | `run` | `agent` | `estimate`), a `rules` block (`dragon_beds_required`, `gravel_flint_rate`, `eye_break_rate`) and a `calibration` block. Action keys: `travel` is per block; `build_portal_<method>`, `enter_portal_nether` / `enter_portal_end`, `mine_<block>` with `mine_other` as fallback; `end_fight_beds` is a fixed cost for a bed kill.
+  - All generic tasks now use 1.16.5, except `T07_bastion_pearls_1161`, which deliberately tests the 1.16.1 barter table (paired with `T08` on 1.16.5).

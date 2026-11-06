@@ -11,6 +11,7 @@
   "pro_time_s": null,
   "why": "Adult piglins are hostile unless the player wears at least one piece of golden armor (carrying it does not count). Opening a chest within about 15 blocks of a piglin with line of sight angers it, and breaking a block of gold angers piglins within 16 blocks even without line of sight. So: wear the helmet, barter, and leave the chests and gold blocks alone while piglins are near.",
   "trap": "B: carrying gold armor is not wearing it. C and D: looting the bastion while piglins watch starts a fight.",
+  "fairness_note": "Runners do mine bastion gold blocks for bartering gold (Wikipedia, raw line 50). D is wrong only because the prompt asks for no fight and the gold blocks are next to the piglins.",
   "techniques": [
     {
       "tag": "gold_armor_neutral",

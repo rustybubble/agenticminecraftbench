@@ -117,8 +117,8 @@ TASKS.append({
         "answer": {"choice": "keep"},
         "tolerance": {"choices": ["keep"]},
         "pro_time_s": None,
-        "why": "Beaches are one of the spawn types runners reset to find. Buried treasure gives iron and food early; shipwrecks hold the treasure map and supplies; "
-               "the ocean gives access to magma ravines with obsidian and lava for a quick portal. Trees give wood for tools.",
+        "why": "Beaches are one of the spawn types runners reset to find. Beaches have buried treasure (iron and food early, found with F3 without the map), "
+               "and the ocean gives access to magma ravines with obsidian and lava for a quick portal. Trees give wood for tools.",
         "trap": "Reset because there is no village or ruined portal in sight.",
         "techniques": [
             {"tag": "reset_judgment", "description": "Keep beach spawns with wood and a shipwreck/buried treasure.", "est_time_saved_s": None, "verified": True,
@@ -341,12 +341,12 @@ def barter_task(tid, version, exp, ingots12, src, trap_exp, trap_ing):
                       if version == "1.16.1" else
                       "In 1.16.5 (since 1.16.2) the pearl entry has weight 10 of 459 and gives 2-4 pearls (mean 3): 0.0654 pearls per ingot. ")
                    + "32 ingots give {} pearls on average; 12 pearls need {} ingots on average.".format(exp, ingots12),
-            "trap": "Using the other version's table ({} pearls, {} ingots) or today's table (weight 10 of 469). Pearl rates were cut about 4.3x in 1.16.2, which is why runners pick 1.16.1 for bastion routes.".format(trap_exp, trap_ing),
+            "trap": "Using the other version's table ({} pearls, {} ingots) or today's table (weight 10 of 469). Expected pearls per ingot fell about 4.3x in 1.16.2; Wikipedia gives the higher pearl rate as a reason 1.16-1.19 runs use 1.16.1.".format(trap_exp, trap_ing),
             "techniques": [
                 {"tag": "version_barter_rates", "description": "Know the barter table of the version being run.", "est_time_saved_s": None, "verified": True, "source": src},
             ],
             "miss_category": "resource_miscount",
-            "sources": [src, BARTER_WIKI_OLD, "tools/compute_answers.py barter()"],
+            "sources": [src, BARTER_WIKI_OLD, "https://en.wikipedia.org/wiki/Minecraft_speedrunning (raw line 41: 1.16.1 used because the pearl barter rate is higher)", "tools/compute_answers.py barter()"],
             "verified": True,
             "alternates": [{"answer": {"expected_pearls": round(exp, 1), "ingots_for_12_pearls": float(int(ingots12) + 1)},
                             "why_valid": "Rounded; rounding up to whole ingots is reasonable and within tolerance."}],
@@ -386,6 +386,7 @@ TASKS.append({
                "Opening a chest within about 15 blocks of a piglin with line of sight angers it, and breaking a block of gold angers piglins within 16 blocks even without line of sight. "
                "So: wear the helmet, barter, and leave the chests and gold blocks alone while piglins are near.",
         "trap": "B: carrying gold armor is not wearing it. C and D: looting the bastion while piglins watch starts a fight.",
+        "fairness_note": "Runners do mine bastion gold blocks for bartering gold (Wikipedia, raw line 50). D is wrong only because the prompt asks for no fight and the gold blocks are next to the piglins.",
         "techniques": [
             {"tag": "gold_armor_neutral", "description": "Wear one golden armor piece so piglins stay neutral.", "est_time_saved_s": None, "verified": True, "source": W + "Piglin (raw lines 63, 145, 156)"},
             {"tag": "no_chest_near_piglins", "description": "Do not open chests or break gold blocks near piglins.", "est_time_saved_s": None, "verified": True, "source": W + "Piglin (raw lines 160-170)"},

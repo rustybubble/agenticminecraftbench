@@ -5,12 +5,14 @@
   },
   "tolerance": {
     "choices": [
-      "B"
+      "B",
+      "E"
     ]
   },
   "pro_time_s": null,
-  "why": "Beds explode when used in the End, and an explosion next to the perched dragon removes up to a quarter of its health per bed. The dragon only stays still while perched, so that is when the beds are used. The blast also hurts you, so a block between you and the bed is standard. Sword damage is small (the dragon takes about a quarter of damage that misses its head), so A takes many perches. C wastes beds on a moving target. D spends minutes climbing pillars. The agent on this project's seed killed the dragon with six bed explosions on one perch.",
+  "why": "Beds explode when used in the End, and an explosion next to the perched dragon removes up to a quarter of its health per bed. The dragon only stays still while perched, so that is when the beds are used. The blast also hurts you, so a block between you and the bed is standard. Sword damage is small (the dragon takes about a quarter of damage that misses its head), so A takes many perches. C wastes beds on a moving target from the ground. D spends minutes on crystals. The one-cycle (B) usually needs fewer than 7 beds, 4-5 for advanced players. E is the zero-cycle, a harder expert method that skips the wait for a perch, so it is also accepted. The agent on this project's seed killed the dragon with six bed explosions on one perch.",
   "trap": "A or D: the 'normal player' sword fight, which is many times slower.",
+  "fairness_note": "Two answers are accepted: one-cycle (B) and zero-cycle (E). Both are documented speedrun strategies.",
   "techniques": [
     {
       "tag": "bed_one_cycle",
@@ -22,6 +24,7 @@
   ],
   "miss_category": "brute_force_over_trick",
   "sources": [
+    "https://en.wikipedia.org/wiki/Minecraft_speedrunning (raw line 54: one-cycling with beds, typically fewer than 7 explosions, 4-5 for advanced players; zero-cycle)",
     "https://minecraft.wiki/w/Bed",
     "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (Beds section)",
     "https://minecraft.wiki/w/Ender_Dragon (raw line 72: damage not on the head reduced about 75%)",
@@ -29,7 +32,7 @@
     "rmalde/minecraft-agent:optimization/nether/REVIEW.md:41,57"
   ],
   "verified": true,
-  "verified_note": "Runner-side source for the one-cycle (mcsr.info/speedrunning/one-cycle, cited in the agent README:88) was blocked from the sandbox.",
+  "verified_note": "mcsr.info/speedrunning/one-cycle (cited in the agent README:88) was blocked from the sandbox; Wikipedia's speedrunning article covers both methods.",
   "alternates": [
     {
       "answer": {
@@ -37,6 +40,12 @@
         "reasoning": "One-cycle with beds."
       },
       "why_valid": "Same choice."
+    },
+    {
+      "answer": {
+        "choice": "E"
+      },
+      "why_valid": "Zero-cycle: a documented expert bed strategy that skips the perch wait."
     }
   ],
   "broken": [

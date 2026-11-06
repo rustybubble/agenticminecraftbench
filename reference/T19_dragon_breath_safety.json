@@ -9,7 +9,7 @@
     ]
   },
   "pro_time_s": null,
-  "why": "Dragon's-breath clouds deal Harming damage, which is magic damage and ignores armor, and they persist. A death ends the run, so a few seconds or one missed perch is the cheaper loss. The agent this project draws on died exactly this way: it escaped one cloud into another and then walked back through the first.",
+  "why": "Dragon's-breath clouds deal Harming damage, which is magic damage and ignores armor, and they linger on the ground for seconds. A death ends the run, so a few seconds or one missed perch is the cheaper loss. The agent this project draws on died exactly this way: it escaped one cloud into another and then walked back through the first.",
   "trap": "A: the shortest path through the cloud. C: standing next to it is also inside the damage zone's edge.",
   "techniques": [
     {

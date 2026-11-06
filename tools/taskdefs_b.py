@@ -76,10 +76,10 @@ TASKS.append({
               "world": {"facts": ["Nether portal at your position is lit and links to the Nether near (5, ~, -7.5)."]},
               "elapsed_s": None},
     "answer_type": "choice", "options": list(BLIND_OPTS),
-    "answer_schema": '{"choice": "A" | "B" | "C" | "D"}',
+    "answer_schema": '{"choice": "A" | "B" | "C" | "D" | "E"}',
     "reference": {
         "answer": {"choice": "B"},
-        "tolerance": {"choices": ["B"]},
+        "tolerance": {"choices": ["B", "E"]},
         "pro_time_s": None,
         "why": "The overworld trip is {} blocks. In the Nether the same trip is {} blocks, because X and Z are divided by 8: the target is (1800/8, -900/8) = (225, -112.5). "
                "At sprint speed (5.6 blocks/s) that is roughly 350 s versus 45 s, and the extra portal costs far less than the 300 s saved.".format(bl["overworld_distance"], bl["nether_distance"]),
@@ -234,8 +234,9 @@ TASKS.append({
 DRAGON_OPTS = {
     "A": "Fight with the iron sword: wait for the dragon to perch on the exit portal and hit its head until it dies.",
     "B": "Wait for the dragon to perch on the exit portal, then place and explode beds next to its head, with a block between you and the blast.",
-    "C": "Explode the beds on the island while the dragon is flying around the pillars, before it perches.",
+    "C": "Stand on the ground of the main island and explode beds whenever the dragon flies low overhead, before it perches.",
     "D": "Climb the obsidian pillars and destroy every end crystal first, then fight the dragon with the sword.",
+    "E": "Tower up the End spike next to where the dragon spawns and explode beds against it as it flies past, without waiting for a perch.",
 }
 TASKS.append({
     "id": "T18_dragon_method",
@@ -245,24 +246,27 @@ TASKS.append({
     "state": {"dimension": "the_end", "position": {"x": 100, "y": 49, "z": 0},
               "inventory": {"white_bed": 6, "iron_sword": 1, "iron_pickaxe": 1, "cobblestone": 40}, "known_locations": {}, "world": {}, "elapsed_s": None},
     "answer_type": "choice", "options": list(DRAGON_OPTS),
-    "answer_schema": '{"choice": "A" | "B" | "C" | "D"}',
+    "answer_schema": '{"choice": "A" | "B" | "C" | "D" | "E"}',
     "reference": {
         "answer": {"choice": "B"},
-        "tolerance": {"choices": ["B"]},
+        "tolerance": {"choices": ["B", "E"]},
         "pro_time_s": None,
         "why": "Beds explode when used in the End, and an explosion next to the perched dragon removes up to a quarter of its health per bed. "
                "The dragon only stays still while perched, so that is when the beds are used. The blast also hurts you, so a block between you and the bed is standard. "
                "Sword damage is small (the dragon takes about a quarter of damage that misses its head), so A takes many perches. "
-               "C wastes beds on a moving target. D spends minutes climbing pillars. The agent on this project's seed killed the dragon with six bed explosions on one perch.",
+               "C wastes beds on a moving target from the ground. D spends minutes on crystals. The one-cycle (B) usually needs fewer than 7 beds, 4-5 for advanced players. E is the zero-cycle, a harder expert method that skips the wait for a perch, so it is also accepted. The agent on this project's seed killed the dragon with six bed explosions on one perch.",
         "trap": "A or D: the 'normal player' sword fight, which is many times slower.",
+        "fairness_note": "Two answers are accepted: one-cycle (B) and zero-cycle (E). Both are documented speedrun strategies.",
         "techniques": [{"tag": "bed_one_cycle", "description": "Explode beds on the perched dragon.", "est_time_saved_s": None, "verified": True,
                         "source": W + "Tutorial:Defeating_the_ender_dragon (raw line 89); " + W + "Bed (raw lines 179, 288)"}],
         "miss_category": "brute_force_over_trick",
-        "sources": [W + "Bed", W + "Tutorial:Defeating_the_ender_dragon (Beds section)", W + "Ender_Dragon (raw line 72: damage not on the head reduced about 75%)",
+        "sources": ["https://en.wikipedia.org/wiki/Minecraft_speedrunning (raw line 54: one-cycling with beds, typically fewer than 7 explosions, 4-5 for advanced players; zero-cycle)",
+                    W + "Bed", W + "Tutorial:Defeating_the_ender_dragon (Beds section)", W + "Ender_Dragon (raw line 72: damage not on the head reduced about 75%)",
                     AGENT + ":README.md:9 (six bed explosions on the first landing)", AGENT + ":optimization/nether/REVIEW.md:41,57"],
         "verified": True,
-        "verified_note": "Runner-side source for the one-cycle (mcsr.info/speedrunning/one-cycle, cited in the agent README:88) was blocked from the sandbox.",
-        "alternates": [{"answer": {"choice": "B", "reasoning": "One-cycle with beds."}, "why_valid": "Same choice."}],
+        "verified_note": "mcsr.info/speedrunning/one-cycle (cited in the agent README:88) was blocked from the sandbox; Wikipedia's speedrunning article covers both methods.",
+        "alternates": [{"answer": {"choice": "B", "reasoning": "One-cycle with beds."}, "why_valid": "Same choice."},
+                       {"answer": {"choice": "E"}, "why_valid": "Zero-cycle: a documented expert bed strategy that skips the perch wait."}],
         "broken": [{"answer": {"choice": "A"}, "expected_verdict": "WRONG", "why_wrong": "Sword only: many perches."},
                    {"answer": {"choice": "C"}, "expected_verdict": "WRONG", "why_wrong": "Beds while flying mostly miss."},
                    {"answer": {"choice": "D"}, "expected_verdict": "WRONG", "why_wrong": "Pillar climbing is slow and risky."}],
@@ -288,7 +292,7 @@ TASKS.append({
         "answer": {"choice": "B"},
         "tolerance": {"choices": ["B"]},
         "pro_time_s": None,
-        "why": "Dragon's-breath clouds deal Harming damage, which is magic damage and ignores armor, and they persist. A death ends the run, so a few seconds or one missed perch is the cheaper loss. "
+        "why": "Dragon's-breath clouds deal Harming damage, which is magic damage and ignores armor, and they linger on the ground for seconds. A death ends the run, so a few seconds or one missed perch is the cheaper loss. "
                "The agent this project draws on died exactly this way: it escaped one cloud into another and then walked back through the first.",
         "trap": "A: the shortest path through the cloud. C: standing next to it is also inside the damage zone's edge.",
         "techniques": [{"tag": "avoid_breath_clouds", "description": "Path around every breath cloud.", "est_time_saved_s": None, "verified": True,

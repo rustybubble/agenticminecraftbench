@@ -49,9 +49,9 @@
     "reset": {"seconds": 0.0, "per": "action", "tag": "estimate", "verified": false, "source": "Reset ends the plan; scored by choice, not time."}
   },
   "rules": {
-    "dragon_beds_required": {"value": 6, "tag": "agent", "verified": false,
-                             "source": "rmalde/minecraft-agent:README.md:9 and optimization/nether/REVIEW.md:41,57 (six bed explosions killed the dragon)",
-                             "notes": "What the agent needed in its runs, not a game constant: bed damage depends on distance and hit location. Human bed count needs the VOD."},
+    "dragon_beds_required": {"value": 6, "tag": "agent", "verified": true,
+                             "source": "rmalde/minecraft-agent:README.md:9 and optimization/nether/REVIEW.md:41,57 (six bed explosions killed the dragon); https://en.wikipedia.org/wiki/Minecraft_speedrunning (raw line 54: typically fewer than 7 bed explosions, 4-5 for advanced players)",
+                             "notes": "Not a game constant: bed damage depends on distance and hit location. 6 is consistent with both sources. The human's bed count on this seed needs the VOD."},
     "gravel_flint_rate": {"value": 0.1, "tag": "wiki", "verified": true, "source": "https://minecraft.wiki/w/Gravel (raw line 18)"},
     "eye_break_rate": {"value": 0.2, "tag": "wiki", "verified": true, "source": "https://minecraft.wiki/w/Eye_of_Ender (raw line 32)"}
   },

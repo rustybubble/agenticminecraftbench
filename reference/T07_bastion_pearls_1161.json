@@ -16,7 +16,7 @@
   },
   "pro_time_s": null,
   "why": "Each barter is one roll on the piglin_bartering loot table. Expected pearls per ingot = (pearl weight / total weight) x (mean stack size). In 1.16.1 the pearl entry has weight 20 of 423 and gives 4-8 pearls (mean 6): 0.2837 pearls per ingot. 32 ingots give 9.08 pearls on average; 12 pearls need 42.3 ingots on average.",
-  "trap": "Using the other version's table (2.09 pearls, 183.6 ingots) or today's table (weight 10 of 469). Pearl rates were cut about 4.3x in 1.16.2, which is why runners pick 1.16.1 for bastion routes.",
+  "trap": "Using the other version's table (2.09 pearls, 183.6 ingots) or today's table (weight 10 of 469). Expected pearls per ingot fell about 4.3x in 1.16.2; Wikipedia gives the higher pearl rate as a reason 1.16-1.19 runs use 1.16.1.",
   "techniques": [
     {
       "tag": "version_barter_rates",
@@ -30,6 +30,7 @@
   "sources": [
     "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.16.1/data/minecraft/loot_tables/gameplay/piglin_bartering.json (ender_pearl weight 20 of 423, count uniform 4-8)",
     "https://minecraft.wiki/w/Bartering/Outdated_loot_tables (sections 20w20a-20w27a and 20w28a-25w17a)",
+    "https://en.wikipedia.org/wiki/Minecraft_speedrunning (raw line 41: 1.16.1 used because the pearl barter rate is higher)",
     "tools/compute_answers.py barter()"
   ],
   "verified": true,

@@ -5,7 +5,8 @@
   },
   "tolerance": {
     "choices": [
-      "B"
+      "B",
+      "E"
     ]
   },
   "pro_time_s": null,
