@@ -80,6 +80,10 @@ class Run {
       movements.allowSprinting = true
       movements.maxDropDown = 3
       movements.dontMineUnderFallingBlock = true
+      // rmalde notes + our own run: the bot walks into ponds and sinks. Make liquid impassable
+      // for the pathfinder and handle "already in water" in the reflex loop.
+      movements.liquidCost = -1
+      movements.infiniteLiquidDropdownDistance = false
       const avoid = ['lava', 'fire', 'magma_block', 'cactus', 'sweet_berry_bush', 'powder_snow']
       movements.blocksToAvoid = new Set(avoid.map(n => this.mcData.blocksByName[n]?.id).filter(x => x != null))
       bot.pathfinder.setMovements(movements)
@@ -285,6 +289,12 @@ class Run {
             if (bl && bl.type === lava) { lavaNear = true; break }
           }
         }
+      }
+      // swim up if the head is under water (pathfinder cannot rescue a sinking bot)
+      const feet = b.blockAt(p)
+      const head = b.blockAt(p.offset(0, 1.6, 0))
+      if (feet && feet.name === 'water' && head && head.name === 'water') {
+        try { b.setControlState('jump', true); setTimeout(() => b.setControlState('jump', false), 450) } catch {}
       }
       if (lavaNear) {
         this.urgency = 'high'

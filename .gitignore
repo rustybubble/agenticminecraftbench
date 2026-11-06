@@ -21,3 +21,5 @@ evidence/footage/overlay-frames/
 evidence/footage/*.ass
 
 live/client/.cache/
+
+agent_runs/*/frames/

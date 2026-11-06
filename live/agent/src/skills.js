@@ -527,6 +527,7 @@ class Skills {
         try { await this.goto(t.x, t.y, t.z, 3) } catch {}
       }
       let ok = false
+      const before = this.count('obsidian')
       for (let attempt = 0; attempt < 4 && !ok; attempt++) {
         await this.equip('obsidian')
         const faces = [[0, -1, 0, 0, 1, 0], [0, 1, 0, 0, -1, 0], [0, 0, 1, 0, 0, -1], [0, 0, -1, 0, 0, 1],
@@ -539,8 +540,14 @@ class Skills {
           await this.bot.placeBlock(ref, new (require('vec3'))(fx, fy, fz))
           await sleep(180)
         } catch {}
-        const got = this.bot.blockAt(new (require('vec3'))(t.x, t.y, t.z))
-        ok = !!got && got.name === 'obsidian'
+        // The server's block update lands ~200-400ms late; a single read is the exact bug the
+        // reference repo fixed. Poll for it, and accept an inventory delta as secondary proof.
+        for (let wait = 0; wait < 6 && !ok; wait++) {
+          await sleep(150)
+          const got = this.bot.blockAt(new (require('vec3'))(t.x, t.y, t.z))
+          ok = !!got && got.name === 'obsidian'
+        }
+        if (!ok && this.count('obsidian') < before) ok = true // placed, state not yet echoed
       }
       if (ok) placed.push(t); else failed.push({ ...t, reason: 'placement failed' })
     }

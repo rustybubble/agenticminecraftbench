@@ -69,19 +69,32 @@ def main():
     ap.add_argument("--version", default="1.16.5")
     ap.add_argument("--difficulty", default="peaceful")
     ap.add_argument("--fps", type=float, default=0)
+    ap.add_argument("--stride", type=int, default=1, help="use every Nth frame")
+    ap.add_argument("--scale", type=float, default=1.0, help="output scale (0.75 = 960x540)")
     args = ap.parse_args()
 
-    frames = sorted(f for f in os.listdir(args.frames) if f.endswith(".png"))
+    frames = sorted(f for f in os.listdir(args.frames) if f.endswith((".png", ".jpg")))
+    frames = frames[::max(1, args.stride)]
     if len(frames) < 10:
         sys.exit("not enough frames")
     paths = [os.path.join(args.frames, f) for f in frames]
+    padding = len(os.path.splitext(frames[0])[0]) - 1
     mtimes = [os.path.getmtime(p) for p in paths]
     span = mtimes[-1] - mtimes[0]
-    fps = args.fps or (len(frames) - 1) / max(span, 0.1)
+    fps = (args.fps or (len(frames) - 1) / max(span, 0.1)) / 1.0
     t0 = mtimes[0]
     total = (len(frames) - 1) / fps
 
-    server = [r for r in load_jsonl(args.server, "time") if r.get("type") in ("position_sample", "inventory")]
+    # accept both log shapes: capture/rcon_poller.py (time/position_sample) and
+    # live/server/telemetry.js (ts/sample + inventory)
+    server = [r for r in load_jsonl(args.server, "ts") if r.get("type") in ("position_sample", "sample", "inventory")]
+    for r in server:
+        if r.get("type") == "sample":
+            pos = r.get("pos") or {}
+            r["position_sample"] = True
+            r["position"] = [pos.get("x"), pos.get("y"), pos.get("z")] if pos else None
+        elif r.get("type") == "inventory" and "items" in r:
+            r["inventory"] = r.get("items") or {}
     agent = load_jsonl(args.agent, "ts")
     events = [r for r in agent if r.get("type") in ("decision", "skill_result", "route_portal", "route_loot", "split", "death", "spawn")]
 
@@ -115,13 +128,20 @@ def main():
 
     for i, path in enumerate(paths):
         wall = dt.datetime.fromtimestamp(t0 + i / fps, dt.timezone.utc)
-        img = Image.open(path).convert("RGB").resize((1280, 720), Image.LANCZOS)
+        W, H = int(1280 * args.scale), int(720 * args.scale)
+        img = Image.open(path).convert("RGB").resize((W, H), Image.LANCZOS)
         layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
         draw = ImageDraw.Draw(layer)
-        box(draw, (18, 18), banner, f_banner, (255, 255, 255, 235))
+        box(draw, (max(10, int(18 * args.scale)), max(10, int(18 * args.scale))), banner, f_banner, (255, 255, 255, 235))
 
-        sample = latest(server_sorted, wall, "position_sample")
-        inv = (sample or {}).get("inventory") or {}
+        sample = None
+        for r in server_sorted:
+            if r["_t"] <= wall and r.get("position"):
+                sample = r
+        inv = {}
+        for r in server_sorted:
+            if r["_t"] <= wall and r.get("type") == "inventory":
+                inv = r.get("inventory") or (r.get("items") or {})
         t = i / fps
         # cumulative loot, rebuilt from the agent's own loot events (the poller's inventory
         # query is best-effort and can miss slots)
@@ -142,7 +162,7 @@ def main():
                    f"  |  looted {loot_line or '-'}")
         else:
             hud = f"t+{int(t):02d}s  waiting for server sample"
-        box(draw, (18, 720 - 46), hud, f_hud, (210, 255, 210, 240))
+        box(draw, (max(10, int(18 * args.scale)), H - int(46 * args.scale)), hud, f_hud, (210, 255, 210, 240))
 
         callout = None
         for r in events_sorted:
@@ -160,11 +180,11 @@ def main():
                     callout = f"{kind}  {r.get('split') or ''}"
                 break
         if callout:
-            box(draw, (18, 720 - 82), callout[:150], f_event, (120, 220, 255, 245))
+            box(draw, (max(10, int(18 * args.scale)), H - int(82 * args.scale)), callout[:150], f_event, (120, 220, 255, 245))
 
         # provenance strip: exact wall clock of the server sample this frame is showing
         stamp = sample["_t"].strftime("%H:%M:%S") if sample else "--:--:--"
-        box(draw, (1280 - 380, 56), f"server clock {stamp}Z", f_hud, (255, 235, 150, 235))
+        box(draw, (W - int(380 * args.scale), int(56 * args.scale)), f"server clock {stamp}Z", f_hud, (255, 235, 150, 235))
 
         Image.alpha_composite(img.convert("RGBA"), layer).convert("RGB").save(
             os.path.join(out_dir, f"f{i:05d}.jpg"), quality=92)
@@ -173,7 +193,7 @@ def main():
 
     cmd = [
         "ffmpeg", "-y", "-loglevel", "error",
-        "-framerate", f"{fps:.4f}", "-i", os.path.join(out_dir, "f%05d.jpg"),
+        "-framerate", f"{fps:.4f}", "-i", os.path.join(out_dir, f"f%0{padding}d.jpg"),
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "22",
         "-pix_fmt", "yuv420p", "-movflags", "+faststart", args.out,
     ]
