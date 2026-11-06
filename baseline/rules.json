@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "segments": [
+    {"segment": "spawn_to_nether", "from": "M_start", "to": "M_portal_in"},
+    {"segment": "nether", "from": "M_portal_in", "to": "M_portal_out"},
+    {"segment": "exit_to_end_portal", "from": "M_portal_out", "to": "M_end_in"},
+    {"segment": "end", "from": "M_end_in", "to": "M_finish"}
+  ],
+  "bracket_math": "agent_s_low = to.low - from.high; agent_s_high = to.high - from.low (clamped at 0). ratio_low = agent_s_low / pro_s; ratio_high = agent_s_high / pro_s.",
+  "verdict": {
+    "ok_max_ratio": 1.25,
+    "flag_k_times_median": 2.0,
+    "flag_min_excess_s": 5.0,
+    "rule": "run_median = median over segments of (ratio_low + ratio_high) / 2. FLAG if ratio_low > flag_k_times_median * max(run_median, 1) AND agent_s_low - pro_s >= flag_min_excess_s. Otherwise SLOW if ratio_low > ok_max_ratio, else OK. Always report the raw ratios.",
+    "why": "A uniformly slower player (slower hands, model latency) should come out SLOW everywhere, not FLAG everywhere. FLAG marks segments that lose time out of proportion to the run's own pace: that is where a missed technique or a detour shows up. The 5 s floor stops tiny segments (2.45 s) from flagging on noise. 1.25 allows for run-to-run variance between pros on the same seed (the two verified pro runs on this seed differ by 1.56x in total IGT: 169.149 / 108.421)."
+  },
+  "waste_rules": [
+    {"tag": "missed_shortcut", "segment": "exit_to_end_portal",
+     "when": "facts.overworld_arrival_xyz is more than 8 blocks (3D) from facts.end_portal_xyz",
+     "seconds": "agent_s_low - pro_s (upper bound: includes execution time)",
+     "why": "The Nether exit position sets where the overworld portal appears (within 16 blocks horizontally of 8x the Nether position, closest valid spot). Building at (end_portal.x/8, end_portal.z/8) lands next to the portal; the pro's 2.45 s segment shows it is done in practice."},
+    {"tag": "extra_items", "segment": "spawn_to_nether",
+     "when": "(facts.beds_collected - facts.beds_used) > (pro.beds_collected - pro.beds_used); pro values from the playbook, default 0 leftover if unknown",
+     "seconds": "extra_beds * seconds_per_extra_bed",
+     "seconds_per_extra_bed": 4.0, "seconds_per_extra_bed_tag": "estimate",
+     "why": "Beds not used on the dragon are pure collection time."},
+    {"tag": "idle_wait", "segment": "any",
+     "when": "facts.model_latency_s is given",
+     "seconds": "facts.model_latency_s (reported on its own line, never subtracted from the verdict)",
+     "why": "The agent's clock includes model thinking time; report it, do not hide it."},
+    {"tag": "longer_path", "segment": "any", "when": "facts.<segment>.path_blocks / facts.<segment>.straight_blocks > 1.5", "seconds": "(path - straight) * 0.1403", "why": "Route tortuosity; needs path data, not available from the montage."},
+    {"tag": "failed_or_retried_action", "segment": "any", "when": "facts.<segment>.failed_actions > 0", "seconds": "unknown unless timed", "why": "From the agent's event log; not visible in the montage."},
+    {"tag": "unnecessary_risk", "segment": "any", "when": "facts.deaths > 0 or documented near-death", "seconds": "time of the death and recovery", "why": "A death ends a real speedrun."},
+    {"tag": "wrong_order", "segment": "any", "when": "manual: an action done before its prerequisite forced a return trip", "seconds": "return-trip time", "why": "Diagnosis from the playbook comparison."}
+  ],
+  "fairness": {
+    "difficulty": "Agent on Peaceful, pros on Easy. Peaceful only helps the agent (no hostile mobs, no hunger). Not adjusted; noted.",
+    "timer": "Agent banner = wall-clock elapsed time of the run, including model latency. Pro primary times are IGT. Report the agent against both pro IGT and pro RTA (1:48 run: IGT 108.421, RTA 119.331). Segment times for pros are IGT unless the timing sheet says otherwise.",
+    "practice": "Pros practise a set seed many times; the agent run is the author's best published run, also after many development runs (rmalde/minecraft-agent:optimization/COMPARISON.md, NOTES.md). Neither is a first attempt.",
+    "brackets": "The montage has cuts, so every agent milestone is a [low, high] bracket. Verdicts use the side that is most favourable to the agent (ratio_low).",
+    "route_supplied": "The agent's route, including the exit-portal coordinates, is fixed in its config (rmalde/minecraft-agent:README.md:104). A missed shortcut in that route is a miss of the agent system as published, not of the LLM alone.",
+    "rng": "Dragon perch timing is partly random (rmalde/minecraft-agent:README.md:7, 'Dragon flight and landing times can vary'). The End segment is reported, but its FLAG/SLOW verdict should be read with that in mind."
+  }
+}

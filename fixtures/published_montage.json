@@ -1,0 +1,113 @@
+{
+  "description": "The real agent run (montage brackets) against the 2:49 baseline. Expected output is the preliminary finding; re-run against the 1:48 baseline when baseline/pro_1m48_segments.json exists.",
+  "baseline": "baseline/pro_2m49_segments.json",
+  "milestones": {
+    "M_start": {
+      "low": 0.0,
+      "high": 0.0
+    },
+    "M_portal_in": {
+      "low": 184.7,
+      "high": 189.45
+    },
+    "M_portal_out": {
+      "low": 298.15,
+      "high": 302.8
+    },
+    "M_end_in": {
+      "low": 354.35,
+      "high": 354.85
+    },
+    "M_finish": {
+      "low": 516.2,
+      "high": 516.7
+    }
+  },
+  "facts": {
+    "overworld_arrival_xyz": {
+      "x": -1129.5,
+      "y": 24,
+      "z": 837.5
+    },
+    "end_portal_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    },
+    "beds_collected": 8,
+    "beds_used": 6
+  },
+  "facts_sources": {
+    "milestones": "agent_runs/published_montage/timeline.json (banner reads)",
+    "overworld_arrival_xyz": "rmalde/minecraft-agent:optimization/nether/exit-link.json (position; nether_portal blocks at x -1130..-1129, y 24-26, z 837); montage banner (-1129.5, 24, 837.5) at 05:02.800",
+    "end_portal_xyz": "rmalde/minecraft-agent:optimization/nether/config.json:52-56",
+    "beds_collected": "montage evidence 'collecting 4th of 8 beds' at 01:08.000; rmalde/minecraft-agent:optimization/nether/config.json:59 (kit beds 8)",
+    "beds_used": "rmalde/minecraft-agent:README.md:9 (six bed explosions)"
+  },
+  "kind": "agent_timeline",
+  "run_id": "published_montage",
+  "expected": {
+    "run_median_ratio": 2.793,
+    "total": {
+      "agent_s_low": 516.2,
+      "agent_s_high": 516.7,
+      "pro_s": 169.149,
+      "ratio_low": 3.052,
+      "ratio_high": 3.055
+    },
+    "segments": [
+      {
+        "segment": "spawn_to_nether",
+        "agent_s_low": 184.7,
+        "agent_s_high": 189.45,
+        "pro_s": 66.683,
+        "ratio_low": 2.77,
+        "ratio_high": 2.841,
+        "waste": [
+          {
+            "tag": "extra_items",
+            "seconds": 8.0,
+            "evidence": "8 beds collected, 6 used"
+          }
+        ],
+        "verdict": "SLOW"
+      },
+      {
+        "segment": "nether",
+        "agent_s_low": 108.7,
+        "agent_s_high": 118.1,
+        "pro_s": 40.783,
+        "ratio_low": 2.665,
+        "ratio_high": 2.896,
+        "waste": [],
+        "verdict": "SLOW"
+      },
+      {
+        "segment": "exit_to_end_portal",
+        "agent_s_low": 51.55,
+        "agent_s_high": 56.7,
+        "pro_s": 2.45,
+        "ratio_low": 21.041,
+        "ratio_high": 23.143,
+        "waste": [
+          {
+            "tag": "missed_shortcut",
+            "seconds": 49.1,
+            "evidence": "overworld arrival 21.0 blocks from the End portal"
+          }
+        ],
+        "verdict": "FLAG"
+      },
+      {
+        "segment": "end",
+        "agent_s_low": 161.35,
+        "agent_s_high": 162.35,
+        "pro_s": 59.233,
+        "ratio_low": 2.724,
+        "ratio_high": 2.741,
+        "waste": [],
+        "verdict": "SLOW"
+      }
+    ]
+  }
+}

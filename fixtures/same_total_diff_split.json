@@ -1,0 +1,92 @@
+{
+  "description": "Same total as the pro (169.149 s) but 50 s moved from the End into the Nether. Only nether may FLAG; the total ratio is 1.0.",
+  "baseline": "baseline/pro_2m49_segments.json",
+  "milestones": {
+    "M_start": {
+      "low": 0.0,
+      "high": 0.0
+    },
+    "M_portal_in": {
+      "low": 66.683,
+      "high": 66.683
+    },
+    "M_portal_out": {
+      "low": 157.466,
+      "high": 157.466
+    },
+    "M_end_in": {
+      "low": 159.916,
+      "high": 159.916
+    },
+    "M_finish": {
+      "low": 169.149,
+      "high": 169.149
+    }
+  },
+  "facts": {
+    "overworld_arrival_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    },
+    "end_portal_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    }
+  },
+  "kind": "agent_timeline",
+  "run_id": "same_total_diff_split",
+  "expected": {
+    "run_median_ratio": 1.0,
+    "total": {
+      "agent_s_low": 169.149,
+      "agent_s_high": 169.149,
+      "pro_s": 169.149,
+      "ratio_low": 1.0,
+      "ratio_high": 1.0
+    },
+    "segments": [
+      {
+        "segment": "spawn_to_nether",
+        "agent_s_low": 66.683,
+        "agent_s_high": 66.683,
+        "pro_s": 66.683,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "nether",
+        "agent_s_low": 90.783,
+        "agent_s_high": 90.783,
+        "pro_s": 40.783,
+        "ratio_low": 2.226,
+        "ratio_high": 2.226,
+        "waste": [],
+        "verdict": "FLAG"
+      },
+      {
+        "segment": "exit_to_end_portal",
+        "agent_s_low": 2.45,
+        "agent_s_high": 2.45,
+        "pro_s": 2.45,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "end",
+        "agent_s_low": 9.233,
+        "agent_s_high": 9.233,
+        "pro_s": 59.233,
+        "ratio_low": 0.156,
+        "ratio_high": 0.156,
+        "waste": [],
+        "verdict": "OK"
+      }
+    ]
+  }
+}

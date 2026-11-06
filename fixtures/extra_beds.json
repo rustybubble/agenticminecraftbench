@@ -1,0 +1,100 @@
+{
+  "description": "Pro run plus 2 extra beds collected before the Nether (+8 s at the 4 s/bed estimate). spawn_to_nether must carry an extra_items waste entry for 2 beds.",
+  "baseline": "baseline/pro_2m49_segments.json",
+  "milestones": {
+    "M_start": {
+      "low": 0.0,
+      "high": 0.0
+    },
+    "M_portal_in": {
+      "low": 74.683,
+      "high": 74.683
+    },
+    "M_portal_out": {
+      "low": 115.466,
+      "high": 115.466
+    },
+    "M_end_in": {
+      "low": 117.916,
+      "high": 117.916
+    },
+    "M_finish": {
+      "low": 177.149,
+      "high": 177.149
+    }
+  },
+  "facts": {
+    "beds_collected": 8,
+    "beds_used": 6,
+    "overworld_arrival_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    },
+    "end_portal_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    }
+  },
+  "kind": "agent_timeline",
+  "run_id": "extra_beds",
+  "expected": {
+    "run_median_ratio": 1.0,
+    "total": {
+      "agent_s_low": 177.149,
+      "agent_s_high": 177.149,
+      "pro_s": 169.149,
+      "ratio_low": 1.047,
+      "ratio_high": 1.047
+    },
+    "segments": [
+      {
+        "segment": "spawn_to_nether",
+        "agent_s_low": 74.683,
+        "agent_s_high": 74.683,
+        "pro_s": 66.683,
+        "ratio_low": 1.12,
+        "ratio_high": 1.12,
+        "waste": [
+          {
+            "tag": "extra_items",
+            "seconds": 8.0,
+            "evidence": "8 beds collected, 6 used"
+          }
+        ],
+        "verdict": "OK"
+      },
+      {
+        "segment": "nether",
+        "agent_s_low": 40.783,
+        "agent_s_high": 40.783,
+        "pro_s": 40.783,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "exit_to_end_portal",
+        "agent_s_low": 2.45,
+        "agent_s_high": 2.45,
+        "pro_s": 2.45,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "end",
+        "agent_s_low": 59.233,
+        "agent_s_high": 59.233,
+        "pro_s": 59.233,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      }
+    ]
+  }
+}

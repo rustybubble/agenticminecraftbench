@@ -167,6 +167,37 @@ A plan is `{"actions": [ ... ]}`. Each action is an object with `"action"` plus 
 - **Peaceful**: hostile mobs (including `blaze`, `enderman`) never spawn, naturally or from spawners, so `kill` of them is `ILLEGAL` on Peaceful ([wiki: Difficulty](https://minecraft.wiki/w/Difficulty), raw lines 21-23). Piglins exist but are passive.
 - **Portal linking**: entering a Nether portal at overworld (x, z) arrives in the Nether near (x/8, z/8), and the reverse. Y is not scaled. When the reference has a known arrival point (for example `state.known_locations` entries called `nether_arrival`), use it.
 
+## 8. Efficiency check (v4, the headline)
+
+The decision tasks above are now secondary. The main check compares an agent run's timeline with a pro run on the same seed, segment by segment.
+
+**Inputs**
+
+- `baseline/<run>_segments.json` (pro): `milestones_s` = `{M_start, M_portal_in, M_portal_out, M_end_in, M_finish}` in seconds, plus `run`, `timer` (IGT or RTA), `official`. Files: `baseline/pro_1m48_segments.json` (headline, written by `baseline/make_splits.py` once a human fills `baseline/timing_sheet_1m48.md`) and `baseline/pro_2m49_segments.json` (backup, ready).
+- `agent_runs/<run>/timeline.json` (agent) or `fixtures/<name>.json`. Checker-facing shape (the fixtures use it; the raw montage file has `milestones[]` with `after_s`/`by_s`, which map to `low`/`high`):
+  ```json
+  {"run_id": "...", "kind": "agent_timeline", "baseline": "baseline/pro_2m49_segments.json",
+   "milestones": {"M_start": {"low": 0, "high": 0}, "M_portal_in": {"low": 184.7, "high": 189.45}, "...": {}},
+   "facts": {"overworld_arrival_xyz": {"x": 0, "y": 0, "z": 0}, "end_portal_xyz": {"x": 0, "y": 0, "z": 0},
+             "beds_collected": 8, "beds_used": 6, "model_latency_s": null},
+   "expected": "(fixtures only) the output below"}
+  ```
+- `baseline/rules.json`: segment boundaries, thresholds, waste rules, fairness notes.
+
+**Milestone boundaries (same for every run):** `M_portal_in` = dimension changes to `the_nether`; `M_portal_out` = dimension changes to `overworld`; `M_end_in` = dimension changes to `the_end`; `M_finish` = exit portal / timer stop.
+
+**Output per segment**
+
+```json
+{"segment": "exit_to_end_portal", "agent_s_low": 51.55, "agent_s_high": 56.7, "pro_s": 2.45,
+ "ratio_low": 21.041, "ratio_high": 23.143, "verdict": "OK | SLOW | FLAG",
+ "waste": [{"tag": "missed_shortcut", "seconds": 49.1, "evidence": "overworld arrival 21.0 blocks from the End portal"}]}
+```
+
+Plus a `total` block (same fields) and `run_median_ratio`. Bracket math, the verdict rule and the waste rules are in `baseline/rules.json`. `baseline/reference_check.py` is B's small reference implementation, used only to write `expected` into the fixtures. A's checker must reproduce `expected` for every file in `fixtures/`.
+
+**Waste tags (exactly these):** `extra_items` · `longer_path` · `failed_or_retried_action` · `idle_wait` · `unnecessary_risk` · `wrong_order` · `missed_shortcut`.
+
 ## Changelog
 
 - v1 (initial publish): formats above.
@@ -183,3 +214,4 @@ A plan is `{"actions": [ ... ]}`. Each action is an object with `"action"` plus 
   - `splits/pro_splits.json` entries add `segment`, `segment_s`, `vod`, `timestamp_verified`, and (full_route only) `official_time_s`. `time_s` stays cumulative IGT.
   - `splits/time_costs.json` adds a `tag` per entry (`wiki` | `run` | `agent` | `estimate`), a `rules` block (`dragon_beds_required`, `gravel_flint_rate`, `eye_break_rate`) and a `calibration` block. Action keys: `travel` is per block; `build_portal_<method>`, `enter_portal_nether` / `enter_portal_end`, `mine_<block>` with `mine_other` as fallback; `end_fight_beds` is a fixed cost for a bed kill.
   - All generic tasks now use 1.16.5, except `T07_bastion_pearls_1161`, which deliberately tests the 1.16.1 barter table (paired with `T08` on 1.16.5).
+- v4 (13:40): **rescope.** Section 8 added: the efficiency check is the headline. New inputs `baseline/*.json`, `agent_runs/*/timeline.json`, `fixtures/*.json`, `baseline/rules.json`. The 14 generic decision tasks move to `extras/generic_tasks/{tasks,reference}/`; the 7 seed tasks stay in `tasks/` and `reference/` as the secondary decision check.

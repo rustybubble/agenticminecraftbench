@@ -1,0 +1,98 @@
+{
+  "description": "Pro run with +50 s added to exit portal -> End portal, and the arrival moved to where the agent's exit landed. Only exit_to_end_portal may FLAG, tagged missed_shortcut.",
+  "baseline": "baseline/pro_2m49_segments.json",
+  "milestones": {
+    "M_start": {
+      "low": 0.0,
+      "high": 0.0
+    },
+    "M_portal_in": {
+      "low": 66.683,
+      "high": 66.683
+    },
+    "M_portal_out": {
+      "low": 107.466,
+      "high": 107.466
+    },
+    "M_end_in": {
+      "low": 159.916,
+      "high": 159.916
+    },
+    "M_finish": {
+      "low": 219.149,
+      "high": 219.149
+    }
+  },
+  "facts": {
+    "overworld_arrival_xyz": {
+      "x": -1129.5,
+      "y": 24,
+      "z": 837.5
+    },
+    "end_portal_xyz": {
+      "x": -1130,
+      "y": 34,
+      "z": 856
+    }
+  },
+  "kind": "agent_timeline",
+  "run_id": "inflated_exit",
+  "expected": {
+    "run_median_ratio": 1.0,
+    "total": {
+      "agent_s_low": 219.149,
+      "agent_s_high": 219.149,
+      "pro_s": 169.149,
+      "ratio_low": 1.296,
+      "ratio_high": 1.296
+    },
+    "segments": [
+      {
+        "segment": "spawn_to_nether",
+        "agent_s_low": 66.683,
+        "agent_s_high": 66.683,
+        "pro_s": 66.683,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "nether",
+        "agent_s_low": 40.783,
+        "agent_s_high": 40.783,
+        "pro_s": 40.783,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      },
+      {
+        "segment": "exit_to_end_portal",
+        "agent_s_low": 52.45,
+        "agent_s_high": 52.45,
+        "pro_s": 2.45,
+        "ratio_low": 21.408,
+        "ratio_high": 21.408,
+        "waste": [
+          {
+            "tag": "missed_shortcut",
+            "seconds": 50.0,
+            "evidence": "overworld arrival 21.0 blocks from the End portal"
+          }
+        ],
+        "verdict": "FLAG"
+      },
+      {
+        "segment": "end",
+        "agent_s_low": 59.233,
+        "agent_s_high": 59.233,
+        "pro_s": 59.233,
+        "ratio_low": 1.0,
+        "ratio_high": 1.0,
+        "waste": [],
+        "verdict": "OK"
+      }
+    ]
+  }
+}
