@@ -21,7 +21,7 @@ def base(src):
 
 def main():
     uses = defaultdict(set)
-    for f in sorted(glob.glob(os.path.join(ROOT, "reference", "*.json"))):
+    for f in sorted(glob.glob(os.path.join(ROOT, "reference", "*.json")) + glob.glob(os.path.join(ROOT, "extras", "generic_tasks", "reference", "*.json"))):
         r = json.load(open(f, encoding="utf-8"))
         tid = r["id"].split("_")[0]
         srcs = list(r.get("sources", []))

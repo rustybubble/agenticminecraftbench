@@ -43,9 +43,10 @@ def ok(task, ref, ans):
 
 def main():
     bad = 0
-    for f in sorted(glob.glob(os.path.join(ROOT, "tasks", "*.json"))):
+    files = glob.glob(os.path.join(ROOT, "tasks", "*.json")) + glob.glob(os.path.join(ROOT, "extras", "generic_tasks", "tasks", "*.json"))
+    for f in sorted(files, key=os.path.basename):
         task = json.load(open(f, encoding="utf-8"))
-        ref = json.load(open(f.replace("tasks", "reference"), encoding="utf-8"))
+        ref = json.load(open(os.path.join(os.path.dirname(os.path.dirname(f)), "reference", os.path.basename(f)), encoding="utf-8"))
         tid = task["id"]
         errs = []
         if task["split"] not in SPLITS:

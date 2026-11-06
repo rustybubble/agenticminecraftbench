@@ -48,10 +48,14 @@ def build():
         if "options" in t:
             task["options"] = t["options"]
         ref = {"id": t["id"], **ref}
-        with open(os.path.join(ROOT, "tasks", t["id"] + ".json"), "w", encoding="utf-8", newline="\n") as f:
+        # Seed tasks are the secondary decision check; generic RSG tasks are supplementary (SCHEMA.md v4).
+        base = ROOT if t["seed"] else os.path.join(ROOT, "extras", "generic_tasks")
+        os.makedirs(os.path.join(base, "tasks"), exist_ok=True)
+        os.makedirs(os.path.join(base, "reference"), exist_ok=True)
+        with open(os.path.join(base, "tasks", t["id"] + ".json"), "w", encoding="utf-8", newline="\n") as f:
             json.dump(task, f, indent=2, ensure_ascii=False)
             f.write("\n")
-        with open(os.path.join(ROOT, "reference", t["id"] + ".json"), "w", encoding="utf-8", newline="\n") as f:
+        with open(os.path.join(base, "reference", t["id"] + ".json"), "w", encoding="utf-8", newline="\n") as f:
             json.dump(ref, f, indent=2, ensure_ascii=False)
             f.write("\n")
     print("wrote", len(tasks), "tasks")
