@@ -1,0 +1,60 @@
+{
+  "id": "T11_fortress_rods_generic",
+  "answer": {
+    "additional_blaze_rods": 3
+  },
+  "tolerance": {
+    "abs": 0
+  },
+  "pro_time_s": null,
+  "why": "Each eye takes 1 pearl + 1 blaze powder, so 11 eyes need 11 powder. You have 1 powder, and your 2 rods make 4 more: 5. You need 6 more powder, and each rod gives 2, so 3 more rods.",
+  "trap": "9 (one rod per eye, minus the 2 held), 4 (forgets the loose powder), or 5 (forgets the rods already held).",
+  "techniques": [
+    {
+      "tag": "rod_count",
+      "description": "1 rod = 2 powder; count held rods and powder.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Blaze_Powder (raw line 12: Output Blaze Powder,2); https://minecraft.wiki/w/Eye_of_Ender (recipe)"
+    }
+  ],
+  "miss_category": "resource_miscount",
+  "sources": [
+    "https://minecraft.wiki/w/Blaze_Powder",
+    "https://minecraft.wiki/w/Eye_of_Ender",
+    "tools/compute_answers.py rods_needed()"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "additional_blaze_rods": 3,
+        "reasoning": "6 powder short."
+      },
+      "why_valid": "Same number."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "additional_blaze_rods": 9
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "One rod per eye."
+    },
+    {
+      "answer": {
+        "additional_blaze_rods": 4
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Ignores the held powder."
+    },
+    {
+      "answer": {
+        "additional_blaze_rods": 5
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Ignores the held rods."
+    }
+  ]
+}

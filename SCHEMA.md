@@ -158,6 +158,22 @@ A plan is `{"actions": [ ... ]}`. Each action is an object with `"action"` plus 
 | `detour_overprep` | Gathers things the route does not need (armor or food on Peaceful, extra tools) |
 | `unnecessary_risk` | Takes a risk that a pro avoids (e.g. standing in dragon breath, opening chests next to piglins) |
 
+## 7. Rules the simulator should use (v2)
+
+- **Random drops** are simulated at their expected rate, rounded down, cumulative over the plan: gravel gives flint at 10%, so 10 gravel mined = 1 flint ([wiki: Gravel](https://minecraft.wiki/w/Gravel)).
+- **Beds**: `mine{block: "white_bed" | "yellow_bed" | ..., count, at}` picks up that many bed items. Bed items are counted together for `bed_explode`.
+- **Dragon kill**: a plan kills the dragon when the total `bed_explode` count in `the_end` reaches `splits/time_costs.json` → `rules.dragon_beds_required`. Melee or bow kills use `kill{mob: "ender_dragon"}` and are priced by the `kill_ender_dragon_melee` entry.
+- **Finish**: a `full_route` plan finishes with `enter_portal` in `the_end` after the dragon is dead (the exit portal).
+- **Portal linking**: entering a Nether portal at overworld (x, z) arrives in the Nether near (x/8, z/8), and the reverse. Y is not scaled. When the reference has a known arrival point (for example `state.known_locations` entries called `nether_arrival`), use it.
+
 ## Changelog
 
 - v1 (initial publish): formats above.
+- v2 (12:55):
+  - Tasks may carry `"options": [...]` for `choice` tasks: the list of valid option ids. Answers outside it are `WRONG`.
+  - `mine` and `loot_chest` take an optional `at` (a `known_locations` name). If given, the simulator first travels there.
+  - `state.world.structures[*].type` adds `lava_pool` and `gravel_patch`. `build_portal{method: "bucket_lava"}` needs a `water_bucket` in inventory and the player at a `lava_pool` location. It does not need an empty `bucket`.
+  - `state.position` and `state.elapsed_s` may be `null` for tasks where they do not matter.
+  - `reference.pro_time_s` may be `null` for a `plan` task: then the checker prices `reference.answer` with `splits/time_costs.json` and uses that as the pro time. `reference.pro_time_note` explains any human upper bound.
+  - New optional reference keys, informational only: `pro_time_note`, `verified_note`.
+  - Section 7 added (drop rates, beds, dragon kill, finish, portal linking).

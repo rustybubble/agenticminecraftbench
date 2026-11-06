@@ -1,0 +1,62 @@
+{
+  "id": "T05_nether_entry_ruined_portal_count",
+  "answer": {
+    "obsidian_to_place": 7
+  },
+  "tolerance": {
+    "abs": 0
+  },
+  "pro_time_s": null,
+  "why": "A cornerless 4x5 frame needs 10 obsidian: 2 bottom, 2 top, 3 on each side. Crying obsidian cannot be part of a portal frame, and it needs a diamond pickaxe to remove, so any frame that uses z = 261 at y = 67 is out. The most complete frame is interior z 259-260 (6 usable blocks) but its right side is the crying block at (261,67). Shifting one block along Z to interior z 258-259, y 67-69 reuses (258,66), (259,66) and (259,70) and needs 7 new blocks: (258,70), z = 257 at y 67-69, and z = 260 at y 67-69. tools/compute_answers.py ruined_portal_seed() checks every 2x3 placement.",
+  "trap": "4: completes the most intact frame by counting the crying obsidian at (261,67) as frame or by mining it (impossible without a diamond pickaxe). 10: ignores the existing frame. 9: the 'rotated open frame' in the agent's config note.",
+  "techniques": [
+    {
+      "tag": "complete_ruined_portal",
+      "description": "Reuse usable ruined-portal obsidian; route around crying obsidian.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:optimization/nether/REVIEW.md:9"
+    }
+  ],
+  "miss_category": "resource_miscount",
+  "sources": [
+    "rmalde/minecraft-agent:optimization/nether/portal-survey.json (groups.obsidian, groups.crying_obsidian at x = -285)",
+    "rmalde/minecraft-agent:optimization/nether/REVIEW.md:9 (three essential obsidian exist, seven must be placed, avoids crying obsidian)",
+    "https://minecraft.wiki/w/Crying_Obsidian (raw line 38: cannot be used to create a nether portal frame; line 24: needs diamond pickaxe)",
+    "https://minecraft.wiki/w/Nether_Portal (raw line 24: 4x5 minimum frame, corners not required)"
+  ],
+  "verified": true,
+  "verified_note": "The prompt states that the other blocks in the plane are air. That matches REVIEW.md:9 (the 7-block frame was built in practice) but the air blocks themselves are not in the survey file. See UNVERIFIED.md.",
+  "alternates": [
+    {
+      "answer": {
+        "obsidian_to_place": 7,
+        "reasoning": "Interior z 258-259; reuse three blocks."
+      },
+      "why_valid": "Same count."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "obsidian_to_place": 4
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Uses or mines crying obsidian."
+    },
+    {
+      "answer": {
+        "obsidian_to_place": 10
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Ignores the reusable frame blocks."
+    },
+    {
+      "answer": {
+        "obsidian_to_place": 9
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Rotated frame from config.json:65; not minimal."
+    }
+  ]
+}

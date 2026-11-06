@@ -1,0 +1,46 @@
+{
+  "id": "T03_reset_keep_beach_treasure",
+  "answer": {
+    "choice": "keep"
+  },
+  "tolerance": {
+    "choices": [
+      "keep"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "Beaches are one of the spawn types runners reset to find. Buried treasure gives iron and food early; shipwrecks hold the treasure map and supplies; the ocean gives access to magma ravines with obsidian and lava for a quick portal. Trees give wood for tools.",
+  "trap": "Reset because there is no village or ruined portal in sight.",
+  "techniques": [
+    {
+      "tag": "reset_judgment",
+      "description": "Keep beach spawns with wood and a shipwreck/buried treasure.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://en.wikipedia.org/wiki/Minecraft_speedrunning (section on resetting; raw wikitext line 48, fetched 2026-11-06)"
+    }
+  ],
+  "miss_category": "no_reset_judgment",
+  "sources": [
+    "https://en.wikipedia.org/wiki/Minecraft_speedrunning (section on resetting; raw wikitext line 48, fetched 2026-11-06)"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "keep",
+        "reasoning": "Buried treasure iron, ocean ravines for the portal."
+      },
+      "why_valid": "Same decision."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "reset"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Resets one of the spawn types runners reset to find."
+    }
+  ]
+}

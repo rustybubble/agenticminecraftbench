@@ -1,0 +1,59 @@
+{
+  "id": "T10_fortress_rods_seed",
+  "answer": {
+    "blaze_rods": 0,
+    "ender_pearls": 0
+  },
+  "tolerance": {
+    "abs": 0
+  },
+  "pro_time_s": null,
+  "why": "All 12 frames in the survey have eye = true, so the End portal is already active (the 9 end_portal blocks are present in the survey). No eyes are needed to light it, and the stronghold location is already known, so no eyes are needed to find it either. So no blaze rods and no pearls: the whole fortress and bastion splits are skipped. The human 2:54.545 run on this seed has only two Nether portal crossings and no fortress.",
+  "trap": "6 rods and 12 pearls (or 7 and 14 with spares): the default RSG count, which ignores the survey.",
+  "techniques": [
+    {
+      "tag": "skip_fortress_active_portal",
+      "description": "Skip blaze rods and pearls when the End portal is pre-filled.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:README.md:35; rmalde/minecraft-agent:optimization/nether/REVIEW.md:7"
+    }
+  ],
+  "miss_category": "ignores_information",
+  "sources": [
+    "rmalde/minecraft-agent:optimization/nether/stronghold-survey.json (groups.end_portal_frame: 12 frames, all eye = true; groups.end_portal: 9 blocks)",
+    "rmalde/minecraft-agent:README.md:35",
+    "rmalde/minecraft-agent:optimization/nether/REVIEW.md:7",
+    "https://www.speedrun.com/api/v1/runs/yoex3d0z (comment field, fetched 2026-11-06)",
+    "https://minecraft.wiki/w/End_Portal_Frame (raw lines 16, 30)"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "blaze_rods": 0,
+        "ender_pearls": 0,
+        "reasoning": "Portal already active."
+      },
+      "why_valid": "Same numbers."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "blaze_rods": 6,
+        "ender_pearls": 12
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Ignores the pre-filled frames."
+    },
+    {
+      "answer": {
+        "blaze_rods": 7,
+        "ender_pearls": 14
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Default count with spares; ignores the survey."
+    }
+  ]
+}

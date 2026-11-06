@@ -1,0 +1,195 @@
+{
+  "id": "T06_nether_entry_lava_pool",
+  "answer": {
+    "actions": [
+      {
+        "action": "travel",
+        "to": "gravel_patch"
+      },
+      {
+        "action": "mine",
+        "block": "gravel",
+        "count": 10
+      },
+      {
+        "action": "craft",
+        "item": "flint_and_steel",
+        "count": 1
+      },
+      {
+        "action": "travel",
+        "to": "lava_pool"
+      },
+      {
+        "action": "build_portal",
+        "method": "bucket_lava"
+      },
+      {
+        "action": "light_portal",
+        "with": "flint_and_steel"
+      },
+      {
+        "action": "enter_portal"
+      }
+    ]
+  },
+  "tolerance": {
+    "seconds": 15
+  },
+  "pro_time_s": null,
+  "pro_time_note": "Price `answer` with splits/time_costs.json.",
+  "why": "Without a diamond pickaxe obsidian cannot be mined, and there are no diamonds. The standard method is to cast the frame at the lava pool: place blocks as a mold, and use the water bucket on lava to turn the frame positions into obsidian. You still need a lighter: gravel drops flint 10% of the time, so mine gravel until flint (10 blocks at the expected rate), then craft flint and steel from 1 iron ingot + 1 flint.",
+  "trap": "Go looking for diamonds to mine obsidian with a diamond pickaxe, or forget that the portal needs a lighter.",
+  "techniques": [
+    {
+      "tag": "lava_pool_portal",
+      "description": "Cast the obsidian frame with a water bucket on a lava pool.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Tutorial:Nether_portals (raw lines 18-22: lava pool method needs a water bucket, a lava pool, blocks and flint and steel)"
+    },
+    {
+      "tag": "gravel_flint",
+      "description": "Mine gravel for flint (10% per block).",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Gravel (raw line 18)"
+    }
+  ],
+  "miss_category": "brute_force_over_trick",
+  "sources": [
+    "https://minecraft.wiki/w/Tutorial:Nether_portals",
+    "https://minecraft.wiki/w/Gravel",
+    "https://minecraft.wiki/w/Obsidian (needs diamond pickaxe; 9.4 s per block)",
+    "https://minecraft.wiki/w/Flint_and_Steel"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "gravel_patch"
+          },
+          {
+            "action": "mine",
+            "block": "gravel",
+            "count": 10
+          },
+          {
+            "action": "travel",
+            "to": "lava_pool"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "build_portal",
+            "method": "bucket_lava"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "why_valid": "Crafts the flint and steel after walking to the lava. Same actions, same time."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "lava_pool"
+          },
+          {
+            "action": "build_portal",
+            "method": "mine_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "No diamond pickaxe; no flint and steel."
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "lava_pool"
+          },
+          {
+            "action": "build_portal",
+            "method": "bucket_lava"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "Never gets flint, so there is no flint and steel to light the portal."
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "craft",
+            "item": "diamond_pickaxe",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "gravel_patch"
+          },
+          {
+            "action": "mine",
+            "block": "gravel",
+            "count": 10
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "lava_pool"
+          },
+          {
+            "action": "build_portal",
+            "method": "bucket_lava"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "No diamonds to craft a diamond pickaxe."
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "id": "T04_nether_entry_seed_chests",
+  "answer": {
+    "actions": [
+      {
+        "action": "travel",
+        "to": "chest_portal_b"
+      },
+      {
+        "action": "loot_chest",
+        "at": "chest_portal_b"
+      },
+      {
+        "action": "travel",
+        "to": "chest_portal_a"
+      },
+      {
+        "action": "loot_chest",
+        "at": "chest_portal_a"
+      },
+      {
+        "action": "craft",
+        "item": "flint_and_steel",
+        "count": 1
+      },
+      {
+        "action": "travel",
+        "to": "ruined_portal"
+      },
+      {
+        "action": "build_portal",
+        "method": "complete_ruined"
+      },
+      {
+        "action": "light_portal",
+        "with": "flint_and_steel"
+      },
+      {
+        "action": "enter_portal"
+      }
+    ]
+  },
+  "tolerance": {
+    "seconds": 15
+  },
+  "pro_time_s": null,
+  "pro_time_note": "Price `answer` with splits/time_costs.json. Upper bound from the human run: 66.683 s from start to first portal enter, which also includes whatever else the runner collected (beds) before entering.",
+  "why": "Both ruined-portal chests sit next to the portal: chest_portal_b has 11 obsidian and 6 iron ingots, chest_portal_a has 4 obsidian and 1 flint. That is 15 obsidian, plus 1 iron ingot + 1 flint for flint and steel (crafted in the 2x2 inventory grid, no table needed). The ruined frame already holds 3 usable obsidian for a 4x5 frame shifted one block along Z, so completing it takes 7 placements and avoids the crying obsidian. The village chest (6 obsidian, iron pickaxe) is not needed just to enter the Nether. No obsidian has to be mined, and there is no diamond pickaxe to mine it with.",
+  "trap": "Mining obsidian (impossible here: no diamond pickaxe), looking for lava, or looting every village chest for food and armor before going to the portal.",
+  "techniques": [
+    {
+      "tag": "chest_obsidian_portal",
+      "description": "Build the portal from looted chest obsidian instead of mining or casting it.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:optimization/nether/REVIEW.md:7,9; rmalde/minecraft-agent:optimization/nether/portal-loot.json"
+    },
+    {
+      "tag": "complete_ruined_portal",
+      "description": "Reuse the ruined frame's usable obsidian (3 blocks) and skip the crying obsidian.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:optimization/nether/REVIEW.md:9; tools/compute_answers.py ruined_portal_seed()"
+    },
+    {
+      "tag": "inventory_crafting",
+      "description": "Craft flint and steel in the 2x2 inventory grid.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Flint_and_Steel (recipe: 1 iron ingot + 1 flint); rmalde/minecraft-agent:optimization/nether/REVIEW.md:21-25"
+    }
+  ],
+  "miss_category": "brute_force_over_trick",
+  "sources": [
+    "rmalde/minecraft-agent:optimization/nether/config.json:11-33",
+    "rmalde/minecraft-agent:optimization/nether/portal-loot.json",
+    "rmalde/minecraft-agent:optimization/nether/chest-survey.json",
+    "rmalde/minecraft-agent:optimization/nether/portal-survey.json",
+    "rmalde/minecraft-agent:optimization/nether/REVIEW.md:7,9",
+    "https://minecraft.wiki/w/Flint_and_Steel",
+    "https://minecraft.wiki/w/Crying_Obsidian (cannot be used in a Nether portal frame; needs diamond pickaxe)",
+    "https://minecraft.wiki/w/Nether_Portal (4x5 frame, corners optional)"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "chest_village"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_village"
+          },
+          {
+            "action": "travel",
+            "to": "chest_portal_b"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_portal_b"
+          },
+          {
+            "action": "travel",
+            "to": "chest_portal_a"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_portal_a"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "ruined_portal"
+          },
+          {
+            "action": "build_portal",
+            "method": "chest_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "why_valid": "Also loots the village chest on the way and builds a fresh 10-block frame from chest obsidian. Legal; a few seconds slower (small detour, 3 extra placements), within the 15 s tolerance."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "ruined_portal"
+          },
+          {
+            "action": "build_portal",
+            "method": "mine_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "No diamond pickaxe to mine obsidian, and no flint and steel was crafted."
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "chest_portal_b"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_portal_b"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "ruined_portal"
+          },
+          {
+            "action": "build_portal",
+            "method": "complete_ruined"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "Skips chest_portal_a, the only flint, so flint and steel cannot be crafted."
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "chest_village"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_village"
+          },
+          {
+            "action": "travel",
+            "to": "ruined_portal"
+          },
+          {
+            "action": "build_portal",
+            "method": "chest_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "fire_charge"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "6 obsidian is not enough for a 10-block frame, and there is no fire charge."
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "chest_food_1"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_food_1"
+          },
+          {
+            "action": "travel",
+            "to": "chest_food_5"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_food_5"
+          },
+          {
+            "action": "travel",
+            "to": "chest_food_3"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_food_3"
+          },
+          {
+            "action": "travel",
+            "to": "chest_food_2"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_food_2"
+          },
+          {
+            "action": "travel",
+            "to": "chest_village"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_village"
+          },
+          {
+            "action": "travel",
+            "to": "chest_food_4"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_food_4"
+          },
+          {
+            "action": "travel",
+            "to": "chest_portal_b"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_portal_b"
+          },
+          {
+            "action": "travel",
+            "to": "chest_portal_a"
+          },
+          {
+            "action": "loot_chest",
+            "at": "chest_portal_a"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "ruined_portal"
+          },
+          {
+            "action": "build_portal",
+            "method": "complete_ruined"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "SLOW",
+      "why_wrong": "Loots all six village chests (food, armor) first: legal but a long detour through the village before the portal."
+    }
+  ]
+}

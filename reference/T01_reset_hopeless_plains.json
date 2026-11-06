@@ -1,0 +1,46 @@
+{
+  "id": "T01_reset_hopeless_plains",
+  "answer": {
+    "choice": "reset"
+  },
+  "tolerance": {
+    "choices": [
+      "reset"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "RSG runners reset constantly and only keep spawns that give fast early resources: wood for tools, and a fast portal (village, ruined portal, beach with buried treasure and magma ravines). With no trees in sight there is no wood for a crafting table or pickaxe, and with no water, lava or structure there is no route to a portal. Walking around to look for any of these costs minutes, while a reset costs seconds, so the expected time of a new seed is far better.",
+  "trap": "Keep and walk until trees appear. The run is not lost, but the expected time is far worse than resetting.",
+  "techniques": [
+    {
+      "tag": "reset_judgment",
+      "description": "Reset spawns with no early resources or portal route within view.",
+      "est_time_saved_s": null,
+      "verified": false,
+      "source": "https://en.wikipedia.org/wiki/Minecraft_speedrunning (section on resetting; raw wikitext line 48, fetched 2026-11-06) says runners reset to find villages, ruined portals or beaches; a runner guide quote for 'no trees = reset' is still needed (mcsr.info blocked from sandbox)."
+    }
+  ],
+  "miss_category": "no_reset_judgment",
+  "sources": [
+    "https://en.wikipedia.org/wiki/Minecraft_speedrunning (section on resetting; raw wikitext line 48, fetched 2026-11-06)"
+  ],
+  "verified": false,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "reset",
+        "reasoning": "No wood means no tools; reset is cheaper than exploring."
+      },
+      "why_valid": "Same decision with different reasoning; reasoning is not scored."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "keep"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Commits minutes to a spawn with no wood and no portal route."
+    }
+  ]
+}

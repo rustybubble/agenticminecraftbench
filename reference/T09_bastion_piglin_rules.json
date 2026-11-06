@@ -1,0 +1,67 @@
+{
+  "id": "T09_bastion_piglin_rules",
+  "answer": {
+    "choice": "A"
+  },
+  "tolerance": {
+    "choices": [
+      "A"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "Adult piglins are hostile unless the player wears at least one piece of golden armor (carrying it does not count). Opening a chest within about 15 blocks of a piglin with line of sight angers it, and breaking a block of gold angers piglins within 16 blocks even without line of sight. So: wear the helmet, barter, and leave the chests and gold blocks alone while piglins are near.",
+  "trap": "B: carrying gold armor is not wearing it. C and D: looting the bastion while piglins watch starts a fight.",
+  "techniques": [
+    {
+      "tag": "gold_armor_neutral",
+      "description": "Wear one golden armor piece so piglins stay neutral.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Piglin (raw lines 63, 145, 156)"
+    },
+    {
+      "tag": "no_chest_near_piglins",
+      "description": "Do not open chests or break gold blocks near piglins.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Piglin (raw lines 160-170)"
+    }
+  ],
+  "miss_category": "mob_rule_unaware",
+  "sources": [
+    "https://minecraft.wiki/w/Piglin (Aggravation section; current-version page, rules unchanged since 1.16 apart from newer container types)"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "A",
+        "reasoning": "Gold armor keeps them neutral; containers and gold blocks anger them."
+      },
+      "why_valid": "Same choice."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "B"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Helmet not worn: piglins attack."
+    },
+    {
+      "answer": {
+        "choice": "C"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Opening chests near piglins angers them."
+    },
+    {
+      "answer": {
+        "choice": "D"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Breaking gold blocks angers piglins within 16 blocks."
+    }
+  ]
+}
