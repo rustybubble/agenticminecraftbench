@@ -1,0 +1,334 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "inventory_loss_without_effect",
+   "cost_s": 0.0,
+   "evidence": {
+    "after": 19,
+    "before": 21,
+    "before_line": 25,
+    "item": "obsidian",
+    "skill_line": 27,
+    "snapshot_line": 30
+   },
+   "lines": [
+    20,
+    25,
+    27,
+    30
+   ],
+   "message": "lines 25->30: obsidian 21 -> 19 (-2) across failed build_portal (line 27: placed 0, frame incomplete); items consumed, nothing built",
+   "severity": "high",
+   "t_end": 51.206,
+   "t_start": 41.895
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     6,
+     8,
+     12,
+     14,
+     18,
+     20,
+     24,
+     27
+    ],
+    "field": "actions",
+    "logged": 8,
+    "summary_line": 32
+   },
+   "lines": [
+    6,
+    8,
+    12,
+    14,
+    18,
+    20,
+    24,
+    27,
+    32
+   ],
+   "message": "line 32: summary claims actions=0, but the log shows 8 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27)",
+   "severity": "high",
+   "t_end": 71.226,
+   "t_start": 71.226
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     27
+    ],
+    "field": "failures",
+    "logged": 1,
+    "summary_line": 32
+   },
+   "lines": [
+    27,
+    32
+   ],
+   "message": "line 32: summary claims failures=0, but the log shows 1 (skill_result lines with ok:false: lines 27)",
+   "severity": "high",
+   "t_end": 71.226,
+   "t_start": 71.226
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.105,
+    "field": "position"
+   },
+   "lines": [
+    27
+   ],
+   "message": "agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 72 (t=51.097) has (-279.0, 64.9, 262.5) (overworld), 7.14 blocks apart",
+   "server_lines": [
+    72
+   ],
+   "severity": "high",
+   "t_end": 51.202,
+   "t_start": 51.202
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish; failed at step `portal_built` (line 27: build_portal failed: frame incomplete, placed 0)",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": {
+   "line": 27,
+   "note": "build_portal failed: frame incomplete, placed 0",
+   "step": "portal_built"
+  },
+  "steps": [
+   {
+    "agent_t": 13.639,
+    "agent_t_lo": null,
+    "delta_hi": -15.361,
+    "delta_lo": -19.361,
+    "line": 8,
+    "note": "village chest (iron_pickaxe 1, obsidian 6)",
+    "pro_hi": 33.0,
+    "pro_lo": 29.0,
+    "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51\u20130:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": 35.9,
+    "agent_t_lo": null,
+    "delta_hi": -18.1,
+    "delta_lo": -18.1,
+    "line": 14,
+    "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+    "pro_hi": 54.0,
+    "pro_lo": 54.0,
+    "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": 40.441,
+    "agent_t_lo": null,
+    "delta_hi": -8.559,
+    "delta_lo": -10.559,
+    "line": 20,
+    "note": "flint chest (flint 1, obsidian 4)",
+    "pro_hi": 51.0,
+    "pro_lo": 49.0,
+    "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11\u20131:13\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": 51.206,
+    "agent_t_lo": 40.441,
+    "delta_hi": -8.794,
+    "delta_lo": -9.794,
+    "line": 30,
+    "note": "first seen in inventory at line 30 (no craft event in the log); crafted after the flint pickup at t=40.441 (line 20)",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 41.895,
+    "agent_t_lo": null,
+    "delta_hi": -13.105,
+    "delta_lo": -13.105,
+    "line": 26,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": 27,
+    "note": "build_portal failed: frame incomplete, placed 0",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "demo-02",
+ "score": {
+  "attributed_waste_s": 10.907,
+  "efficiency": 0.8469,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": -0.0,
+  "raw_cost_sum_s": 10.907,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 71.226,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 10.907,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   71.226
+  ],
+  "notes": [],
+  "server_first_t_s": 0.723,
+  "server_last_t_s": 71.149,
+  "server_samples": 71,
+  "snapshots_checked": 11,
+  "snapshots_without_server_sample": []
+ },
+ "summary": {
+  "attributed_waste_s": 10.907,
+  "efficiency": 0.8469,
+  "findings": 7,
+  "findings_by_category": {
+   "claim": 3,
+   "decision": 0,
+   "micro": 4,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 3,
+   "low": 3,
+   "medium": 1
+  },
+  "log": "runs/live/demo-02/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 71.226
+ },
+ "top_waste": [
+  {
+   "attributed_s": 9.707,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 9.707,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: frame incomplete"
+   },
+   "lines": [
+    27
+   ],
+   "message": "line 27: action 'build_portal' failed (FAILED: frame incomplete); 9.707 s lost",
+   "severity": "medium",
+   "t_end": 51.202,
+   "t_start": 41.495
+  },
+  {
+   "attributed_s": 1.2,
+   "category": "micro",
+   "code": "excess_materials",
+   "cost_s": 1.2,
+   "evidence": {
+    "excess": 1.0,
+    "final_line": 32,
+    "gathered": 5.0,
+    "group": "stone",
+    "incidental_excluded": 0.0,
+    "leftover": 5.0,
+    "per_unit_s": 1.2
+   },
+   "lines": [
+    30
+   ],
+   "message": "stone: gathered 5 but 5 blocks were never consumed (slack 4); 1.2 s of gathering was surplus",
+   "severity": "low",
+   "t_end": 51.206,
+   "t_start": 51.206
+  }
+ ]
+}

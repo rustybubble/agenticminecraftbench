@@ -905,7 +905,7 @@
           "report_only": true
         },
         "lines": [],
-        "message": "[perception-assisted] obsidian frame (ruined portal) visible, but the agent never started a portal skill: first seen t=32.039-43.684 s in 54 confident frame(s) (obsidian_frame accuracy 1.0 (n=32)); report only, seeing a feature on camera does not mean the agent perceived it",
+        "message": "[perception-assisted] obsidian frame (ruined portal) visible, but the agent never started a portal skill: first seen t=32.039-43.684 s in 54 confident frame(s) (obsidian_frame accuracy 1.0 (n=57)); report only, seeing a feature on camera does not mean the agent perceived it",
         "severity": "low",
         "t_end": 43.684,
         "t_start": 32.039
@@ -917,7 +917,7 @@
     ],
     "frames": 57,
     "frames_after_run_log_end": 0,
-    "frames_after_server_log": null,
+    "frames_after_server_log": 0,
     "frames_aligned": 57,
     "frames_in_run": 57,
     "label": "perception-assisted",
@@ -925,16 +925,11 @@
     "perception": "runs/perception/agent-05_perception.json",
     "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
     "run_duration_s": 51.64,
-    "server_last_t_s": null,
+    "server_last_t_s": 51.242,
     "validation": {
       "error": null,
       "insufficient_fields": [],
       "log_consistency": {
-        "obsidian_frame": {
-          "consistent": 25,
-          "n": 25,
-          "source": "agent log claim"
-        },
         "portal_lit": {
           "consistent": 57,
           "n": 57,
@@ -950,20 +945,20 @@
           "accuracy": 0.0,
           "ci95": [
             0.0,
-            0.107
+            0.063
           ],
           "correct": 0,
-          "n": 32,
+          "n": 57,
           "sufficient": true
         },
         "obsidian_frame": {
           "accuracy": 1.0,
           "ci95": [
-            0.893,
+            0.937,
             1.0
           ],
-          "correct": 32,
-          "n": 32,
+          "correct": 57,
+          "n": 57,
           "sufficient": true
         },
         "player_in_water": {
@@ -1154,22 +1149,11 @@
         51.64
       ],
       "notes": [],
-      "server_first_t_s": null,
-      "server_last_t_s": null,
-      "server_samples": 0,
-      "snapshots_checked": 0,
-      "snapshots_without_server_sample": [
-        1,
-        6,
-        8,
-        12,
-        14,
-        18,
-        20,
-        24,
-        26,
-        28
-      ]
+      "server_first_t_s": 0.099,
+      "server_last_t_s": 51.242,
+      "server_samples": 52,
+      "snapshots_checked": 10,
+      "snapshots_without_server_sample": []
     },
     "findings": [],
     "server_log": "agent_runs/agent-05/server_events.jsonl"

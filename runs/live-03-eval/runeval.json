@@ -1,0 +1,804 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 3,
+    "knowledge_features": [],
+    "merged_waste_intervals": [
+      [
+        3.72,
+        39.285
+      ],
+      [
+        46.696,
+        46.707
+      ],
+      [
+        49.185,
+        50.901
+      ],
+      [
+        52.596,
+        52.6
+      ],
+      [
+        59.274,
+        96.216
+      ],
+      [
+        101.316,
+        101.318
+      ],
+      [
+        111.409,
+        231.412
+      ]
+    ],
+    "meta": {
+      "duration_s": 231.565,
+      "event_type_counts": {
+        "clean": 1,
+        "decision": 8,
+        "run_end": 1,
+        "skill_result": 8,
+        "skill_start": 8,
+        "skill_warn": 2,
+        "spawn": 1,
+        "split": 2,
+        "summary": 1
+      },
+      "knowledge_source": "none",
+      "lines": 32,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [],
+        "loot_lines": [],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 7,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 39.285
+          },
+          {
+            "error": null,
+            "line": 10,
+            "ok": false,
+            "placed": null,
+            "skill": "craft",
+            "t": 46.707
+          },
+          {
+            "error": null,
+            "line": 13,
+            "ok": true,
+            "placed": null,
+            "skill": "ensure_axe",
+            "t": 50.901
+          },
+          {
+            "error": null,
+            "line": 16,
+            "ok": true,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 52.6
+          },
+          {
+            "error": null,
+            "line": 20,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 96.216
+          },
+          {
+            "error": null,
+            "line": 23,
+            "ok": true,
+            "placed": null,
+            "skill": "craft",
+            "t": 101.318
+          },
+          {
+            "error": null,
+            "line": 26,
+            "ok": true,
+            "placed": null,
+            "skill": "ensure_axe",
+            "t": 103.445
+          },
+          {
+            "error": null,
+            "line": 30,
+            "ok": false,
+            "placed": null,
+            "skill": "mine_blocks",
+            "t": 231.412
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 5,
+            "skill": "collect_wood",
+            "t": 3.72
+          },
+          {
+            "line": 9,
+            "skill": "craft",
+            "t": 46.696
+          },
+          {
+            "line": 12,
+            "skill": "ensure_axe",
+            "t": 49.185
+          },
+          {
+            "line": 15,
+            "skill": "ensure_pickaxe",
+            "t": 52.596
+          },
+          {
+            "line": 19,
+            "skill": "collect_wood",
+            "t": 59.274
+          },
+          {
+            "line": 22,
+            "skill": "craft",
+            "t": 101.316
+          },
+          {
+            "line": 25,
+            "skill": "ensure_axe",
+            "t": 103.445
+          },
+          {
+            "line": 28,
+            "skill": "mine_blocks",
+            "t": 111.409
+          }
+        ],
+        "split_events": [
+          3,
+          17
+        ],
+        "summary": {
+          "actions": 8,
+          "deaths": 0,
+          "elapsedS": 232,
+          "failures": 2,
+          "finalSplit": "stone",
+          "line": 32,
+          "runId": "live-03",
+          "splits": [
+            {
+              "at": "2026-11-06T17:42:26.732Z",
+              "elapsedS": 2,
+              "prev": null,
+              "split": "wood",
+              "targetS": 25
+            },
+            {
+              "at": "2026-11-06T17:43:18.804Z",
+              "elapsedS": 54,
+              "prev": "wood",
+              "split": "stone",
+              "targetS": null
+            }
+          ],
+          "t": 231.565
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "runs/live/live-03/events.jsonl",
+      "run_id": "live-03",
+      "t0_epoch": 1793986945.05,
+      "untimed_lines": 0
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 32,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": null,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 120.003,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 120.003,
+      "evidence": {
+        "action": "mine_blocks",
+        "result": "FAILED: not ok"
+      },
+      "lines": [
+        30
+      ],
+      "message": "line 30: action 'mine_blocks' failed (FAILED: not ok); 120.003 s lost",
+      "severity": "high",
+      "t_end": 231.412,
+      "t_start": 111.409
+    },
+    {
+      "attributed_s": 36.942,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 36.942,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        18,
+        20
+      ],
+      "message": "line 20: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 36.942 s wasted",
+      "severity": "medium",
+      "t_end": 96.216,
+      "t_start": 59.274
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 36.942,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        18,
+        20
+      ],
+      "message": "lines 18-20: 'collect_wood' succeeded but position and inventory are unchanged; 36.942 s lost",
+      "severity": "medium",
+      "t_end": 96.216,
+      "t_start": 59.274
+    },
+    {
+      "attributed_s": 35.565,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 35.565,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        4,
+        7
+      ],
+      "message": "line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 35.565 s wasted",
+      "severity": "medium",
+      "t_end": 39.285,
+      "t_start": 3.72
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 35.565,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        4,
+        7
+      ],
+      "message": "lines 4-7: 'collect_wood' succeeded but position and inventory are unchanged; 35.565 s lost",
+      "severity": "medium",
+      "t_end": 39.285,
+      "t_start": 3.72
+    },
+    {
+      "attributed_s": 1.716,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 1.716,
+      "evidence": {
+        "action": "ensure_axe",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        11,
+        13
+      ],
+      "message": "lines 11-13: 'ensure_axe' succeeded but position and inventory are unchanged; 1.716 s lost",
+      "severity": "medium",
+      "t_end": 50.901,
+      "t_start": 49.185
+    },
+    {
+      "attributed_s": 0.011,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.011,
+      "evidence": {
+        "action": "craft",
+        "result": "FAILED: not ok"
+      },
+      "lines": [
+        10
+      ],
+      "message": "line 10: action 'craft' failed (FAILED: not ok); 0.011 s lost",
+      "severity": "medium",
+      "t_end": 46.707,
+      "t_start": 46.696
+    },
+    {
+      "attributed_s": 0.004,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        14,
+        16
+      ],
+      "message": "lines 14-16: 'ensure_pickaxe' succeeded but position and inventory are unchanged; 0.004 s lost",
+      "severity": "medium",
+      "t_end": 52.6,
+      "t_start": 52.596
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "craft",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        21,
+        23
+      ],
+      "message": "lines 21-23: 'craft' succeeded but position and inventory are unchanged; 0.002 s lost",
+      "severity": "medium",
+      "t_end": 101.318,
+      "t_start": 101.316
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": "stone",
+        "evidence_lines": [],
+        "field": "finalSplit",
+        "logged": null,
+        "summary_line": 32
+      },
+      "lines": [
+        32
+      ],
+      "message": "line 32: summary claims finalSplit='stone', but the log shows None (last milestone reached in the log)",
+      "severity": "high",
+      "t_end": 231.565,
+      "t_start": 231.565
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 2,
+        "evidence_lines": [],
+        "field": "splits",
+        "logged": 0,
+        "summary_line": 32
+      },
+      "lines": [
+        32
+      ],
+      "message": "line 32: summary claims splits=2, but the log shows 0 (milestones reached in the log)",
+      "severity": "high",
+      "t_end": 231.565,
+      "t_start": 231.565
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "ensure_axe",
+        "pos": [
+          -211.43954984422732,
+          73.0,
+          227.5
+        ]
+      },
+      "lines": [
+        24,
+        26
+      ],
+      "message": "lines 24-26: 'ensure_axe' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 103.445,
+      "t_start": 103.445
+    }
+  ],
+  "progress": {
+    "failed_at": null,
+    "steps": [
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "score": {
+    "attributed_waste_s": 194.243,
+    "efficiency": 0.1612,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 72.507,
+    "raw_cost_sum_s": 266.75,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 231.565,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 194.243,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        231.565
+      ],
+      "notes": [],
+      "server_first_t_s": 0.79,
+      "server_last_t_s": 231.47,
+      "server_samples": 231,
+      "snapshots_checked": 10,
+      "snapshots_without_server_sample": []
+    },
+    "findings": [
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.79,
+          "field": "position"
+        },
+        "lines": [
+          1
+        ],
+        "message": "agent line 1 reports pos (-211.4, 73.0, 227.5) (overworld); server line 18 (t=0.79) has (-180.5, 70.0, 214.5) (overworld), 33.69 blocks apart",
+        "server_lines": [
+          18
+        ],
+        "severity": "high",
+        "t_end": 0.0,
+        "t_start": 0.0
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.443,
+          "field": "position"
+        },
+        "lines": [
+          7
+        ],
+        "message": "agent line 7 reports pos (-211.4, 73.0, 227.5) (overworld); server line 63 (t=38.842) has (-216.5, 73.0, 228.5) (overworld), 5.19 blocks apart",
+        "server_lines": [
+          63
+        ],
+        "severity": "high",
+        "t_end": 39.285,
+        "t_start": 39.285
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.149,
+          "field": "position"
+        },
+        "lines": [
+          10
+        ],
+        "message": "agent line 10 reports pos (-211.4, 73.0, 227.5) (overworld); server line 73 (t=46.856) has (-216.5, 74.0, 228.5) (overworld), 5.28 blocks apart",
+        "server_lines": [
+          73
+        ],
+        "severity": "high",
+        "t_end": 46.707,
+        "t_start": 46.707
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.289,
+          "field": "position"
+        },
+        "lines": [
+          20
+        ],
+        "message": "agent line 20 reports pos (-211.4, 73.0, 227.5) (overworld); server line 133 (t=95.927) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart",
+        "server_lines": [
+          133
+        ],
+        "severity": "high",
+        "t_end": 96.216,
+        "t_start": 96.216
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.383,
+          "field": "position"
+        },
+        "lines": [
+          23
+        ],
+        "message": "agent line 23 reports pos (-211.4, 73.0, 227.5) (overworld); server line 139 (t=100.935) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart",
+        "server_lines": [
+          139
+        ],
+        "severity": "high",
+        "t_end": 101.318,
+        "t_start": 101.318
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.496,
+          "field": "position"
+        },
+        "lines": [
+          26
+        ],
+        "message": "agent line 26 reports pos (-211.4, 73.0, 227.5) (overworld); server line 142 (t=103.941) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart",
+        "server_lines": [
+          142
+        ],
+        "severity": "high",
+        "t_end": 103.445,
+        "t_start": 103.445
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.058,
+          "field": "position"
+        },
+        "lines": [
+          30
+        ],
+        "message": "agent line 30 reports pos (-211.4, 73.0, 227.5) (overworld); server line 295 (t=231.47) has (-215.6, 64.0, 238.5) (overworld), 14.81 blocks apart",
+        "server_lines": [
+          295
+        ],
+        "severity": "high",
+        "t_end": 231.412,
+        "t_start": 231.412
+      }
+    ],
+    "server_log": "runs/live/live-03/server.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 194.243,
+    "efficiency": 0.1612,
+    "findings": 12,
+    "findings_by_category": {
+      "claim": 2,
+      "decision": 0,
+      "micro": 10,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 3,
+      "low": 0,
+      "medium": 9
+    },
+    "log": "runs/live/live-03/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 231.565
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 194.243,
+    "safety": 0.0
+  }
+}

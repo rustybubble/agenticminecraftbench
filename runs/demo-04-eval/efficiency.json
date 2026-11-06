@@ -1,0 +1,66 @@
+{
+  "run_median_ratio": null,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 66.683,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.121,
+          "evidence": "RunEval no_progress at t=62.009 s (lines 4-5): lines 4-5: 'travel_legs' succeeded but position and inventory are unchanged; 0.121 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.061,
+          "evidence": "RunEval failed_action at t=62.13 s (line 8): line 8: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.061 s lost"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=62.191 s); end segment and total not scored); total not scored"
+  ]
+}

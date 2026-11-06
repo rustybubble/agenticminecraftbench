@@ -1,0 +1,76 @@
+{
+  "run_median_ratio": 0.873,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": 58.221,
+      "agent_s_high": 58.221,
+      "pro_s": 66.683,
+      "ratio_low": 0.873,
+      "ratio_high": 0.873,
+      "waste": [],
+      "verdict": "OK"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 240.0,
+          "evidence": "RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 58.975,
+          "evidence": "RunEval failed_action at t=298.216 s (line 34): line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost"
+        },
+        {
+          "tag": "idle_wait",
+          "seconds": 22.418,
+          "evidence": "RunEval idle at t=357.195 s (lines 37-39): lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)"
+        },
+        {
+          "tag": "unnecessary_risk",
+          "seconds": 3.428,
+          "evidence": "RunEval death at t=379.613 s (line 39): line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=383.041 s, after a death); end segment and total not scored); total not scored"
+  ]
+}

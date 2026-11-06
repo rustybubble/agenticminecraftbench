@@ -154,8 +154,46 @@ def _detect_source(events: list[dict]) -> str:
 
 
 # ---------------------------------------------------------------- loader
+def _is_telemetry(events: list[dict]) -> bool:
+    """live/server/telemetry.js output: start{note:'server-authoritative telemetry...'} + sample{pos{}}
+    + inventory{items{}} + log{kind,line}."""
+    return any(e.get("type") == "sample" and isinstance(e.get("pos"), (dict, type(None))) and "runId" in e
+               for e in events) and not any(e.get("type") in ("position_sample", "skill_result") for e in events)
+
+
+def _telemetry_to_poller(events: list[dict]) -> list[dict]:
+    """Map telemetry.js records onto the rcon_poller shape (same server-side evidence, different writer)."""
+    out, inv = [], {}
+    for e in events:
+        typ = e.get("type")
+        if typ == "start":
+            out.append({**e, "source": "rcon_poller", "telemetry": "live/server/telemetry.js"})
+        elif typ == "inventory":
+            inv = dict(e.get("items") or {})
+        elif typ == "sample":
+            p = e.get("pos")
+            if not isinstance(p, dict):
+                continue  # player not visible to the server at this tick
+            out.append({**{k: v for k, v in e.items() if k not in ("pos", "type")},
+                        "type": "position_sample", "position": [p.get("x"), p.get("y"), p.get("z")],
+                        "dimension": e.get("dimension"), "inventory": dict(inv),
+                        "health": e.get("health"), "food": e.get("food"), "selected_item": e.get("selected")})
+        elif typ == "log":
+            line = str(e.get("line") or "")
+            out.append(e)
+            if e.get("kind") == "death" or " died" in line or "tried to swim in lava" in line or "was slain" in line:
+                out.append({**e, "type": "death", "note": line})
+            elif "We Need to Go Deeper" in line:
+                out.append({**e, "type": "nether_entered", "note": "server advancement: " + line})
+        else:
+            out.append(e)
+    return out
+
+
 def load_timeline(path, route_sheet=None) -> Timeline:
     events = load_events(path)
+    if _is_telemetry(events):
+        events = _telemetry_to_poller(events)
     source = _detect_source(events)
     if source == "live_agent":
         return _load_live_agent(path, events)

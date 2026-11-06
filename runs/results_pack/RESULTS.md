@@ -27,6 +27,8 @@ Total: agent 516.2-516.7 s vs pro 169.149 s; **ratio 3.052-3.055**; run median s
 
 ## 2. Live agent runs (splitcheck.evaluate)
 
+Note: agent-06 (agent_runs) and demo-01 (runs/live) are the same run; demo-01 has the full server telemetry.
+
 ### agent-01
 
 - Outcome: **did not finish; failed at step `portal_built` (line 27: build_portal failed: frame incomplete, placed 0)**
@@ -236,12 +238,12 @@ Perception findings: portal_outcome_check, visible_feature_ignored
 | portal_lit | no | - | 63-64 | - | not reached |
 | nether_entered | no | - | 66.7 | - | not reached |
 
-**Perception validation** (model claude-sonnet-5-5, 57 frames, None after the server log ends)
+**Perception validation** (model claude-sonnet-5-5, 57 frames, 0 after the server log ends)
 
 | field | n | correct | accuracy |
 |---|---|---|---|
-| chest_visible | 32 | 0 | 0 |
-| obsidian_frame | 32 | 32 | 1 |
+| chest_visible | 57 | 0 | 0 |
+| obsidian_frame | 57 | 57 | 1 |
 | player_in_water | 0 | 0 | - |
 | portal_lit | 0 | 0 | - |
 | village_visible | 0 | 0 | - |
@@ -265,7 +267,11 @@ Perception findings: visible_feature_ignored
   - line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)
   - line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34)
 - `inventory_loss_without_effect`: 0
-- `agent_server_mismatch`: 0
+- `agent_server_mismatch`: 4
+  - agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 80 (t=58.712) has (-36.5, 77.0, 32.5) (the_nether), 337.77 blocks apart
+  - agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 366 (t=298.2) has (-129.5, 41.0, 98.2) (the_nether), 226.64 blocks apart
+  - agent line 34 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 437 (t=357.357) has (-125.9, 43.2, 97.5) (the_nether), 229.35 blocks apart
+  - agent line 40 reports pos (-190.5, 71.0, 216.5) (the_nether); server line 466 (t=382.078) has (-190.5, 71.0, 216.5) (overworld), 0.0 blocks apart
 
 **Top waste findings**
 
@@ -286,6 +292,437 @@ Perception findings: visible_feature_ignored
 | portal_built | yes | 58.216 | 63 | -4.784..-4.784 | build_portal ok |
 | portal_lit | yes | 58.221 | 63-64 | -5.779..-4.779 | implied by nether entry (no lit event) |
 | nether_entered | yes | 58.221 | 66.7 | -8.479..-8.479 | nether_entered |
+
+### demo-01
+
+- Outcome: **did not finish**
+- Milestones reached: 1/5 (nether_entry)
+- Total time 383.041 s; attributed waste 324.821 s; efficiency 0.152; findings 10 {"claim": 4, "decision": 0, "micro": 5, "safety": 1}
+- Inputs: server log yes, perception yes; full outputs in runs/demo-01-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 4
+  - line 40: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 34)
+  - line 40: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)
+  - line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)
+  - line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 4
+  - agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 80 (t=58.712) has (-36.5, 77.0, 32.5) (the_nether), 337.77 blocks apart
+  - agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 366 (t=298.2) has (-129.5, 41.0, 98.2) (the_nether), 226.64 blocks apart
+  - agent line 34 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 437 (t=357.357) has (-125.9, 43.2, 97.5) (the_nether), 229.35 blocks apart
+  - agent line 40 reports pos (-190.5, 71.0, 216.5) (the_nether); server line 466 (t=382.078) has (-190.5, 71.0, 216.5) (overworld), 0.0 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 240 s): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost
+2. `failed_action` (micro, 58.975 s): line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost
+3. `idle` (micro, 22.418 s): lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)
+4. `death` (safety, 3.428 s): line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 12.969 | 29-33 | -20.031..-16.031 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 35.315 | 54 | -18.685..-18.685 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 39.864 | 49-51 | -11.136..-9.136 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 357.195 | 60-61 | 296.195..297.195 | first seen in inventory at line 37 (no craft event in the log); crafted after the flint pickup at t=39.864 (line 20) |
+| portal_build_attempted | yes | 41.312 | 55 | -13.688..-13.688 | build_portal skill started |
+| portal_built | yes | 58.216 | 63 | -4.784..-4.784 | build_portal ok |
+| portal_lit | yes | 58.221 | 63-64 | -5.779..-4.779 | implied by nether entry (no lit event) |
+| nether_entered | yes | 58.221 | 66.7 | -8.479..-8.479 | nether_entered |
+
+**Perception validation** (model claude-sonnet-5-5, 68 frames, 0 after the server log ends)
+
+| field | n | correct | accuracy |
+|---|---|---|---|
+| chest_visible | 68 | 0 | 0 |
+| obsidian_frame | 68 | 28 | 0.412 |
+| player_in_water | 0 | 0 | - |
+| portal_lit | 0 | 0 | - |
+| village_visible | 0 | 0 | - |
+
+Unvalidated fields: portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence
+
+Perception findings: portal_outcome_check, visible_feature_ignored
+
+### demo-02
+
+- Outcome: **did not finish; failed at step `portal_built` (line 27: build_portal failed: frame incomplete, placed 0)**
+- Milestones reached: 0/5
+- Total time 71.226 s; attributed waste 10.907 s; efficiency 0.8469; findings 7 {"claim": 3, "decision": 0, "micro": 4, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-02-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 32: summary claims actions=0, but the log shows 8 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27)
+  - line 32: summary claims failures=0, but the log shows 1 (skill_result lines with ok:false: lines 27)
+- `inventory_loss_without_effect`: 1
+  - lines 25->30: obsidian 21 -> 19 (-2) across failed build_portal (line 27: placed 0, frame incomplete); items consumed, nothing built
+- `agent_server_mismatch`: 1
+  - agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 72 (t=51.097) has (-279.0, 64.9, 262.5) (overworld), 7.14 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 9.707 s): line 27: action 'build_portal' failed (FAILED: frame incomplete); 9.707 s lost
+2. `excess_materials` (micro, 1.2 s): stone: gathered 5 but 5 blocks were never consumed (slack 4); 1.2 s of gathering was surplus
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 13.639 | 29-33 | -19.361..-15.361 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 35.9 | 54 | -18.1..-18.1 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 40.441 | 49-51 | -10.559..-8.559 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 51.206 | 60-61 | -9.794..-8.794 | first seen in inventory at line 30 (no craft event in the log); crafted after the flint pickup at t=40.441 (line 20) |
+| portal_build_attempted | yes | 41.895 | 55 | -13.105..-13.105 | build_portal skill started |
+| portal_built | no | - | 63 | - | build_portal failed: frame incomplete, placed 0 |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### demo-03
+
+- Outcome: **did not finish**
+- Milestones reached: 1/5 (nether_entry)
+- Total time 79.853 s; attributed waste 0.04 s; efficiency 0.9995; findings 8 {"claim": 4, "decision": 0, "micro": 4, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-03-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 4
+  - line 41: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 36)
+  - line 41: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)
+  - line 41: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)
+  - line 41: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 36)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 3
+  - agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart
+  - agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart
+  - agent line 36 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 0.039 s): line 36: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.039 s lost
+2. `failed_action` (micro, 0.001 s): line 31: action 'travel_legs' failed (FAILED: not ok); 0.001 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 14.551 | 29-33 | -18.449..-14.449 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 36.705 | 54 | -17.295..-17.295 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 41.213 | 49-51 | -9.787..-7.787 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 59.681 | 60-61 | -1.319..-0.319 | first seen in inventory at line 39 (no craft event in the log); crafted after the flint pickup at t=41.213 (line 20) |
+| portal_build_attempted | yes | 42.625 | 55 | -12.375..-12.375 | build_portal skill started |
+| portal_built | yes | 59.64 | 63 | -3.36..-3.36 | build_portal ok |
+| portal_lit | yes | 59.641 | 63-64 | -4.359..-3.359 | implied by nether entry (no lit event) |
+| nether_entered | yes | 59.641 | 66.7 | -7.059..-7.059 | nether_entered |
+
+### demo-04
+
+- Outcome: **did not finish; failed at step `portal_built` (line 8: build_portal failed: no clear 4x5 site near the bot)**
+- Milestones reached: 0/5
+- Total time 62.191 s; attributed waste 0.182 s; efficiency 0.9971; findings 2 {"claim": 0, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-04-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 0
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 2
+  - agent line 5 reports pos (-35.1, 77.0, 32.8) (the_nether); server line 85 (t=61.996) has (-138.5, 41.0, 98.4) (the_nether), 127.67 blocks apart
+  - agent line 8 reports pos (-35.1, 77.0, 32.8) (the_nether); server line 85 (t=61.996) has (-138.5, 41.0, 98.4) (the_nether), 127.67 blocks apart
+
+**Top waste findings**
+
+1. `no_progress` (micro, 0.121 s): lines 4-5: 'travel_legs' succeeded but position and inventory are unchanged; 0.121 s lost
+2. `failed_action` (micro, 0.061 s): line 8: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.061 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not reached |
+| chest_2 | no | - | - | - | not reached |
+| chest_3 | no | - | - | - | not reached |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | yes | 62.131 | 55 | 7.131..7.131 | build_portal skill started |
+| portal_built | no | - | 63 | - | build_portal failed: no clear 4x5 site near the bot |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### demo-05
+
+- Outcome: **did not finish; failed at step `portal_built` (line 7: build_portal failed: no clear 4x5 site near the bot)**
+- Milestones reached: 0/5
+- Total time 74.143 s; attributed waste 12.727 s; efficiency 0.8283; findings 5 {"claim": 2, "decision": 0, "micro": 3, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-05-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 11: summary claims actions=0, but the log shows 3 (skill_result lines: lines 4, 7, 9)
+  - line 11: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 7, 9)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 1
+  - agent line 9 reports pos (-138.5, 41.0, 98.4) (the_nether); server line 29 (t=14.236) has (-135.6, 42.2, 98.5) (the_nether), 3.13 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 12.675 s): line 9: action 'build_portal_here' failed (FAILED: frame incomplete after carve); 12.675 s lost
+2. `failed_action` (micro, 0.051 s): line 7: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.051 s lost
+3. `no_progress` (micro, 0.001 s): lines 3-4: 'travel_legs' succeeded but position and inventory are unchanged; 0.001 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not reached |
+| chest_2 | no | - | - | - | not reached |
+| chest_3 | no | - | - | - | not reached |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | yes | 1.418 | 55 | -53.582..-53.582 | build_portal skill started |
+| portal_built | no | - | 63 | - | build_portal failed: no clear 4x5 site near the bot |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### foot-01
+
+- Outcome: **did not finish**
+- Milestones reached: 0/5
+- Total time 241.439 s; attributed waste 65.39 s; efficiency 0.7292; findings 128 {"claim": 2, "decision": 0, "micro": 126, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/foot-01-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 252: summary claims finalSplit='wood', but the log shows None (last milestone reached in the log)
+  - line 252: summary claims splits=1, but the log shows 0 (milestones reached in the log)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 83
+  - agent line 1 reports pos (-215.6, 64.0, 238.5) (overworld); server line 21 (t=0.742) has (-180.5, 70.0, 214.5) (overworld), 42.94 blocks apart
+  - agent line 7 reports pos (-215.6, 64.0, 238.5) (overworld); server line 60 (t=33.799) has (-183.6, 69.0, 253.6) (overworld), 35.72 blocks apart
+  - agent line 10 reports pos (-215.6, 64.0, 238.5) (overworld); server line 64 (t=36.805) has (-183.6, 69.0, 253.6) (overworld), 35.72 blocks apart
+  - agent line 13 reports pos (-215.6, 64.0, 238.5) (overworld); server line 86 (t=54.835) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 16 reports pos (-215.6, 64.0, 238.5) (overworld); server line 88 (t=56.838) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 19 reports pos (-215.6, 64.0, 238.5) (overworld); server line 90 (t=58.844) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 22 reports pos (-215.6, 64.0, 238.5) (overworld); server line 93 (t=60.847) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 25 reports pos (-215.6, 64.0, 238.5) (overworld); server line 95 (t=62.851) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 28 reports pos (-215.6, 64.0, 238.5) (overworld); server line 101 (t=67.86) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 31 reports pos (-215.6, 64.0, 238.5) (overworld); server line 104 (t=69.861) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart
+  - agent line 34 reports pos (-215.6, 64.0, 238.5) (overworld); server line 131 (t=92.896) has (-192.6, 69.0, 253.8) (overworld), 28.08 blocks apart
+  - agent line 37 reports pos (-215.6, 64.0, 238.5) (overworld); server line 136 (t=96.903) has (-193.7, 69.0, 250.0) (overworld), 25.25 blocks apart
+  - agent line 40 reports pos (-215.6, 64.0, 238.5) (overworld); server line 138 (t=98.905) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 43 reports pos (-215.6, 64.0, 238.5) (overworld); server line 141 (t=100.908) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 46 reports pos (-215.6, 64.0, 238.5) (overworld); server line 144 (t=103.912) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 49 reports pos (-215.6, 64.0, 238.5) (overworld); server line 146 (t=104.915) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 52 reports pos (-215.6, 64.0, 238.5) (overworld); server line 148 (t=106.916) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 55 reports pos (-215.6, 64.0, 238.5) (overworld); server line 150 (t=108.919) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 58 reports pos (-215.6, 64.0, 238.5) (overworld); server line 153 (t=110.923) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 61 reports pos (-215.6, 64.0, 238.5) (overworld); server line 155 (t=112.927) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 64 reports pos (-215.6, 64.0, 238.5) (overworld); server line 158 (t=114.931) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 67 reports pos (-215.6, 64.0, 238.5) (overworld); server line 160 (t=116.934) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 70 reports pos (-215.6, 64.0, 238.5) (overworld); server line 162 (t=118.937) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 73 reports pos (-215.6, 64.0, 238.5) (overworld); server line 165 (t=120.944) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 76 reports pos (-215.6, 64.0, 238.5) (overworld); server line 166 (t=121.945) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 79 reports pos (-215.6, 64.0, 238.5) (overworld); server line 171 (t=125.951) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 82 reports pos (-215.6, 64.0, 238.5) (overworld); server line 173 (t=127.954) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 85 reports pos (-215.6, 64.0, 238.5) (overworld); server line 176 (t=129.96) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 88 reports pos (-215.6, 64.0, 238.5) (overworld); server line 178 (t=131.966) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 91 reports pos (-215.6, 64.0, 238.5) (overworld); server line 179 (t=132.967) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 94 reports pos (-215.6, 64.0, 238.5) (overworld); server line 182 (t=134.97) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 97 reports pos (-215.6, 64.0, 238.5) (overworld); server line 184 (t=136.974) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 100 reports pos (-215.6, 64.0, 238.5) (overworld); server line 186 (t=139.001) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 103 reports pos (-215.6, 64.0, 238.5) (overworld); server line 189 (t=141.006) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 106 reports pos (-215.6, 64.0, 238.5) (overworld); server line 191 (t=143.01) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 109 reports pos (-215.6, 64.0, 238.5) (overworld); server line 194 (t=145.014) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 112 reports pos (-215.6, 64.0, 238.5) (overworld); server line 196 (t=147.018) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 115 reports pos (-215.6, 64.0, 238.5) (overworld); server line 198 (t=149.021) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 118 reports pos (-215.6, 64.0, 238.5) (overworld); server line 201 (t=151.025) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 121 reports pos (-215.6, 64.0, 238.5) (overworld); server line 206 (t=155.034) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 124 reports pos (-215.6, 64.0, 238.5) (overworld); server line 208 (t=157.037) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 127 reports pos (-215.6, 64.0, 238.5) (overworld); server line 210 (t=159.038) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 130 reports pos (-215.6, 64.0, 238.5) (overworld); server line 212 (t=160.043) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 133 reports pos (-215.6, 64.0, 238.5) (overworld); server line 214 (t=162.047) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 136 reports pos (-215.6, 64.0, 238.5) (overworld); server line 216 (t=164.051) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 139 reports pos (-215.6, 64.0, 238.5) (overworld); server line 219 (t=166.055) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 142 reports pos (-215.6, 64.0, 238.5) (overworld); server line 221 (t=168.058) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 145 reports pos (-215.6, 64.0, 238.5) (overworld); server line 224 (t=170.062) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 148 reports pos (-215.6, 64.0, 238.5) (overworld); server line 225 (t=171.062) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 151 reports pos (-215.6, 64.0, 238.5) (overworld); server line 227 (t=173.065) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 154 reports pos (-215.6, 64.0, 238.5) (overworld); server line 230 (t=175.068) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 157 reports pos (-215.6, 64.0, 238.5) (overworld); server line 233 (t=178.072) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 160 reports pos (-215.6, 64.0, 238.5) (overworld); server line 236 (t=180.077) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 163 reports pos (-215.6, 64.0, 238.5) (overworld); server line 240 (t=184.083) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 166 reports pos (-215.6, 64.0, 238.5) (overworld); server line 243 (t=186.087) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 169 reports pos (-215.6, 64.0, 238.5) (overworld); server line 245 (t=188.094) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 172 reports pos (-215.6, 64.0, 238.5) (overworld); server line 246 (t=189.095) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 175 reports pos (-215.6, 64.0, 238.5) (overworld); server line 249 (t=191.098) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 178 reports pos (-215.6, 64.0, 238.5) (overworld); server line 251 (t=193.1) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 181 reports pos (-215.6, 64.0, 238.5) (overworld); server line 254 (t=195.103) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 184 reports pos (-215.6, 64.0, 238.5) (overworld); server line 256 (t=197.106) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 187 reports pos (-215.6, 64.0, 238.5) (overworld); server line 258 (t=199.11) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 190 reports pos (-215.6, 64.0, 238.5) (overworld); server line 261 (t=201.115) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 193 reports pos (-215.6, 64.0, 238.5) (overworld); server line 263 (t=203.117) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 196 reports pos (-215.6, 64.0, 238.5) (overworld); server line 264 (t=204.119) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 199 reports pos (-215.6, 64.0, 238.5) (overworld); server line 267 (t=206.123) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 202 reports pos (-215.6, 64.0, 238.5) (overworld); server line 269 (t=208.126) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 205 reports pos (-215.6, 64.0, 238.5) (overworld); server line 273 (t=211.133) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 208 reports pos (-215.6, 64.0, 238.5) (overworld); server line 275 (t=213.135) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 211 reports pos (-215.6, 64.0, 238.5) (overworld); server line 278 (t=215.138) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 214 reports pos (-215.6, 64.0, 238.5) (overworld); server line 280 (t=217.143) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 217 reports pos (-215.6, 64.0, 238.5) (overworld); server line 282 (t=219.147) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 220 reports pos (-215.6, 64.0, 238.5) (overworld); server line 285 (t=221.151) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 223 reports pos (-215.6, 64.0, 238.5) (overworld); server line 287 (t=223.154) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 226 reports pos (-215.6, 64.0, 238.5) (overworld); server line 290 (t=225.158) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 229 reports pos (-215.6, 64.0, 238.5) (overworld); server line 291 (t=226.159) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 232 reports pos (-215.6, 64.0, 238.5) (overworld); server line 293 (t=228.162) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 235 reports pos (-215.6, 64.0, 238.5) (overworld); server line 296 (t=230.166) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 238 reports pos (-215.6, 64.0, 238.5) (overworld); server line 298 (t=232.17) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 241 reports pos (-215.6, 64.0, 238.5) (overworld); server line 300 (t=234.174) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 244 reports pos (-215.6, 64.0, 238.5) (overworld); server line 303 (t=236.178) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 247 reports pos (-215.6, 64.0, 238.5) (overworld); server line 306 (t=239.184) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+  - agent line 250 reports pos (-215.6, 64.0, 238.5) (overworld); server line 309 (t=241.188) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart
+
+**Top waste findings**
+
+1. `lost_drop` (micro, 28.591 s): line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 28.591 s wasted
+2. `no_progress` (micro, 28.591 s): lines 5-7: 'collect_wood' succeeded but position and inventory are unchanged; 28.591 s lost
+3. `lost_drop` (micro, 21.222 s): line 34: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 21.222 s wasted
+4. `no_progress` (micro, 21.222 s): lines 32-34: 'collect_wood' succeeded but position and inventory are unchanged; 21.222 s lost
+5. `action_loop` (micro, 15.466 s): lines 13-25: 'collect_wood' repeated 5x in a row, 5 failed/no-progress; 15.466 s
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not derivable from this log |
+| chest_2 | no | - | - | - | not derivable from this log |
+| chest_3 | no | - | - | - | not derivable from this log |
+| flint_and_steel | no | - | 60-61 | - | not derivable from this log |
+| portal_build_attempted | no | - | 55 | - | not derivable from this log |
+| portal_built | no | - | 63 | - | not derivable from this log |
+| portal_lit | no | - | 63-64 | - | not derivable from this log |
+| nether_entered | no | - | 66.7 | - | not derivable from this log |
+
+### live-01
+
+- Outcome: **did not finish**
+- Milestones reached: 0/5
+- Total time 3.289 s; attributed waste 3.289 s; efficiency 0; findings 3 {"claim": 2, "decision": 0, "micro": 1, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/live-01-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 4: summary claims finalSplit='stone', but the log shows None (last milestone reached in the log)
+  - line 4: summary claims splits=1, but the log shows 0 (milestones reached in the log)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+
+**Top waste findings**
+
+1. `idle` (micro, 3.289 s): lines 1-4: no movement or inventory change for 3.289 s at (-210.4, 71.0, 225.6) (3.289 s excluding API waits)
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not derivable from this log |
+| chest_2 | no | - | - | - | not derivable from this log |
+| chest_3 | no | - | - | - | not derivable from this log |
+| flint_and_steel | no | - | 60-61 | - | not derivable from this log |
+| portal_build_attempted | no | - | 55 | - | not derivable from this log |
+| portal_built | no | - | 63 | - | not derivable from this log |
+| portal_lit | no | - | 63-64 | - | not derivable from this log |
+| nether_entered | no | - | 66.7 | - | not derivable from this log |
+
+### live-02
+
+- Outcome: **did not finish**
+- Milestones reached: 0/5
+- Total time 151.266 s; attributed waste 111.033 s; efficiency 0.266; findings 25 {"claim": 2, "decision": 0, "micro": 23, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/live-02-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 51: summary claims finalSplit='wood', but the log shows None (last milestone reached in the log)
+  - line 51: summary claims splits=1, but the log shows 0 (milestones reached in the log)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 5
+  - agent line 1 reports pos (-210.4, 71.0, 225.6) (overworld); server line 16 (t=0.775) has (-180.5, 70.0, 214.5) (overworld), 31.88 blocks apart
+  - agent line 7 reports pos (-210.4, 71.0, 225.6) (overworld); server line 119 (t=87.049) has (-213.5, 73.6, 225.5) (overworld), 4.06 blocks apart
+  - agent line 10 reports pos (-210.4, 71.0, 225.6) (overworld); server line 163 (t=124.108) has (-215.5, 74.0, 227.7) (overworld), 6.29 blocks apart
+  - agent line 13 reports pos (-210.4, 71.0, 225.6) (overworld); server line 166 (t=126.109) has (-215.5, 74.0, 227.7) (overworld), 6.29 blocks apart
+  - agent line 16 reports pos (-210.4, 71.0, 225.6) (overworld); server line 169 (t=129.117) has (-211.6, 74.0, 226.8) (overworld), 3.48 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 80.796 s): line 7: action 'collect_wood' failed (FAILED: not ok); 80.796 s lost
+2. `lost_drop` (micro, 28.724 s): line 10: 'mine_blocks' reported success but nothing reached the inventory within 5 s / by the next result; 28.724 s wasted
+3. `no_progress` (micro, 28.724 s): lines 8-10: 'mine_blocks' succeeded but position and inventory are unchanged; 28.724 s lost
+4. `failed_action` (micro, 1.504 s): line 16: action 'craft' failed (FAILED: no recipe for crafting_table: missing oak_planksx4); 1.504 s lost
+5. `failed_action` (micro, 0.002 s): line 22: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not derivable from this log |
+| chest_2 | no | - | - | - | not derivable from this log |
+| chest_3 | no | - | - | - | not derivable from this log |
+| flint_and_steel | no | - | 60-61 | - | not derivable from this log |
+| portal_build_attempted | no | - | 55 | - | not derivable from this log |
+| portal_built | no | - | 63 | - | not derivable from this log |
+| portal_lit | no | - | 63-64 | - | not derivable from this log |
+| nether_entered | no | - | 66.7 | - | not derivable from this log |
+
+### live-03
+
+- Outcome: **did not finish**
+- Milestones reached: 0/5
+- Total time 231.565 s; attributed waste 194.243 s; efficiency 0.1612; findings 12 {"claim": 2, "decision": 0, "micro": 10, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/live-03-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 32: summary claims finalSplit='stone', but the log shows None (last milestone reached in the log)
+  - line 32: summary claims splits=2, but the log shows 0 (milestones reached in the log)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 7
+  - agent line 1 reports pos (-211.4, 73.0, 227.5) (overworld); server line 18 (t=0.79) has (-180.5, 70.0, 214.5) (overworld), 33.69 blocks apart
+  - agent line 7 reports pos (-211.4, 73.0, 227.5) (overworld); server line 63 (t=38.842) has (-216.5, 73.0, 228.5) (overworld), 5.19 blocks apart
+  - agent line 10 reports pos (-211.4, 73.0, 227.5) (overworld); server line 73 (t=46.856) has (-216.5, 74.0, 228.5) (overworld), 5.28 blocks apart
+  - agent line 20 reports pos (-211.4, 73.0, 227.5) (overworld); server line 133 (t=95.927) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart
+  - agent line 23 reports pos (-211.4, 73.0, 227.5) (overworld); server line 139 (t=100.935) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart
+  - agent line 26 reports pos (-211.4, 73.0, 227.5) (overworld); server line 142 (t=103.941) has (-222.5, 73.0, 235.5) (overworld), 13.65 blocks apart
+  - agent line 30 reports pos (-211.4, 73.0, 227.5) (overworld); server line 295 (t=231.47) has (-215.6, 64.0, 238.5) (overworld), 14.81 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 120.003 s): line 30: action 'mine_blocks' failed (FAILED: not ok); 120.003 s lost
+2. `lost_drop` (micro, 36.942 s): line 20: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 36.942 s wasted
+3. `no_progress` (micro, 36.942 s): lines 18-20: 'collect_wood' succeeded but position and inventory are unchanged; 36.942 s lost
+4. `lost_drop` (micro, 35.565 s): line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 35.565 s wasted
+5. `no_progress` (micro, 35.565 s): lines 4-7: 'collect_wood' succeeded but position and inventory are unchanged; 35.565 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not derivable from this log |
+| chest_2 | no | - | - | - | not derivable from this log |
+| chest_3 | no | - | - | - | not derivable from this log |
+| flint_and_steel | no | - | 60-61 | - | not derivable from this log |
+| portal_build_attempted | no | - | 55 | - | not derivable from this log |
+| portal_built | no | - | 63 | - | not derivable from this log |
+| portal_lit | no | - | 63-64 | - | not derivable from this log |
+| nether_entered | no | - | 66.7 | - | not derivable from this log |
 
 ## 3. Decision tasks (splitcheck.check)
 
@@ -348,4 +785,4 @@ python -m splitcheck.check --root <generic_root> --costs ../splits/time_costs.js
 cd .. && bash make_submission.sh
 ```
 
-Determinism: two packs built into separate temp dirs; 38 files compared with filecmp (shallow=False): **all byte-identical**
+Determinism: two packs built into separate temp dirs; 83 files compared with filecmp (shallow=False): **all byte-identical**

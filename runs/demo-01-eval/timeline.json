@@ -1,0 +1,138 @@
+{
+  "baseline": "/Users/anshul/agenticgamebech/baseline/pro_2m49_segments.json",
+  "facts": {
+    "beds_collected": 0,
+    "beds_used": null,
+    "beds_used_note": "unknown: the run did not finish the dragon fight",
+    "deaths": 1,
+    "end": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null,
+      "straight_note": "dragon fight: no single destination, straight_blocks not computed"
+    },
+    "end_portal_source": "seed features (config.json#activePortal); not disclosed to the player",
+    "end_portal_xyz": {
+      "x": -1130.0,
+      "y": 34.0,
+      "z": 856.0
+    },
+    "exit_to_end_portal": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "model_latency_s": null,
+    "nether": {
+      "dimension": "the_nether",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 2,
+      "path_blocks": 0.0,
+      "straight_blocks": 104.695
+    },
+    "spawn_to_nether": {
+      "dimension": "overworld",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 43.709,
+      "straight_blocks": 93.622
+    }
+  },
+  "finish_flag": "unfinished",
+  "kind": "agent_timeline",
+  "log": "runs/live/demo-01/events.jsonl",
+  "milestones": {
+    "M_end_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_finish": {
+      "high": null,
+      "low": null,
+      "note": "unfinished: no finish event (log ends at t=383.041 s, after a death); end segment and total not scored",
+      "reached": false
+    },
+    "M_portal_in": {
+      "evidence": "nether_entered event (derived)",
+      "high": 58.221,
+      "line": 28,
+      "low": 58.221
+    },
+    "M_portal_out": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_start": {
+      "evidence": "run start",
+      "high": 0.0,
+      "line": 1,
+      "low": 0.0
+    }
+  },
+  "notes": [
+    "Milestones read from the game log: low == high (no montage cuts).",
+    "waste_extra comes from RunEval findings (cost_s estimates); it is listed per segment and does not change verdicts. attributed_s is RunEval's de-duplicated share."
+  ],
+  "run_id": "demo-01",
+  "source": "live_agent",
+  "waste_extra": [
+    {
+      "attributed_s": 240.0,
+      "evidence": "RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost",
+      "lines": [
+        31
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 240.0,
+      "segment": "nether",
+      "t_start": 58.216,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 58.975,
+      "evidence": "RunEval failed_action at t=298.216 s (line 34): line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost",
+      "lines": [
+        34
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 58.975,
+      "segment": "nether",
+      "t_start": 298.216,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 22.418,
+      "evidence": "RunEval idle at t=357.195 s (lines 37-39): lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)",
+      "lines": [
+        37,
+        39
+      ],
+      "runeval_code": "idle",
+      "seconds": 22.418,
+      "segment": "nether",
+      "t_start": 357.195,
+      "tag": "idle_wait"
+    },
+    {
+      "attributed_s": 3.428,
+      "evidence": "RunEval death at t=379.613 s (line 39): line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s",
+      "lines": [
+        39
+      ],
+      "runeval_code": "death",
+      "seconds": 3.428,
+      "segment": "nether",
+      "t_start": 379.613,
+      "tag": "unnecessary_risk"
+    }
+  ],
+  "waste_extra_unmapped_codes": {
+    "self_report_contradiction": 4
+  }
+}

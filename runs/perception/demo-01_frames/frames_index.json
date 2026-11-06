@@ -1,0 +1,281 @@
+{
+ "note": "demo-01 clip frames, overlay cropped/masked with perception.scene_filter; run_t from runs/live/demo-01/clip_index.json",
+ "frames": [
+  {
+   "file": "f00000.png",
+   "run_t": 43.015
+  },
+  {
+   "file": "f00012.png",
+   "run_t": 43.558
+  },
+  {
+   "file": "f00026.png",
+   "run_t": 44.075
+  },
+  {
+   "file": "f00038.png",
+   "run_t": 44.612
+  },
+  {
+   "file": "f00048.png",
+   "run_t": 45.113
+  },
+  {
+   "file": "f00060.png",
+   "run_t": 45.641
+  },
+  {
+   "file": "f00074.png",
+   "run_t": 46.175
+  },
+  {
+   "file": "f00088.png",
+   "run_t": 46.69
+  },
+  {
+   "file": "f00100.png",
+   "run_t": 47.207
+  },
+  {
+   "file": "f00113.png",
+   "run_t": 47.743
+  },
+  {
+   "file": "f00120.png",
+   "run_t": 48.315
+  },
+  {
+   "file": "f00129.png",
+   "run_t": 48.862
+  },
+  {
+   "file": "f00134.png",
+   "run_t": 49.775
+  },
+  {
+   "file": "f00141.png",
+   "run_t": 50.324
+  },
+  {
+   "file": "f00151.png",
+   "run_t": 50.839
+  },
+  {
+   "file": "f00161.png",
+   "run_t": 51.339
+  },
+  {
+   "file": "f00171.png",
+   "run_t": 51.839
+  },
+  {
+   "file": "f00181.png",
+   "run_t": 52.339
+  },
+  {
+   "file": "f00191.png",
+   "run_t": 52.856
+  },
+  {
+   "file": "f00201.png",
+   "run_t": 53.356
+  },
+  {
+   "file": "f00211.png",
+   "run_t": 53.89
+  },
+  {
+   "file": "f00221.png",
+   "run_t": 54.425
+  },
+  {
+   "file": "f00231.png",
+   "run_t": 54.974
+  },
+  {
+   "file": "f00241.png",
+   "run_t": 55.506
+  },
+  {
+   "file": "f00251.png",
+   "run_t": 56.039
+  },
+  {
+   "file": "f00261.png",
+   "run_t": 56.574
+  },
+  {
+   "file": "f00270.png",
+   "run_t": 57.09
+  },
+  {
+   "file": "f00280.png",
+   "run_t": 57.606
+  },
+  {
+   "file": "f00289.png",
+   "run_t": 58.123
+  },
+  {
+   "file": "f00298.png",
+   "run_t": 58.66
+  },
+  {
+   "file": "f00306.png",
+   "run_t": 59.252
+  },
+  {
+   "file": "f00311.png",
+   "run_t": 59.755
+  },
+  {
+   "file": "f00317.png",
+   "run_t": 60.298
+  },
+  {
+   "file": "f00320.png",
+   "run_t": 60.868
+  },
+  {
+   "file": "f00326.png",
+   "run_t": 61.399
+  },
+  {
+   "file": "f00329.png",
+   "run_t": 62.011
+  },
+  {
+   "file": "f00333.png",
+   "run_t": 62.576
+  },
+  {
+   "file": "f00337.png",
+   "run_t": 63.152
+  },
+  {
+   "file": "f00339.png",
+   "run_t": 63.689
+  },
+  {
+   "file": "f00347.png",
+   "run_t": 64.225
+  },
+  {
+   "file": "f00356.png",
+   "run_t": 64.736
+  },
+  {
+   "file": "f00364.png",
+   "run_t": 65.299
+  },
+  {
+   "file": "f00370.png",
+   "run_t": 65.865
+  },
+  {
+   "file": "f00375.png",
+   "run_t": 66.675
+  },
+  {
+   "file": "f00378.png",
+   "run_t": 67.267
+  },
+  {
+   "file": "f00383.png",
+   "run_t": 67.767
+  },
+  {
+   "file": "f00392.png",
+   "run_t": 68.273
+  },
+  {
+   "file": "f00405.png",
+   "run_t": 68.786
+  },
+  {
+   "file": "f00420.png",
+   "run_t": 69.316
+  },
+  {
+   "file": "f00435.png",
+   "run_t": 69.832
+  },
+  {
+   "file": "f00439.png",
+   "run_t": 70.354
+  },
+  {
+   "file": "f00454.png",
+   "run_t": 70.867
+  },
+  {
+   "file": "f00463.png",
+   "run_t": 71.499
+  },
+  {
+   "file": "f00475.png",
+   "run_t": 72.037
+  },
+  {
+   "file": "f00489.png",
+   "run_t": 72.537
+  },
+  {
+   "file": "f00504.png",
+   "run_t": 73.05
+  },
+  {
+   "file": "f00518.png",
+   "run_t": 73.566
+  },
+  {
+   "file": "f00532.png",
+   "run_t": 74.067
+  },
+  {
+   "file": "f00547.png",
+   "run_t": 74.584
+  },
+  {
+   "file": "f00562.png",
+   "run_t": 75.12
+  },
+  {
+   "file": "f00578.png",
+   "run_t": 75.649
+  },
+  {
+   "file": "f00593.png",
+   "run_t": 76.155
+  },
+  {
+   "file": "f00598.png",
+   "run_t": 76.673
+  },
+  {
+   "file": "f00613.png",
+   "run_t": 77.183
+  },
+  {
+   "file": "f00628.png",
+   "run_t": 77.684
+  },
+  {
+   "file": "f00643.png",
+   "run_t": 78.198
+  },
+  {
+   "file": "f00658.png",
+   "run_t": 78.699
+  },
+  {
+   "file": "f00673.png",
+   "run_t": 79.202
+  },
+  {
+   "file": "f00678.png",
+   "run_t": 79.812
+  }
+ ]
+}

@@ -1,0 +1,951 @@
+{
+  "baseline": "/Users/anshul/agenticgamebech/baseline/pro_2m49_segments.json",
+  "facts": {
+    "beds_collected": 0,
+    "beds_used": null,
+    "beds_used_note": "unknown: the run did not finish the dragon fight",
+    "deaths": 0,
+    "end": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null,
+      "straight_note": "dragon fight: no single destination, straight_blocks not computed"
+    },
+    "end_portal_source": "seed features (config.json#activePortal); not disclosed to the player",
+    "end_portal_xyz": {
+      "x": -1130.0,
+      "y": 34.0,
+      "z": 856.0
+    },
+    "exit_to_end_portal": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "model_latency_s": null,
+    "nether": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "spawn_to_nether": {
+      "dimension": "overworld",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 38,
+      "path_blocks": 24.453,
+      "straight_blocks": 24.453
+    }
+  },
+  "finish_flag": "unfinished",
+  "kind": "agent_timeline",
+  "log": "runs/live/foot-01/events.jsonl",
+  "milestones": {
+    "M_end_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_finish": {
+      "high": null,
+      "low": null,
+      "note": "unfinished: no finish event (log ends at t=241.439 s); end segment and total not scored",
+      "reached": false
+    },
+    "M_portal_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_portal_out": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_start": {
+      "evidence": "run start",
+      "high": 0.0,
+      "line": 1,
+      "low": 0.0
+    }
+  },
+  "notes": [
+    "Milestones read from the game log: low == high (no montage cuts).",
+    "waste_extra comes from RunEval findings (cost_s estimates); it is listed per segment and does not change verdicts. attributed_s is RunEval's de-duplicated share."
+  ],
+  "run_id": "foot-01",
+  "source": "live_agent",
+  "waste_extra": [
+    {
+      "attributed_s": 28.591,
+      "evidence": "RunEval lost_drop at t=5.069 s (lines 5-7): line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 28.591 s wasted",
+      "lines": [
+        5,
+        7
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 28.591,
+      "segment": "spawn_to_nether",
+      "t_start": 5.069,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=5.069 s (lines 5-7): lines 5-7: 'collect_wood' succeeded but position and inventory are unchanged; 28.591 s lost",
+      "lines": [
+        5,
+        7
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 28.591,
+      "segment": "spawn_to_nether",
+      "t_start": 5.069,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.012,
+      "evidence": "RunEval failed_action at t=37.113 s (line 10): line 10: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.012 s lost",
+      "lines": [
+        10
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.012,
+      "segment": "spawn_to_nether",
+      "t_start": 37.113,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 15.466,
+      "evidence": "RunEval action_loop at t=39.266 s (lines 13-25): lines 13-25: 'collect_wood' repeated 5x in a row, 5 failed/no-progress; 15.466 s",
+      "lines": [
+        13,
+        16,
+        19,
+        22,
+        25
+      ],
+      "runeval_code": "action_loop",
+      "seconds": 15.466,
+      "segment": "spawn_to_nether",
+      "t_start": 39.266,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval lost_drop at t=39.266 s (lines 11-13): line 13: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 15.465 s wasted",
+      "lines": [
+        11,
+        13
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 15.465,
+      "segment": "spawn_to_nether",
+      "t_start": 39.266,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=39.266 s (lines 11-13): lines 11-13: 'collect_wood' succeeded but position and inventory are unchanged; 15.465 s lost",
+      "lines": [
+        11,
+        13
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 15.465,
+      "segment": "spawn_to_nether",
+      "t_start": 39.266,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=62.798 s (lines 23-25): line 25: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        23,
+        25
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 62.798,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=62.798 s (lines 23-25): lines 23-25: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        23,
+        25
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 62.798,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.005,
+      "evidence": "RunEval no_progress at t=67.74 s (lines 26-28): lines 26-28: 'craft' succeeded but position and inventory are unchanged; 0.005 s lost",
+      "lines": [
+        26,
+        28
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.005,
+      "segment": "spawn_to_nether",
+      "t_start": 67.74,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 21.222,
+      "evidence": "RunEval lost_drop at t=71.924 s (lines 32-34): line 34: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 21.222 s wasted",
+      "lines": [
+        32,
+        34
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 21.222,
+      "segment": "spawn_to_nether",
+      "t_start": 71.924,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=71.924 s (lines 32-34): lines 32-34: 'collect_wood' succeeded but position and inventory are unchanged; 21.222 s lost",
+      "lines": [
+        32,
+        34
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 21.222,
+      "segment": "spawn_to_nether",
+      "t_start": 71.924,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=97.235 s (line 37): line 37: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        37
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 97.235,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=101.359 s (line 43): line 43: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        43
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 101.359,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=105.155 s (line 49): line 49: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        49
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 105.155,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=108.976 s (line 55): line 55: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        55
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 108.976,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.003,
+      "evidence": "RunEval lost_drop at t=111.263 s (lines 56-58): line 58: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "lines": [
+        56,
+        58
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 111.263,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=111.263 s (lines 56-58): lines 56-58: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "lines": [
+        56,
+        58
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 111.263,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=112.983 s (line 61): line 61: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        61
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 112.983,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=115.193 s (lines 62-64): line 64: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        62,
+        64
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 115.193,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=115.193 s (lines 62-64): lines 62-64: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        62,
+        64
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 115.193,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=116.92 s (line 67): line 67: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        67
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 116.92,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=120.561 s (line 73): line 73: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        73
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 120.561,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=125.711 s (line 79): line 79: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        79
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 125.711,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.003,
+      "evidence": "RunEval failed_action at t=129.473 s (line 85): line 85: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.003 s lost",
+      "lines": [
+        85
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 129.473,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.004,
+      "evidence": "RunEval lost_drop at t=131.618 s (lines 86-88): line 88: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.004 s wasted",
+      "lines": [
+        86,
+        88
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.004,
+      "segment": "spawn_to_nether",
+      "t_start": 131.618,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=131.618 s (lines 86-88): lines 86-88: 'collect_wood' succeeded but position and inventory are unchanged; 0.004 s lost",
+      "lines": [
+        86,
+        88
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.004,
+      "segment": "spawn_to_nether",
+      "t_start": 131.618,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=133.437 s (line 91): line 91: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        91
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 133.437,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.004,
+      "evidence": "RunEval failed_action at t=137.136 s (line 97): line 97: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "lines": [
+        97
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.004,
+      "segment": "spawn_to_nether",
+      "t_start": 137.136,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=138.939 s (lines 98-100): line 100: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        98,
+        100
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 138.939,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=138.939 s (lines 98-100): lines 98-100: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        98,
+        100
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 138.939,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=140.786 s (line 103): line 103: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        103
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 140.786,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=144.686 s (line 109): line 109: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        109
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 144.686,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.004,
+      "evidence": "RunEval failed_action at t=148.841 s (line 115): line 115: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "lines": [
+        115
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.004,
+      "segment": "spawn_to_nether",
+      "t_start": 148.841,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=154.706 s (line 121): line 121: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        121
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 154.706,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=158.681 s (line 127): line 127: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        127
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 158.681,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=162.359 s (line 133): line 133: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        133
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 162.359,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=166.003 s (line 139): line 139: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        139
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 166.003,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=169.674 s (line 145): line 145: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        145
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 169.674,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.003,
+      "evidence": "RunEval lost_drop at t=171.397 s (lines 146-148): line 148: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "lines": [
+        146,
+        148
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 171.397,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=171.397 s (lines 146-148): lines 146-148: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "lines": [
+        146,
+        148
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 171.397,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=173.401 s (line 151): line 151: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        151
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 173.401,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.004,
+      "evidence": "RunEval failed_action at t=177.613 s (line 157): line 157: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "lines": [
+        157
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.004,
+      "segment": "spawn_to_nether",
+      "t_start": 177.613,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=183.705 s (line 163): line 163: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        163
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 183.705,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=185.909 s (lines 164-166): line 166: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        164,
+        166
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 185.909,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=185.909 s (lines 164-166): lines 164-166: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        164,
+        166
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 185.909,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=187.683 s (line 169): line 169: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        169
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 187.683,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=191.416 s (line 175): line 175: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        175
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 191.416,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=193.279 s (lines 176-178): line 178: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        176,
+        178
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 193.279,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=193.279 s (lines 176-178): lines 176-178: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        176,
+        178
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 193.279,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=195.188 s (line 181): line 181: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        181
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 195.188,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=198.878 s (line 187): line 187: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        187
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 198.878,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.003,
+      "evidence": "RunEval lost_drop at t=200.924 s (lines 188-190): line 190: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "lines": [
+        188,
+        190
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 200.924,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=200.924 s (lines 188-190): lines 188-190: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "lines": [
+        188,
+        190
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.003,
+      "segment": "spawn_to_nether",
+      "t_start": 200.924,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=202.758 s (line 193): line 193: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        193
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 202.758,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=206.499 s (line 199): line 199: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        199
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 206.499,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=211.208 s (line 205): line 205: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        205
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 211.208,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=215.273 s (line 211): line 211: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        211
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 215.273,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=219.291 s (line 217): line 217: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        217
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 219.291,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=222.929 s (line 223): line 223: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        223
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 222.929,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=226.567 s (line 229): line 229: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "lines": [
+        229
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 226.567,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=230.217 s (line 235): line 235: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        235
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 230.217,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=232.122 s (lines 236-238): line 238: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        236,
+        238
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 232.122,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=232.122 s (lines 236-238): lines 236-238: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        236,
+        238
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 232.122,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=234.012 s (line 241): line 241: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "lines": [
+        241
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 234.012,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=236.08 s (lines 242-244): line 244: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        242,
+        244
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 236.08,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=236.08 s (lines 242-244): lines 242-244: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        242,
+        244
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 236.08,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.005,
+      "evidence": "RunEval failed_action at t=239.125 s (line 247): line 247: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.005 s lost",
+      "lines": [
+        247
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.005,
+      "segment": "spawn_to_nether",
+      "t_start": 239.125,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=241.288 s (lines 248-250): line 250: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        248,
+        250
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 241.288,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=241.288 s (lines 248-250): lines 248-250: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        248,
+        250
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 241.288,
+      "tag": "failed_or_retried_action"
+    }
+  ],
+  "waste_extra_unmapped_codes": {
+    "self_report_contradiction": 2
+  }
+}

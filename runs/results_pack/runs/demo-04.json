@@ -1,0 +1,261 @@
+{
+ "claims": [
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.134,
+    "field": "position"
+   },
+   "lines": [
+    5
+   ],
+   "message": "agent line 5 reports pos (-35.1, 77.0, 32.8) (the_nether); server line 85 (t=61.996) has (-138.5, 41.0, 98.4) (the_nether), 127.67 blocks apart",
+   "server_lines": [
+    85
+   ],
+   "severity": "high",
+   "t_end": 62.13,
+   "t_start": 62.13
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.195,
+    "field": "position"
+   },
+   "lines": [
+    8
+   ],
+   "message": "agent line 8 reports pos (-35.1, 77.0, 32.8) (the_nether); server line 85 (t=61.996) has (-138.5, 41.0, 98.4) (the_nether), 127.67 blocks apart",
+   "server_lines": [
+    85
+   ],
+   "severity": "high",
+   "t_end": 62.191,
+   "t_start": 62.191
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish; failed at step `portal_built` (line 8: build_portal failed: no clear 4x5 site near the bot)",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": {
+   "line": 8,
+   "note": "build_portal failed: no clear 4x5 site near the bot",
+   "step": "portal_built"
+  },
+  "steps": [
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 62.131,
+    "agent_t_lo": null,
+    "delta_hi": 7.131,
+    "delta_lo": 7.131,
+    "line": 7,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": 8,
+    "note": "build_portal failed: no clear 4x5 site near the bot",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "demo-04",
+ "score": {
+  "attributed_waste_s": 0.182,
+  "efficiency": 0.9971,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": -0.0,
+  "raw_cost_sum_s": 0.182,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 62.191,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 0.182,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   62.191
+  ],
+  "notes": [],
+  "server_first_t_s": 0.802,
+  "server_last_t_s": 112.105,
+  "server_samples": 110,
+  "snapshots_checked": 3,
+  "snapshots_without_server_sample": []
+ },
+ "summary": {
+  "attributed_waste_s": 0.182,
+  "efficiency": 0.9971,
+  "findings": 2,
+  "findings_by_category": {
+   "claim": 0,
+   "decision": 0,
+   "micro": 2,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 0,
+   "low": 0,
+   "medium": 2
+  },
+  "log": "runs/live/demo-04/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 62.191
+ },
+ "top_waste": [
+  {
+   "attributed_s": 0.121,
+   "category": "micro",
+   "code": "no_progress",
+   "cost_s": 0.121,
+   "evidence": {
+    "action": "travel_legs",
+    "pos": [
+     -35.08502141781145,
+     77.0,
+     32.78346049890214
+    ]
+   },
+   "lines": [
+    4,
+    5
+   ],
+   "message": "lines 4-5: 'travel_legs' succeeded but position and inventory are unchanged; 0.121 s lost",
+   "severity": "medium",
+   "t_end": 62.13,
+   "t_start": 62.009
+  },
+  {
+   "attributed_s": 0.061,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.061,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: no clear 4x5 site near the bot"
+   },
+   "lines": [
+    8
+   ],
+   "message": "line 8: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.061 s lost",
+   "severity": "medium",
+   "t_end": 62.191,
+   "t_start": 62.13
+  }
+ ]
+}

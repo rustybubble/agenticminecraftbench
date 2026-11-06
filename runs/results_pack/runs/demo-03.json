@@ -1,0 +1,399 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     6,
+     8,
+     12,
+     14,
+     18,
+     20,
+     24,
+     27,
+     31,
+     36
+    ],
+    "field": "actions",
+    "logged": 10,
+    "summary_line": 41
+   },
+   "lines": [
+    6,
+    8,
+    12,
+    14,
+    18,
+    20,
+    24,
+    27,
+    31,
+    36,
+    41
+   ],
+   "message": "line 41: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 36)",
+   "severity": "high",
+   "t_end": 79.853,
+   "t_start": 79.853
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": null,
+    "evidence_lines": [
+     28
+    ],
+    "field": "finalSplit",
+    "logged": "nether_entered",
+    "summary_line": 41
+   },
+   "lines": [
+    28,
+    41
+   ],
+   "message": "line 41: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)",
+   "severity": "high",
+   "t_end": 79.853,
+   "t_start": 79.853
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     28
+    ],
+    "field": "splits",
+    "logged": 1,
+    "summary_line": 41
+   },
+   "lines": [
+    28,
+    41
+   ],
+   "message": "line 41: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)",
+   "severity": "high",
+   "t_end": 79.853,
+   "t_start": 79.853
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     31,
+     36
+    ],
+    "field": "failures",
+    "logged": 2,
+    "summary_line": 41
+   },
+   "lines": [
+    31,
+    36,
+    41
+   ],
+   "message": "line 41: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 36)",
+   "severity": "high",
+   "t_end": 79.853,
+   "t_start": 79.853
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.439,
+    "field": "position"
+   },
+   "lines": [
+    27
+   ],
+   "message": "agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart",
+   "server_lines": [
+    82
+   ],
+   "severity": "high",
+   "t_end": 59.64,
+   "t_start": 59.64
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.44,
+    "field": "position"
+   },
+   "lines": [
+    31
+   ],
+   "message": "agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart",
+   "server_lines": [
+    82
+   ],
+   "severity": "high",
+   "t_end": 59.641,
+   "t_start": 59.641
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.479,
+    "field": "position"
+   },
+   "lines": [
+    36
+   ],
+   "message": "agent line 36 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 82 (t=59.201) has (-280.5, 66.0, 262.5) (overworld), 5.48 blocks apart",
+   "server_lines": [
+    82
+   ],
+   "severity": "high",
+   "t_end": 59.68,
+   "t_start": 59.68
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "OK"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": true,
+  "nether_exit": false
+ },
+ "milestones_reached": [
+  "nether_entry"
+ ],
+ "ok": true,
+ "outcome": "did not finish",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": null,
+  "steps": [
+   {
+    "agent_t": 14.551,
+    "agent_t_lo": null,
+    "delta_hi": -14.449,
+    "delta_lo": -18.449,
+    "line": 8,
+    "note": "village chest (iron_pickaxe 1, obsidian 6)",
+    "pro_hi": 33.0,
+    "pro_lo": 29.0,
+    "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51\u20130:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": 36.705,
+    "agent_t_lo": null,
+    "delta_hi": -17.295,
+    "delta_lo": -17.295,
+    "line": 14,
+    "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+    "pro_hi": 54.0,
+    "pro_lo": 54.0,
+    "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": 41.213,
+    "agent_t_lo": null,
+    "delta_hi": -7.787,
+    "delta_lo": -9.787,
+    "line": 20,
+    "note": "flint chest (flint 1, obsidian 4)",
+    "pro_hi": 51.0,
+    "pro_lo": 49.0,
+    "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11\u20131:13\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": 59.681,
+    "agent_t_lo": 41.213,
+    "delta_hi": -0.319,
+    "delta_lo": -1.319,
+    "line": 39,
+    "note": "first seen in inventory at line 39 (no craft event in the log); crafted after the flint pickup at t=41.213 (line 20)",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 42.625,
+    "agent_t_lo": null,
+    "delta_hi": -12.375,
+    "delta_lo": -12.375,
+    "line": 26,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": 59.64,
+    "agent_t_lo": null,
+    "delta_hi": -3.36,
+    "delta_lo": -3.36,
+    "line": 27,
+    "note": "build_portal ok",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": 59.641,
+    "agent_t_lo": null,
+    "delta_hi": -3.359,
+    "delta_lo": -4.359,
+    "line": 28,
+    "note": "implied by nether entry (no lit event)",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": 59.641,
+    "agent_t_lo": null,
+    "delta_hi": -7.059,
+    "delta_lo": -7.059,
+    "line": 28,
+    "note": "nether_entered",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "demo-03",
+ "score": {
+  "attributed_waste_s": 0.04,
+  "efficiency": 0.9995,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.2,
+  "milestones_reached": 1,
+  "milestones_total": 5,
+  "overlap_removed_s": 0.0,
+  "raw_cost_sum_s": 0.04,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 79.853,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 0.04,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   79.853
+  ],
+  "notes": [],
+  "server_first_t_s": 0.705,
+  "server_last_t_s": 217.55,
+  "server_samples": 189,
+  "snapshots_checked": 13,
+  "snapshots_without_server_sample": []
+ },
+ "summary": {
+  "attributed_waste_s": 0.04,
+  "efficiency": 0.9995,
+  "findings": 8,
+  "findings_by_category": {
+   "claim": 4,
+   "decision": 0,
+   "micro": 4,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 4,
+   "low": 2,
+   "medium": 2
+  },
+  "log": "runs/live/demo-03/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": true,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 79.853
+ },
+ "top_waste": [
+  {
+   "attributed_s": 0.039,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.039,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: no clear 4x5 site near the bot"
+   },
+   "lines": [
+    36
+   ],
+   "message": "line 36: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.039 s lost",
+   "severity": "medium",
+   "t_end": 59.68,
+   "t_start": 59.641
+  },
+  {
+   "attributed_s": 0.001,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.001,
+   "evidence": {
+    "action": "travel_legs",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    31
+   ],
+   "message": "line 31: action 'travel_legs' failed (FAILED: not ok); 0.001 s lost",
+   "severity": "medium",
+   "t_end": 59.641,
+   "t_start": 59.64
+  }
+ ]
+}

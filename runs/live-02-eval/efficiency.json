@@ -1,0 +1,111 @@
+{
+  "run_median_ratio": null,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 66.683,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 80.796,
+          "evidence": "RunEval failed_action at t=6.012 s (line 7): line 7: action 'collect_wood' failed (FAILED: not ok); 80.796 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 28.724,
+          "evidence": "RunEval lost_drop at t=95.193 s (lines 8-10): line 10: 'mine_blocks' reported success but nothing reached the inventory within 5 s / by the next result; 28.724 s wasted"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 28.724,
+          "evidence": "RunEval no_progress at t=95.193 s (lines 8-10): lines 8-10: 'mine_blocks' succeeded but position and inventory are unchanged; 28.724 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.001,
+          "evidence": "RunEval lost_drop at t=125.724 s (lines 11-13): line 13: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.001,
+          "evidence": "RunEval no_progress at t=125.724 s (lines 11-13): lines 11-13: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 1.504,
+          "evidence": "RunEval failed_action at t=127.713 s (line 16): line 16: action 'craft' failed (FAILED: no recipe for crafting_table: missing oak_planksx4); 1.504 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.002,
+          "evidence": "RunEval failed_action at t=132.859 s (line 22): line 22: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.001,
+          "evidence": "RunEval failed_action at t=136.519 s (line 28): line 28: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.001 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.001,
+          "evidence": "RunEval failed_action at t=140.216 s (line 34): line 34: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.001 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.002,
+          "evidence": "RunEval failed_action at t=144.863 s (line 40): line 40: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.002,
+          "evidence": "RunEval failed_action at t=149.259 s (line 46): line 46: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=151.266 s); end segment and total not scored); total not scored"
+  ]
+}
