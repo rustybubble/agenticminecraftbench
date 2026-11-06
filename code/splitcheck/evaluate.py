@@ -2,6 +2,10 @@
 
     python -m splitcheck.evaluate <log> [--baseline ../baseline/pro_2m49_segments.json]
         [--run-id NAME] [--outdir ../agent_runs/NAME] [--seed-dir DIR] [--rules PATH]
+        [--server-log server_events.jsonl]
+
+--server-log adds a claims cross-check of the agent log against the server-side poller log
+(agent_server_mismatch findings, +-1.5 s) and an "Evidence coverage" section. Verdicts are unchanged.
 
 Writes into the output directory:
 
@@ -143,7 +147,8 @@ def _rel(p) -> str:
         return str(p)
 
 
-def to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, baseline=None) -> str:
+def to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, baseline=None,
+                xcheck=None, server_log=None) -> str:
     L = [f"# Efficiency check: `{run_id}`", "",
          f"Log: `{_rel(log_path)}`. Baseline: `{_rel(baseline_path)}`. Deterministic (no LLM): every number "
          "comes from timeline.json, efficiency.json and runeval.json in this folder.", ""]
@@ -195,6 +200,7 @@ def to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, base
               f"{_f(sc.get('attributed_waste_s'), ' s')}, efficiency {_f(sc.get('efficiency'))}, "
               f"milestones {sc.get('milestones_reached')}/{sc.get('milestones_total')}, "
               f"findings {len(rep.get('findings', []))}. Full detail in runeval.json.", ""]
+    L += _claims_lines(rep, xcheck, server_log)
     fair = rules.get("fairness") or {}
     if fair:
         L += ["## Fairness notes (from baseline/rules.json)", ""]
@@ -204,9 +210,130 @@ def to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, base
     return "\n".join(L).rstrip("\n") + "\n"
 
 
+# ---------------------------------------------------------------- server cross-check
+SERVER_WINDOW_S = 1.5
+SERVER_POS_TOL = 3.0  # blocks (3D) between the agent's reported position and the server sample
+
+
+def _abs_samples(tl):
+    t0 = (tl.meta or {}).get("t0_epoch")
+    if t0 is None:
+        return []
+    return [(t0 + s.t, s) for s in tl.samples]
+
+
+def server_crosscheck(agent_tl, server_tl) -> dict:
+    """Compare agent position/inventory snapshots with the nearest server sample within +-1.5 s.
+    Returns {"findings": [...], "coverage": {...}}. Deterministic; no verdict changes."""
+    import math
+    ag = _abs_samples(agent_tl)
+    sv = [(t, s) for t, s in _abs_samples(server_tl) if s.pos is not None or s.inv]
+    a0 = agent_tl.meta.get("t0_epoch")
+    live = (agent_tl.meta or {}).get("live_agent") or {}
+    snap_lines = {x["line"] for x in live.get("inventory_snapshots") or []}
+    findings, checked, uncovered = [], 0, []
+
+    def nearest(t):
+        best = None
+        for ts, s in sv:
+            d = abs(ts - t)
+            if d <= SERVER_WINDOW_S and (best is None or d < best[0]):
+                best = (d, ts, s)
+        return best
+
+    for t, s in ag:
+        pos_snap = s.kind in ("skill_result", "spawn", "summary") and s.pos is not None
+        inv_snap = s.line in snap_lines
+        if not (pos_snap or inv_snap):
+            continue
+        nb = nearest(t)
+        if nb is None:
+            uncovered.append(s.line)
+            continue
+        checked += 1
+        d, ts, ss = nb
+        rel = round(ts - a0, 3)
+        if pos_snap and ss.pos is not None:
+            dist = math.dist([s.pos[0], s.pos[1] or 0, s.pos[2]], [ss.pos[0], ss.pos[1] or 0, ss.pos[2]])
+            if dist > SERVER_POS_TOL or (ss.dim and s.dim and ss.dim != s.dim):
+                findings.append({"code": "agent_server_mismatch", "category": "claim", "severity": "high",
+                                 "t_start": s.t, "t_end": s.t, "cost_s": 0.0, "lines": [s.line],
+                                 "server_lines": [ss.line],
+                                 "message": f"agent line {s.line} reports pos {tuple(round(v, 1) for v in s.pos)} "
+                                            f"({s.dim}); server line {ss.line} (t={rel}) has "
+                                            f"{tuple(round(v, 1) for v in ss.pos)} ({ss.dim}), {round(dist, 2)} blocks apart",
+                                 "evidence": {"field": "position", "dt_s": round(d, 3)}})
+        if inv_snap and ss.inv:
+            diff = {k: (s.inv.get(k, 0), ss.inv.get(k, 0)) for k in sorted(set(s.inv) | set(ss.inv))
+                    if s.inv.get(k, 0) != ss.inv.get(k, 0)}
+            if diff:
+                findings.append({"code": "agent_server_mismatch", "category": "claim", "severity": "high",
+                                 "t_start": s.t, "t_end": s.t, "cost_s": 0.0, "lines": [s.line],
+                                 "server_lines": [ss.line],
+                                 "message": f"agent inventory snapshot line {s.line} vs server line {ss.line} "
+                                            f"(t={rel}): " + ", ".join(f"{k} agent {a} / server {b}"
+                                                                       for k, (a, b) in diff.items()),
+                                 "evidence": {"field": "inventory", "diff": diff, "dt_s": round(d, 3)}})
+    a_span = (0.0, agent_tl.meta.get("duration_s") or 0.0)
+    s_first = round(sv[0][0] - a0, 3) if sv and a0 is not None else None
+    s_last = round(sv[-1][0] - a0, 3) if sv and a0 is not None else None
+    notes = []
+    if s_first is not None and s_first > a_span[0] + SERVER_WINDOW_S:
+        notes.append(f"server log starts {s_first} s after the agent run start")
+    if s_last is not None and s_last < a_span[1] - SERVER_WINDOW_S:
+        notes.append(f"server log ends at t={s_last} s, {round(a_span[1] - s_last, 3)} s before the agent run "
+                     f"ends (t={a_span[1]} s)")
+        for r in live.get("skill_results") or []:
+            if r["t"] > s_last + SERVER_WINDOW_S:
+                st = [x for x in live.get("skill_starts") or [] if x["line"] < r["line"]]
+                if st and st[-1]["t"] <= s_last:
+                    notes.append(f"server log ends during the {r['skill']} attempt (started t={st[-1]['t']} s, "
+                                 f"line {st[-1]['line']}; result t={r['t']} s, line {r['line']})")
+                notes.append(f"no server evidence for {r['skill']} result at t={r['t']} s (line {r['line']}"
+                             f"{', FAILED' if not r['ok'] else ''})")
+        for x in live.get("inventory_snapshots") or []:
+            if x["t"] > s_last + SERVER_WINDOW_S:
+                notes.append(f"no server evidence for the inventory snapshot at t={x['t']} s (line {x['line']})")
+    cov = {"agent_span_s": [a_span[0], a_span[1]], "server_first_t_s": s_first, "server_last_t_s": s_last,
+           "server_samples": len(sv), "snapshots_checked": checked,
+           "snapshots_without_server_sample": uncovered, "notes": notes}
+    return {"findings": findings, "coverage": cov}
+
+
+def _claims_lines(rep, xcheck, server_log) -> list:
+    claims = [f for f in (rep or {}).get("findings", []) if f.get("category") == "claim"]
+    if xcheck:
+        claims = claims + xcheck["findings"]
+    L = []
+    if claims:
+        L += ["## Claims cross-check", "",
+              "Deterministic checks of what the agent reported against its own log"
+              + (" and the server log" if xcheck else "") + ". Claims never change a verdict.", "",
+              "| Code | Severity | t s | Lines | Finding |", "|---|---|---|---|---|"]
+        for f in claims:
+            ln = ", ".join(map(str, f.get("lines", [])))
+            if f.get("server_lines"):
+                ln += " (server " + ", ".join(map(str, f["server_lines"])) + ")"
+            L.append(f"| {f.get('code')} | {f.get('severity')} | {_f(f.get('t_start'))} | {ln} | "
+                     f"{_ev(f.get('message'))} |")
+        L.append("")
+    if xcheck:
+        c = xcheck["coverage"]
+        L += ["## Evidence coverage", "",
+              f"Server log: `{_rel(server_log)}`, {c['server_samples']} samples, t={_f(c['server_first_t_s'])}"
+              f"-{_f(c['server_last_t_s'])} s (agent run t={_f(c['agent_span_s'][0])}-{_f(c['agent_span_s'][1])} s). "
+              f"Agent snapshots checked against a server sample within +-{SERVER_WINDOW_S} s: "
+              f"{c['snapshots_checked']}; without one: {len(c['snapshots_without_server_sample'])}"
+              + (f" (lines {', '.join(map(str, c['snapshots_without_server_sample']))})"
+                 if c["snapshots_without_server_sample"] else "") + "."]
+        L += [f"- {n}" for n in c["notes"]] or ["- server log covers the whole agent run"]
+        L.append("")
+    return L
+
+
 # ---------------------------------------------------------------- pipeline
 def evaluate(log_path, baseline_path=None, run_id=None, outdir=None, seed_dir=None, rules_path=None,
-             write=True) -> dict:
+             write=True, server_log=None) -> dict:
     """Run RunEval -> v4export -> effcheck on one log. Returns {filename: text} plus parsed parts."""
     runeval = _mod("runeval")
     v4export = _mod("v4export")
@@ -234,11 +361,17 @@ def evaluate(log_path, baseline_path=None, run_id=None, outdir=None, seed_dir=No
         eff = {"error": f"{type(ex).__name__}: {ex}"}
         ok = False
 
+    xcheck = None
+    if server_log:
+        tlmod = _mod("timeline")
+        xcheck = server_crosscheck(tlmod.load_timeline(log_path), tlmod.load_timeline(server_log))
+        rep["server_crosscheck"] = {"server_log": _rel(server_log), **xcheck}
     texts = {
         "timeline.json": _dump(timeline),
         "efficiency.json": _dump(eff, sort_keys=False),  # keep SCHEMA section 8 key order
         "runeval.json": _dump(rep),
-        "report.md": to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, baseline),
+        "report.md": to_markdown(run_id, log_path, baseline_path, timeline, eff, rep, rules, baseline,
+                                 xcheck=xcheck, server_log=server_log),
     }
     if write:
         for name in OUTPUTS:
@@ -255,12 +388,17 @@ def main(argv=None) -> int:
     ap.add_argument("--outdir", default=None, help="output folder (default ../agent_runs/<run-id>)")
     ap.add_argument("--seed-dir", default=None, help="seed feature dir (default: data/seed_<seed>)")
     ap.add_argument("--rules", default=None, help="rules file (default ../baseline/rules.json)")
+    ap.add_argument("--server-log", default=None,
+                    help="server-side poller log of the same run: cross-check claims, report coverage")
     a = ap.parse_args(argv)
+    if a.server_log and not Path(a.server_log).exists():
+        print(f"server log not found: {a.server_log}", file=sys.stderr)
+        return 2
     if not Path(a.log).exists():
         print(f"log not found: {a.log}", file=sys.stderr)
         return 2
     res = evaluate(a.log, baseline_path=a.baseline, run_id=a.run_id, outdir=a.outdir,
-                   seed_dir=a.seed_dir, rules_path=a.rules)
+                   seed_dir=a.seed_dir, rules_path=a.rules, server_log=a.server_log)
     eff = res["efficiency"]
     if not res["ok"]:
         print(f"efficiency check failed: {eff['error']}", file=sys.stderr)

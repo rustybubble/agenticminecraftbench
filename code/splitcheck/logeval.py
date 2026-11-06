@@ -95,6 +95,14 @@ def load_events(path) -> list[dict]:
                 e["_t"] = _ts(e["time"])
             except (KeyError, ValueError, TypeError):
                 e["_t"] = None
+                if "time" not in e:  # live agent log (live/agent): ts (ISO) / epoch (ms)
+                    try:
+                        e["_t"] = _ts(e["ts"])
+                    except (KeyError, ValueError, TypeError):
+                        try:
+                            e["_t"] = float(e["epoch"]) / 1000.0
+                        except (KeyError, ValueError, TypeError):
+                            e["_t"] = None
             out.append(e)
     return out
 

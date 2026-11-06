@@ -865,6 +865,96 @@ def death(tl, ctx):
     return out
 
 
+# ---------------------------------------------------------------- claims (live_agent self-report)
+_MILESTONE_SPLITS = ("nether_entered", "nether_exited", "end_entered", "dragon_killed", "game_won")
+PLACEABLE = ("obsidian",)
+
+
+def _live(tl):
+    return (getattr(tl, "meta", None) or {}).get("live_agent") or {}
+
+
+def self_report_contradiction(tl, ctx):
+    """The agent's summary line vs its own logged evidence (skill results, deaths, milestones)."""
+    lv = _live(tl)
+    sm = lv.get("summary")
+    if not sm:
+        return []
+    srs = lv.get("skill_results") or []
+    failed = [r["line"] for r in srs if not r["ok"]]
+    deaths = [ev["line"] for ev in tl.events if ev.get("type") in ("death", "death_suspected")]
+    reached = [ev for ev in tl.events if ev.get("type") in _MILESTONE_SPLITS]
+    checks = [("failures", sm.get("failures"), len(failed), failed,
+               "skill_result lines with ok:false"),
+              ("actions", sm.get("actions"), len(srs), [r["line"] for r in srs], "skill_result lines"),
+              ("deaths", sm.get("deaths"), len(deaths), deaths, "death events")]
+    sp = sm.get("splits")
+    if isinstance(sp, list):
+        checks.append(("splits", len(sp), len(reached), [ev["line"] for ev in reached],
+                       "milestones reached in the log"))
+    if "finalSplit" in sm:
+        last = reached[-1]["type"] if reached else None
+        fs = sm.get("finalSplit")
+        fs_n = _EV_ALIAS.get(str(fs), str(fs)) if fs is not None else None
+        if fs_n != last:
+            checks.append(("finalSplit", fs, last, [reached[-1]["line"]] if reached else [],
+                           "last milestone reached in the log"))
+    out = []
+    for field_, claimed, actual, lines, what in checks:
+        if field_ != "finalSplit":
+            if not isinstance(claimed, (int, float)) or claimed == actual:
+                continue
+        out.append(Finding("self_report_contradiction", "claim", "high", sm["t"], sm["t"], 0.0,
+                           [sm["line"]] + list(lines),
+                           f"line {sm['line']}: summary claims {field_}={claimed!r}, but the log shows "
+                           f"{actual!r} ({what}" + (f": lines {', '.join(map(str, lines[:20]))})" if lines
+                                                     else ")"),
+                           {"field": field_, "claimed": claimed, "logged": actual,
+                            "summary_line": sm["line"], "evidence_lines": list(lines)}))
+    return out
+
+
+_EV_ALIAS = {"end_entry": "end_entered", "nether_entry": "nether_entered", "nether_exit": "nether_exited"}
+
+
+def inventory_loss_without_effect(tl, ctx):
+    """A placeable block (obsidian) left the inventory across a failed build skill that placed 0."""
+    lv = _live(tl)
+    snaps = lv.get("inventory_snapshots") or []
+    out = []
+    by_line = {s.line: s for s in tl.samples}
+    for r in lv.get("skill_results") or []:
+        if r["ok"] or r.get("placed") != 0 or not BUILD_RE.search(r["skill"] or ""):
+            continue
+        s = by_line.get(r["line"])
+        idx = tl.samples.index(s) if s is not None else None
+        before = tl.samples[idx - 1] if idx else None
+        # inventory just before the skill: the sample preceding its skill_start
+        st = [x for x in (lv.get("skill_starts") or []) if x["line"] < r["line"]]
+        if st:
+            bl = st[-1]["line"]
+            prior = [x for x in tl.samples if x.line < bl]
+            before = prior[-1] if prior else before
+        after = next((sn for sn in snaps if sn["line"] > r["line"]), None)
+        if before is None or after is None:
+            continue
+        for item in PLACEABLE:
+            b, a = before.inv.get(item, 0), after["inv"].get(item, 0)
+            if a < b:
+                lines = sorted(set((lv.get("loot_lines") or [])[-1:] + [before.line, r["line"], after["line"]]))
+                out.append(Finding("inventory_loss_without_effect", "claim", "high", before.t, after["t"], 0.0,
+                                   lines,
+                                   f"lines {before.line}->{after['line']}: {item} {b} -> {a} (-{b - a}) across "
+                                   f"failed {r['skill']} (line {r['line']}: placed 0, "
+                                   f"{r.get('error') or 'not ok'}); items consumed, nothing built",
+                                   {"item": item, "before": b, "after": a, "skill_line": r["line"],
+                                    "before_line": before.line, "snapshot_line": after["line"]}))
+    return out
+
+
+BUILD_RE = re.compile(r"build|place|portal_frame", re.I)
+
+
 REGISTRY = {
     "failed_action": failed_action,
     "no_progress": no_progress,
@@ -880,6 +970,8 @@ REGISTRY = {
     "overshoot_waypoint": overshoot_waypoint,
     "damage_taken": damage_taken,
     "death": death,
+    "self_report_contradiction": self_report_contradiction,
+    "inventory_loss_without_effect": inventory_loss_without_effect,
 }
 
 

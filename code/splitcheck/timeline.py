@@ -3,6 +3,9 @@
 Formats:
   * agent        -- rmalde/minecraft-agent events.jsonl (nether-agent.mjs `log(type, data)`):
                     start/decision/result/plan/position_sample/display_state/death/... events.
+  * live_agent   -- live/agent (mineflayer) events.jsonl: spawn/route_start/route_step/skill_start/
+                    skill_result/route_loot/route_portal/route_state/route_inventory/linger/summary,
+                    timed by ts (ISO) / epoch (ms). Loot lists are "namexN" strings.
   * human_poller -- capture/rcon_poller.py output: start{source:"rcon_poller"}, position_sample
                     {player, position[x,y,z], dimension, inventory, health, feet_block?, head_block?},
                     nether_entered, nether_exited, end_entered, death_suspected, stop.
@@ -12,6 +15,7 @@ load_timeline(path, route_sheet=None) -> Timeline. Every Sample/event keeps its 
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -129,7 +133,14 @@ def normalize_knowledge(src: dict, into: dict | None = None) -> dict:
     return out
 
 
+_LIVE_TYPES = ("skill_result", "skill_start", "route_start")
+
+
 def _detect_source(events: list[dict]) -> str:
+    types = {e.get("type") for e in events}
+    if (types & set(_LIVE_TYPES)) or {"spawn", "summary"} <= types:
+        if not any(e.get("source") == "rcon_poller" for e in events):
+            return "live_agent"
     for e in events:
         if e.get("source") == "rcon_poller":
             return "human_poller"
@@ -146,6 +157,8 @@ def _detect_source(events: list[dict]) -> str:
 def load_timeline(path, route_sheet=None) -> Timeline:
     events = load_events(path)
     source = _detect_source(events)
+    if source == "live_agent":
+        return _load_live_agent(path, events)
     malformed = [e["_line"] for e in events if e.get("type") == "_parse_error"]
     good = [e for e in events if e.get("type") != "_parse_error"]
     untimed = [e["_line"] for e in good if e.get("_t") is None]
@@ -273,3 +286,143 @@ def _counts(it):
     for x in it:
         out[str(x)] = out.get(str(x), 0) + 1
     return dict(sorted(out.items()))
+
+
+# ---------------------------------------------------------------- live_agent format
+_ITEM_N_RE = re.compile(r"^(.*?)x(\d+)$")
+BUILD_SKILL_RE = re.compile(r"build|place|portal_frame", re.I)
+
+
+def parse_item_list(items) -> dict:
+    """["obsidianx4", "breadx1", "obsidianx1"] -> {"bread": 1, "obsidian": 5} (duplicates summed)."""
+    out: dict = {}
+    for it in items or []:
+        if isinstance(it, dict):
+            name, n = it.get("name"), it.get("count", 1)
+        else:
+            m = _ITEM_N_RE.match(str(it).strip())
+            name, n = (m.group(1), m.group(2)) if m else (str(it).strip(), 1)
+        if not name:
+            continue
+        name = str(name).replace("minecraft:", "")
+        try:
+            out[name] = out.get(name, 0) + int(n)
+        except (TypeError, ValueError):
+            continue
+    return dict(sorted(out.items()))
+
+
+def _load_live_agent(path, events) -> Timeline:
+    malformed = [e["_line"] for e in events if e.get("type") == "_parse_error"]
+    good = [e for e in events if e.get("type") != "_parse_error"]
+    untimed = [e["_line"] for e in good if e.get("_t") is None]
+    timed = [e for e in good if e.get("_t") is not None]
+    t0 = timed[0]["_t"] if timed else None
+    tl = Timeline(source="live_agent")
+    knowledge: dict = {}
+    inv: dict = {}
+    pos, dim, prev_dim = None, None, None
+    last_loot_got = None   # skill_result loot_chest got list not yet echoed by route_loot
+    live = {"summary": None, "skill_results": [], "inventory_snapshots": [], "loot_lines": [],
+            "deaths": [], "split_events": [], "skill_starts": []}
+    seen = set()
+
+    def add_event(typ, t, ln, p=None, **extra):
+        if typ in seen and typ != "death":
+            return
+        ev = {"t": t, "line": ln, "type": typ}
+        if p:
+            ev["pos"] = p
+        ev.update(extra)
+        tl.events.append(ev)
+        seen.add(typ)
+
+    for e in timed:
+        t = round(e["_t"] - t0, 3)
+        ln = e["_line"]
+        typ = e.get("type")
+        res = e.get("result") if isinstance(e.get("result"), dict) else {}
+        action = failed = None
+        new_dim = _norm_dim(e.get("dimension")) if e.get("dimension") else None
+        if typ == "spawn":
+            pos = _pos_tuple(e.get("pos")) or pos
+            dim = new_dim or "overworld"
+            add_event("start", t, ln, pos)
+        elif typ == "route_start":
+            for st in e.get("route") or []:
+                if isinstance(st, dict) and st.get("step") and _is_point(st):
+                    knowledge.setdefault(str(st["step"]), {"x": _num(st.get("x")), "y": _num(st.get("y")),
+                                                           "z": _num(st.get("z")), "dim": "overworld"})
+            for k in ("seed", "version"):
+                if k in e:
+                    tl.meta.setdefault(k, e[k])
+        elif typ == "skill_start":
+            live["skill_starts"].append({"line": ln, "t": t, "skill": e.get("skill")})
+        elif typ == "skill_result":
+            ok = bool(e.get("ok")) and res.get("ok", True) is not False
+            action, failed = str(e.get("skill") or "skill"), not ok
+            pos = _pos_tuple(res.get("pos")) or pos
+            got = res.get("got")
+            if isinstance(got, list) and e.get("skill") == "loot_chest":
+                for k, n in parse_item_list(got).items():
+                    inv[k] = inv.get(k, 0) + n
+                last_loot_got = got
+                live["loot_lines"].append(ln)
+            frame = res.get("frame") if isinstance(res.get("frame"), dict) else {}
+            live["skill_results"].append({"line": ln, "t": t, "skill": action, "ok": ok,
+                                          "placed": frame.get("placed") if frame else None,
+                                          "error": res.get("error")})
+        elif typ == "route_loot":
+            got = res.get("got")
+            if isinstance(got, list):
+                if got != last_loot_got:  # not an echo of the loot_chest skill_result
+                    for k, n in parse_item_list(got).items():
+                        inv[k] = inv.get(k, 0) + n
+                    live["loot_lines"].append(ln)
+                last_loot_got = None
+        elif typ == "route_inventory":
+            inv = parse_item_list(e.get("items"))
+            live["inventory_snapshots"].append({"line": ln, "t": t, "inv": dict(inv)})
+        elif typ == "summary":
+            pos = _pos_tuple(e.get("positions") or e.get("pos")) or pos
+            live["summary"] = {"line": ln, "t": t,
+                               **{k: e.get(k) for k in ("elapsedS", "actions", "failures", "deaths",
+                                                        "splits", "finalSplit", "runId")}}
+            if e.get("runId"):
+                tl.meta.setdefault("run_id", e["runId"])
+        elif typ in ("death", "died", "death_suspected"):
+            add_event("death" if typ != "death_suspected" else typ, t, ln, _pos_tuple(e.get("pos")) or pos)
+            live["deaths"].append(ln)
+        elif typ in ("split", "milestone"):
+            name = _EVENT_ALIASES.get(str(e.get("split") or e.get("name") or ""),
+                                      str(e.get("split") or e.get("name") or ""))
+            if name:
+                add_event(name, t, ln, pos, derived="split_event")
+                live["split_events"].append(ln)
+        elif typ in MILESTONES or typ in _EVENT_ALIASES:
+            add_event(_EVENT_ALIASES.get(typ, typ), t, ln, pos)
+            live["split_events"].append(ln)
+        if new_dim:
+            dim = new_dim
+        if dim and prev_dim and dim != prev_dim:
+            mt = ("end_entered" if dim == "the_end" else "nether_entered" if dim == "the_nether"
+                  else "nether_exited" if prev_dim == "the_nether" else None)
+            if mt:
+                add_event(mt, t, ln, pos, derived="dimension_change")
+        prev_dim = dim or prev_dim
+        tl.samples.append(Sample(t=t, line=ln, pos=pos, dim=dim or "overworld", inv=dict(inv),
+                                 action=action, action_failed=failed, kind=typ,
+                                 action_desc=(res.get("error") if failed else None),
+                                 result=("FAILED: " + str(res.get("error") or "not ok")) if failed
+                                 else ("ok" if action else None)))
+    tl.events.sort(key=lambda ev: (ev["t"], ev["line"]))
+    tl.knowledge = knowledge
+    tl.meta.update({
+        "path": str(path), "lines": len(events), "malformed_lines": len(malformed),
+        "malformed_line_numbers": malformed[:50], "untimed_lines": len(untimed), "t0_epoch": t0,
+        "duration_s": round(timed[-1]["_t"] - t0, 3) if timed else 0.0,
+        "event_type_counts": _counts(e.get("type") for e in good),
+        "knowledge_source": "route_start" if knowledge else "none",
+        "live_agent": live,
+    })
+    return tl
