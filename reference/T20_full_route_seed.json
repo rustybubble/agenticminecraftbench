@@ -637,7 +637,7 @@
         ]
       },
       "expected_verdict": "ILLEGAL",
-      "why_wrong": "Blazes do not spawn on Peaceful, and no blaze rods are needed."
+      "why_wrong": "Blazes do not spawn on Peaceful, even from spawners (wiki Difficulty, raw line 23), and no blaze rods are needed."
     },
     {
       "answer": {

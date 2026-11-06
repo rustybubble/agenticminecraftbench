@@ -8,7 +8,7 @@
     "abs": 0
   },
   "pro_time_s": null,
-  "why": "All 12 frames in the survey have eye = true, so the End portal is already active (the 9 end_portal blocks are present in the survey). No eyes are needed to light it, and the stronghold location is already known, so no eyes are needed to find it either. So no blaze rods and no pearls: the whole fortress and bastion splits are skipped. The human 2:54.545 run on this seed has only two Nether portal crossings and no fortress.",
+  "why": "All 12 frames in the survey have eye = true, so the End portal is already active (the 9 end_portal blocks are present in the survey). No eyes are needed to light it, and the stronghold location is already known, so no eyes are needed to find it either. So no blaze rods and no pearls: the whole fortress and bastion splits are skipped. On Peaceful it could not be done anyway: blazes never spawn, even from spawners, so eyes cannot be crafted, and only a naturally 12-eye portal can be used. The human 2:54.545 run on this seed has only two Nether portal crossings and no fortress.",
   "trap": "6 rods and 12 pearls (or 7 and 14 with spares): the default RSG count, which ignores the survey.",
   "techniques": [
     {
@@ -25,7 +25,8 @@
     "rmalde/minecraft-agent:README.md:35",
     "rmalde/minecraft-agent:optimization/nether/REVIEW.md:7",
     "https://www.speedrun.com/api/v1/runs/yoex3d0z (comment field, fetched 2026-11-06)",
-    "https://minecraft.wiki/w/End_Portal_Frame (raw lines 16, 30)"
+    "https://minecraft.wiki/w/End_Portal_Frame (raw lines 16, 30)",
+    "https://minecraft.wiki/w/Difficulty (raw lines 21-23, 74: no blazes on Peaceful, even from spawners; eyes cannot be crafted; 12-eye portals)"
   ],
   "verified": true,
   "alternates": [

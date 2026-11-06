@@ -421,7 +421,7 @@ TASKS.append({
         "pro_time_s": None,
         "why": "All 12 frames in the survey have eye = true, so the End portal is already active (the 9 end_portal blocks are present in the survey). "
                "No eyes are needed to light it, and the stronghold location is already known, so no eyes are needed to find it either. "
-               "So no blaze rods and no pearls: the whole fortress and bastion splits are skipped. The human 2:54.545 run on this seed has only two Nether portal crossings and no fortress.",
+               "So no blaze rods and no pearls: the whole fortress and bastion splits are skipped. On Peaceful it could not be done anyway: blazes never spawn, even from spawners, so eyes cannot be crafted, and only a naturally 12-eye portal can be used. The human 2:54.545 run on this seed has only two Nether portal crossings and no fortress.",
         "trap": "6 rods and 12 pearls (or 7 and 14 with spares): the default RSG count, which ignores the survey.",
         "techniques": [
             {"tag": "skip_fortress_active_portal", "description": "Skip blaze rods and pearls when the End portal is pre-filled.", "est_time_saved_s": None, "verified": True,
@@ -429,7 +429,7 @@ TASKS.append({
         ],
         "miss_category": "ignores_information",
         "sources": [AGENT + ":optimization/nether/stronghold-survey.json (groups.end_portal_frame: 12 frames, all eye = true; groups.end_portal: 9 blocks)",
-                    AGENT + ":README.md:35", AGENT + ":optimization/nether/REVIEW.md:7", HUMAN_RUN_API, W + "End_Portal_Frame (raw lines 16, 30)"],
+                    AGENT + ":README.md:35", AGENT + ":optimization/nether/REVIEW.md:7", HUMAN_RUN_API, W + "End_Portal_Frame (raw lines 16, 30)", W + "Difficulty (raw lines 21-23, 74: no blazes on Peaceful, even from spawners; eyes cannot be crafted; 12-eye portals)"],
         "verified": True,
         "alternates": [{"answer": {"blaze_rods": 0, "ender_pearls": 0, "reasoning": "Portal already active."}, "why_valid": "Same numbers."}],
         "broken": [{"answer": {"blaze_rods": 6, "ender_pearls": 12}, "expected_verdict": "WRONG", "why_wrong": "Ignores the pre-filled frames."},

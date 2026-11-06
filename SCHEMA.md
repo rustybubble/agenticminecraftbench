@@ -164,6 +164,7 @@ A plan is `{"actions": [ ... ]}`. Each action is an object with `"action"` plus 
 - **Beds**: `mine{block: "white_bed" | "yellow_bed" | ..., count, at}` picks up that many bed items. Bed items are counted together for `bed_explode`.
 - **Dragon kill**: a plan kills the dragon when the total `bed_explode` count in `the_end` reaches `splits/time_costs.json` → `rules.dragon_beds_required`. Melee or bow kills use `kill{mob: "ender_dragon"}` and are priced by the `kill_ender_dragon_melee` entry.
 - **Finish**: a `full_route` plan finishes with `enter_portal` in `the_end` after the dragon is dead (the exit portal).
+- **Peaceful**: hostile mobs (including `blaze`, `enderman`) never spawn, naturally or from spawners, so `kill` of them is `ILLEGAL` on Peaceful ([wiki: Difficulty](https://minecraft.wiki/w/Difficulty), raw lines 21-23). Piglins exist but are passive.
 - **Portal linking**: entering a Nether portal at overworld (x, z) arrives in the Nether near (x/8, z/8), and the reverse. Y is not scaled. When the reference has a known arrival point (for example `state.known_locations` entries called `nether_arrival`), use it.
 
 ## Changelog

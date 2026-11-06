@@ -402,7 +402,7 @@ TASKS.append({
             {"answer": {"actions": FR_NO_VILLAGE}, "expected_verdict": "ILLEGAL", "why_wrong": "15 obsidian: 7 for the entry leaves 8, not enough for the 10-block exit portal."},
             {"answer": {"actions": FR_OVERWORLD_WALK}, "expected_verdict": "SLOW",
              "why_wrong": "Skips the Nether and walks about 1,100 overworld blocks to the stronghold (about 3 minutes at sprint speed) instead of about 140 in the Nether."},
-            {"answer": {"actions": FR_FORTRESS}, "expected_verdict": "ILLEGAL", "why_wrong": "Blazes do not spawn on Peaceful, and no blaze rods are needed."},
+            {"answer": {"actions": FR_FORTRESS}, "expected_verdict": "ILLEGAL", "why_wrong": "Blazes do not spawn on Peaceful, even from spawners (wiki Difficulty, raw line 23), and no blaze rods are needed."},
             {"answer": {"actions": FR_FOOD}, "expected_verdict": "SLOW", "why_wrong": "Loots five food chests on Peaceful, where food cannot even be eaten."},
         ],
     },
