@@ -1,0 +1,515 @@
+{
+ "problems": [],
+ "results": [
+  {
+   "answer_type": "plan",
+   "attempt_file": "T06_nether_entry_lava_pool.json",
+   "date": "2026-11-06T18:12:30Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['actions'] that is not the answer_schema echo",
+     "span": [
+      0,
+      613
+     ]
+    },
+    "failed_step": 2,
+    "pro_time_s": 53.503,
+    "pro_time_source": "reference.answer priced with the time-cost table (pro_time_s null, SCHEMA v2)",
+    "steps": [
+     {
+      "action": "travel",
+      "index": 0,
+      "note": "18.0 blocks in overworld",
+      "ok": true,
+      "time_s": 2.529
+     },
+     {
+      "action": "mine",
+      "index": 1,
+      "note": "stochastic: expected value used",
+      "ok": true,
+      "time_s": 0.9
+     },
+     {
+      "action": "craft",
+      "index": 2,
+      "note": "crafting 1 flint_and_steel (1 craft(s)) needs 1 flint, have 0",
+      "ok": false,
+      "time_s": 0.0
+     }
+    ],
+    "techniques_used": [],
+    "time_s": 3.429,
+    "tolerance_seconds": 15.0
+   },
+   "miss_category": "brute_force_over_trick",
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "actions": [
+     {
+      "action": "travel",
+      "to": "gravel_patch"
+     },
+     {
+      "action": "mine",
+      "at": "gravel_patch",
+      "block": "gravel",
+      "count": 1
+     },
+     {
+      "action": "craft",
+      "count": 1,
+      "item": "flint_and_steel"
+     },
+     {
+      "action": "travel",
+      "to": "lava_pool"
+     },
+     {
+      "action": "build_portal",
+      "method": "bucket_lava"
+     },
+     {
+      "action": "light_portal",
+      "with": "flint_and_steel"
+     },
+     {
+      "action": "enter_portal"
+     }
+    ],
+    "reasoning": "Repeat the gravel mining action until the first flint drops, then immediately stop; one break does not guarantee flint. Cast a minimum 10-obsidian frame using the existing water bucket, pool lava and cobblestone. No additional bucket or diamond pickaxe is needed."
+   },
+   "pro_time_s": 53.503,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nRandom seed, 2:10 into the run. You are at (100, 64, -40). There is no village, ruined portal or known obsidian within 300 blocks, and you have found no diamonds. A surface lava pool with more than 20 lava source blocks is at about (130, 62, -15). A patch of exposed gravel (30+ blocks) is at about (110, 63, -55).\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 100,\n  \"y\": 64,\n  \"z\": -40\n },\n \"inventory\": {\n  \"water_bucket\": 1,\n  \"iron_ingot\": 2,\n  \"stone_pickaxe\": 1,\n  \"cobblestone\": 24,\n  \"oak_planks\": 6,\n  \"crafting_table\": 1\n },\n \"known_locations\": {\n  \"lava_pool\": {\n   \"x\": 130,\n   \"y\": 62,\n   \"z\": -15,\n   \"dimension\": \"overworld\"\n  },\n  \"gravel_patch\": {\n   \"x\": 110,\n   \"y\": 63,\n   \"z\": -55,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"structures\": {\n   \"lava_pool\": {\n    \"type\": \"lava_pool\",\n    \"notes\": \"surface pool, 20+ source blocks\"\n   },\n   \"gravel_patch\": {\n    \"type\": \"gravel_patch\",\n    \"notes\": \"30+ exposed gravel blocks\"\n   }\n  },\n  \"facts\": [\n   \"No village, ruined portal or obsidian within 300 blocks.\",\n   \"No diamonds found.\"\n  ]\n },\n \"elapsed_s\": 130\n}\n\nGive the fastest plan from now until you are standing in the Nether.\n\nPlan actions (use only these, in order; any other key is ignored):\n- {\"action\": \"mine\", \"block\": <block id>, \"count\": <int>, \"at\": <optional location name>}  break blocks and collect the drops\n- {\"action\": \"craft\", \"item\": <item id>, \"count\": <int>}\n- {\"action\": \"smelt\", \"item\": <output item id>, \"count\": <int>, \"fuel\": <item id>}\n- {\"action\": \"loot_chest\", \"at\": <location name>}  take everything from that chest\n- {\"action\": \"travel\", \"to\": <location name or {\"x\":..,\"y\":..,\"z\":..}>, \"dimension\": <optional>}  move within the current dimension\n- {\"action\": \"build_portal\", \"method\": \"bucket_lava\" | \"chest_obsidian\" | \"mine_obsidian\" | \"complete_ruined\"}  build a Nether portal frame where you are\n- {\"action\": \"light_portal\", \"with\": \"flint_and_steel\" | \"fire_charge\"}\n- {\"action\": \"enter_portal\"}  go through the portal where you are (Nether portal or End portal)\n- {\"action\": \"barter\", \"gold_ingots\": <int>}\n- {\"action\": \"kill\", \"mob\": <mob id>, \"count\": <int>}\n- {\"action\": \"throw_eye\", \"at\": {\"x\":..,\"y\":..,\"z\":..}}\n- {\"action\": \"place_eyes\", \"count\": <int>}\n- {\"action\": \"bed_explode\", \"count\": <int>}  place and use beds (for example against the ender dragon)\n- {\"action\": \"reset\"}  abandon this world\nIds are Minecraft ids without the \"minecraft:\" prefix (obsidian, flint_and_steel, iron_ingot, white_bed, ...).\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"actions\": [{\"action\": \"...\", \"...\": \"...\"}]}",
+   "raw_response": "{\"actions\":[{\"action\":\"travel\",\"to\":\"gravel_patch\"},{\"action\":\"mine\",\"block\":\"gravel\",\"count\":1,\"at\":\"gravel_patch\"},{\"action\":\"craft\",\"item\":\"flint_and_steel\",\"count\":1},{\"action\":\"travel\",\"to\":\"lava_pool\"},{\"action\":\"build_portal\",\"method\":\"bucket_lava\"},{\"action\":\"light_portal\",\"with\":\"flint_and_steel\"},{\"action\":\"enter_portal\"}],\"reasoning\":\"Repeat the gravel mining action until the first flint drops, then immediately stop; one break does not guarantee flint. Cast a minimum 10-obsidian frame using the existing water bucket, pool lava and cobblestone. No additional bucket or diamond pickaxe is needed.\"}",
+   "reason": "step 2 (craft): crafting 1 flint_and_steel (1 craft(s)) needs 1 flint, have 0",
+   "suite": "generic",
+   "task_id": "T06_nether_entry_lava_pool",
+   "techniques_missed": [
+    "lava_pool_portal",
+    "gravel_flint"
+   ],
+   "time_s": 3.429,
+   "verdict": "ILLEGAL"
+  },
+  {
+   "answer_type": "number",
+   "attempt_file": "T07_bastion_pearls_1161.json",
+   "date": "2026-11-06T18:12:30Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['expected_pearls', 'ingots_for_12_pearls'] that is not the answer_schema echo",
+     "span": [
+      0,
+      61
+     ]
+    },
+    "checked": [
+     "field 'expected_pearls': got 9.0780141844, expected 9.08 \u00b10.45 (off by 0.00198582)"
+    ],
+    "failed": [
+     "field 'ingots_for_12_pearls': got 50.76, expected 42.3 \u00b12.1 (off by 8.46)"
+    ]
+   },
+   "miss_category": "resource_miscount",
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "expected_pearls": 9.0780141844,
+    "ingots_for_12_pearls": 50.76
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.1. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are at a bastion remnant in the Nether, wearing a golden helmet, with several adult piglins nearby. You hold 32 gold ingots and no ender pearls. You will barter by throwing gold ingots to the piglins one at a time.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_nether\",\n \"position\": null,\n \"inventory\": {\n  \"gold_ingot\": 32,\n  \"golden_helmet\": 1\n },\n \"known_locations\": {},\n \"world\": {\n  \"facts\": [\n   \"Golden helmet is worn.\",\n   \"Adult piglins nearby.\"\n  ]\n },\n \"elapsed_s\": null\n}\n\n(1) What is the expected (average) number of ender pearls you get from bartering all 32 ingots? (2) On average, how many gold ingots does it take to get 12 ender pearls? Give decimals, not ranges.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"expected_pearls\": <number>, \"ingots_for_12_pearls\": <number>}",
+   "raw_response": "{\"expected_pearls\":9.0780141844,\"ingots_for_12_pearls\":50.76}",
+   "reason": "field 'ingots_for_12_pearls': got 50.76, expected 42.3 \u00b12.1 (off by 8.46)",
+   "suite": "generic",
+   "task_id": "T07_bastion_pearls_1161",
+   "techniques_missed": [
+    "version_barter_rates"
+   ],
+   "time_s": null,
+   "verdict": "WRONG"
+  },
+  {
+   "answer_type": "number",
+   "attempt_file": "T08_bastion_pearls_1165.json",
+   "date": "2026-11-06T18:12:56Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['expected_pearls', 'ingots_for_12_pearls'] that is not the answer_schema echo",
+     "span": [
+      0,
+      66
+     ]
+    },
+    "checked": [
+     "field 'expected_pearls': got 2.091503267973856, expected 2.09 \u00b10.3 (off by 0.00150327)"
+    ],
+    "failed": [
+     "field 'ingots_for_12_pearls': got 200.6, expected 183.6 \u00b19.2 (off by 17)"
+    ]
+   },
+   "miss_category": "resource_miscount",
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "expected_pearls": 2.091503267973856,
+    "ingots_for_12_pearls": 200.6
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are at a bastion remnant in the Nether, wearing a golden helmet, with several adult piglins nearby. You hold 32 gold ingots and no ender pearls. You will barter by throwing gold ingots to the piglins one at a time.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_nether\",\n \"position\": null,\n \"inventory\": {\n  \"gold_ingot\": 32,\n  \"golden_helmet\": 1\n },\n \"known_locations\": {},\n \"world\": {\n  \"facts\": [\n   \"Golden helmet is worn.\",\n   \"Adult piglins nearby.\"\n  ]\n },\n \"elapsed_s\": null\n}\n\n(1) What is the expected (average) number of ender pearls you get from bartering all 32 ingots? (2) On average, how many gold ingots does it take to get 12 ender pearls? Give decimals, not ranges.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"expected_pearls\": <number>, \"ingots_for_12_pearls\": <number>}",
+   "raw_response": "{\"expected_pearls\":2.091503267973856,\"ingots_for_12_pearls\":200.6}",
+   "reason": "field 'ingots_for_12_pearls': got 200.6, expected 183.6 \u00b19.2 (off by 17)",
+   "suite": "generic",
+   "task_id": "T08_bastion_pearls_1165",
+   "techniques_missed": [
+    "version_barter_rates"
+   ],
+   "time_s": null,
+   "verdict": "WRONG"
+  },
+  {
+   "answer_type": "choice",
+   "attempt_file": "T09_bastion_piglin_rules.json",
+   "date": "2026-11-06T18:12:57Z",
+   "details": {
+    "accepted": [
+     "A"
+    ],
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['choice'] that is not the answer_schema echo",
+     "span": [
+      0,
+      14
+     ]
+    },
+    "checked": []
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "choice": "A"
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are entering a bastion remnant with about 8 adult piglins in view, within 10 blocks. You hold 20 gold ingots and a golden helmet (in your inventory, not worn), and you are wearing no armor. There are chests and blocks of gold in the room with the piglins.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_nether\",\n \"position\": null,\n \"inventory\": {\n  \"gold_ingot\": 20,\n  \"golden_helmet\": 1\n },\n \"known_locations\": {},\n \"world\": {\n  \"facts\": [\n   \"8 adult piglins within 10 blocks with line of sight\",\n   \"Chests and blocks of gold in the same room\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhich approach gets you pearls fastest without a fight? Options:\nA: Put on the golden helmet, throw gold ingots to the piglins, and do not open any chest while piglins can see you.\nB: Leave the golden helmet in your inventory (not worn) and throw gold ingots to the piglins.\nC: Put on the golden helmet, then open the bastion chests next to the piglins to collect extra gold first, then barter.\nD: Put on the golden helmet, then mine the blocks of gold next to the piglins for extra gold, then barter.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\" | \"D\"}",
+   "raw_response": "{\"choice\":\"A\"}",
+   "reason": "choice 'A' is in accepted ['A']",
+   "suite": "generic",
+   "task_id": "T09_bastion_piglin_rules",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "number",
+   "attempt_file": "T11_fortress_rods_generic.json",
+   "date": "2026-11-06T18:13:04Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['additional_blaze_rods'] that is not the answer_schema echo",
+     "span": [
+      0,
+      27
+     ]
+    },
+    "checked": [
+     "field 'additional_blaze_rods': got 3, expected 3 \u00b10 (off by 0)"
+    ]
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "additional_blaze_rods": 3
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in a Nether fortress next to a blaze spawner. You hold 11 ender pearls, 2 blaze rods and 1 blaze powder. You want to craft an eye of ender from every pearl you have.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_nether\",\n \"position\": null,\n \"inventory\": {\n  \"ender_pearl\": 11,\n  \"blaze_rod\": 2,\n  \"blaze_powder\": 1\n },\n \"known_locations\": {},\n \"world\": {\n  \"structures\": {},\n  \"facts\": [\n   \"Next to a blaze spawner in a fortress.\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhat is the minimum number of additional blaze rods you must get from blazes?\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"additional_blaze_rods\": <int>}",
+   "raw_response": "{\"additional_blaze_rods\":3}",
+   "reason": "all fields within tolerance: field 'additional_blaze_rods': got 3, expected 3 \u00b10 (off by 0)",
+   "suite": "generic",
+   "task_id": "T11_fortress_rods_generic",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "choice",
+   "attempt_file": "T13_blind_generic_route.json",
+   "date": "2026-11-06T18:13:12Z",
+   "details": {
+    "accepted": [
+     "B",
+     "E"
+    ],
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['choice'] that is not the answer_schema echo",
+     "span": [
+      0,
+      14
+     ]
+    },
+    "checked": []
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "choice": "B"
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in the overworld at (40, 70, -60), standing next to your lit Nether portal. From eye throws you estimate the stronghold is at about overworld (1800, ~, -900). You carry 12 obsidian, a flint and steel, 12 eyes of ender and blocks. Terrain in both dimensions is ordinary.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 40,\n  \"y\": 70,\n  \"z\": -60\n },\n \"inventory\": {\n  \"obsidian\": 12,\n  \"flint_and_steel\": 1,\n  \"ender_eye\": 12,\n  \"cobblestone\": 64\n },\n \"known_locations\": {\n  \"my_portal\": {\n   \"x\": 40,\n   \"y\": 70,\n   \"z\": -60,\n   \"dimension\": \"overworld\"\n  },\n  \"stronghold_estimate\": {\n   \"x\": 1800,\n   \"y\": 40,\n   \"z\": -900,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"facts\": [\n   \"Nether portal at your position is lit and links to the Nether near (5, ~, -7.5).\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhich way gets you to the stronghold fastest?\nA: Walk and sprint in the overworld straight to (1800, -900).\nB: Go through your portal, travel in the Nether to about (225, -112), build a portal there and exit to the overworld.\nC: Go through your portal, travel in the Nether to about (1800, -900), build a portal there and exit to the overworld.\nD: Go through your portal, travel in the Nether to about (14400, -7200), build a portal there and exit to the overworld.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\" | \"D\" | \"E\"}",
+   "raw_response": "{\"choice\":\"B\"}",
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "suite": "generic",
+   "task_id": "T13_blind_generic_route",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "coordinates",
+   "attempt_file": "T14_triangulation_overworld.json",
+   "date": "2026-11-06T18:13:20Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['x', 'z'] that is not the answer_schema echo",
+     "span": [
+      0,
+      48
+     ]
+    },
+    "expected": {
+     "x": 1504.3,
+     "z": -2112.5
+    },
+    "got": {
+     "x": 1504.3,
+     "z": -2112.5
+    },
+    "horizontal_distance": 0.0,
+    "tolerance_blocks": 16.0
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "dimension": "overworld",
+    "x": 1504.3,
+    "z": -2112.5
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in the overworld after leaving the Nether. You threw two eyes of ender. For each throw you put your crosshair on the flying eye and read your yaw from the F3 screen's Facing line. Throw 1: standing at (1180.7, 70, -1650.3), F3 shows Facing: north (Towards negative Z), yaw -145.0. Throw 2: standing at (1262.4, 70, -1609.8), F3 shows Facing: north (Towards negative Z), yaw -154.3. Both eyes survived and you picked them up. Assume both eyes fly exactly toward the same point.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 1262.4,\n  \"y\": 70,\n  \"z\": -1609.8\n },\n \"inventory\": {\n  \"ender_eye\": 12,\n  \"obsidian\": 10,\n  \"flint_and_steel\": 1\n },\n \"known_locations\": {\n  \"throw_1\": {\n   \"x\": 1180.7,\n   \"y\": 70,\n   \"z\": -1650.3,\n   \"dimension\": \"overworld\"\n  },\n  \"throw_2\": {\n   \"x\": 1262.4,\n   \"y\": 70,\n   \"z\": -1609.8,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"facts\": [\n   \"Throw 1 yaw -145.0\",\n   \"Throw 2 yaw -154.3\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhat overworld X and Z do the eyes point to?\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"x\": <number>, \"z\": <number>, \"dimension\": \"overworld\"}",
+   "raw_response": "{\"x\":1504.3,\"z\":-2112.5,\"dimension\":\"overworld\"}",
+   "reason": "(1504.3, -2112.5) is 0.0 blocks from reference (1504.3, -2112.5); within 16",
+   "suite": "generic",
+   "task_id": "T14_triangulation_overworld",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "coordinates",
+   "attempt_file": "T15_triangulation_nether_target.json",
+   "date": "2026-11-06T18:13:20Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['x', 'z'] that is not the answer_schema echo",
+     "span": [
+      0,
+      49
+     ]
+    },
+    "expected": {
+     "x": 188.0,
+     "z": -264.1
+    },
+    "got": {
+     "x": 188.14,
+     "z": -264.26
+    },
+    "horizontal_distance": 0.213,
+    "tolerance_blocks": 2.0
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "dimension": "the_nether",
+    "x": 188.14,
+    "z": -264.26
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in the overworld after leaving the Nether. You threw two eyes of ender. For each throw you put your crosshair on the flying eye and read your yaw from the F3 screen's Facing line. Throw 1: standing at (1180.7, 70, -1650.3), F3 shows Facing: north (Towards negative Z), yaw -145.0. Throw 2: standing at (1262.4, 70, -1609.8), F3 shows Facing: north (Towards negative Z), yaw -154.3. Both eyes survived and you picked them up. Assume both eyes fly exactly toward the same point. You decide to go back into the Nether and travel there, then build a portal and come out next to the stronghold.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 1262.4,\n  \"y\": 70,\n  \"z\": -1609.8\n },\n \"inventory\": {\n  \"ender_eye\": 12,\n  \"obsidian\": 10,\n  \"flint_and_steel\": 1\n },\n \"known_locations\": {\n  \"throw_1\": {\n   \"x\": 1180.7,\n   \"y\": 70,\n   \"z\": -1650.3,\n   \"dimension\": \"overworld\"\n  },\n  \"throw_2\": {\n   \"x\": 1262.4,\n   \"y\": 70,\n   \"z\": -1609.8,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"facts\": [\n   \"Throw 1 yaw -145.0\",\n   \"Throw 2 yaw -154.3\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nAt what Nether X and Z should you build the portal that takes you out next to the stronghold the eyes point to?\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"x\": <number>, \"z\": <number>, \"dimension\": \"the_nether\"}",
+   "raw_response": "{\"x\":188.14,\"z\":-264.26,\"dimension\":\"the_nether\"}",
+   "reason": "(188.14, -264.26) is 0.2 blocks from reference (188, -264.1); within 2",
+   "suite": "generic",
+   "task_id": "T15_triangulation_nether_target",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "number",
+   "attempt_file": "T16_portal_room_eyes.json",
+   "date": "2026-11-06T18:13:24Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['eyes_to_place', 'eyes_short'] that is not the answer_schema echo",
+     "span": [
+      0,
+      35
+     ]
+    },
+    "checked": [
+     "field 'eyes_to_place': got 10, expected 10 \u00b10 (off by 0)",
+     "field 'eyes_short': got 1, expected 1 \u00b10 (off by 0)"
+    ]
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "eyes_short": 1,
+    "eyes_to_place": 10
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou have reached the End portal room. You hold 9 eyes of ender. Looking at the frame, you record each of the 12 End portal frame blocks and whether it already has an eye; the list is in \"world.facts\".\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 70,\n  \"y\": 30,\n  \"z\": -644\n },\n \"inventory\": {\n  \"ender_eye\": 9\n },\n \"known_locations\": {\n  \"portal_room\": {\n   \"x\": 70,\n   \"y\": 30,\n   \"z\": -644,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"facts\": [\n   \"Frames (x, y, z, eye): [{\\\"x\\\": 71, \\\"y\\\": 30, \\\"z\\\": -646, \\\"eye\\\": false}, {\\\"x\\\": 72, \\\"y\\\": 30, \\\"z\\\": -645, \\\"eye\\\": false}, {\\\"x\\\": 70, \\\"y\\\": 30, \\\"z\\\": -646, \\\"eye\\\": true}, {\\\"x\\\": 72, \\\"y\\\": 30, \\\"z\\\": -644, \\\"eye\\\": false}, {\\\"x\\\": 69, \\\"y\\\": 30, \\\"z\\\": -646, \\\"eye\\\": false}, {\\\"x\\\": 72, \\\"y\\\": 30, \\\"z\\\": -643, \\\"eye\\\": false}, {\\\"x\\\": 68, \\\"y\\\": 30, \\\"z\\\": -645, \\\"eye\\\": false}, {\\\"x\\\": 71, \\\"y\\\": 30, \\\"z\\\": -642, \\\"eye\\\": false}, {\\\"x\\\": 68, \\\"y\\\": 30, \\\"z\\\": -644, \\\"eye\\\": false}, {\\\"x\\\": 70, \\\"y\\\": 30, \\\"z\\\": -642, \\\"eye\\\": true}, {\\\"x\\\": 68, \\\"y\\\": 30, \\\"z\\\": -643, \\\"eye\\\": false}, {\\\"x\\\": 69, \\\"y\\\": 30, \\\"z\\\": -642, \\\"eye\\\": false}]\"\n  ]\n },\n \"elapsed_s\": null\n}\n\n(1) How many eyes must you place to activate the portal? (2) How many more eyes than you hold would you need (0 if you have enough)?\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"eyes_to_place\": <int>, \"eyes_short\": <int>}",
+   "raw_response": "{\"eyes_to_place\":10,\"eyes_short\":1}",
+   "reason": "all fields within tolerance: field 'eyes_to_place': got 10, expected 10 \u00b10 (off by 0); field 'eyes_short': got 1, expected 1 \u00b10 (off by 0)",
+   "suite": "generic",
+   "task_id": "T16_portal_room_eyes",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "number",
+   "attempt_file": "T17_portal_room_throw_losses.json",
+   "date": "2026-11-06T18:13:26Z",
+   "details": {
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['expected_eyes_lost', 'p_no_eye_lost'] that is not the answer_schema echo",
+     "span": [
+      0,
+      48
+     ]
+    },
+    "checked": [
+     "field 'expected_eyes_lost': got 0.6, expected 0.6 \u00b10.02 (off by 0)",
+     "field 'p_no_eye_lost': got 0.512, expected 0.512 \u00b10.02 (off by 0)"
+    ]
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "expected_eyes_lost": 0.6,
+    "p_no_eye_lost": 0.512
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou hold exactly 12 eyes of ender. Before you reach the portal room you will throw eyes 3 more times (one eye per throw) to locate the stronghold, and pick up every eye that survives.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": null,\n \"inventory\": {\n  \"ender_eye\": 12\n },\n \"known_locations\": {},\n \"world\": {},\n \"elapsed_s\": null\n}\n\n(1) What is the expected number of eyes you lose over the 3 throws? (2) What is the probability that none of the 3 thrown eyes breaks? Give decimals.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"expected_eyes_lost\": <number>, \"p_no_eye_lost\": <number>}",
+   "raw_response": "{\"expected_eyes_lost\":0.6,\"p_no_eye_lost\":0.512}",
+   "reason": "all fields within tolerance: field 'expected_eyes_lost': got 0.6, expected 0.6 \u00b10.02 (off by 0); field 'p_no_eye_lost': got 0.512, expected 0.512 \u00b10.02 (off by 0)",
+   "suite": "generic",
+   "task_id": "T17_portal_room_throw_losses",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "choice",
+   "attempt_file": "T18_dragon_method.json",
+   "date": "2026-11-06T18:13:31Z",
+   "details": {
+    "accepted": [
+     "B",
+     "E"
+    ],
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['choice'] that is not the answer_schema echo",
+     "span": [
+      0,
+      14
+     ]
+    },
+    "checked": []
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "choice": "B"
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou have just arrived in the End on the obsidian platform. You hold 6 beds, an iron sword, an iron pickaxe and 40 cobblestone. You have no bow.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_end\",\n \"position\": {\n  \"x\": 100,\n  \"y\": 49,\n  \"z\": 0\n },\n \"inventory\": {\n  \"white_bed\": 6,\n  \"iron_sword\": 1,\n  \"iron_pickaxe\": 1,\n  \"cobblestone\": 40\n },\n \"known_locations\": {},\n \"world\": {},\n \"elapsed_s\": null\n}\n\nWhich way kills the dragon fastest with what you have?\nA: Fight with the iron sword: wait for the dragon to perch on the exit portal and hit its head until it dies.\nB: Wait for the dragon to perch on the exit portal, then place and explode beds next to its head, with a block between you and the blast.\nC: Stand on the ground of the main island and explode beds whenever the dragon flies low overhead, before it perches.\nD: Climb the obsidian pillars and destroy every end crystal first, then fight the dragon with the sword.\nE: Tower up the End spike next to where the dragon spawns and explode beds against it as it flies past, without waiting for a perch.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\" | \"D\" | \"E\"}",
+   "raw_response": "{\"choice\":\"B\"}",
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "suite": "generic",
+   "task_id": "T18_dragon_method",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  },
+  {
+   "answer_type": "choice",
+   "attempt_file": "T19_dragon_breath_safety.json",
+   "date": "2026-11-06T18:13:35Z",
+   "details": {
+    "accepted": [
+     "B"
+    ],
+    "answer_selection": {
+     "candidate_index": 0,
+     "candidates": 1,
+     "fenced": false,
+     "selected": "last of 1 object(s) with keys ['choice'] that is not the answer_schema echo",
+     "span": [
+      0,
+      14
+     ]
+    },
+    "checked": []
+   },
+   "miss_category": null,
+   "model": "gpt-6-astra",
+   "parsed_answer": {
+    "choice": "B"
+   },
+   "pro_time_s": null,
+   "prompt": "Answer from your own knowledge only. Do not run commands, read files, or browse the web. Reply with the JSON object the question asks for.\n\nYou are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in the End with 6 beds, 8 hearts of health and no potions. The dragon has just started to perch on the exit portal. Two purple dragon's-breath clouds lie on the ground: one directly between you and your bed spot next to the portal, and a second one just beyond it to the left.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_end\",\n \"position\": null,\n \"inventory\": {\n  \"white_bed\": 6,\n  \"cobblestone\": 20\n },\n \"known_locations\": {},\n \"world\": {\n  \"facts\": [\n   \"Health 16/20\",\n   \"Two dragon's breath clouds between you and the portal\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhat do you do?\nA: Walk straight through the nearer cloud to the bed spot; it is the shortest path and takes about 2 seconds inside the cloud.\nB: Take a longer path around both clouds to the bed spot, even though it costs about 3 extra seconds and you may miss this perch.\nC: Stand still at the edge of the nearer cloud until it fades, then walk through.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\"}",
+   "raw_response": "{\"choice\":\"B\"}",
+   "reason": "choice 'B' is in accepted ['B']",
+   "suite": "generic",
+   "task_id": "T19_dragon_breath_safety",
+   "techniques_missed": [],
+   "time_s": null,
+   "verdict": "OK"
+  }
+ ],
+ "suite": "generic"
+}

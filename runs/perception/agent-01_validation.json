@@ -1,0 +1,1602 @@
+{
+ "per_field": {
+  "chest_visible": {
+   "n": 2,
+   "correct": 2,
+   "accuracy": 1.0,
+   "ci95": [
+    0.342,
+    1.0
+   ],
+   "sufficient": false
+  },
+  "village_visible": {
+   "n": 0,
+   "correct": 0,
+   "accuracy": null,
+   "ci95": null,
+   "sufficient": false
+  },
+  "obsidian_frame": {
+   "n": 2,
+   "correct": 2,
+   "accuracy": 1.0,
+   "ci95": [
+    0.342,
+    1.0
+   ],
+   "sufficient": false
+  },
+  "portal_lit": {
+   "n": 0,
+   "correct": 0,
+   "accuracy": null,
+   "ci95": null,
+   "sufficient": false
+  },
+  "player_in_water": {
+   "n": 0,
+   "correct": 0,
+   "accuracy": null,
+   "ci95": null,
+   "sufficient": false
+  }
+ },
+ "cases": [
+  {
+   "video_t": 0.0,
+   "run_t": 48.56,
+   "field": "chest_visible",
+   "expected": [
+    true
+   ],
+   "observed": true,
+   "correct": true,
+   "basis": "2.1 blocks from nearest chest",
+   "position_basis": "agent line 29 (dt=0.512s)",
+   "confidence": 0.91,
+   "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e"
+  },
+  {
+   "video_t": 0.0,
+   "run_t": 48.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "1.6 blocks from entry portal site (ruined frame)",
+   "position_basis": "agent line 29 (dt=0.512s)",
+   "confidence": 0.91,
+   "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e"
+  },
+  {
+   "video_t": 34.0,
+   "run_t": 82.56,
+   "field": "chest_visible",
+   "expected": [
+    true
+   ],
+   "observed": true,
+   "correct": true,
+   "basis": "4.8 blocks from nearest chest",
+   "position_basis": "agent line 32 (dt=0.707s)",
+   "confidence": 0.9,
+   "frame_sha": "85b0bde092cb8c5076452d4a960cd774f5965a6f8e3df7189df52b8ba3a08bdc"
+  },
+  {
+   "video_t": 34.0,
+   "run_t": 82.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "7.4 blocks from entry portal site (ruined frame)",
+   "position_basis": "agent line 32 (dt=0.707s)",
+   "confidence": 0.9,
+   "frame_sha": "85b0bde092cb8c5076452d4a960cd774f5965a6f8e3df7189df52b8ba3a08bdc"
+  }
+ ],
+ "validated_fields": [],
+ "insufficient_fields": [
+  "chest_visible",
+  "obsidian_frame"
+ ],
+ "min_n": 10,
+ "log_consistency": {
+  "portal_lit": {
+   "n": 48,
+   "consistent": 48,
+   "source": "agent log claim"
+  },
+  "obsidian_frame": {
+   "n": 46,
+   "consistent": 46,
+   "source": "agent log claim"
+  }
+ },
+ "log_cases": [
+  {
+   "video_t": 0.0,
+   "run_t": 48.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "agent line 29 (dt=0.512s)",
+   "confidence": 0.91,
+   "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e",
+   "log_derived": true
+  },
+  {
+   "video_t": 2.0,
+   "run_t": 50.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.93,
+   "frame_sha": "edbf00e6213558590bdeee3326f125faf96bd5392970fcae703f484927c15356",
+   "log_derived": true
+  },
+  {
+   "video_t": 2.0,
+   "run_t": 50.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.93,
+   "frame_sha": "edbf00e6213558590bdeee3326f125faf96bd5392970fcae703f484927c15356",
+   "log_derived": true
+  },
+  {
+   "video_t": 4.0,
+   "run_t": 52.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "ac1a554d21013314bde4687defd8630a80625166b31f050b5e73ebafbb30485b",
+   "log_derived": true
+  },
+  {
+   "video_t": 4.0,
+   "run_t": 52.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "ac1a554d21013314bde4687defd8630a80625166b31f050b5e73ebafbb30485b",
+   "log_derived": true
+  },
+  {
+   "video_t": 6.0,
+   "run_t": 54.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "ffde3cc0a05736eb34635b3d79dbb5a1f68c55975a065a4597eadbf56b4c8b5c",
+   "log_derived": true
+  },
+  {
+   "video_t": 6.0,
+   "run_t": 54.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "ffde3cc0a05736eb34635b3d79dbb5a1f68c55975a065a4597eadbf56b4c8b5c",
+   "log_derived": true
+  },
+  {
+   "video_t": 8.0,
+   "run_t": 56.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.88,
+   "frame_sha": "1fc28902a80bca242a2f0135b6f9c3bdb2dcc85440f48a3e5fa8dd05d059d6ca",
+   "log_derived": true
+  },
+  {
+   "video_t": 8.0,
+   "run_t": 56.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.88,
+   "frame_sha": "1fc28902a80bca242a2f0135b6f9c3bdb2dcc85440f48a3e5fa8dd05d059d6ca",
+   "log_derived": true
+  },
+  {
+   "video_t": 10.0,
+   "run_t": 58.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "295d31ba06db5994de1ac99b4b0b224d9d2b267e493c6f6ebfd43b0c0cf2f09f",
+   "log_derived": true
+  },
+  {
+   "video_t": 10.0,
+   "run_t": 58.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "295d31ba06db5994de1ac99b4b0b224d9d2b267e493c6f6ebfd43b0c0cf2f09f",
+   "log_derived": true
+  },
+  {
+   "video_t": 12.0,
+   "run_t": 60.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.93,
+   "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
+   "log_derived": true
+  },
+  {
+   "video_t": 12.0,
+   "run_t": 60.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.93,
+   "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
+   "log_derived": true
+  },
+  {
+   "video_t": 14.0,
+   "run_t": 62.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.91,
+   "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
+   "log_derived": true
+  },
+  {
+   "video_t": 14.0,
+   "run_t": 62.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.91,
+   "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
+   "log_derived": true
+  },
+  {
+   "video_t": 16.0,
+   "run_t": 64.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
+   "log_derived": true
+  },
+  {
+   "video_t": 16.0,
+   "run_t": 64.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.94,
+   "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
+   "log_derived": true
+  },
+  {
+   "video_t": 18.0,
+   "run_t": 66.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.91,
+   "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
+   "log_derived": true
+  },
+  {
+   "video_t": 18.0,
+   "run_t": 66.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.91,
+   "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
+   "log_derived": true
+  },
+  {
+   "video_t": 20.0,
+   "run_t": 68.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.92,
+   "frame_sha": "036a3a0b7a0168b2c6b91af546214343a55a401533a9dbca38317fa97fcd307f",
+   "log_derived": true
+  },
+  {
+   "video_t": 20.0,
+   "run_t": 68.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.92,
+   "frame_sha": "036a3a0b7a0168b2c6b91af546214343a55a401533a9dbca38317fa97fcd307f",
+   "log_derived": true
+  },
+  {
+   "video_t": 22.0,
+   "run_t": 70.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "8c850c8ad1bc7882cbd6da5c45d0330bbade66738fd4be40c04ca623e30b4670",
+   "log_derived": true
+  },
+  {
+   "video_t": 22.0,
+   "run_t": 70.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "8c850c8ad1bc7882cbd6da5c45d0330bbade66738fd4be40c04ca623e30b4670",
+   "log_derived": true
+  },
+  {
+   "video_t": 24.0,
+   "run_t": 72.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "c422d3a4b28cb30e65570222a5bf7bb17fa7a1eca37e7ad5636a68eef2f6702e",
+   "log_derived": true
+  },
+  {
+   "video_t": 24.0,
+   "run_t": 72.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "c422d3a4b28cb30e65570222a5bf7bb17fa7a1eca37e7ad5636a68eef2f6702e",
+   "log_derived": true
+  },
+  {
+   "video_t": 26.0,
+   "run_t": 74.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "56358574374e95153a7b4402a82965e812de86464d78b8feb9393c2021a8036b",
+   "log_derived": true
+  },
+  {
+   "video_t": 26.0,
+   "run_t": 74.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "56358574374e95153a7b4402a82965e812de86464d78b8feb9393c2021a8036b",
+   "log_derived": true
+  },
+  {
+   "video_t": 28.0,
+   "run_t": 76.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.88,
+   "frame_sha": "ff61cea5dcf693ec3f9c110eb12d5fd722cde6b863061d844607b41b892cd415",
+   "log_derived": true
+  },
+  {
+   "video_t": 28.0,
+   "run_t": 76.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.88,
+   "frame_sha": "ff61cea5dcf693ec3f9c110eb12d5fd722cde6b863061d844607b41b892cd415",
+   "log_derived": true
+  },
+  {
+   "video_t": 30.0,
+   "run_t": 78.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "6c44353df32a10030254d7e251c0c913a2d31cf90a9ac8443c6447e14a90efba",
+   "log_derived": true
+  },
+  {
+   "video_t": 30.0,
+   "run_t": 78.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "6c44353df32a10030254d7e251c0c913a2d31cf90a9ac8443c6447e14a90efba",
+   "log_derived": true
+  },
+  {
+   "video_t": 32.0,
+   "run_t": 80.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "e4c371cfda3d5bc9666be6482eb4e65f4196a82453e39fe4d0d74600764b74ff",
+   "log_derived": true
+  },
+  {
+   "video_t": 32.0,
+   "run_t": 80.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "e4c371cfda3d5bc9666be6482eb4e65f4196a82453e39fe4d0d74600764b74ff",
+   "log_derived": true
+  },
+  {
+   "video_t": 34.0,
+   "run_t": 82.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "agent line 32 (dt=0.707s)",
+   "confidence": 0.9,
+   "frame_sha": "85b0bde092cb8c5076452d4a960cd774f5965a6f8e3df7189df52b8ba3a08bdc",
+   "log_derived": true
+  },
+  {
+   "video_t": 36.0,
+   "run_t": 84.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.83,
+   "frame_sha": "52c859c8f20d404012f88003bbb0f5f6856c43c482b310997b5e8fd5bd391c2e",
+   "log_derived": true
+  },
+  {
+   "video_t": 36.0,
+   "run_t": 84.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.83,
+   "frame_sha": "52c859c8f20d404012f88003bbb0f5f6856c43c482b310997b5e8fd5bd391c2e",
+   "log_derived": true
+  },
+  {
+   "video_t": 38.0,
+   "run_t": 86.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.84,
+   "frame_sha": "82e7e94352a69e7377a420b52db4d54896c8aef539e0d8b18800f92910aa1fb6",
+   "log_derived": true
+  },
+  {
+   "video_t": 38.0,
+   "run_t": 86.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.84,
+   "frame_sha": "82e7e94352a69e7377a420b52db4d54896c8aef539e0d8b18800f92910aa1fb6",
+   "log_derived": true
+  },
+  {
+   "video_t": 40.0,
+   "run_t": 88.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 40.0,
+   "run_t": 88.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 42.0,
+   "run_t": 90.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "f9d572aeced83b83172797f32476bae5b676c12f3c4c6cbf0b49e2c3d1ce5cf8",
+   "log_derived": true
+  },
+  {
+   "video_t": 42.0,
+   "run_t": 90.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "f9d572aeced83b83172797f32476bae5b676c12f3c4c6cbf0b49e2c3d1ce5cf8",
+   "log_derived": true
+  },
+  {
+   "video_t": 44.0,
+   "run_t": 92.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "3aa8f98697728059c97f9ce17fa7dcaa5e8e77f7902752c6b62ebc643890b3ee",
+   "log_derived": true
+  },
+  {
+   "video_t": 44.0,
+   "run_t": 92.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "3aa8f98697728059c97f9ce17fa7dcaa5e8e77f7902752c6b62ebc643890b3ee",
+   "log_derived": true
+  },
+  {
+   "video_t": 46.0,
+   "run_t": 94.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "3aa8f98697728059c97f9ce17fa7dcaa5e8e77f7902752c6b62ebc643890b3ee",
+   "log_derived": true
+  },
+  {
+   "video_t": 46.0,
+   "run_t": 94.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "3aa8f98697728059c97f9ce17fa7dcaa5e8e77f7902752c6b62ebc643890b3ee",
+   "log_derived": true
+  },
+  {
+   "video_t": 48.0,
+   "run_t": 96.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "f9d572aeced83b83172797f32476bae5b676c12f3c4c6cbf0b49e2c3d1ce5cf8",
+   "log_derived": true
+  },
+  {
+   "video_t": 48.0,
+   "run_t": 96.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "f9d572aeced83b83172797f32476bae5b676c12f3c4c6cbf0b49e2c3d1ce5cf8",
+   "log_derived": true
+  },
+  {
+   "video_t": 50.0,
+   "run_t": 98.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 50.0,
+   "run_t": 98.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 52.0,
+   "run_t": 100.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.84,
+   "frame_sha": "82e7e94352a69e7377a420b52db4d54896c8aef539e0d8b18800f92910aa1fb6",
+   "log_derived": true
+  },
+  {
+   "video_t": 52.0,
+   "run_t": 100.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.84,
+   "frame_sha": "82e7e94352a69e7377a420b52db4d54896c8aef539e0d8b18800f92910aa1fb6",
+   "log_derived": true
+  },
+  {
+   "video_t": 54.0,
+   "run_t": 102.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 54.0,
+   "run_t": 102.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "4bc7b86c49592488885dcdbecf76857ab3b635aa14817442ade243b11987e7d4",
+   "log_derived": true
+  },
+  {
+   "video_t": 56.0,
+   "run_t": 104.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "740ccab907ab8b9b2f7699cec8cda3261c0d66ff24ee8862fbfcfdb7a3cf5296",
+   "log_derived": true
+  },
+  {
+   "video_t": 56.0,
+   "run_t": 104.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.87,
+   "frame_sha": "740ccab907ab8b9b2f7699cec8cda3261c0d66ff24ee8862fbfcfdb7a3cf5296",
+   "log_derived": true
+  },
+  {
+   "video_t": 58.0,
+   "run_t": 106.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 58.0,
+   "run_t": 106.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 60.0,
+   "run_t": 108.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 60.0,
+   "run_t": 108.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 62.0,
+   "run_t": 110.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 62.0,
+   "run_t": 110.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 64.0,
+   "run_t": 112.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "144c91e7e1aaa9be1d3a33b0f5d1fd63206cac878ac078978e82cbd64a02fb0d",
+   "log_derived": true
+  },
+  {
+   "video_t": 64.0,
+   "run_t": 112.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "144c91e7e1aaa9be1d3a33b0f5d1fd63206cac878ac078978e82cbd64a02fb0d",
+   "log_derived": true
+  },
+  {
+   "video_t": 66.0,
+   "run_t": 114.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 66.0,
+   "run_t": 114.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 68.0,
+   "run_t": 116.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 68.0,
+   "run_t": 116.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 70.0,
+   "run_t": 118.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 70.0,
+   "run_t": 118.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 72.0,
+   "run_t": 120.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  },
+  {
+   "video_t": 72.0,
+   "run_t": 120.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  },
+  {
+   "video_t": 74.0,
+   "run_t": 122.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 74.0,
+   "run_t": 122.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 76.0,
+   "run_t": 124.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 76.0,
+   "run_t": 124.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 78.0,
+   "run_t": 126.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 78.0,
+   "run_t": 126.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 80.0,
+   "run_t": 128.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "144c91e7e1aaa9be1d3a33b0f5d1fd63206cac878ac078978e82cbd64a02fb0d",
+   "log_derived": true
+  },
+  {
+   "video_t": 80.0,
+   "run_t": 128.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.9,
+   "frame_sha": "144c91e7e1aaa9be1d3a33b0f5d1fd63206cac878ac078978e82cbd64a02fb0d",
+   "log_derived": true
+  },
+  {
+   "video_t": 82.0,
+   "run_t": 130.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 82.0,
+   "run_t": 130.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 84.0,
+   "run_t": 132.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 84.0,
+   "run_t": 132.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 86.0,
+   "run_t": 134.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 86.0,
+   "run_t": 134.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.85,
+   "frame_sha": "b1cdfba602f45e847aff082809bfa9eb38b844371a920534fc1a9e33686a665b",
+   "log_derived": true
+  },
+  {
+   "video_t": 88.0,
+   "run_t": 136.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  },
+  {
+   "video_t": 88.0,
+   "run_t": 136.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  },
+  {
+   "video_t": 90.0,
+   "run_t": 138.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 90.0,
+   "run_t": 138.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.79,
+   "frame_sha": "e09aabfa986833d0cfbede12b508be44ddd6d2ee6a81a6f8a74240a8f6a17b50",
+   "log_derived": true
+  },
+  {
+   "video_t": 92.0,
+   "run_t": 140.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 92.0,
+   "run_t": 140.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "650132a42de074493c7f8b74a43360db1f521bc44527b86cf02f795e91697832",
+   "log_derived": true
+  },
+  {
+   "video_t": 94.0,
+   "run_t": 142.56,
+   "field": "obsidian_frame",
+   "expected": [
+    "none",
+    "partial"
+   ],
+   "observed": "partial",
+   "correct": true,
+   "basis": "no successful build_portal yet (never complete)",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  },
+  {
+   "video_t": 94.0,
+   "run_t": 142.56,
+   "field": "portal_lit",
+   "expected": [
+    false
+   ],
+   "observed": false,
+   "correct": true,
+   "basis": "no successful build/light/nether event yet",
+   "position_basis": "position unknown",
+   "confidence": 0.86,
+   "frame_sha": "2f9d26addd1b8ac34cf4c0e73b51909680213ea44a6aec326c18383e480a4f45",
+   "log_derived": true
+  }
+ ],
+ "unvalidated_fields": [
+  "portal_lit",
+  "village_visible",
+  "lava_visible",
+  "water_visible",
+  "player_visible",
+  "player_in_water",
+  "player_activity",
+  "confidence"
+ ],
+ "rules": {
+  "position": "server sample within 1.0s, else agent sample within 1.0s, else between two agent samples <= 2.0 blocks apart; horizontal distance",
+  "chest_visible": "true if <= 8.0 blocks from a seed chest; false if > 16.0",
+  "village_visible": "true if <= 24.0 blocks from village center; no false label (extent unknown)",
+  "obsidian_frame": "partial (ruined frame) if <= 10.0 blocks from entry portal site; none if > 20.0 (position-based ground truth); 'never complete before a successful build_portal' is log-derived and reported as log consistency only",
+  "portal_lit": "log-derived only (false until a successful build_portal / light / nether event): reported as log consistency, not ground truth",
+  "player_in_water": "server feet_block/eye_block contains 'water' (nearest sample within 1.0s)"
+ },
+ "notes": [
+  "insufficient ground truth (n < 10) for: chest_visible (n=2), obsidian_frame (n=2); these accuracies must not gate findings",
+  "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+ ],
+ "entries": 48
+}

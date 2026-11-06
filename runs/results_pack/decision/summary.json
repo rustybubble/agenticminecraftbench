@@ -1,0 +1,24 @@
+{
+ "by_model": {
+  "gpt-6-astra": {
+   "ILLEGAL": 2,
+   "OK": 15,
+   "WRONG": 2
+  }
+ },
+ "contaminated": [],
+ "self_test": {
+  "generic": {
+   "passed": 63,
+   "total": 63
+  },
+  "seed": {
+   "passed": 35,
+   "total": 35
+  }
+ },
+ "tasks_without_attempt": [
+  "T01_reset_hopeless_plains",
+  "T03_reset_keep_beach_treasure"
+ ]
+}

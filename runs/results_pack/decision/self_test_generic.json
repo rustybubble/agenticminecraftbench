@@ -1,0 +1,574 @@
+{
+ "cases": [
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'reset' is in accepted ['reset']",
+   "task_id": "T01_reset_hopeless_plains"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'reset' is in accepted ['reset']",
+   "task_id": "T01_reset_hopeless_plains"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'keep', accepted ['reset']",
+   "task_id": "T01_reset_hopeless_plains"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'keep' is in accepted ['keep']",
+   "task_id": "T03_reset_keep_beach_treasure"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'keep' is in accepted ['keep']",
+   "task_id": "T03_reset_keep_beach_treasure"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'reset', accepted ['keep']",
+   "task_id": "T03_reset_keep_beach_treasure"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "legal plan, 53.5s (no pro_time_s to compare)",
+   "task_id": "T06_nether_entry_lava_pool"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "legal plan takes 53.5s, within pro 53.5s + 15s",
+   "task_id": "T06_nether_entry_lava_pool"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 0,
+   "pass": true,
+   "reason": "step 1 (build_portal): mine_obsidian portal needs a diamond_pickaxe",
+   "task_id": "T06_nether_entry_lava_pool"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 1,
+   "pass": true,
+   "reason": "step 2 (light_portal): light_portal with flint_and_steel but no flint_and_steel in inventory",
+   "task_id": "T06_nether_entry_lava_pool"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 2,
+   "pass": true,
+   "reason": "step 0 (craft): crafting 1 diamond_pickaxe (1 craft(s)) needs 3 diamond, have 0",
+   "task_id": "T06_nether_entry_lava_pool"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_pearls': got 9.08, expected 9.08 \u00b10.45 (off by 0); field 'ingots_for_12_pearls': got 42.3, expected 42.3 \u00b12.1 (off by 0)",
+   "task_id": "T07_bastion_pearls_1161"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_pearls': got 9.1, expected 9.08 \u00b10.45 (off by 0.02); field 'ingots_for_12_pearls': got 43.0, expected 42.3 \u00b12.1 (off by 0.7)",
+   "task_id": "T07_bastion_pearls_1161"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'expected_pearls': got 2.09, expected 9.08 \u00b10.45 (off by 6.99); field 'ingots_for_12_pearls': got 183.6, expected 42.3 \u00b12.1 (off by 141.3)",
+   "task_id": "T07_bastion_pearls_1161"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'expected_pearls': got 192.0, expected 9.08 \u00b10.45 (off by 182.92); field 'ingots_for_12_pearls': got 2, expected 42.3 \u00b12.1 (off by 40.3)",
+   "task_id": "T07_bastion_pearls_1161"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_pearls': got 2.09, expected 2.09 \u00b10.3 (off by 0); field 'ingots_for_12_pearls': got 183.6, expected 183.6 \u00b19.2 (off by 0)",
+   "task_id": "T08_bastion_pearls_1165"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_pearls': got 2.1, expected 2.09 \u00b10.3 (off by 0.01); field 'ingots_for_12_pearls': got 184.0, expected 183.6 \u00b19.2 (off by 0.4)",
+   "task_id": "T08_bastion_pearls_1165"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'expected_pearls': got 9.08, expected 2.09 \u00b10.3 (off by 6.99); field 'ingots_for_12_pearls': got 42.3, expected 183.6 \u00b19.2 (off by 141.3)",
+   "task_id": "T08_bastion_pearls_1165"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'expected_pearls': got 192.0, expected 2.09 \u00b10.3 (off by 189.91); field 'ingots_for_12_pearls': got 2, expected 183.6 \u00b19.2 (off by 181.6)",
+   "task_id": "T08_bastion_pearls_1165"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'A' is in accepted ['A']",
+   "task_id": "T09_bastion_piglin_rules"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'A' is in accepted ['A']",
+   "task_id": "T09_bastion_piglin_rules"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'B', accepted ['A']",
+   "task_id": "T09_bastion_piglin_rules"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'choice': got 'C', accepted ['A']",
+   "task_id": "T09_bastion_piglin_rules"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'choice': got 'D', accepted ['A']",
+   "task_id": "T09_bastion_piglin_rules"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'additional_blaze_rods': got 3, expected 3 \u00b10 (off by 0)",
+   "task_id": "T11_fortress_rods_generic"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'additional_blaze_rods': got 3, expected 3 \u00b10 (off by 0)",
+   "task_id": "T11_fortress_rods_generic"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'additional_blaze_rods': got 9, expected 3 \u00b10 (off by 6)",
+   "task_id": "T11_fortress_rods_generic"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'additional_blaze_rods': got 4, expected 3 \u00b10 (off by 1)",
+   "task_id": "T11_fortress_rods_generic"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'additional_blaze_rods': got 5, expected 3 \u00b10 (off by 2)",
+   "task_id": "T11_fortress_rods_generic"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "task_id": "T13_blind_generic_route"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "task_id": "T13_blind_generic_route"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'A', accepted ['B', 'E']",
+   "task_id": "T13_blind_generic_route"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'choice': got 'C', accepted ['B', 'E']",
+   "task_id": "T13_blind_generic_route"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'choice': got 'D', accepted ['B', 'E']",
+   "task_id": "T13_blind_generic_route"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "(1504.3, -2112.5) is 0.0 blocks from reference (1504.3, -2112.5); within 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "(1508, -2108) is 5.8 blocks from reference (1504.3, -2112.5); within 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 1,
+   "pass": true,
+   "reason": "(1500, -2120) is 8.6 blocks from reference (1504.3, -2112.5); within 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "(1186.1, -1646.5) is 564.3 blocks from reference (1504.3, -2112.5); tolerance 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "(-1504, 2112) is 5186.2 blocks from reference (1504.3, -2112.5); tolerance 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "(188, -264.1) is 2269.2 blocks from reference (1504.3, -2112.5); tolerance 16",
+   "task_id": "T14_triangulation_overworld"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "(188, -264.1) is 0.0 blocks from reference (188, -264.1); within 2",
+   "task_id": "T15_triangulation_nether_target"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "(188, -264) is 0.1 blocks from reference (188, -264.1); within 2",
+   "task_id": "T15_triangulation_nether_target"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "(1504.3, -2112.5) is 2269.2 blocks from reference (188, -264.1); tolerance 2",
+   "task_id": "T15_triangulation_nether_target"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "(147.6, -206.3) is 70.5 blocks from reference (188, -264.1); tolerance 2",
+   "task_id": "T15_triangulation_nether_target"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'dimension': got 'overworld', expected 'the_nether'",
+   "task_id": "T15_triangulation_nether_target"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'eyes_to_place': got 10, expected 10 \u00b10 (off by 0); field 'eyes_short': got 1, expected 1 \u00b10 (off by 0)",
+   "task_id": "T16_portal_room_eyes"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'eyes_to_place': got 10, expected 10 \u00b10 (off by 0); field 'eyes_short': got 1, expected 1 \u00b10 (off by 0)",
+   "task_id": "T16_portal_room_eyes"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'eyes_to_place': got 12, expected 10 \u00b10 (off by 2); field 'eyes_short': got 3, expected 1 \u00b10 (off by 2)",
+   "task_id": "T16_portal_room_eyes"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'eyes_short': got 0, expected 1 \u00b10 (off by 1)",
+   "task_id": "T16_portal_room_eyes"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_eyes_lost': got 0.6, expected 0.6 \u00b10.02 (off by 0); field 'p_no_eye_lost': got 0.512, expected 0.512 \u00b10.02 (off by 0)",
+   "task_id": "T17_portal_room_throw_losses"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'expected_eyes_lost': got 0.6, expected 0.6 \u00b10.02 (off by 0); field 'p_no_eye_lost': got 0.51, expected 0.512 \u00b10.02 (off by 0.002)",
+   "task_id": "T17_portal_room_throw_losses"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'p_no_eye_lost': got 0.488, expected 0.512 \u00b10.02 (off by 0.024)",
+   "task_id": "T17_portal_room_throw_losses"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'p_no_eye_lost': got 0.4, expected 0.512 \u00b10.02 (off by 0.112)",
+   "task_id": "T17_portal_room_throw_losses"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 1,
+   "pass": true,
+   "reason": "choice 'E' is in accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'A', accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'choice': got 'C', accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'choice': got 'D', accepted ['B', 'E']",
+   "task_id": "T18_dragon_method"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B']",
+   "task_id": "T19_dragon_breath_safety"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'B' is in accepted ['B']",
+   "task_id": "T19_dragon_breath_safety"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'A', accepted ['B']",
+   "task_id": "T19_dragon_breath_safety"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'choice': got 'C', accepted ['B']",
+   "task_id": "T19_dragon_breath_safety"
+  }
+ ],
+ "passed": 63,
+ "suite": "generic",
+ "total": 63
+}

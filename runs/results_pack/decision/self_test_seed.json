@@ -1,0 +1,322 @@
+{
+ "cases": [
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'keep' is in accepted ['keep']",
+   "task_id": "T02_reset_keep_seed_spawn"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'keep' is in accepted ['keep']",
+   "task_id": "T02_reset_keep_seed_spawn"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'reset', accepted ['keep']",
+   "task_id": "T02_reset_keep_seed_spawn"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "legal plan, 29.2s (no pro_time_s to compare)",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "legal plan takes 31.6s, within pro 29.2s + 15s",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 0,
+   "pass": true,
+   "reason": "step 1 (build_portal): mine_obsidian portal needs a diamond_pickaxe",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 1,
+   "pass": true,
+   "reason": "step 2 (craft): crafting 1 flint_and_steel (1 craft(s)) needs 1 flint, have 0",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 2,
+   "pass": true,
+   "reason": "step 3 (build_portal): chest_obsidian portal needs 10 obsidian, have 6",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "broken",
+   "expected": "SLOW",
+   "got": "SLOW",
+   "index": 3,
+   "pass": true,
+   "reason": "legal plan takes 54.0s, more than pro 29.2s + 15s tolerance (+24.8s)",
+   "task_id": "T04_nether_entry_seed_chests"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'obsidian_to_place': got 7, expected 7 \u00b10 (off by 0)",
+   "task_id": "T05_nether_entry_ruined_portal_count"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'obsidian_to_place': got 7, expected 7 \u00b10 (off by 0)",
+   "task_id": "T05_nether_entry_ruined_portal_count"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'obsidian_to_place': got 4, expected 7 \u00b10 (off by 3)",
+   "task_id": "T05_nether_entry_ruined_portal_count"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'obsidian_to_place': got 10, expected 7 \u00b10 (off by 3)",
+   "task_id": "T05_nether_entry_ruined_portal_count"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'obsidian_to_place': got 9, expected 7 \u00b10 (off by 2)",
+   "task_id": "T05_nether_entry_ruined_portal_count"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'blaze_rods': got 0, expected 0 \u00b10 (off by 0); field 'ender_pearls': got 0, expected 0 \u00b10 (off by 0)",
+   "task_id": "T10_fortress_rods_seed"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "all fields within tolerance: field 'blaze_rods': got 0, expected 0 \u00b10 (off by 0); field 'ender_pearls': got 0, expected 0 \u00b10 (off by 0)",
+   "task_id": "T10_fortress_rods_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'blaze_rods': got 6, expected 0 \u00b10 (off by 6); field 'ender_pearls': got 12, expected 0 \u00b10 (off by 12)",
+   "task_id": "T10_fortress_rods_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'blaze_rods': got 7, expected 0 \u00b10 (off by 7); field 'ender_pearls': got 14, expected 0 \u00b10 (off by 14)",
+   "task_id": "T10_fortress_rods_seed"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "(-141.25, 107) is 0.0 blocks from reference (-141.25, 107); within 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "(-141, 107) is 0.2 blocks from reference (-141.25, 107); within 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 1,
+   "pass": true,
+   "reason": "(-142, 106) is 1.2 blocks from reference (-141.25, 107); within 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "(-1130, 856) is 1240.4 blocks from reference (-141.25, 107); tolerance 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "(-9040, 6848) is 11163.7 blocks from reference (-141.25, 107); tolerance 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 2,
+   "pass": true,
+   "reason": "field 'dimension': got 'overworld', expected 'the_nether'",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 3,
+   "pass": true,
+   "reason": "(-150, 100) is 11.2 blocks from reference (-141.25, 107); tolerance 2",
+   "task_id": "T12_blind_seed_nether_exit"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "legal plan, 107.8s (no pro_time_s to compare)",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "legal plan takes 108.7s, within pro 107.8s + 20s",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 0,
+   "pass": true,
+   "reason": "step 16 (build_portal): chest_obsidian portal needs 10 obsidian, have 8",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "SLOW",
+   "got": "SLOW",
+   "index": 1,
+   "pass": true,
+   "reason": "legal plan takes 237.7s, more than pro 107.8s + 20s tolerance (+129.9s)",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "ILLEGAL",
+   "got": "ILLEGAL",
+   "index": 2,
+   "pass": true,
+   "reason": "step 17 (kill): blaze is hostile and does not spawn on Peaceful",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "broken",
+   "expected": "SLOW",
+   "got": "SLOW",
+   "index": 3,
+   "pass": true,
+   "reason": "legal plan takes 142.6s, more than pro 107.8s + 20s tolerance (+34.7s)",
+   "task_id": "T20_full_route_seed"
+  },
+  {
+   "case": "reference",
+   "expected": "OK",
+   "got": "OK",
+   "index": null,
+   "pass": true,
+   "reason": "choice 'A' is in accepted ['A']",
+   "task_id": "T21_full_route_peaceful_prep"
+  },
+  {
+   "case": "alternate",
+   "expected": "OK",
+   "got": "OK",
+   "index": 0,
+   "pass": true,
+   "reason": "choice 'A' is in accepted ['A']",
+   "task_id": "T21_full_route_peaceful_prep"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 0,
+   "pass": true,
+   "reason": "field 'choice': got 'B', accepted ['A']",
+   "task_id": "T21_full_route_peaceful_prep"
+  },
+  {
+   "case": "broken",
+   "expected": "WRONG",
+   "got": "WRONG",
+   "index": 1,
+   "pass": true,
+   "reason": "field 'choice': got 'C', accepted ['A']",
+   "task_id": "T21_full_route_peaceful_prep"
+  }
+ ],
+ "passed": 35,
+ "suite": "seed",
+ "total": 35
+}

@@ -1,0 +1,52 @@
+{
+ "run_median_ratio": 2.793,
+ "segments": [
+  {
+   "agent_s_high": 189.45,
+   "agent_s_low": 184.7,
+   "pro_s": 66.683,
+   "ratio_high": 2.841,
+   "ratio_low": 2.77,
+   "segment": "spawn_to_nether",
+   "verdict": "SLOW",
+   "waste": []
+  },
+  {
+   "agent_s_high": 118.1,
+   "agent_s_low": 108.7,
+   "pro_s": 40.783,
+   "ratio_high": 2.896,
+   "ratio_low": 2.665,
+   "segment": "nether",
+   "verdict": "SLOW",
+   "waste": []
+  },
+  {
+   "agent_s_high": 56.7,
+   "agent_s_low": 51.55,
+   "pro_s": 2.45,
+   "ratio_high": 23.143,
+   "ratio_low": 21.041,
+   "segment": "exit_to_end_portal",
+   "verdict": "FLAG",
+   "waste": []
+  },
+  {
+   "agent_s_high": 162.35,
+   "agent_s_low": 161.35,
+   "pro_s": 59.233,
+   "ratio_high": 2.741,
+   "ratio_low": 2.724,
+   "segment": "end",
+   "verdict": "SLOW",
+   "waste": []
+  }
+ ],
+ "total": {
+  "agent_s_high": 516.7,
+  "agent_s_low": 516.2,
+  "pro_s": 169.149,
+  "ratio_high": 3.055,
+  "ratio_low": 3.052
+ }
+}

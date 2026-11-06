@@ -23,3 +23,6 @@ evidence/footage/*.ass
 live/client/.cache/
 
 agent_runs/*/frames/
+code/.perception_cache/frames/
+runs/agent-01-eval-b/
+runs/agent-01-eval-noperc/

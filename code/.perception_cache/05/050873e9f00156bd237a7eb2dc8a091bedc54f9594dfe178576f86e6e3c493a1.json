@@ -1,0 +1,67 @@
+{
+ "backend": "claude",
+ "created_utc": "2026-11-06T19:45:22Z",
+ "frame_sha": "82e7e94352a69e7377a420b52db4d54896c8aef539e0d8b18800f92910aa1fb6",
+ "key": "050873e9f00156bd237a7eb2dc8a091bedc54f9594dfe178576f86e6e3c493a1",
+ "label": "perception-assisted",
+ "model": "claude-sonnet-5-5",
+ "params": {
+  "backend": "claude",
+  "cli_version": "2.1.319 (Claude Code)",
+  "effort": null
+ },
+ "parsed": {
+  "chest_visible": false,
+  "confidence": 0.6,
+  "lava_visible": true,
+  "obsidian_frame": "partial",
+  "player_activity": "swimming",
+  "player_in_water": true,
+  "player_visible": true,
+  "portal_lit": false,
+  "village_visible": true,
+  "water_visible": true
+ },
+ "prompt": "You are looking at ONE frame rendered from a Minecraft Java 1.16 world by prismarine-viewer.\nThe camera is third-person, looking down at a single player character (the bot) from above and behind.\nSome rectangular areas may be solid black; they are masked out, ignore them.\nReport ONLY what is visible in this image. Do not guess about anything outside the frame.\n\nFields:\n- obsidian_frame: \"complete\" if a full rectangular nether-portal frame of obsidian (dark purple-black blocks) is visible;\n  \"partial\" if some obsidian blocks forming part of a frame / ruined portal are visible but the rectangle is incomplete;\n  \"none\" if no obsidian is visible.\n- portal_lit: true only if purple swirling nether-portal blocks fill a frame.\n- chest_visible: a chest block (brown wooden box with a latch) is visible.\n- village_visible: village buildings (houses, paths, bells, farms built by villagers) are visible.\n- lava_visible: lava (bright orange liquid) is visible anywhere.\n- water_visible: water (blue liquid) is visible anywhere.\n- player_visible: the player character (bot) is visible.\n- player_in_water: if the player is visible, true when the player is standing or swimming in water, else false; null if the player is not visible.\n- player_activity: what the player appears to be doing: walking, standing, swimming, placing_or_mining, or unknown.\n- confidence: your overall confidence in these answers, 0.0 to 1.0.\n\nReply with the JSON object only.",
+ "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+ "raw": "{\"obsidian_frame\":\"partial\",\"portal_lit\":false,\"chest_visible\":false,\"village_visible\":true,\"lava_visible\":true,\"water_visible\":true,\"player_visible\":true,\"player_in_water\":true,\"player_activity\":\"swimming\",\"confidence\":0.6}",
+ "schema_sha": "8108ca63d26b08164f0fe60f140a9ea1e5199a521de1550e73be34dc182e0e57",
+ "tool_events": [
+  "Read(frame)"
+ ],
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 27037,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 27037,
+  "cache_read_input_tokens": 61361,
+  "fallback_credit": null,
+  "inference_geo": "global",
+  "input_tokens": 4,
+  "iterations": [
+   {
+    "cache_creation": {
+     "ephemeral_1h_input_tokens": 1136,
+     "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 1136,
+    "cache_read_input_tokens": 43631,
+    "input_tokens": 2,
+    "output_tokens": 94,
+    "type": "message"
+   }
+  ],
+  "output_tokens": 199,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": {
+   "web_fetch_requests": 0,
+   "web_search_requests": 0
+  },
+  "service_tier": "standard",
+  "speed": "standard"
+ },
+ "vote": 0
+}
