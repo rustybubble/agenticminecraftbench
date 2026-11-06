@@ -23,6 +23,7 @@
       "place_then_recover",
       "portal_method",
       "self_report_contradiction",
+      "skill_trouble",
       "stage_time",
       "unneeded_structure_visit"
     ],
@@ -690,27 +691,90 @@
         383.041
       ],
       "notes": [],
-      "server_first_t_s": null,
-      "server_last_t_s": null,
-      "server_samples": 0,
-      "snapshots_checked": 0,
-      "snapshots_without_server_sample": [
-        1,
-        6,
-        8,
-        12,
-        14,
-        18,
-        20,
-        24,
-        27,
-        31,
-        34,
-        37,
-        40
-      ]
+      "server_first_t_s": 0.765,
+      "server_last_t_s": 382.078,
+      "server_samples": 378,
+      "snapshots_checked": 13,
+      "snapshots_without_server_sample": []
     },
-    "findings": [],
+    "findings": [
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.496,
+          "field": "position"
+        },
+        "lines": [
+          27
+        ],
+        "message": "agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 80 (t=58.712) has (-36.5, 77.0, 32.5) (the_nether), 337.77 blocks apart",
+        "server_lines": [
+          80
+        ],
+        "severity": "high",
+        "t_end": 58.216,
+        "t_start": 58.216
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.016,
+          "field": "position"
+        },
+        "lines": [
+          31
+        ],
+        "message": "agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 366 (t=298.2) has (-129.5, 41.0, 98.2) (the_nether), 226.64 blocks apart",
+        "server_lines": [
+          366
+        ],
+        "severity": "high",
+        "t_end": 298.216,
+        "t_start": 298.216
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.166,
+          "field": "position"
+        },
+        "lines": [
+          34
+        ],
+        "message": "agent line 34 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 437 (t=357.357) has (-125.9, 43.2, 97.5) (the_nether), 229.35 blocks apart",
+        "server_lines": [
+          437
+        ],
+        "severity": "high",
+        "t_end": 357.191,
+        "t_start": 357.191
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.963,
+          "field": "position"
+        },
+        "lines": [
+          40
+        ],
+        "message": "agent line 40 reports pos (-190.5, 71.0, 216.5) (the_nether); server line 466 (t=382.078) has (-190.5, 71.0, 216.5) (overworld), 0.0 blocks apart",
+        "server_lines": [
+          466
+        ],
+        "severity": "high",
+        "t_end": 383.041,
+        "t_start": 383.041
+      }
+    ],
     "server_log": "agent_runs/agent-06/server_events.jsonl"
   },
   "splits": [

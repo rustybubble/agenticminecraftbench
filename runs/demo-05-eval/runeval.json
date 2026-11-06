@@ -1,0 +1,458 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "skill_trouble",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 1,
+    "knowledge_features": [],
+    "merged_waste_intervals": [
+      [
+        1.416,
+        1.417
+      ],
+      [
+        1.417,
+        14.143
+      ]
+    ],
+    "meta": {
+      "duration_s": 74.143,
+      "event_type_counts": {
+        "route_exit_portal": 1,
+        "route_travel": 1,
+        "skill_result": 3,
+        "skill_start": 3,
+        "spawn": 1,
+        "stream": 1,
+        "summary": 1
+      },
+      "knowledge_source": "none",
+      "lines": 11,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [],
+        "loot_lines": [],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 4,
+            "ok": true,
+            "placed": null,
+            "skill": "travel_legs",
+            "t": 1.417
+          },
+          {
+            "error": "no clear 4x5 site near the bot",
+            "line": 7,
+            "ok": false,
+            "placed": null,
+            "skill": "build_portal",
+            "t": 1.468
+          },
+          {
+            "error": "frame incomplete after carve",
+            "line": 9,
+            "ok": false,
+            "placed": 9,
+            "skill": "build_portal_here",
+            "t": 14.143
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 3,
+            "skill": "travel_legs",
+            "t": 1.416
+          },
+          {
+            "line": 6,
+            "skill": "build_portal",
+            "t": 1.418
+          },
+          {
+            "line": 8,
+            "skill": "build_portal_here",
+            "t": 1.468
+          }
+        ],
+        "split_events": [],
+        "summary": {
+          "actions": 0,
+          "deaths": 0,
+          "elapsedS": 74,
+          "failures": 0,
+          "finalSplit": null,
+          "line": 11,
+          "runId": "demo-05",
+          "splits": [],
+          "t": 74.143
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "runs/live/demo-05/events.jsonl",
+      "run_id": "demo-05",
+      "t0_epoch": 1793996554.664,
+      "untimed_lines": 0
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 11,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": null,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 12.675,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 12.675,
+      "evidence": {
+        "action": "build_portal_here",
+        "result": "FAILED: frame incomplete after carve"
+      },
+      "lines": [
+        9
+      ],
+      "message": "line 9: action 'build_portal_here' failed (FAILED: frame incomplete after carve); 12.675 s lost",
+      "severity": "medium",
+      "t_end": 14.143,
+      "t_start": 1.468
+    },
+    {
+      "attributed_s": 0.051,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.051,
+      "evidence": {
+        "action": "build_portal",
+        "result": "FAILED: no clear 4x5 site near the bot"
+      },
+      "lines": [
+        7
+      ],
+      "message": "line 7: action 'build_portal' failed (FAILED: no clear 4x5 site near the bot); 0.051 s lost",
+      "severity": "medium",
+      "t_end": 1.468,
+      "t_start": 1.417
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "travel_legs",
+        "pos": [
+          -138.5,
+          41.0,
+          98.43105857681317
+        ]
+      },
+      "lines": [
+        3,
+        4
+      ],
+      "message": "lines 3-4: 'travel_legs' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 1.417,
+      "t_start": 1.416
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          4,
+          7,
+          9
+        ],
+        "field": "actions",
+        "logged": 3,
+        "summary_line": 11
+      },
+      "lines": [
+        4,
+        7,
+        9,
+        11
+      ],
+      "message": "line 11: summary claims actions=0, but the log shows 3 (skill_result lines: lines 4, 7, 9)",
+      "severity": "high",
+      "t_end": 74.143,
+      "t_start": 74.143
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          7,
+          9
+        ],
+        "field": "failures",
+        "logged": 2,
+        "summary_line": 11
+      },
+      "lines": [
+        7,
+        9,
+        11
+      ],
+      "message": "line 11: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 7, 9)",
+      "severity": "high",
+      "t_end": 74.143,
+      "t_start": 74.143
+    }
+  ],
+  "progress": {
+    "failed_at": {
+      "line": 7,
+      "note": "build_portal failed: no clear 4x5 site near the bot",
+      "step": "portal_built"
+    },
+    "steps": [
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": 1.418,
+        "agent_t_lo": null,
+        "delta_hi": -53.582,
+        "delta_lo": -53.582,
+        "line": 6,
+        "note": "build_portal skill started",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": 7,
+        "note": "build_portal failed: no clear 4x5 site near the bot",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "score": {
+    "attributed_waste_s": 12.727,
+    "efficiency": 0.8283,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 0.0,
+    "raw_cost_sum_s": 12.727,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 74.143,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 12.727,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        74.143
+      ],
+      "notes": [],
+      "server_first_t_s": 0.852,
+      "server_last_t_s": 73.48,
+      "server_samples": 71,
+      "snapshots_checked": 5,
+      "snapshots_without_server_sample": []
+    },
+    "findings": [
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.093,
+          "field": "position"
+        },
+        "lines": [
+          9
+        ],
+        "message": "agent line 9 reports pos (-138.5, 41.0, 98.4) (the_nether); server line 29 (t=14.236) has (-135.6, 42.2, 98.5) (the_nether), 3.13 blocks apart",
+        "server_lines": [
+          29
+        ],
+        "severity": "high",
+        "t_end": 14.143,
+        "t_start": 14.143
+      }
+    ],
+    "server_log": "runs/live/demo-05/server.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 12.727,
+    "efficiency": 0.8283,
+    "findings": 5,
+    "findings_by_category": {
+      "claim": 2,
+      "decision": 0,
+      "micro": 3,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 2,
+      "low": 0,
+      "medium": 3
+    },
+    "log": "runs/live/demo-05/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 74.143
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 12.727,
+    "safety": 0.0
+  }
+}

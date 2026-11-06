@@ -1,0 +1,5595 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "skill_trouble",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 2,
+    "knowledge_features": [],
+    "merged_waste_intervals": [
+      [
+        5.069,
+        33.66
+      ],
+      [
+        37.113,
+        37.125
+      ],
+      [
+        39.266,
+        54.732
+      ],
+      [
+        62.798,
+        62.799
+      ],
+      [
+        67.74,
+        67.745
+      ],
+      [
+        71.924,
+        93.146
+      ],
+      [
+        97.235,
+        97.237
+      ],
+      [
+        101.359,
+        101.361
+      ],
+      [
+        105.155,
+        105.157
+      ],
+      [
+        108.976,
+        108.978
+      ],
+      [
+        111.263,
+        111.266
+      ],
+      [
+        112.983,
+        112.985
+      ],
+      [
+        115.193,
+        115.194
+      ],
+      [
+        116.92,
+        116.921
+      ],
+      [
+        120.561,
+        120.562
+      ],
+      [
+        125.711,
+        125.713
+      ],
+      [
+        129.473,
+        129.476
+      ],
+      [
+        131.618,
+        131.622
+      ],
+      [
+        133.437,
+        133.439
+      ],
+      [
+        137.136,
+        137.14
+      ],
+      [
+        138.939,
+        138.94
+      ],
+      [
+        140.786,
+        140.788
+      ],
+      [
+        144.686,
+        144.688
+      ],
+      [
+        148.841,
+        148.845
+      ],
+      [
+        154.706,
+        154.708
+      ],
+      [
+        158.681,
+        158.683
+      ],
+      [
+        162.359,
+        162.36
+      ],
+      [
+        166.003,
+        166.005
+      ],
+      [
+        169.674,
+        169.675
+      ],
+      [
+        171.397,
+        171.4
+      ],
+      [
+        173.401,
+        173.403
+      ],
+      [
+        177.613,
+        177.617
+      ],
+      [
+        183.705,
+        183.707
+      ],
+      [
+        185.909,
+        185.91
+      ],
+      [
+        187.683,
+        187.685
+      ],
+      [
+        191.416,
+        191.418
+      ],
+      [
+        193.279,
+        193.28
+      ],
+      [
+        195.188,
+        195.189
+      ],
+      [
+        198.878,
+        198.88
+      ],
+      [
+        200.924,
+        200.927
+      ],
+      [
+        202.758,
+        202.76
+      ],
+      [
+        206.499,
+        206.5
+      ],
+      [
+        211.208,
+        211.209
+      ],
+      [
+        215.273,
+        215.275
+      ],
+      [
+        219.291,
+        219.293
+      ],
+      [
+        222.929,
+        222.93
+      ],
+      [
+        226.567,
+        226.568
+      ],
+      [
+        230.217,
+        230.219
+      ],
+      [
+        232.122,
+        232.123
+      ],
+      [
+        234.012,
+        234.014
+      ],
+      [
+        236.08,
+        236.081
+      ],
+      [
+        239.125,
+        239.13
+      ],
+      [
+        241.288,
+        241.289
+      ]
+    ],
+    "meta": {
+      "duration_s": 241.439,
+      "event_type_counts": {
+        "clean": 1,
+        "decision": 82,
+        "run_end": 1,
+        "skill_result": 82,
+        "skill_start": 82,
+        "spawn": 1,
+        "split": 1,
+        "summary": 1,
+        "viewer": 1
+      },
+      "knowledge_source": "none",
+      "lines": 252,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [],
+        "loot_lines": [],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 7,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 33.66
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 10,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 37.125
+          },
+          {
+            "error": null,
+            "line": 13,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 54.731
+          },
+          {
+            "error": null,
+            "line": 16,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 56.885
+          },
+          {
+            "error": null,
+            "line": 19,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 58.841
+          },
+          {
+            "error": null,
+            "line": 22,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 60.823
+          },
+          {
+            "error": null,
+            "line": 25,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 62.799
+          },
+          {
+            "error": null,
+            "line": 28,
+            "ok": true,
+            "placed": null,
+            "skill": "craft",
+            "t": 67.745
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 31,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 70.049
+          },
+          {
+            "error": null,
+            "line": 34,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 93.146
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 37,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 97.237
+          },
+          {
+            "error": null,
+            "line": 40,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 99.377
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 43,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 101.361
+          },
+          {
+            "error": null,
+            "line": 46,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 103.419
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 49,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 105.157
+          },
+          {
+            "error": null,
+            "line": 52,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 107.181
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 55,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 108.978
+          },
+          {
+            "error": null,
+            "line": 58,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 111.266
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 61,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 112.985
+          },
+          {
+            "error": null,
+            "line": 64,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 115.194
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 67,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 116.921
+          },
+          {
+            "error": null,
+            "line": 70,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 118.753
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 73,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 120.562
+          },
+          {
+            "error": null,
+            "line": 76,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 122.438
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 79,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 125.713
+          },
+          {
+            "error": null,
+            "line": 82,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 127.658
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 85,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 129.476
+          },
+          {
+            "error": null,
+            "line": 88,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 131.622
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 91,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 133.439
+          },
+          {
+            "error": null,
+            "line": 94,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 135.308
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 97,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 137.14
+          },
+          {
+            "error": null,
+            "line": 100,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 138.94
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 103,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 140.788
+          },
+          {
+            "error": null,
+            "line": 106,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 142.648
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 109,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 144.688
+          },
+          {
+            "error": null,
+            "line": 112,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 146.976
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 115,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 148.845
+          },
+          {
+            "error": null,
+            "line": 118,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 150.943
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 121,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 154.708
+          },
+          {
+            "error": null,
+            "line": 124,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 156.736
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 127,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 158.683
+          },
+          {
+            "error": null,
+            "line": 130,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 160.454
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 133,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 162.36
+          },
+          {
+            "error": null,
+            "line": 136,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 164.163
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 139,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 166.005
+          },
+          {
+            "error": null,
+            "line": 142,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 167.791
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 145,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 169.675
+          },
+          {
+            "error": null,
+            "line": 148,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 171.4
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 151,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 173.403
+          },
+          {
+            "error": null,
+            "line": 154,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 175.47
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 157,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 177.617
+          },
+          {
+            "error": null,
+            "line": 160,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 179.6
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 163,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 183.707
+          },
+          {
+            "error": null,
+            "line": 166,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 185.91
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 169,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 187.685
+          },
+          {
+            "error": null,
+            "line": 172,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 189.593
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 175,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 191.418
+          },
+          {
+            "error": null,
+            "line": 178,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 193.28
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 181,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 195.189
+          },
+          {
+            "error": null,
+            "line": 184,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 197.042
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 187,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 198.88
+          },
+          {
+            "error": null,
+            "line": 190,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 200.927
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 193,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 202.76
+          },
+          {
+            "error": null,
+            "line": 196,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 204.51
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 199,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 206.5
+          },
+          {
+            "error": null,
+            "line": 202,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 208.337
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 205,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 211.209
+          },
+          {
+            "error": null,
+            "line": 208,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 213.25
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 211,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 215.275
+          },
+          {
+            "error": null,
+            "line": 214,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 217.242
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 217,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 219.293
+          },
+          {
+            "error": null,
+            "line": 220,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 221.143
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 223,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 222.93
+          },
+          {
+            "error": null,
+            "line": 226,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 224.741
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 229,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 226.568
+          },
+          {
+            "error": null,
+            "line": 232,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 228.458
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 235,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 230.219
+          },
+          {
+            "error": null,
+            "line": 238,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 232.123
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 241,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 234.014
+          },
+          {
+            "error": null,
+            "line": 244,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 236.081
+          },
+          {
+            "error": "no crafting_table item",
+            "line": 247,
+            "ok": false,
+            "placed": null,
+            "skill": "ensure_pickaxe",
+            "t": 239.13
+          },
+          {
+            "error": null,
+            "line": 250,
+            "ok": true,
+            "placed": null,
+            "skill": "collect_wood",
+            "t": 241.289
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 6,
+            "skill": "collect_wood",
+            "t": 5.069
+          },
+          {
+            "line": 9,
+            "skill": "ensure_pickaxe",
+            "t": 37.113
+          },
+          {
+            "line": 12,
+            "skill": "collect_wood",
+            "t": 39.269
+          },
+          {
+            "line": 15,
+            "skill": "collect_wood",
+            "t": 56.885
+          },
+          {
+            "line": 18,
+            "skill": "collect_wood",
+            "t": 58.841
+          },
+          {
+            "line": 21,
+            "skill": "collect_wood",
+            "t": 60.823
+          },
+          {
+            "line": 24,
+            "skill": "collect_wood",
+            "t": 62.799
+          },
+          {
+            "line": 27,
+            "skill": "craft",
+            "t": 67.741
+          },
+          {
+            "line": 30,
+            "skill": "ensure_pickaxe",
+            "t": 70.049
+          },
+          {
+            "line": 33,
+            "skill": "collect_wood",
+            "t": 71.924
+          },
+          {
+            "line": 36,
+            "skill": "ensure_pickaxe",
+            "t": 97.235
+          },
+          {
+            "line": 39,
+            "skill": "collect_wood",
+            "t": 99.377
+          },
+          {
+            "line": 42,
+            "skill": "ensure_pickaxe",
+            "t": 101.359
+          },
+          {
+            "line": 45,
+            "skill": "collect_wood",
+            "t": 103.419
+          },
+          {
+            "line": 48,
+            "skill": "ensure_pickaxe",
+            "t": 105.156
+          },
+          {
+            "line": 51,
+            "skill": "collect_wood",
+            "t": 107.181
+          },
+          {
+            "line": 54,
+            "skill": "ensure_pickaxe",
+            "t": 108.977
+          },
+          {
+            "line": 57,
+            "skill": "collect_wood",
+            "t": 111.266
+          },
+          {
+            "line": 60,
+            "skill": "ensure_pickaxe",
+            "t": 112.983
+          },
+          {
+            "line": 63,
+            "skill": "collect_wood",
+            "t": 115.194
+          },
+          {
+            "line": 66,
+            "skill": "ensure_pickaxe",
+            "t": 116.92
+          },
+          {
+            "line": 69,
+            "skill": "collect_wood",
+            "t": 118.753
+          },
+          {
+            "line": 72,
+            "skill": "ensure_pickaxe",
+            "t": 120.561
+          },
+          {
+            "line": 75,
+            "skill": "collect_wood",
+            "t": 122.438
+          },
+          {
+            "line": 78,
+            "skill": "ensure_pickaxe",
+            "t": 125.711
+          },
+          {
+            "line": 81,
+            "skill": "collect_wood",
+            "t": 127.658
+          },
+          {
+            "line": 84,
+            "skill": "ensure_pickaxe",
+            "t": 129.473
+          },
+          {
+            "line": 87,
+            "skill": "collect_wood",
+            "t": 131.622
+          },
+          {
+            "line": 90,
+            "skill": "ensure_pickaxe",
+            "t": 133.437
+          },
+          {
+            "line": 93,
+            "skill": "collect_wood",
+            "t": 135.308
+          },
+          {
+            "line": 96,
+            "skill": "ensure_pickaxe",
+            "t": 137.137
+          },
+          {
+            "line": 99,
+            "skill": "collect_wood",
+            "t": 138.94
+          },
+          {
+            "line": 102,
+            "skill": "ensure_pickaxe",
+            "t": 140.786
+          },
+          {
+            "line": 105,
+            "skill": "collect_wood",
+            "t": 142.648
+          },
+          {
+            "line": 108,
+            "skill": "ensure_pickaxe",
+            "t": 144.686
+          },
+          {
+            "line": 111,
+            "skill": "collect_wood",
+            "t": 146.976
+          },
+          {
+            "line": 114,
+            "skill": "ensure_pickaxe",
+            "t": 148.843
+          },
+          {
+            "line": 117,
+            "skill": "collect_wood",
+            "t": 150.943
+          },
+          {
+            "line": 120,
+            "skill": "ensure_pickaxe",
+            "t": 154.706
+          },
+          {
+            "line": 123,
+            "skill": "collect_wood",
+            "t": 156.736
+          },
+          {
+            "line": 126,
+            "skill": "ensure_pickaxe",
+            "t": 158.681
+          },
+          {
+            "line": 129,
+            "skill": "collect_wood",
+            "t": 160.454
+          },
+          {
+            "line": 132,
+            "skill": "ensure_pickaxe",
+            "t": 162.359
+          },
+          {
+            "line": 135,
+            "skill": "collect_wood",
+            "t": 164.163
+          },
+          {
+            "line": 138,
+            "skill": "ensure_pickaxe",
+            "t": 166.003
+          },
+          {
+            "line": 141,
+            "skill": "collect_wood",
+            "t": 167.791
+          },
+          {
+            "line": 144,
+            "skill": "ensure_pickaxe",
+            "t": 169.674
+          },
+          {
+            "line": 147,
+            "skill": "collect_wood",
+            "t": 171.4
+          },
+          {
+            "line": 150,
+            "skill": "ensure_pickaxe",
+            "t": 173.401
+          },
+          {
+            "line": 153,
+            "skill": "collect_wood",
+            "t": 175.47
+          },
+          {
+            "line": 156,
+            "skill": "ensure_pickaxe",
+            "t": 177.615
+          },
+          {
+            "line": 159,
+            "skill": "collect_wood",
+            "t": 179.6
+          },
+          {
+            "line": 162,
+            "skill": "ensure_pickaxe",
+            "t": 183.705
+          },
+          {
+            "line": 165,
+            "skill": "collect_wood",
+            "t": 185.91
+          },
+          {
+            "line": 168,
+            "skill": "ensure_pickaxe",
+            "t": 187.683
+          },
+          {
+            "line": 171,
+            "skill": "collect_wood",
+            "t": 189.593
+          },
+          {
+            "line": 174,
+            "skill": "ensure_pickaxe",
+            "t": 191.416
+          },
+          {
+            "line": 177,
+            "skill": "collect_wood",
+            "t": 193.28
+          },
+          {
+            "line": 180,
+            "skill": "ensure_pickaxe",
+            "t": 195.188
+          },
+          {
+            "line": 183,
+            "skill": "collect_wood",
+            "t": 197.042
+          },
+          {
+            "line": 186,
+            "skill": "ensure_pickaxe",
+            "t": 198.878
+          },
+          {
+            "line": 189,
+            "skill": "collect_wood",
+            "t": 200.927
+          },
+          {
+            "line": 192,
+            "skill": "ensure_pickaxe",
+            "t": 202.758
+          },
+          {
+            "line": 195,
+            "skill": "collect_wood",
+            "t": 204.51
+          },
+          {
+            "line": 198,
+            "skill": "ensure_pickaxe",
+            "t": 206.499
+          },
+          {
+            "line": 201,
+            "skill": "collect_wood",
+            "t": 208.337
+          },
+          {
+            "line": 204,
+            "skill": "ensure_pickaxe",
+            "t": 211.208
+          },
+          {
+            "line": 207,
+            "skill": "collect_wood",
+            "t": 213.25
+          },
+          {
+            "line": 210,
+            "skill": "ensure_pickaxe",
+            "t": 215.274
+          },
+          {
+            "line": 213,
+            "skill": "collect_wood",
+            "t": 217.242
+          },
+          {
+            "line": 216,
+            "skill": "ensure_pickaxe",
+            "t": 219.291
+          },
+          {
+            "line": 219,
+            "skill": "collect_wood",
+            "t": 221.143
+          },
+          {
+            "line": 222,
+            "skill": "ensure_pickaxe",
+            "t": 222.929
+          },
+          {
+            "line": 225,
+            "skill": "collect_wood",
+            "t": 224.741
+          },
+          {
+            "line": 228,
+            "skill": "ensure_pickaxe",
+            "t": 226.567
+          },
+          {
+            "line": 231,
+            "skill": "collect_wood",
+            "t": 228.458
+          },
+          {
+            "line": 234,
+            "skill": "ensure_pickaxe",
+            "t": 230.217
+          },
+          {
+            "line": 237,
+            "skill": "collect_wood",
+            "t": 232.123
+          },
+          {
+            "line": 240,
+            "skill": "ensure_pickaxe",
+            "t": 234.013
+          },
+          {
+            "line": 243,
+            "skill": "collect_wood",
+            "t": 236.081
+          },
+          {
+            "line": 246,
+            "skill": "ensure_pickaxe",
+            "t": 239.128
+          },
+          {
+            "line": 249,
+            "skill": "collect_wood",
+            "t": 241.288
+          }
+        ],
+        "split_events": [
+          4
+        ],
+        "summary": {
+          "actions": 82,
+          "deaths": 0,
+          "elapsedS": 242,
+          "failures": 38,
+          "finalSplit": "wood",
+          "line": 252,
+          "runId": "foot-01",
+          "splits": [
+            {
+              "at": "2026-11-06T18:18:11.009Z",
+              "elapsedS": 2,
+              "prev": null,
+              "split": "wood",
+              "targetS": 25
+            }
+          ],
+          "t": 241.439
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "runs/live/foot-01/events.jsonl",
+      "run_id": "foot-01",
+      "t0_epoch": 1793989089.055,
+      "untimed_lines": 0
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 252,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": null,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 28.591,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 28.591,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        5,
+        7
+      ],
+      "message": "line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 28.591 s wasted",
+      "severity": "medium",
+      "t_end": 33.66,
+      "t_start": 5.069
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 28.591,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        5,
+        7
+      ],
+      "message": "lines 5-7: 'collect_wood' succeeded but position and inventory are unchanged; 28.591 s lost",
+      "severity": "medium",
+      "t_end": 33.66,
+      "t_start": 5.069
+    },
+    {
+      "attributed_s": 21.222,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 21.222,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        32,
+        34
+      ],
+      "message": "line 34: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 21.222 s wasted",
+      "severity": "medium",
+      "t_end": 93.146,
+      "t_start": 71.924
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 21.222,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        32,
+        34
+      ],
+      "message": "lines 32-34: 'collect_wood' succeeded but position and inventory are unchanged; 21.222 s lost",
+      "severity": "medium",
+      "t_end": 93.146,
+      "t_start": 71.924
+    },
+    {
+      "attributed_s": 15.466,
+      "category": "micro",
+      "code": "action_loop",
+      "cost_s": 15.466,
+      "evidence": {
+        "action": "collect_wood",
+        "count": 5,
+        "unproductive": 5
+      },
+      "lines": [
+        13,
+        16,
+        19,
+        22,
+        25
+      ],
+      "message": "lines 13-25: 'collect_wood' repeated 5x in a row, 5 failed/no-progress; 15.466 s",
+      "severity": "high",
+      "t_end": 62.799,
+      "t_start": 39.266
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 15.465,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        11,
+        13
+      ],
+      "message": "line 13: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 15.465 s wasted",
+      "severity": "medium",
+      "t_end": 54.731,
+      "t_start": 39.266
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 15.465,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        11,
+        13
+      ],
+      "message": "lines 11-13: 'collect_wood' succeeded but position and inventory are unchanged; 15.465 s lost",
+      "severity": "medium",
+      "t_end": 54.731,
+      "t_start": 39.266
+    },
+    {
+      "attributed_s": 0.012,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.012,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        10
+      ],
+      "message": "line 10: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.012 s lost",
+      "severity": "medium",
+      "t_end": 37.125,
+      "t_start": 37.113
+    },
+    {
+      "attributed_s": 0.005,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.005,
+      "evidence": {
+        "action": "craft",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        26,
+        28
+      ],
+      "message": "lines 26-28: 'craft' succeeded but position and inventory are unchanged; 0.005 s lost",
+      "severity": "medium",
+      "t_end": 67.745,
+      "t_start": 67.74
+    },
+    {
+      "attributed_s": 0.005,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.005,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        247
+      ],
+      "message": "line 247: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.005 s lost",
+      "severity": "medium",
+      "t_end": 239.13,
+      "t_start": 239.125
+    },
+    {
+      "attributed_s": 0.004,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        86,
+        88
+      ],
+      "message": "line 88: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.004 s wasted",
+      "severity": "medium",
+      "t_end": 131.622,
+      "t_start": 131.618
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        86,
+        88
+      ],
+      "message": "lines 86-88: 'collect_wood' succeeded but position and inventory are unchanged; 0.004 s lost",
+      "severity": "medium",
+      "t_end": 131.622,
+      "t_start": 131.618
+    },
+    {
+      "attributed_s": 0.004,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        97
+      ],
+      "message": "line 97: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "severity": "medium",
+      "t_end": 137.14,
+      "t_start": 137.136
+    },
+    {
+      "attributed_s": 0.004,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        115
+      ],
+      "message": "line 115: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "severity": "medium",
+      "t_end": 148.845,
+      "t_start": 148.841
+    },
+    {
+      "attributed_s": 0.004,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.004,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        157
+      ],
+      "message": "line 157: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.004 s lost",
+      "severity": "medium",
+      "t_end": 177.617,
+      "t_start": 177.613
+    },
+    {
+      "attributed_s": 0.003,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        56,
+        58
+      ],
+      "message": "line 58: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "severity": "medium",
+      "t_end": 111.266,
+      "t_start": 111.263
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        56,
+        58
+      ],
+      "message": "lines 56-58: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "severity": "medium",
+      "t_end": 111.266,
+      "t_start": 111.263
+    },
+    {
+      "attributed_s": 0.003,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        85
+      ],
+      "message": "line 85: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.003 s lost",
+      "severity": "medium",
+      "t_end": 129.476,
+      "t_start": 129.473
+    },
+    {
+      "attributed_s": 0.003,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        146,
+        148
+      ],
+      "message": "line 148: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "severity": "medium",
+      "t_end": 171.4,
+      "t_start": 171.397
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        146,
+        148
+      ],
+      "message": "lines 146-148: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "severity": "medium",
+      "t_end": 171.4,
+      "t_start": 171.397
+    },
+    {
+      "attributed_s": 0.003,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        188,
+        190
+      ],
+      "message": "line 190: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.003 s wasted",
+      "severity": "medium",
+      "t_end": 200.927,
+      "t_start": 200.924
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.003,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        188,
+        190
+      ],
+      "message": "lines 188-190: 'collect_wood' succeeded but position and inventory are unchanged; 0.003 s lost",
+      "severity": "medium",
+      "t_end": 200.927,
+      "t_start": 200.924
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        37
+      ],
+      "message": "line 37: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 97.237,
+      "t_start": 97.235
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        43
+      ],
+      "message": "line 43: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 101.361,
+      "t_start": 101.359
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        49
+      ],
+      "message": "line 49: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 105.157,
+      "t_start": 105.155
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        55
+      ],
+      "message": "line 55: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 108.978,
+      "t_start": 108.976
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        61
+      ],
+      "message": "line 61: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 112.985,
+      "t_start": 112.983
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        79
+      ],
+      "message": "line 79: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 125.713,
+      "t_start": 125.711
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        91
+      ],
+      "message": "line 91: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 133.439,
+      "t_start": 133.437
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        103
+      ],
+      "message": "line 103: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 140.788,
+      "t_start": 140.786
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        109
+      ],
+      "message": "line 109: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 144.688,
+      "t_start": 144.686
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        121
+      ],
+      "message": "line 121: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 154.708,
+      "t_start": 154.706
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        127
+      ],
+      "message": "line 127: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 158.683,
+      "t_start": 158.681
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        139
+      ],
+      "message": "line 139: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 166.005,
+      "t_start": 166.003
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        151
+      ],
+      "message": "line 151: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 173.403,
+      "t_start": 173.401
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        163
+      ],
+      "message": "line 163: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 183.707,
+      "t_start": 183.705
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        169
+      ],
+      "message": "line 169: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 187.685,
+      "t_start": 187.683
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        175
+      ],
+      "message": "line 175: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 191.418,
+      "t_start": 191.416
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        187
+      ],
+      "message": "line 187: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 198.88,
+      "t_start": 198.878
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        193
+      ],
+      "message": "line 193: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 202.76,
+      "t_start": 202.758
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        211
+      ],
+      "message": "line 211: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 215.275,
+      "t_start": 215.273
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        217
+      ],
+      "message": "line 217: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 219.293,
+      "t_start": 219.291
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        235
+      ],
+      "message": "line 235: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 230.219,
+      "t_start": 230.217
+    },
+    {
+      "attributed_s": 0.002,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.002,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        241
+      ],
+      "message": "line 241: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.002 s lost",
+      "severity": "medium",
+      "t_end": 234.014,
+      "t_start": 234.012
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        23,
+        25
+      ],
+      "message": "line 25: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 62.799,
+      "t_start": 62.798
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        23,
+        25
+      ],
+      "message": "lines 23-25: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 62.799,
+      "t_start": 62.798
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        62,
+        64
+      ],
+      "message": "line 64: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 115.194,
+      "t_start": 115.193
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        62,
+        64
+      ],
+      "message": "lines 62-64: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 115.194,
+      "t_start": 115.193
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        67
+      ],
+      "message": "line 67: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 116.921,
+      "t_start": 116.92
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        73
+      ],
+      "message": "line 73: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 120.562,
+      "t_start": 120.561
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        98,
+        100
+      ],
+      "message": "line 100: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 138.94,
+      "t_start": 138.939
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        98,
+        100
+      ],
+      "message": "lines 98-100: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 138.94,
+      "t_start": 138.939
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        133
+      ],
+      "message": "line 133: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 162.36,
+      "t_start": 162.359
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        145
+      ],
+      "message": "line 145: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 169.675,
+      "t_start": 169.674
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        164,
+        166
+      ],
+      "message": "line 166: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 185.91,
+      "t_start": 185.909
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        164,
+        166
+      ],
+      "message": "lines 164-166: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 185.91,
+      "t_start": 185.909
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        176,
+        178
+      ],
+      "message": "line 178: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 193.28,
+      "t_start": 193.279
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        176,
+        178
+      ],
+      "message": "lines 176-178: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 193.28,
+      "t_start": 193.279
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        181
+      ],
+      "message": "line 181: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 195.189,
+      "t_start": 195.188
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        199
+      ],
+      "message": "line 199: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 206.5,
+      "t_start": 206.499
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        205
+      ],
+      "message": "line 205: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 211.209,
+      "t_start": 211.208
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        223
+      ],
+      "message": "line 223: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 222.93,
+      "t_start": 222.929
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        229
+      ],
+      "message": "line 229: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.001 s lost",
+      "severity": "medium",
+      "t_end": 226.568,
+      "t_start": 226.567
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        236,
+        238
+      ],
+      "message": "line 238: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 232.123,
+      "t_start": 232.122
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        236,
+        238
+      ],
+      "message": "lines 236-238: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 232.123,
+      "t_start": 232.122
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        242,
+        244
+      ],
+      "message": "line 244: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 236.081,
+      "t_start": 236.08
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        242,
+        244
+      ],
+      "message": "lines 242-244: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 236.081,
+      "t_start": 236.08
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        248,
+        250
+      ],
+      "message": "line 250: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "severity": "medium",
+      "t_end": 241.289,
+      "t_start": 241.288
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        248,
+        250
+      ],
+      "message": "lines 248-250: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 241.289,
+      "t_start": 241.288
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": "wood",
+        "evidence_lines": [],
+        "field": "finalSplit",
+        "logged": null,
+        "summary_line": 252
+      },
+      "lines": [
+        252
+      ],
+      "message": "line 252: summary claims finalSplit='wood', but the log shows None (last milestone reached in the log)",
+      "severity": "high",
+      "t_end": 241.439,
+      "t_start": 241.439
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 1,
+        "evidence_lines": [],
+        "field": "splits",
+        "logged": 0,
+        "summary_line": 252
+      },
+      "lines": [
+        252
+      ],
+      "message": "line 252: summary claims splits=1, but the log shows 0 (milestones reached in the log)",
+      "severity": "high",
+      "t_end": 241.439,
+      "t_start": 241.439
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        14,
+        16
+      ],
+      "message": "line 16: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 56.885,
+      "t_start": 56.885
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        14,
+        16
+      ],
+      "message": "lines 14-16: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 56.885,
+      "t_start": 56.885
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        17,
+        19
+      ],
+      "message": "line 19: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 58.841,
+      "t_start": 58.841
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        17,
+        19
+      ],
+      "message": "lines 17-19: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 58.841,
+      "t_start": 58.841
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        20,
+        22
+      ],
+      "message": "line 22: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 60.823,
+      "t_start": 60.823
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        20,
+        22
+      ],
+      "message": "lines 20-22: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 60.823,
+      "t_start": 60.823
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "ensure_pickaxe",
+        "result": "FAILED: no crafting_table item"
+      },
+      "lines": [
+        31
+      ],
+      "message": "line 31: action 'ensure_pickaxe' failed (FAILED: no crafting_table item); 0.0 s lost",
+      "severity": "medium",
+      "t_end": 70.049,
+      "t_start": 70.049
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        38,
+        40
+      ],
+      "message": "line 40: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 99.377,
+      "t_start": 99.377
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        38,
+        40
+      ],
+      "message": "lines 38-40: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 99.377,
+      "t_start": 99.377
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        44,
+        46
+      ],
+      "message": "line 46: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 103.419,
+      "t_start": 103.419
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        44,
+        46
+      ],
+      "message": "lines 44-46: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 103.419,
+      "t_start": 103.419
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        50,
+        52
+      ],
+      "message": "line 52: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 107.181,
+      "t_start": 107.181
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        50,
+        52
+      ],
+      "message": "lines 50-52: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 107.181,
+      "t_start": 107.181
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        68,
+        70
+      ],
+      "message": "line 70: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 118.753,
+      "t_start": 118.753
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        68,
+        70
+      ],
+      "message": "lines 68-70: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 118.753,
+      "t_start": 118.753
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        74,
+        76
+      ],
+      "message": "line 76: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 122.438,
+      "t_start": 122.438
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        74,
+        76
+      ],
+      "message": "lines 74-76: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 122.438,
+      "t_start": 122.438
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        80,
+        82
+      ],
+      "message": "line 82: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 127.658,
+      "t_start": 127.658
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        80,
+        82
+      ],
+      "message": "lines 80-82: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 127.658,
+      "t_start": 127.658
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        92,
+        94
+      ],
+      "message": "line 94: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 135.308,
+      "t_start": 135.308
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        92,
+        94
+      ],
+      "message": "lines 92-94: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 135.308,
+      "t_start": 135.308
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        104,
+        106
+      ],
+      "message": "line 106: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 142.648,
+      "t_start": 142.648
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        104,
+        106
+      ],
+      "message": "lines 104-106: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 142.648,
+      "t_start": 142.648
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        110,
+        112
+      ],
+      "message": "line 112: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 146.976,
+      "t_start": 146.976
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        110,
+        112
+      ],
+      "message": "lines 110-112: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 146.976,
+      "t_start": 146.976
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        116,
+        118
+      ],
+      "message": "line 118: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 150.943,
+      "t_start": 150.943
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        116,
+        118
+      ],
+      "message": "lines 116-118: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 150.943,
+      "t_start": 150.943
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        122,
+        124
+      ],
+      "message": "line 124: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 156.736,
+      "t_start": 156.736
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        122,
+        124
+      ],
+      "message": "lines 122-124: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 156.736,
+      "t_start": 156.736
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        128,
+        130
+      ],
+      "message": "line 130: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 160.454,
+      "t_start": 160.454
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        128,
+        130
+      ],
+      "message": "lines 128-130: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 160.454,
+      "t_start": 160.454
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        134,
+        136
+      ],
+      "message": "line 136: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 164.163,
+      "t_start": 164.163
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        134,
+        136
+      ],
+      "message": "lines 134-136: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 164.163,
+      "t_start": 164.163
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        140,
+        142
+      ],
+      "message": "line 142: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 167.791,
+      "t_start": 167.791
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        140,
+        142
+      ],
+      "message": "lines 140-142: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 167.791,
+      "t_start": 167.791
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        152,
+        154
+      ],
+      "message": "line 154: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 175.47,
+      "t_start": 175.47
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        152,
+        154
+      ],
+      "message": "lines 152-154: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 175.47,
+      "t_start": 175.47
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        158,
+        160
+      ],
+      "message": "line 160: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 179.6,
+      "t_start": 179.6
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        158,
+        160
+      ],
+      "message": "lines 158-160: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 179.6,
+      "t_start": 179.6
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        170,
+        172
+      ],
+      "message": "line 172: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 189.593,
+      "t_start": 189.593
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        170,
+        172
+      ],
+      "message": "lines 170-172: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 189.593,
+      "t_start": 189.593
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        182,
+        184
+      ],
+      "message": "line 184: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 197.042,
+      "t_start": 197.042
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        182,
+        184
+      ],
+      "message": "lines 182-184: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 197.042,
+      "t_start": 197.042
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        194,
+        196
+      ],
+      "message": "line 196: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 204.51,
+      "t_start": 204.51
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        194,
+        196
+      ],
+      "message": "lines 194-196: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 204.51,
+      "t_start": 204.51
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        200,
+        202
+      ],
+      "message": "line 202: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 208.337,
+      "t_start": 208.337
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        200,
+        202
+      ],
+      "message": "lines 200-202: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 208.337,
+      "t_start": 208.337
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        206,
+        208
+      ],
+      "message": "line 208: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 213.25,
+      "t_start": 213.25
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        206,
+        208
+      ],
+      "message": "lines 206-208: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 213.25,
+      "t_start": 213.25
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        212,
+        214
+      ],
+      "message": "line 214: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 217.242,
+      "t_start": 217.242
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        212,
+        214
+      ],
+      "message": "lines 212-214: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 217.242,
+      "t_start": 217.242
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        218,
+        220
+      ],
+      "message": "line 220: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 221.143,
+      "t_start": 221.143
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        218,
+        220
+      ],
+      "message": "lines 218-220: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 221.143,
+      "t_start": 221.143
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        224,
+        226
+      ],
+      "message": "line 226: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 224.741,
+      "t_start": 224.741
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        224,
+        226
+      ],
+      "message": "lines 224-226: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 224.741,
+      "t_start": 224.741
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "lost_drop",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "result": "ok"
+      },
+      "lines": [
+        230,
+        232
+      ],
+      "message": "line 232: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.0 s wasted",
+      "severity": "medium",
+      "t_end": 228.458,
+      "t_start": 228.458
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.0,
+      "evidence": {
+        "action": "collect_wood",
+        "pos": [
+          -215.59843399831036,
+          64.0,
+          238.4996992561346
+        ]
+      },
+      "lines": [
+        230,
+        232
+      ],
+      "message": "lines 230-232: 'collect_wood' succeeded but position and inventory are unchanged; 0.0 s lost",
+      "severity": "medium",
+      "t_end": 228.458,
+      "t_start": 228.458
+    }
+  ],
+  "progress": {
+    "failed_at": null,
+    "steps": [
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not derivable from this log",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "score": {
+    "attributed_waste_s": 65.39,
+    "efficiency": 0.7292,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 80.764,
+    "raw_cost_sum_s": 146.154,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 241.439,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 65.39,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        241.439
+      ],
+      "notes": [],
+      "server_first_t_s": 0.742,
+      "server_last_t_s": 1736.946,
+      "server_samples": 509,
+      "snapshots_checked": 84,
+      "snapshots_without_server_sample": []
+    },
+    "findings": [
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.742,
+          "field": "position"
+        },
+        "lines": [
+          1
+        ],
+        "message": "agent line 1 reports pos (-215.6, 64.0, 238.5) (overworld); server line 21 (t=0.742) has (-180.5, 70.0, 214.5) (overworld), 42.94 blocks apart",
+        "server_lines": [
+          21
+        ],
+        "severity": "high",
+        "t_end": 0.0,
+        "t_start": 0.0
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.139,
+          "field": "position"
+        },
+        "lines": [
+          7
+        ],
+        "message": "agent line 7 reports pos (-215.6, 64.0, 238.5) (overworld); server line 60 (t=33.799) has (-183.6, 69.0, 253.6) (overworld), 35.72 blocks apart",
+        "server_lines": [
+          60
+        ],
+        "severity": "high",
+        "t_end": 33.66,
+        "t_start": 33.66
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.32,
+          "field": "position"
+        },
+        "lines": [
+          10
+        ],
+        "message": "agent line 10 reports pos (-215.6, 64.0, 238.5) (overworld); server line 64 (t=36.805) has (-183.6, 69.0, 253.6) (overworld), 35.72 blocks apart",
+        "server_lines": [
+          64
+        ],
+        "severity": "high",
+        "t_end": 37.125,
+        "t_start": 37.125
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.104,
+          "field": "position"
+        },
+        "lines": [
+          13
+        ],
+        "message": "agent line 13 reports pos (-215.6, 64.0, 238.5) (overworld); server line 86 (t=54.835) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          86
+        ],
+        "severity": "high",
+        "t_end": 54.731,
+        "t_start": 54.731
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.047,
+          "field": "position"
+        },
+        "lines": [
+          16
+        ],
+        "message": "agent line 16 reports pos (-215.6, 64.0, 238.5) (overworld); server line 88 (t=56.838) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          88
+        ],
+        "severity": "high",
+        "t_end": 56.885,
+        "t_start": 56.885
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.003,
+          "field": "position"
+        },
+        "lines": [
+          19
+        ],
+        "message": "agent line 19 reports pos (-215.6, 64.0, 238.5) (overworld); server line 90 (t=58.844) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          90
+        ],
+        "severity": "high",
+        "t_end": 58.841,
+        "t_start": 58.841
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.024,
+          "field": "position"
+        },
+        "lines": [
+          22
+        ],
+        "message": "agent line 22 reports pos (-215.6, 64.0, 238.5) (overworld); server line 93 (t=60.847) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          93
+        ],
+        "severity": "high",
+        "t_end": 60.823,
+        "t_start": 60.823
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.052,
+          "field": "position"
+        },
+        "lines": [
+          25
+        ],
+        "message": "agent line 25 reports pos (-215.6, 64.0, 238.5) (overworld); server line 95 (t=62.851) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          95
+        ],
+        "severity": "high",
+        "t_end": 62.799,
+        "t_start": 62.799
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.115,
+          "field": "position"
+        },
+        "lines": [
+          28
+        ],
+        "message": "agent line 28 reports pos (-215.6, 64.0, 238.5) (overworld); server line 101 (t=67.86) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          101
+        ],
+        "severity": "high",
+        "t_end": 67.745,
+        "t_start": 67.745
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.188,
+          "field": "position"
+        },
+        "lines": [
+          31
+        ],
+        "message": "agent line 31 reports pos (-215.6, 64.0, 238.5) (overworld); server line 104 (t=69.861) has (-187.4, 69.0, 251.5) (overworld), 31.43 blocks apart",
+        "server_lines": [
+          104
+        ],
+        "severity": "high",
+        "t_end": 70.049,
+        "t_start": 70.049
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.25,
+          "field": "position"
+        },
+        "lines": [
+          34
+        ],
+        "message": "agent line 34 reports pos (-215.6, 64.0, 238.5) (overworld); server line 131 (t=92.896) has (-192.6, 69.0, 253.8) (overworld), 28.08 blocks apart",
+        "server_lines": [
+          131
+        ],
+        "severity": "high",
+        "t_end": 93.146,
+        "t_start": 93.146
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.334,
+          "field": "position"
+        },
+        "lines": [
+          37
+        ],
+        "message": "agent line 37 reports pos (-215.6, 64.0, 238.5) (overworld); server line 136 (t=96.903) has (-193.7, 69.0, 250.0) (overworld), 25.25 blocks apart",
+        "server_lines": [
+          136
+        ],
+        "severity": "high",
+        "t_end": 97.237,
+        "t_start": 97.237
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.472,
+          "field": "position"
+        },
+        "lines": [
+          40
+        ],
+        "message": "agent line 40 reports pos (-215.6, 64.0, 238.5) (overworld); server line 138 (t=98.905) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          138
+        ],
+        "severity": "high",
+        "t_end": 99.377,
+        "t_start": 99.377
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.453,
+          "field": "position"
+        },
+        "lines": [
+          43
+        ],
+        "message": "agent line 43 reports pos (-215.6, 64.0, 238.5) (overworld); server line 141 (t=100.908) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          141
+        ],
+        "severity": "high",
+        "t_end": 101.361,
+        "t_start": 101.361
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.493,
+          "field": "position"
+        },
+        "lines": [
+          46
+        ],
+        "message": "agent line 46 reports pos (-215.6, 64.0, 238.5) (overworld); server line 144 (t=103.912) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          144
+        ],
+        "severity": "high",
+        "t_end": 103.419,
+        "t_start": 103.419
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.242,
+          "field": "position"
+        },
+        "lines": [
+          49
+        ],
+        "message": "agent line 49 reports pos (-215.6, 64.0, 238.5) (overworld); server line 146 (t=104.915) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          146
+        ],
+        "severity": "high",
+        "t_end": 105.157,
+        "t_start": 105.157
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.265,
+          "field": "position"
+        },
+        "lines": [
+          52
+        ],
+        "message": "agent line 52 reports pos (-215.6, 64.0, 238.5) (overworld); server line 148 (t=106.916) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          148
+        ],
+        "severity": "high",
+        "t_end": 107.181,
+        "t_start": 107.181
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.059,
+          "field": "position"
+        },
+        "lines": [
+          55
+        ],
+        "message": "agent line 55 reports pos (-215.6, 64.0, 238.5) (overworld); server line 150 (t=108.919) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          150
+        ],
+        "severity": "high",
+        "t_end": 108.978,
+        "t_start": 108.978
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.343,
+          "field": "position"
+        },
+        "lines": [
+          58
+        ],
+        "message": "agent line 58 reports pos (-215.6, 64.0, 238.5) (overworld); server line 153 (t=110.923) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          153
+        ],
+        "severity": "high",
+        "t_end": 111.266,
+        "t_start": 111.266
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.058,
+          "field": "position"
+        },
+        "lines": [
+          61
+        ],
+        "message": "agent line 61 reports pos (-215.6, 64.0, 238.5) (overworld); server line 155 (t=112.927) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          155
+        ],
+        "severity": "high",
+        "t_end": 112.985,
+        "t_start": 112.985
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.263,
+          "field": "position"
+        },
+        "lines": [
+          64
+        ],
+        "message": "agent line 64 reports pos (-215.6, 64.0, 238.5) (overworld); server line 158 (t=114.931) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          158
+        ],
+        "severity": "high",
+        "t_end": 115.194,
+        "t_start": 115.194
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.013,
+          "field": "position"
+        },
+        "lines": [
+          67
+        ],
+        "message": "agent line 67 reports pos (-215.6, 64.0, 238.5) (overworld); server line 160 (t=116.934) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          160
+        ],
+        "severity": "high",
+        "t_end": 116.921,
+        "t_start": 116.921
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.184,
+          "field": "position"
+        },
+        "lines": [
+          70
+        ],
+        "message": "agent line 70 reports pos (-215.6, 64.0, 238.5) (overworld); server line 162 (t=118.937) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          162
+        ],
+        "severity": "high",
+        "t_end": 118.753,
+        "t_start": 118.753
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.382,
+          "field": "position"
+        },
+        "lines": [
+          73
+        ],
+        "message": "agent line 73 reports pos (-215.6, 64.0, 238.5) (overworld); server line 165 (t=120.944) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          165
+        ],
+        "severity": "high",
+        "t_end": 120.562,
+        "t_start": 120.562
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.493,
+          "field": "position"
+        },
+        "lines": [
+          76
+        ],
+        "message": "agent line 76 reports pos (-215.6, 64.0, 238.5) (overworld); server line 166 (t=121.945) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          166
+        ],
+        "severity": "high",
+        "t_end": 122.438,
+        "t_start": 122.438
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.238,
+          "field": "position"
+        },
+        "lines": [
+          79
+        ],
+        "message": "agent line 79 reports pos (-215.6, 64.0, 238.5) (overworld); server line 171 (t=125.951) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          171
+        ],
+        "severity": "high",
+        "t_end": 125.713,
+        "t_start": 125.713
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.296,
+          "field": "position"
+        },
+        "lines": [
+          82
+        ],
+        "message": "agent line 82 reports pos (-215.6, 64.0, 238.5) (overworld); server line 173 (t=127.954) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          173
+        ],
+        "severity": "high",
+        "t_end": 127.658,
+        "t_start": 127.658
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.484,
+          "field": "position"
+        },
+        "lines": [
+          85
+        ],
+        "message": "agent line 85 reports pos (-215.6, 64.0, 238.5) (overworld); server line 176 (t=129.96) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          176
+        ],
+        "severity": "high",
+        "t_end": 129.476,
+        "t_start": 129.476
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.344,
+          "field": "position"
+        },
+        "lines": [
+          88
+        ],
+        "message": "agent line 88 reports pos (-215.6, 64.0, 238.5) (overworld); server line 178 (t=131.966) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          178
+        ],
+        "severity": "high",
+        "t_end": 131.622,
+        "t_start": 131.622
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.472,
+          "field": "position"
+        },
+        "lines": [
+          91
+        ],
+        "message": "agent line 91 reports pos (-215.6, 64.0, 238.5) (overworld); server line 179 (t=132.967) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          179
+        ],
+        "severity": "high",
+        "t_end": 133.439,
+        "t_start": 133.439
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.338,
+          "field": "position"
+        },
+        "lines": [
+          94
+        ],
+        "message": "agent line 94 reports pos (-215.6, 64.0, 238.5) (overworld); server line 182 (t=134.97) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          182
+        ],
+        "severity": "high",
+        "t_end": 135.308,
+        "t_start": 135.308
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.166,
+          "field": "position"
+        },
+        "lines": [
+          97
+        ],
+        "message": "agent line 97 reports pos (-215.6, 64.0, 238.5) (overworld); server line 184 (t=136.974) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          184
+        ],
+        "severity": "high",
+        "t_end": 137.14,
+        "t_start": 137.14
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.061,
+          "field": "position"
+        },
+        "lines": [
+          100
+        ],
+        "message": "agent line 100 reports pos (-215.6, 64.0, 238.5) (overworld); server line 186 (t=139.001) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          186
+        ],
+        "severity": "high",
+        "t_end": 138.94,
+        "t_start": 138.94
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.218,
+          "field": "position"
+        },
+        "lines": [
+          103
+        ],
+        "message": "agent line 103 reports pos (-215.6, 64.0, 238.5) (overworld); server line 189 (t=141.006) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          189
+        ],
+        "severity": "high",
+        "t_end": 140.788,
+        "t_start": 140.788
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.362,
+          "field": "position"
+        },
+        "lines": [
+          106
+        ],
+        "message": "agent line 106 reports pos (-215.6, 64.0, 238.5) (overworld); server line 191 (t=143.01) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          191
+        ],
+        "severity": "high",
+        "t_end": 142.648,
+        "t_start": 142.648
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.326,
+          "field": "position"
+        },
+        "lines": [
+          109
+        ],
+        "message": "agent line 109 reports pos (-215.6, 64.0, 238.5) (overworld); server line 194 (t=145.014) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          194
+        ],
+        "severity": "high",
+        "t_end": 144.688,
+        "t_start": 144.688
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.042,
+          "field": "position"
+        },
+        "lines": [
+          112
+        ],
+        "message": "agent line 112 reports pos (-215.6, 64.0, 238.5) (overworld); server line 196 (t=147.018) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          196
+        ],
+        "severity": "high",
+        "t_end": 146.976,
+        "t_start": 146.976
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.176,
+          "field": "position"
+        },
+        "lines": [
+          115
+        ],
+        "message": "agent line 115 reports pos (-215.6, 64.0, 238.5) (overworld); server line 198 (t=149.021) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          198
+        ],
+        "severity": "high",
+        "t_end": 148.845,
+        "t_start": 148.845
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.082,
+          "field": "position"
+        },
+        "lines": [
+          118
+        ],
+        "message": "agent line 118 reports pos (-215.6, 64.0, 238.5) (overworld); server line 201 (t=151.025) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          201
+        ],
+        "severity": "high",
+        "t_end": 150.943,
+        "t_start": 150.943
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.326,
+          "field": "position"
+        },
+        "lines": [
+          121
+        ],
+        "message": "agent line 121 reports pos (-215.6, 64.0, 238.5) (overworld); server line 206 (t=155.034) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          206
+        ],
+        "severity": "high",
+        "t_end": 154.708,
+        "t_start": 154.708
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.301,
+          "field": "position"
+        },
+        "lines": [
+          124
+        ],
+        "message": "agent line 124 reports pos (-215.6, 64.0, 238.5) (overworld); server line 208 (t=157.037) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          208
+        ],
+        "severity": "high",
+        "t_end": 156.736,
+        "t_start": 156.736
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.355,
+          "field": "position"
+        },
+        "lines": [
+          127
+        ],
+        "message": "agent line 127 reports pos (-215.6, 64.0, 238.5) (overworld); server line 210 (t=159.038) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          210
+        ],
+        "severity": "high",
+        "t_end": 158.683,
+        "t_start": 158.683
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.411,
+          "field": "position"
+        },
+        "lines": [
+          130
+        ],
+        "message": "agent line 130 reports pos (-215.6, 64.0, 238.5) (overworld); server line 212 (t=160.043) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          212
+        ],
+        "severity": "high",
+        "t_end": 160.454,
+        "t_start": 160.454
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.313,
+          "field": "position"
+        },
+        "lines": [
+          133
+        ],
+        "message": "agent line 133 reports pos (-215.6, 64.0, 238.5) (overworld); server line 214 (t=162.047) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          214
+        ],
+        "severity": "high",
+        "t_end": 162.36,
+        "t_start": 162.36
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.112,
+          "field": "position"
+        },
+        "lines": [
+          136
+        ],
+        "message": "agent line 136 reports pos (-215.6, 64.0, 238.5) (overworld); server line 216 (t=164.051) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          216
+        ],
+        "severity": "high",
+        "t_end": 164.163,
+        "t_start": 164.163
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.05,
+          "field": "position"
+        },
+        "lines": [
+          139
+        ],
+        "message": "agent line 139 reports pos (-215.6, 64.0, 238.5) (overworld); server line 219 (t=166.055) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          219
+        ],
+        "severity": "high",
+        "t_end": 166.005,
+        "t_start": 166.005
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.267,
+          "field": "position"
+        },
+        "lines": [
+          142
+        ],
+        "message": "agent line 142 reports pos (-215.6, 64.0, 238.5) (overworld); server line 221 (t=168.058) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          221
+        ],
+        "severity": "high",
+        "t_end": 167.791,
+        "t_start": 167.791
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.387,
+          "field": "position"
+        },
+        "lines": [
+          145
+        ],
+        "message": "agent line 145 reports pos (-215.6, 64.0, 238.5) (overworld); server line 224 (t=170.062) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          224
+        ],
+        "severity": "high",
+        "t_end": 169.675,
+        "t_start": 169.675
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.338,
+          "field": "position"
+        },
+        "lines": [
+          148
+        ],
+        "message": "agent line 148 reports pos (-215.6, 64.0, 238.5) (overworld); server line 225 (t=171.062) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          225
+        ],
+        "severity": "high",
+        "t_end": 171.4,
+        "t_start": 171.4
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.338,
+          "field": "position"
+        },
+        "lines": [
+          151
+        ],
+        "message": "agent line 151 reports pos (-215.6, 64.0, 238.5) (overworld); server line 227 (t=173.065) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          227
+        ],
+        "severity": "high",
+        "t_end": 173.403,
+        "t_start": 173.403
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.402,
+          "field": "position"
+        },
+        "lines": [
+          154
+        ],
+        "message": "agent line 154 reports pos (-215.6, 64.0, 238.5) (overworld); server line 230 (t=175.068) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          230
+        ],
+        "severity": "high",
+        "t_end": 175.47,
+        "t_start": 175.47
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.455,
+          "field": "position"
+        },
+        "lines": [
+          157
+        ],
+        "message": "agent line 157 reports pos (-215.6, 64.0, 238.5) (overworld); server line 233 (t=178.072) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          233
+        ],
+        "severity": "high",
+        "t_end": 177.617,
+        "t_start": 177.617
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.477,
+          "field": "position"
+        },
+        "lines": [
+          160
+        ],
+        "message": "agent line 160 reports pos (-215.6, 64.0, 238.5) (overworld); server line 236 (t=180.077) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          236
+        ],
+        "severity": "high",
+        "t_end": 179.6,
+        "t_start": 179.6
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.376,
+          "field": "position"
+        },
+        "lines": [
+          163
+        ],
+        "message": "agent line 163 reports pos (-215.6, 64.0, 238.5) (overworld); server line 240 (t=184.083) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          240
+        ],
+        "severity": "high",
+        "t_end": 183.707,
+        "t_start": 183.707
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.177,
+          "field": "position"
+        },
+        "lines": [
+          166
+        ],
+        "message": "agent line 166 reports pos (-215.6, 64.0, 238.5) (overworld); server line 243 (t=186.087) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          243
+        ],
+        "severity": "high",
+        "t_end": 185.91,
+        "t_start": 185.91
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.409,
+          "field": "position"
+        },
+        "lines": [
+          169
+        ],
+        "message": "agent line 169 reports pos (-215.6, 64.0, 238.5) (overworld); server line 245 (t=188.094) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          245
+        ],
+        "severity": "high",
+        "t_end": 187.685,
+        "t_start": 187.685
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.498,
+          "field": "position"
+        },
+        "lines": [
+          172
+        ],
+        "message": "agent line 172 reports pos (-215.6, 64.0, 238.5) (overworld); server line 246 (t=189.095) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          246
+        ],
+        "severity": "high",
+        "t_end": 189.593,
+        "t_start": 189.593
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.32,
+          "field": "position"
+        },
+        "lines": [
+          175
+        ],
+        "message": "agent line 175 reports pos (-215.6, 64.0, 238.5) (overworld); server line 249 (t=191.098) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          249
+        ],
+        "severity": "high",
+        "t_end": 191.418,
+        "t_start": 191.418
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.18,
+          "field": "position"
+        },
+        "lines": [
+          178
+        ],
+        "message": "agent line 178 reports pos (-215.6, 64.0, 238.5) (overworld); server line 251 (t=193.1) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          251
+        ],
+        "severity": "high",
+        "t_end": 193.28,
+        "t_start": 193.28
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.086,
+          "field": "position"
+        },
+        "lines": [
+          181
+        ],
+        "message": "agent line 181 reports pos (-215.6, 64.0, 238.5) (overworld); server line 254 (t=195.103) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          254
+        ],
+        "severity": "high",
+        "t_end": 195.189,
+        "t_start": 195.189
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.064,
+          "field": "position"
+        },
+        "lines": [
+          184
+        ],
+        "message": "agent line 184 reports pos (-215.6, 64.0, 238.5) (overworld); server line 256 (t=197.106) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          256
+        ],
+        "severity": "high",
+        "t_end": 197.042,
+        "t_start": 197.042
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.23,
+          "field": "position"
+        },
+        "lines": [
+          187
+        ],
+        "message": "agent line 187 reports pos (-215.6, 64.0, 238.5) (overworld); server line 258 (t=199.11) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          258
+        ],
+        "severity": "high",
+        "t_end": 198.88,
+        "t_start": 198.88
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.188,
+          "field": "position"
+        },
+        "lines": [
+          190
+        ],
+        "message": "agent line 190 reports pos (-215.6, 64.0, 238.5) (overworld); server line 261 (t=201.115) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          261
+        ],
+        "severity": "high",
+        "t_end": 200.927,
+        "t_start": 200.927
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.357,
+          "field": "position"
+        },
+        "lines": [
+          193
+        ],
+        "message": "agent line 193 reports pos (-215.6, 64.0, 238.5) (overworld); server line 263 (t=203.117) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          263
+        ],
+        "severity": "high",
+        "t_end": 202.76,
+        "t_start": 202.76
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.391,
+          "field": "position"
+        },
+        "lines": [
+          196
+        ],
+        "message": "agent line 196 reports pos (-215.6, 64.0, 238.5) (overworld); server line 264 (t=204.119) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          264
+        ],
+        "severity": "high",
+        "t_end": 204.51,
+        "t_start": 204.51
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.377,
+          "field": "position"
+        },
+        "lines": [
+          199
+        ],
+        "message": "agent line 199 reports pos (-215.6, 64.0, 238.5) (overworld); server line 267 (t=206.123) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          267
+        ],
+        "severity": "high",
+        "t_end": 206.5,
+        "t_start": 206.5
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.211,
+          "field": "position"
+        },
+        "lines": [
+          202
+        ],
+        "message": "agent line 202 reports pos (-215.6, 64.0, 238.5) (overworld); server line 269 (t=208.126) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          269
+        ],
+        "severity": "high",
+        "t_end": 208.337,
+        "t_start": 208.337
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.076,
+          "field": "position"
+        },
+        "lines": [
+          205
+        ],
+        "message": "agent line 205 reports pos (-215.6, 64.0, 238.5) (overworld); server line 273 (t=211.133) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          273
+        ],
+        "severity": "high",
+        "t_end": 211.209,
+        "t_start": 211.209
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.115,
+          "field": "position"
+        },
+        "lines": [
+          208
+        ],
+        "message": "agent line 208 reports pos (-215.6, 64.0, 238.5) (overworld); server line 275 (t=213.135) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          275
+        ],
+        "severity": "high",
+        "t_end": 213.25,
+        "t_start": 213.25
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.137,
+          "field": "position"
+        },
+        "lines": [
+          211
+        ],
+        "message": "agent line 211 reports pos (-215.6, 64.0, 238.5) (overworld); server line 278 (t=215.138) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          278
+        ],
+        "severity": "high",
+        "t_end": 215.275,
+        "t_start": 215.275
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.099,
+          "field": "position"
+        },
+        "lines": [
+          214
+        ],
+        "message": "agent line 214 reports pos (-215.6, 64.0, 238.5) (overworld); server line 280 (t=217.143) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          280
+        ],
+        "severity": "high",
+        "t_end": 217.242,
+        "t_start": 217.242
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.146,
+          "field": "position"
+        },
+        "lines": [
+          217
+        ],
+        "message": "agent line 217 reports pos (-215.6, 64.0, 238.5) (overworld); server line 282 (t=219.147) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          282
+        ],
+        "severity": "high",
+        "t_end": 219.293,
+        "t_start": 219.293
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.008,
+          "field": "position"
+        },
+        "lines": [
+          220
+        ],
+        "message": "agent line 220 reports pos (-215.6, 64.0, 238.5) (overworld); server line 285 (t=221.151) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          285
+        ],
+        "severity": "high",
+        "t_end": 221.143,
+        "t_start": 221.143
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.224,
+          "field": "position"
+        },
+        "lines": [
+          223
+        ],
+        "message": "agent line 223 reports pos (-215.6, 64.0, 238.5) (overworld); server line 287 (t=223.154) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          287
+        ],
+        "severity": "high",
+        "t_end": 222.93,
+        "t_start": 222.93
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.417,
+          "field": "position"
+        },
+        "lines": [
+          226
+        ],
+        "message": "agent line 226 reports pos (-215.6, 64.0, 238.5) (overworld); server line 290 (t=225.158) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          290
+        ],
+        "severity": "high",
+        "t_end": 224.741,
+        "t_start": 224.741
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.409,
+          "field": "position"
+        },
+        "lines": [
+          229
+        ],
+        "message": "agent line 229 reports pos (-215.6, 64.0, 238.5) (overworld); server line 291 (t=226.159) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          291
+        ],
+        "severity": "high",
+        "t_end": 226.568,
+        "t_start": 226.568
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.296,
+          "field": "position"
+        },
+        "lines": [
+          232
+        ],
+        "message": "agent line 232 reports pos (-215.6, 64.0, 238.5) (overworld); server line 293 (t=228.162) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          293
+        ],
+        "severity": "high",
+        "t_end": 228.458,
+        "t_start": 228.458
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.053,
+          "field": "position"
+        },
+        "lines": [
+          235
+        ],
+        "message": "agent line 235 reports pos (-215.6, 64.0, 238.5) (overworld); server line 296 (t=230.166) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          296
+        ],
+        "severity": "high",
+        "t_end": 230.219,
+        "t_start": 230.219
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.047,
+          "field": "position"
+        },
+        "lines": [
+          238
+        ],
+        "message": "agent line 238 reports pos (-215.6, 64.0, 238.5) (overworld); server line 298 (t=232.17) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          298
+        ],
+        "severity": "high",
+        "t_end": 232.123,
+        "t_start": 232.123
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.16,
+          "field": "position"
+        },
+        "lines": [
+          241
+        ],
+        "message": "agent line 241 reports pos (-215.6, 64.0, 238.5) (overworld); server line 300 (t=234.174) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          300
+        ],
+        "severity": "high",
+        "t_end": 234.014,
+        "t_start": 234.014
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.097,
+          "field": "position"
+        },
+        "lines": [
+          244
+        ],
+        "message": "agent line 244 reports pos (-215.6, 64.0, 238.5) (overworld); server line 303 (t=236.178) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          303
+        ],
+        "severity": "high",
+        "t_end": 236.081,
+        "t_start": 236.081
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.054,
+          "field": "position"
+        },
+        "lines": [
+          247
+        ],
+        "message": "agent line 247 reports pos (-215.6, 64.0, 238.5) (overworld); server line 306 (t=239.184) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          306
+        ],
+        "severity": "high",
+        "t_end": 239.13,
+        "t_start": 239.13
+      },
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.101,
+          "field": "position"
+        },
+        "lines": [
+          250
+        ],
+        "message": "agent line 250 reports pos (-215.6, 64.0, 238.5) (overworld); server line 309 (t=241.188) has (-193.7, 69.0, 249.4) (overworld), 24.96 blocks apart",
+        "server_lines": [
+          309
+        ],
+        "severity": "high",
+        "t_end": 241.289,
+        "t_start": 241.289
+      }
+    ],
+    "server_log": "runs/live/foot-01/server.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 65.39,
+    "efficiency": 0.7292,
+    "findings": 128,
+    "findings_by_category": {
+      "claim": 2,
+      "decision": 0,
+      "micro": 126,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 3,
+      "low": 0,
+      "medium": 125
+    },
+    "log": "runs/live/foot-01/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 241.439
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 65.39,
+    "safety": 0.0
+  }
+}

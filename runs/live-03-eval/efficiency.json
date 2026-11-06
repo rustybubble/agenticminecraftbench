@@ -1,0 +1,101 @@
+{
+  "run_median_ratio": null,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 66.683,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 35.565,
+          "evidence": "RunEval lost_drop at t=3.72 s (lines 4-7): line 7: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 35.565 s wasted"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 35.565,
+          "evidence": "RunEval no_progress at t=3.72 s (lines 4-7): lines 4-7: 'collect_wood' succeeded but position and inventory are unchanged; 35.565 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.011,
+          "evidence": "RunEval failed_action at t=46.696 s (line 10): line 10: action 'craft' failed (FAILED: not ok); 0.011 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 1.716,
+          "evidence": "RunEval no_progress at t=49.185 s (lines 11-13): lines 11-13: 'ensure_axe' succeeded but position and inventory are unchanged; 1.716 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.004,
+          "evidence": "RunEval no_progress at t=52.596 s (lines 14-16): lines 14-16: 'ensure_pickaxe' succeeded but position and inventory are unchanged; 0.004 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 36.942,
+          "evidence": "RunEval lost_drop at t=59.274 s (lines 18-20): line 20: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 36.942 s wasted"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 36.942,
+          "evidence": "RunEval no_progress at t=59.274 s (lines 18-20): lines 18-20: 'collect_wood' succeeded but position and inventory are unchanged; 36.942 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.002,
+          "evidence": "RunEval no_progress at t=101.316 s (lines 21-23): lines 21-23: 'craft' succeeded but position and inventory are unchanged; 0.002 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 120.003,
+          "evidence": "RunEval failed_action at t=111.409 s (line 30): line 30: action 'mine_blocks' failed (FAILED: not ok); 120.003 s lost"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=231.565 s); end segment and total not scored); total not scored"
+  ]
+}

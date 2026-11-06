@@ -112,12 +112,22 @@ def efficiency_section(root: Path, out: Path) -> list:
 # ---------------------------------------------------------------- (b) agent runs
 def runs_section(root: Path, out: Path, eval_root: Path) -> list:
     md = ["## 2. Live agent runs (splitcheck.evaluate)", ""]
-    runs = sorted(p.parent.name for p in (root / "agent_runs").glob("*/events.jsonl"))
+    # agent_runs/<run>/{events,server_events}.jsonl (handoff layout) and the live lab's
+    # runs/live/demo-*/{events,server}.jsonl (telemetry.js server logs). Test/dev folders are skipped.
+    logs = {p.parent.name: p for p in (root / "agent_runs").glob("*/events.jsonl")}
+    for p in sorted((root / "runs" / "live").glob("*/events.jsonl")):
+        if p.parent.name.startswith(("demo-", "live-", "foot-")) and p.parent.name not in logs:
+            logs[p.parent.name] = p
+    runs = sorted(logs)
     if not runs:
         return md + ["No agent_runs/<run>/events.jsonl found.", ""]
+    md += ["Note: agent-06 (agent_runs) and demo-01 (runs/live) are the same run; demo-01 has the full "
+           "server telemetry.", ""]
     for run in runs:
-        log = root / "agent_runs" / run / "events.jsonl"
+        log = logs[run]
         srv = log.parent / "server_events.jsonl"
+        if not srv.exists():
+            srv = log.parent / "server.jsonl"
         perc = root / "runs" / "perception" / f"{run}_perception.json"
         with contextlib.redirect_stdout(io.StringIO()):
             res = evalmod.evaluate(str(log), run_id=run, outdir=str(eval_root / f"{run}-eval"),

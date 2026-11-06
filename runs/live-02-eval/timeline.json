@@ -1,0 +1,224 @@
+{
+  "baseline": "/Users/anshul/agenticgamebech/baseline/pro_2m49_segments.json",
+  "facts": {
+    "beds_collected": 0,
+    "beds_used": null,
+    "beds_used_note": "unknown: the run did not finish the dragon fight",
+    "deaths": 0,
+    "end": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null,
+      "straight_note": "dragon fight: no single destination, straight_blocks not computed"
+    },
+    "end_portal_source": "seed features (config.json#activePortal); not disclosed to the player",
+    "end_portal_xyz": {
+      "x": -1130.0,
+      "y": 34.0,
+      "z": 856.0
+    },
+    "exit_to_end_portal": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "model_latency_s": null,
+    "nether": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "spawn_to_nether": {
+      "dimension": "overworld",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 7,
+      "path_blocks": 2.168,
+      "straight_blocks": 2.168
+    }
+  },
+  "finish_flag": "unfinished",
+  "kind": "agent_timeline",
+  "log": "runs/live/live-02/events.jsonl",
+  "milestones": {
+    "M_end_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_finish": {
+      "high": null,
+      "low": null,
+      "note": "unfinished: no finish event (log ends at t=151.266 s); end segment and total not scored",
+      "reached": false
+    },
+    "M_portal_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_portal_out": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_start": {
+      "evidence": "run start",
+      "high": 0.0,
+      "line": 1,
+      "low": 0.0
+    }
+  },
+  "notes": [
+    "Milestones read from the game log: low == high (no montage cuts).",
+    "waste_extra comes from RunEval findings (cost_s estimates); it is listed per segment and does not change verdicts. attributed_s is RunEval's de-duplicated share."
+  ],
+  "run_id": "live-02",
+  "source": "live_agent",
+  "waste_extra": [
+    {
+      "attributed_s": 80.796,
+      "evidence": "RunEval failed_action at t=6.012 s (line 7): line 7: action 'collect_wood' failed (FAILED: not ok); 80.796 s lost",
+      "lines": [
+        7
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 80.796,
+      "segment": "spawn_to_nether",
+      "t_start": 6.012,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 28.724,
+      "evidence": "RunEval lost_drop at t=95.193 s (lines 8-10): line 10: 'mine_blocks' reported success but nothing reached the inventory within 5 s / by the next result; 28.724 s wasted",
+      "lines": [
+        8,
+        10
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 28.724,
+      "segment": "spawn_to_nether",
+      "t_start": 95.193,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=95.193 s (lines 8-10): lines 8-10: 'mine_blocks' succeeded but position and inventory are unchanged; 28.724 s lost",
+      "lines": [
+        8,
+        10
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 28.724,
+      "segment": "spawn_to_nether",
+      "t_start": 95.193,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval lost_drop at t=125.724 s (lines 11-13): line 13: 'collect_wood' reported success but nothing reached the inventory within 5 s / by the next result; 0.001 s wasted",
+      "lines": [
+        11,
+        13
+      ],
+      "runeval_code": "lost_drop",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 125.724,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.0,
+      "evidence": "RunEval no_progress at t=125.724 s (lines 11-13): lines 11-13: 'collect_wood' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "lines": [
+        11,
+        13
+      ],
+      "runeval_code": "no_progress",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 125.724,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 1.504,
+      "evidence": "RunEval failed_action at t=127.713 s (line 16): line 16: action 'craft' failed (FAILED: no recipe for crafting_table: missing oak_planksx4); 1.504 s lost",
+      "lines": [
+        16
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 1.504,
+      "segment": "spawn_to_nether",
+      "t_start": 127.713,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=132.859 s (line 22): line 22: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost",
+      "lines": [
+        22
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 132.859,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=136.519 s (line 28): line 28: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.001 s lost",
+      "lines": [
+        28
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 136.519,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.001,
+      "evidence": "RunEval failed_action at t=140.216 s (line 34): line 34: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.001 s lost",
+      "lines": [
+        34
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.001,
+      "segment": "spawn_to_nether",
+      "t_start": 140.216,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=144.863 s (line 40): line 40: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost",
+      "lines": [
+        40
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 144.863,
+      "tag": "failed_or_retried_action"
+    },
+    {
+      "attributed_s": 0.002,
+      "evidence": "RunEval failed_action at t=149.259 s (line 46): line 46: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost",
+      "lines": [
+        46
+      ],
+      "runeval_code": "failed_action",
+      "seconds": 0.002,
+      "segment": "spawn_to_nether",
+      "t_start": 149.259,
+      "tag": "failed_or_retried_action"
+    }
+  ],
+  "waste_extra_unmapped_codes": {
+    "self_report_contradiction": 2
+  }
+}

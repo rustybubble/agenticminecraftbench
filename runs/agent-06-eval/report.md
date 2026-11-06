@@ -81,11 +81,15 @@ Deterministic checks of what the agent reported against its own log and the serv
 | self_report_contradiction | high | 383.041 | 28, 40 | line 40: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28) |
 | self_report_contradiction | high | 383.041 | 28, 40 | line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28) |
 | self_report_contradiction | high | 383.041 | 31, 34, 40 | line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34) |
+| agent_server_mismatch | high | 58.216 | 27 (server 80) | agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 80 (t=58.712) has (-36.5, 77.0, 32.5) (the_nether), 337.77 blocks apart |
+| agent_server_mismatch | high | 298.216 | 31 (server 366) | agent line 31 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 366 (t=298.2) has (-129.5, 41.0, 98.2) (the_nether), 226.64 blocks apart |
+| agent_server_mismatch | high | 357.191 | 34 (server 437) | agent line 34 reports pos (-285.5, 67.0, 260.5) (the_nether); server line 437 (t=357.357) has (-125.9, 43.2, 97.5) (the_nether), 229.35 blocks apart |
+| agent_server_mismatch | high | 383.041 | 40 (server 466) | agent line 40 reports pos (-190.5, 71.0, 216.5) (the_nether); server line 466 (t=382.078) has (-190.5, 71.0, 216.5) (overworld), 0.0 blocks apart |
 
 ## Evidence coverage
 
-Server log: `agent_runs/agent-06/server_events.jsonl`, 0 samples, t=--- s (agent run t=0.0-383.041 s). Agent snapshots checked against a server sample within +-1.5 s: 0; without one: 13 (lines 1, 6, 8, 12, 14, 18, 20, 24, 27, 31, 34, 37, 40).
-- **no usable server samples** (log empty, unparsed format, or the player was never seen online): there is NO server-side evidence for this run; every finding rests on the agent's own log
+Server log: `agent_runs/agent-06/server_events.jsonl`, 378 samples, t=0.765-382.078 s (agent run t=0.0-383.041 s). Agent snapshots checked against a server sample within +-1.5 s: 13; without one: 0.
+- server log covers the whole agent run
 
 ## This run
 

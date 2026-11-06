@@ -1,0 +1,66 @@
+{
+  "run_median_ratio": null,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 66.683,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 9.707,
+          "evidence": "RunEval failed_action at t=41.495 s (line 27): line 27: action 'build_portal' failed (FAILED: frame incomplete); 9.707 s lost"
+        },
+        {
+          "tag": "extra_items",
+          "seconds": 1.2,
+          "evidence": "RunEval excess_materials at t=51.206 s (line 30): stone: gathered 5 but 5 blocks were never consumed (slack 4); 1.2 s of gathering was surplus"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=71.226 s); end segment and total not scored); total not scored"
+  ]
+}

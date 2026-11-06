@@ -1,0 +1,176 @@
+{
+ "claims": [],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": null,
+  "steps": [
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "demo-07",
+ "score": {
+  "attributed_waste_s": 0.0,
+  "efficiency": 1.0,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": 0.0,
+  "raw_cost_sum_s": 0.0,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 91.652,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 0.0,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   91.652
+  ],
+  "notes": [],
+  "server_first_t_s": 0.877,
+  "server_last_t_s": 96.085,
+  "server_samples": 95,
+  "snapshots_checked": 1,
+  "snapshots_without_server_sample": []
+ },
+ "summary": {
+  "attributed_waste_s": 0.0,
+  "efficiency": 1.0,
+  "findings": 2,
+  "findings_by_category": {
+   "claim": 0,
+   "decision": 0,
+   "micro": 2,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 0,
+   "low": 1,
+   "medium": 1
+  },
+  "log": "runs/live/demo-07/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 91.652
+ },
+ "top_waste": []
+}

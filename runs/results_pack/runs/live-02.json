@@ -1,0 +1,404 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": "wood",
+    "evidence_lines": [],
+    "field": "finalSplit",
+    "logged": null,
+    "summary_line": 51
+   },
+   "lines": [
+    51
+   ],
+   "message": "line 51: summary claims finalSplit='wood', but the log shows None (last milestone reached in the log)",
+   "severity": "high",
+   "t_end": 151.266,
+   "t_start": 151.266
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 1,
+    "evidence_lines": [],
+    "field": "splits",
+    "logged": 0,
+    "summary_line": 51
+   },
+   "lines": [
+    51
+   ],
+   "message": "line 51: summary claims splits=1, but the log shows 0 (milestones reached in the log)",
+   "severity": "high",
+   "t_end": 151.266,
+   "t_start": 151.266
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.775,
+    "field": "position"
+   },
+   "lines": [
+    1
+   ],
+   "message": "agent line 1 reports pos (-210.4, 71.0, 225.6) (overworld); server line 16 (t=0.775) has (-180.5, 70.0, 214.5) (overworld), 31.88 blocks apart",
+   "server_lines": [
+    16
+   ],
+   "severity": "high",
+   "t_end": 0.0,
+   "t_start": 0.0
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.241,
+    "field": "position"
+   },
+   "lines": [
+    7
+   ],
+   "message": "agent line 7 reports pos (-210.4, 71.0, 225.6) (overworld); server line 119 (t=87.049) has (-213.5, 73.6, 225.5) (overworld), 4.06 blocks apart",
+   "server_lines": [
+    119
+   ],
+   "severity": "high",
+   "t_end": 86.808,
+   "t_start": 86.808
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.191,
+    "field": "position"
+   },
+   "lines": [
+    10
+   ],
+   "message": "agent line 10 reports pos (-210.4, 71.0, 225.6) (overworld); server line 163 (t=124.108) has (-215.5, 74.0, 227.7) (overworld), 6.29 blocks apart",
+   "server_lines": [
+    163
+   ],
+   "severity": "high",
+   "t_end": 123.917,
+   "t_start": 123.917
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.384,
+    "field": "position"
+   },
+   "lines": [
+    13
+   ],
+   "message": "agent line 13 reports pos (-210.4, 71.0, 225.6) (overworld); server line 166 (t=126.109) has (-215.5, 74.0, 227.7) (overworld), 6.29 blocks apart",
+   "server_lines": [
+    166
+   ],
+   "severity": "high",
+   "t_end": 125.725,
+   "t_start": 125.725
+  },
+  {
+   "category": "claim",
+   "code": "agent_server_mismatch",
+   "cost_s": 0.0,
+   "evidence": {
+    "dt_s": 0.1,
+    "field": "position"
+   },
+   "lines": [
+    16
+   ],
+   "message": "agent line 16 reports pos (-210.4, 71.0, 225.6) (overworld); server line 169 (t=129.117) has (-211.6, 74.0, 226.8) (overworld), 3.48 blocks apart",
+   "server_lines": [
+    169
+   ],
+   "severity": "high",
+   "t_end": 129.217,
+   "t_start": 129.217
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": null,
+  "steps": [
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": null,
+    "pro_lo": null,
+    "pro_source": null,
+    "reached": false,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not derivable from this log",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "live-02",
+ "score": {
+  "attributed_waste_s": 111.033,
+  "efficiency": 0.266,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": 28.725,
+  "raw_cost_sum_s": 139.758,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 151.266,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 111.033,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   151.266
+  ],
+  "notes": [],
+  "server_first_t_s": 0.775,
+  "server_last_t_s": 151.151,
+  "server_samples": 151,
+  "snapshots_checked": 17,
+  "snapshots_without_server_sample": []
+ },
+ "summary": {
+  "attributed_waste_s": 111.033,
+  "efficiency": 0.266,
+  "findings": 25,
+  "findings_by_category": {
+   "claim": 2,
+   "decision": 0,
+   "micro": 23,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 3,
+   "low": 0,
+   "medium": 22
+  },
+  "log": "runs/live/live-02/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 151.266
+ },
+ "top_waste": [
+  {
+   "attributed_s": 80.796,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 80.796,
+   "evidence": {
+    "action": "collect_wood",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    7
+   ],
+   "message": "line 7: action 'collect_wood' failed (FAILED: not ok); 80.796 s lost",
+   "severity": "high",
+   "t_end": 86.808,
+   "t_start": 6.012
+  },
+  {
+   "attributed_s": 28.724,
+   "category": "micro",
+   "code": "lost_drop",
+   "cost_s": 28.724,
+   "evidence": {
+    "action": "mine_blocks",
+    "result": "ok"
+   },
+   "lines": [
+    8,
+    10
+   ],
+   "message": "line 10: 'mine_blocks' reported success but nothing reached the inventory within 5 s / by the next result; 28.724 s wasted",
+   "severity": "medium",
+   "t_end": 123.917,
+   "t_start": 95.193
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "micro",
+   "code": "no_progress",
+   "cost_s": 28.724,
+   "evidence": {
+    "action": "mine_blocks",
+    "pos": [
+     -210.35912984133677,
+     71.0,
+     225.61989982412342
+    ]
+   },
+   "lines": [
+    8,
+    10
+   ],
+   "message": "lines 8-10: 'mine_blocks' succeeded but position and inventory are unchanged; 28.724 s lost",
+   "severity": "medium",
+   "t_end": 123.917,
+   "t_start": 95.193
+  },
+  {
+   "attributed_s": 1.504,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 1.504,
+   "evidence": {
+    "action": "craft",
+    "result": "FAILED: no recipe for crafting_table: missing oak_planksx4"
+   },
+   "lines": [
+    16
+   ],
+   "message": "line 16: action 'craft' failed (FAILED: no recipe for crafting_table: missing oak_planksx4); 1.504 s lost",
+   "severity": "medium",
+   "t_end": 129.217,
+   "t_start": 127.713
+  },
+  {
+   "attributed_s": 0.002,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.002,
+   "evidence": {
+    "action": "craft",
+    "result": "FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2"
+   },
+   "lines": [
+    22
+   ],
+   "message": "line 22: action 'craft' failed (FAILED: no recipe for wooden_pickaxe: missing oak_planksx3, stickx2); 0.002 s lost",
+   "severity": "medium",
+   "t_end": 132.861,
+   "t_start": 132.859
+  }
+ ]
+}
