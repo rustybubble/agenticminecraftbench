@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Start the SplitCheck 1.16.5 live server (set seed 8398967436125155523) with RCON on.
+# Start the herobrine 1.16.5 live server (set seed 8398967436125155523) with RCON on.
 # - offline mode so the Mineflayer bot can join without a Microsoft account
 # - allow-flight so pathfinder/elytra-ish motion is not kicked as flying
 # - RCON lets the telemetry logger read server-authoritative position/inventory

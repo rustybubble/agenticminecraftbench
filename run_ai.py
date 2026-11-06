@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run ONE AI model on every SplitCheck task: fresh conversation per task, first answer kept.
+"""Run ONE AI model on every herobrine task: fresh conversation per task, first answer kept.
 
 Follows the event rules (opening slides): same AI for every task; a new conversation per task;
 save the first answer unchanged with model, date and exact prompt; never show the AI our answers

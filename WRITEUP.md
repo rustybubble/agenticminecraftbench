@@ -1,4 +1,4 @@
-# SplitCheck: is an AI agent as efficient as a pro Minecraft speedrunner?
+# herobrine: is an AI agent as efficient as a pro Minecraft speedrunner?
 
 **Headline.** On the same set seed, the published LLM agent (Astra + JEV) finishes in 516.7 s on its banner: **3.1× slower than a verified 2:49 pro run** (169.149 s IGT), and 4.8× slower than the fastest known pro run on the seed (1:48.421 IGT; 4.3× against its 1:59.331 RTA). Segment by segment against the 2:49 run, the agent is a steady 2.7–2.9× slower in three of the four segments. The fourth is the outlier: getting from the Nether exit to the End portal takes the agent **51.6–56.7 s against the pro's 2.45 s (21–23×)**. The agent's Nether exit portal was placed 3 Nether blocks off the ideal ÷8 point, so it came out in the overworld 21 blocks from the End portal. That is a missed shortcut in the route its authors supplied.
 

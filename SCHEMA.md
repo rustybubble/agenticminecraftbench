@@ -1,4 +1,4 @@
-# SplitCheck file formats
+# herobrine file formats
 
 Owner: B. Person A codes the checker against this file. Any change after the first publish goes in the **Changelog** at the bottom.
 

@@ -1,4 +1,4 @@
-# SplitCheck checker: how to run it
+# herobrine checker: how to run it
 
 Python 3.11+, standard library only (pytest for tests). No network, no LLM calls.
 All commands run from `code/`:

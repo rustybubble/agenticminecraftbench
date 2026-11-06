@@ -1,4 +1,4 @@
-# SplitCheck plan addendum (v2 changes on top of the team plan)
+# herobrine plan addendum (v2 changes on top of the team plan)
 
 Optimizes "Mercor Minecraft speedrun benchmark plan (1).md" using what we learned this morning: probe results, the Codex and Grok spec reviews, and SpeedrunBench. Base plan: "Mercor Minecraft speedrun benchmark plan" + SCHEMA.md. This file only lists changes and Layer B.
 

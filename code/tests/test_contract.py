@@ -1,4 +1,4 @@
-"""Contract tests: the shared code contract between SplitCheck builders.
+"""Contract tests: the shared code contract between herobrine builders.
 
 Checks that every module/function/dataclass field named in the SHARED CODE
 CONTRACT exists with the agreed signature, and that every action in
