@@ -1,0 +1,16 @@
+// Keep a live third-person stream up: connect, walk to the portal built in demo-01, enter, idle.
+const { Run } = require('../src/loop')
+;(async () => {
+  const run = new Run({ runId: 'stream', autoPlanner: false })
+  await run.connect()
+  const t0 = Date.now()
+  while (!run.ready && Date.now() - t0 < 20000) await new Promise(r => setTimeout(r, 200))
+  const { mineflayer: viewer } = require('prismarine-viewer')
+  viewer(run.bot, { port: 3007, firstPerson: true, viewDistance: 6 })
+  run.log({ type: 'stream', url: 'http://localhost:3007' })
+  await new Promise(r => setTimeout(r, 1500))
+  await run.executor.run({ name: 'goto', args: { x: -279, y: 65, z: 261, range: 2 } }, { timeoutMs: 90000 })
+  await run.executor.run({ name: 'enter_portal', args: {} }, { timeoutMs: 30000 })
+  run.log({ type: 'stream', dimension: run.bot.game.dimension })
+  setInterval(() => { try { run.bot.look(run.bot.entity.yaw + 0.5, 0, true) } catch {} }, 2500)
+})().catch(e => { console.error(e); process.exit(1) })

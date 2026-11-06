@@ -38,7 +38,7 @@ function parseArgs (argv) {
   if (args.viewer) {
     const { mineflayer: viewer } = require('prismarine-viewer')
     const port = Number(args['viewer-port'] || 3007)
-    viewer(run.bot, { port, firstPerson: !args['third-person'], viewDistance: 6 })
+    viewer(run.bot, { port, firstPerson: !args['third-person'], viewDistance: 6 }) // POV unless asked
     run.log({ type: 'viewer', port })
     console.log(`viewer http://localhost:${port}`)
   }
@@ -73,9 +73,15 @@ function parseArgs (argv) {
   if (args.nether && run.bot.game.dimension === 'the_nether') {
     // reference route: nether-side travel points, then build the exit portal near the End portal
     run.log({ type: 'route_step', step: 'nether_travel', action: 'goto', target: { x: -139, y: 41, z: 100 } })
-    await run.executor.run({ name: 'goto', args: { x: -139, y: 41, z: 100, range: 3 } }, { timeoutMs: 240000 })
+    const travel = await run.executor.run({ name: 'travel_legs', args: { x: -139, z: 100, legs: 14, legLen: 32 } }, { timeoutMs: 300000 })
+    run.log({ type: 'route_travel', result: travel.result, pos: { ...run.bot.entity.position } })
+    console.log('nether travel:', JSON.stringify(travel.result))
     run.log({ type: 'route_step', step: 'build_exit_portal', action: 'build_portal' })
-    const exit = await run.executor.run({ name: 'build_portal', args: {} }, { timeoutMs: 240000 })
+    const obsidian = run.bot.inventory.items().filter(i => i.name === 'obsidian').reduce((n, i) => n + i.count, 0)
+    run.log({ type: 'route_check', obsidian })
+    const exit = obsidian >= 10
+      ? await run.executor.run({ name: 'build_portal', args: {} }, { timeoutMs: 240000 })
+      : { ok: false, result: { ok: false, error: `only ${obsidian} obsidian left` } }
     console.log('exit portal:', JSON.stringify(exit.result))
     run.log({ type: 'route_exit_portal', result: exit.result, dimension: run.bot.game.dimension })
 

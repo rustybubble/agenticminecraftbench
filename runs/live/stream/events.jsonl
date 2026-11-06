@@ -1,0 +1,7 @@
+{"ts":"2026-11-06T20:07:33.438Z","epoch":1793995653438,"type":"spawn","pos":{"x":-190.5,"y":71,"z":216.5},"dimension":"overworld","version":"1.16.5"}
+{"ts":"2026-11-06T20:07:33.744Z","epoch":1793995653744,"type":"stream","url":"http://localhost:3007"}
+{"ts":"2026-11-06T20:07:35.245Z","epoch":1793995655245,"type":"skill_start","skill":"goto","args":{"x":-279,"y":65,"z":261,"range":2},"timeoutMs":90000}
+{"ts":"2026-11-06T20:08:02.339Z","epoch":1793995682339,"type":"skill_result","ok":true,"skill":"goto","args":{"x":-279,"y":65,"z":261,"range":2},"ms":27094,"result":{"ok":true,"pos":{"x":-278.5,"y":65,"z":263.41674578796113}}}
+{"ts":"2026-11-06T20:08:02.339Z","epoch":1793995682339,"type":"skill_start","skill":"enter_portal","args":{},"timeoutMs":30000}
+{"ts":"2026-11-06T20:08:07.621Z","epoch":1793995687621,"type":"skill_result","ok":true,"skill":"enter_portal","args":{},"ms":5282,"result":{"ok":true,"dimension":"the_nether"}}
+{"ts":"2026-11-06T20:08:07.623Z","epoch":1793995687623,"type":"stream","dimension":"the_nether"}

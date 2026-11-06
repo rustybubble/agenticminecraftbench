@@ -1,0 +1,9 @@
+{"ts":"2026-11-06T20:20:39.859Z","epoch":1793996439860,"type":"spawn","pos":{"x":-35.08502141781145,"y":77,"z":32.78346049890214},"dimension":"the_nether","version":"1.16.5"}
+{"ts":"2026-11-06T20:20:40.048Z","epoch":1793996440048,"type":"stream","url":"http://localhost:3007","dimension":"the_nether"}
+{"ts":"2026-11-06T20:20:41.249Z","epoch":1793996441249,"type":"skill_start","skill":"travel_legs","args":{"x":-139,"z":100,"legs":16,"legLen":32},"timeoutMs":300000}
+{"ts":"2026-11-06T20:21:41.868Z","epoch":1793996501868,"type":"skill_warn","skill":"travelLegs","error":"Took to long to decide path to goal!"}
+{"ts":"2026-11-06T20:21:41.989Z","epoch":1793996501989,"type":"skill_result","ok":true,"skill":"travel_legs","args":{"x":-139,"z":100,"legs":16,"legLen":32},"ms":60740,"result":{"ok":true,"legs":3,"dist":1.6}}
+{"ts":"2026-11-06T20:21:41.990Z","epoch":1793996501990,"type":"route_travel","result":{"ok":true,"legs":3,"dist":1.6},"pos":{"x":-138.5,"y":41,"z":98.43105857681317}}
+{"ts":"2026-11-06T20:21:41.990Z","epoch":1793996501990,"type":"skill_start","skill":"build_portal","args":{},"timeoutMs":240000}
+{"ts":"2026-11-06T20:21:42.050Z","epoch":1793996502050,"type":"skill_result","ok":false,"skill":"build_portal","args":{},"ms":60,"result":{"ok":false,"error":"no clear 4x5 site near the bot"}}
+{"ts":"2026-11-06T20:21:42.050Z","epoch":1793996502050,"type":"route_exit_portal","result":{"ok":false,"error":"no clear 4x5 site near the bot"},"dimension":"the_nether"}

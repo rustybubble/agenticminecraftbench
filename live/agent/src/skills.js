@@ -499,92 +499,160 @@ class Skills {
   // Build a nether portal frame out of obsidian at a surveyed site. `plane` is the axis the
   // frame is flat on: 'x' = fixed x, spans z (this seed's entry portal); 'z' = fixed z, spans x.
   // (x, y, z) is the bottom-min corner. Placing only into air keeps an existing partial frame.
-  async buildPortalFrame ({ x, y, z, plane = 'x' }) {
+  // Place one block at `t` using any solid neighbour as the reference face. Returns true if the
+  // server accepted it (block echo OR inventory delta).
+  async placeOne (t, itemName) {
+    const V = require('vec3')
+    const NEIGHBOURS = [
+      { d: [0, -1, 0], f: [0, 1, 0] }, { d: [0, 0, 1], f: [0, 0, -1] },
+      { d: [0, 0, -1], f: [0, 0, 1] }, { d: [1, 0, 0], f: [-1, 0, 0] },
+      { d: [-1, 0, 0], f: [1, 0, 0] }, { d: [0, 1, 0], f: [0, -1, 0] }
+    ]
+    const before = this.count(itemName)
+    for (const n of NEIGHBOURS) {
+      const ref = this.bot.blockAt(t.offset(n.d[0], n.d[1], n.d[2]))
+      if (!ref || ref.name === 'air' || /water|lava/.test(ref.name)) continue
+      await this.equip(itemName)
+      const needsJump = (t.y - this.bot.entity.position.y) >= 3
+      if (needsJump) { this.bot.setControlState('jump', true); await sleep(230) }
+      try {
+        const f = n.f
+        await this.bot.lookAt(ref.position.offset(0.5 + f[0] * 0.5, 0.5 + f[1] * 0.5, 0.5 + f[2] * 0.5), true)
+        await this.bot.placeBlock(ref, new V(f[0], f[1], f[2]))
+      } catch (e) { /* verified below */ }
+      if (needsJump) { this.bot.setControlState('jump', false); await sleep(100) }
+      for (let w = 0; w < 5; w++) {
+        await sleep(130)
+        const got = this.bot.blockAt(t)
+        if (got && got.name === itemName) return true
+      }
+      if (this.count(itemName) < before) return true // server accepted, echo lagging
+    }
+    return false
+  }
+
+  // Nether portal frame. Cornerless (10 obsidian) by default so one 21-obsidian chest run covers
+  // both the entry and the exit portal (the reference route does the same). The top middle blocks
+  // have only the open interior below, so a temporary dirt block is placed inside, used as the
+  // reference, then removed before lighting.
+  async buildPortalFrame ({ x, y, z, plane = 'x', cornerless = true }) {
     this.check()
-    if (!this.has('obsidian', 1)) return { ok: false, error: 'no obsidian in inventory' }
     const V = require('vec3')
     const at = (d, h) => plane === 'x'
       ? new V(Math.round(x), Math.round(y + h), Math.round(z + d))
       : new V(Math.round(x + d), Math.round(y + h), Math.round(z))
-
-    // Frame: bottom 4, top 4, sides 3+3. Build bottom-up so every block rests on a placed
-    // block or the ground (that is the only face a player can reliably click).
-    const order = []
-    for (let d = 0; d <= 3; d++) order.push(at(d, 0))
-    for (let h = 1; h <= 3; h++) { order.push(at(0, h)); order.push(at(3, h)) }
-    // top row: corners first, then the middles (their only neighbour is the top row itself)
-    order.push(at(0, 4)); order.push(at(3, 4))
-    for (let d = 1; d <= 2; d++) order.push(at(d, 4))
-
-    // Stand two blocks off the plane, on the open side, and never walk into the frame.
-    const normal = plane === 'x' ? 'x' : 'z'
-    const base = plane === 'x' ? { x: Math.round(x), z: Math.round(z) } : { x: Math.round(x), z: Math.round(z) }
-    const probe = (sign) => {
-      const b = plane === 'x'
-        ? this.bot.blockAt(new V(base.x + sign, Math.round(y), base.z + 1))
-        : this.bot.blockAt(new V(base.x + 1, Math.round(y), base.z + sign))
-      return b && (b.name === 'air' || /grass|dirt|sand|stone/.test(b.name))
-    }
-    const sgn = probe(1) ? 1 : probe(-1) ? -1 : 1
     const stand = plane === 'x'
-      ? { x: base.x + 2 * sgn, y: Math.round(y), z: base.z + 1.5 }
-      : { x: base.x + 1.5, y: Math.round(y), z: base.z + 2 * sgn }
+      ? { x: Math.round(x) + 2, y: Math.round(y), z: Math.round(z) + 1.5 }
+      : { x: Math.round(x) + 1.5, y: Math.round(y), z: Math.round(z) + 2 }
+    const placed = [], failed = []
+    const scaffoldItem = this.has('dirt') ? 'dirt' : (this.has('cobblestone') ? 'cobblestone' : 'netherrack')
 
-    const placed = []
-    const failed = []
-    for (const t of order) {
+    // Cornerless ring (10 obsidian). The outer corners are not part of the portal check, so they
+    // are scaffolded with dirt and left in place: they give the side columns and the top row a
+    // reference face to click, which is the only way to place a hanging block.
+    const plan = []
+    if (cornerless) plan.push([0, 0, scaffoldItem], [3, 0, scaffoldItem])
+    for (const d of cornerless ? [1, 2] : [0, 1, 2, 3]) plan.push([d, 0, 'obsidian'])
+    for (const h of [1, 2, 3]) for (const d of [0, 3]) plan.push([d, h, 'obsidian'])
+    if (cornerless) plan.push([0, 4, scaffoldItem], [3, 4, scaffoldItem])
+    for (const d of cornerless ? [1, 2] : [0, 1, 2, 3]) plan.push([d, 4, 'obsidian'])
+
+    for (const [d, h, item] of plan) {
       this.check()
+      const t = at(d, h)
       const cur = this.bot.blockAt(t)
+      if (cur && cur.name === item) continue
       if (cur && cur.name === 'obsidian') continue
       if (cur && cur.name !== 'air') {
         if (/log|leaves|grass|fern|flower|dirt|gravel|snow|tall_grass/.test(cur.name)) {
-          try { await this.dig(cur) } catch (e) { failed.push({ pos: t.toArray(), reason: `clear: ${e.message}` }); continue }
+          try { await this.dig(cur) } catch (e) { failed.push({ pos: t.toArray(), reason: 'clear' }); continue }
         } else { failed.push({ pos: t.toArray(), reason: `occupied ${cur.name}` }); continue }
       }
-      // move along the stand line so every target is inside reach; never into the plane
       try { await this.bot.pathfinder.goto(new (require('mineflayer-pathfinder').goals).GoalNear(
         Math.round(stand.x), Math.round(stand.y), Math.round(plane === 'x' ? t.z : t.x), 1)) } catch {}
+      const eye = this.bot.entity.position.offset(0, 1.62 + (t.y - this.bot.entity.position.y >= 3 ? 1.2 : 0), 0)
+      if (eye.distanceTo(t.offset(0.5, 0.5, 0.5)) > 4.45) { failed.push({ pos: t.toArray(), reason: 'reach' }); continue }
 
-      // Reference can be any solid neighbour: below for the bottom row, a placed side block for
-      // the top middle (its own below is the open interior).
-      const NEIGHBOURS = [
-        { d: [0, -1, 0], f: [0, 1, 0] }, { d: [0, 0, 1], f: [0, 0, -1] },
-        { d: [0, 0, -1], f: [0, 0, 1] }, { d: [1, 0, 0], f: [-1, 0, 0] },
-        { d: [-1, 0, 0], f: [1, 0, 0] }, { d: [0, 1, 0], f: [0, -1, 0] }
-      ]
-      let ref = null, face = null
-      for (const n of NEIGHBOURS) {
-        const b = this.bot.blockAt(t.offset(n.d[0], n.d[1], n.d[2]))
-        if (b && b.name !== 'air' && !/water|lava/.test(b.name)) { ref = b; face = n.f; break }
+      let ok = await this.placeOne(t, item)
+      if (!ok && h === 4) {
+        const temp = at(d, 3)
+        if (await this.placeOne(temp, scaffoldItem)) {
+          ok = await this.placeOne(t, item)
+          const tb = this.bot.blockAt(temp)
+          if (tb && tb.name !== 'air') { try { await this.dig(tb) } catch {} }
+        }
       }
-      if (!ref) { failed.push({ pos: t.toArray(), reason: 'no reference neighbour' }); continue }
-
-      const before = this.count('obsidian')
-      await this.equip('obsidian')
-      // Reach is measured from the eye, not the feet: top row is 4 up and needs the jump a
-      // player uses. Vanilla reach is 4.5 blocks.
-      const needsJump = (t.y - this.bot.entity.position.y) >= 3
-      const eye = this.bot.entity.position.offset(0, 1.62 + (needsJump ? 1.2 : 0), 0)
-      const reach = eye.distanceTo(t.offset(0.5, 0.5, 0.5))
-      if (reach > 4.45) { failed.push({ pos: t.toArray(), reason: `out of reach ${reach.toFixed(1)}` }); continue }
-      if (needsJump) this.bot.setControlState('jump', true)
-      if (needsJump) await sleep(240)
-      try {
-        await this.bot.lookAt(ref.position.offset(0.5 + face[0] * 0.5, 0.5 + face[1] * 0.5, 0.5 + face[2] * 0.5), true)
-        await this.bot.placeBlock(ref, new V(face[0], face[1], face[2]))
-      } catch (e) { /* fall through to verification */ }
-      if (needsJump) { this.bot.setControlState('jump', false); await sleep(120) }
-
-      let ok = false
-      for (let w = 0; w < 6 && !ok; w++) {
-        await sleep(140)
-        const got = this.bot.blockAt(t)
-        ok = !!got && got.name === 'obsidian'
-      }
-      if (!ok && this.count('obsidian') < before) ok = true // server accepted, state not echoed
-      if (ok) placed.push(t.toArray()); else failed.push({ pos: t.toArray(), reason: 'place failed' })
+      if (ok) placed.push(t.toArray()); else failed.push({ pos: t.toArray(), reason: 'place' })
     }
-    return { ok: failed.length === 0, placed: placed.length, failed, targets: order.length, stand, sgn }
+    return { ok: failed.length === 0, placed: placed.length, failed, targets: plan.length, cornerless }
+  }
+
+  // Short-legged travel: a single long pathfind through netherrack times out. Each 32-block leg
+  // re-plans from the current position and is lava-scanned first.
+  async travelLegs ({ x, z, legs = 12, legLen = 32 } = {}) {
+    this.check()
+    const V = require('vec3')
+    const lava = this.mcData.blocksByName.lava.id
+    const isLava = (px, py, pz, r = 3) => {
+      for (let dx = -r; dx <= r; dx++) for (let dy = -3; dy <= 3; dy++) for (let dz = -r; dz <= r; dz++) {
+        const b = this.bot.blockAt(new V(px + dx, py + dy, pz + dz))
+        if (b && b.type === lava) return true
+      }
+      return false
+    }
+    let made = 0
+    for (let i = 0; i < legs; i++) {
+      this.check()
+      const p = this.bot.entity.position
+      const dx = x - p.x, dz = z - p.z
+      const dist = Math.hypot(dx, dz)
+      if (dist < 6) return { ok: true, legs: made, dist: +dist.toFixed(1) }
+      const step = Math.min(legLen, dist)
+      let tx = Math.round(p.x + (dx / dist) * step)
+      let tz = Math.round(p.z + (dz / dist) * step)
+      if (isLava(tx, Math.round(p.y), tz)) {
+        tx = Math.round(p.x + (dz / dist) * 10)
+        tz = Math.round(p.z - (dx / dist) * 10)
+        this.log({ type: 'skill_warn', skill: 'travelLegs', error: 'lava ahead, sidestep' })
+      }
+      try { await this.bot.pathfinder.goto(new (require('mineflayer-pathfinder').goals).GoalXZ(tx, tz)); made++ } catch (e) {
+        this.log({ type: 'skill_warn', skill: 'travelLegs', error: String(e.message).slice(0, 80) })
+      }
+      await sleep(120)
+    }
+    const p = this.bot.entity.position
+    return { ok: Math.hypot(x - p.x, z - p.z) < 12, legs: made, dist: +Math.hypot(x - p.x, z - p.z).toFixed(1) }
+  }
+
+  // Carve a 4x5 plane plus standing room out of netherrack, then build/light/enter there.
+  // findPortalSite only accepts already-open ground, which the Nether rarely has.
+  async buildPortalHere ({ plane = 'x' } = {}) {
+    this.check()
+    const V = require('vec3')
+    const p = this.bot.entity.position
+    const x = Math.floor(p.x) + 1
+    const y = Math.floor(p.y)
+    const z = Math.floor(p.z) - 1
+    const at = (d, h) => plane === 'x' ? new V(x, y + h, z + d) : new V(x + d, y + h, z)
+    // carve the ring plane, the interior, and a standing column 2 blocks out
+    const cells = []
+    for (let d = -1; d <= 4; d++) for (let h = -1; h <= 5; h++) cells.push(at(d, h))
+    for (let d = -1; d <= 4; d++) for (let h = 0; h <= 4; h++) cells.push(new V(x + 2, y + h, z + d))
+    let dug = 0
+    for (const c of cells) {
+      this.check()
+      const b = this.bot.blockAt(c)
+      if (!b || b.name === 'air') continue
+      if (!this.canDig(b) || /lava|water|bedrock/.test(b.name)) continue
+      if (this.bot.entity.position.distanceTo(c) > 4.3) continue
+      try { await this.dig(b); dug++ } catch {}
+    }
+    const frame = await this.buildPortalFrame({ x, y, z, plane, cornerless: true })
+    if (!frame.ok) return { ok: false, error: 'frame incomplete after carve', frame, dug }
+    try { await this.goto(x + 2, y, z + 1.5, 1) } catch {}
+    const lit = await this.lightPortal()
+    const entered = lit.ok ? await this.enterPortal() : { ok: false, error: lit.error }
+    return { ok: entered.ok, site: { x, y, z, plane }, dug, frame, lit, entered, dimension: this.bot.game.dimension }
   }
 
   async buildAndLightPortal (args = {}) {
@@ -845,6 +913,8 @@ const REGISTRY = {
   water_on_lava: { args: { times: 'number=1' }, desc: 'pour water on lava to create obsidian (needs bucket)' },
   light_portal: { args: {}, desc: 'use flint and steel on an obsidian frame' },
   build_portal_frame: { args: { x: 'number (bottom-min corner)', y: 'number', z: 'number', plane: 'x|z=x' }, desc: 'place obsidian into a partial nether portal frame at a surveyed site' },
+  travel_legs: { args: { x: 'number', z: 'number', legs: 'number=12', legLen: 'number=32' }, desc: 'travel in short re-planned legs (nether-safe), lava-scanned' },
+  build_portal_here: { args: { plane: 'x|z=x' }, desc: 'carve a 4x5 plane out of netherrack and build/light/enter a portal there' },
   build_portal: { args: { x: 'number?', y: 'number?', z: 'number?', plane: 'x|z=x' }, desc: 'craft an igniter if needed, build a 4x5 obsidian frame at a clear site, light it and enter the Nether' },
   enter_portal: { args: {}, desc: 'walk into a nether portal and wait for the dimension change' },
   barter: { args: { ingots: 'number=4' }, desc: 'barter gold ingots with piglins; warns if no gold armor' },

@@ -1,0 +1,17 @@
+{
+  "runId": "demo-02",
+  "startedAt": "2026-11-06T20:12:09.093Z",
+  "endedAt": "2026-11-06T20:13:20.614Z",
+  "elapsedS": 72,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": -279.3204439050464,
+    "y": 64.9375,
+    "z": 262.3
+  },
+  "memory": []
+}
