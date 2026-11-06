@@ -1,77 +1,84 @@
-# SplitCheck: checking AI against pro Minecraft speedrunners
+# SplitCheck: is an AI agent as efficient as a pro Minecraft speedrunner?
 
-**Pitch:** Finishing a game no longer tells you much. SplitCheck checks whether an AI makes the decisions a pro Minecraft speedrunner makes at each stage of a run, and names every shortcut it misses and what it cost.
+**Headline.** On the same set seed, the published LLM agent (Astra + JEV) finishes in 516.7 s on its banner. That is **4.8× slower than the 1:48 pro run** (IGT 108.421 s; 4.3× against its RTA of 119.331 s) and **3.1× slower than a 2:49 pro run**. Most segments are a steady 2.7–2.9× slower. One segment is an outlier: getting from the Nether exit to the End portal takes the agent **51.6–56.7 s against the pro's 2.45 s (21–23×)**. The agent's Nether exit portal was placed 3 Nether blocks off the ideal ÷8 point, so it came out in the overworld 21 blocks from the End portal. That is a missed shortcut in the route its authors supplied.
 
 ## Exigence
 
-- **Game characters are becoming agents.** NVIDIA ACE characters plan and act on their own, and Altera's Project Sid ran 1,000 agents in one Minecraft world (links in the team plan; not re-checked by B).
-- **Agents can finish, but slowly.** Four Gemini 4 agents beat Minecraft in **27 h 14 min**, dying **605 times** on Easy ([Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/google-deepmind-claims-four-gemini-4-agents-beat-minecraft-in-27-hours-by-writing-2-783-programs-of-their-own-the-ai-team-died-605-times-on-easy-difficulty-and-ran-up-an-estimated-usd520-in-tokens)). The human random-seed record is **6:39.813** (Skycrab, [speedrun.com](https://www.speedrun.com/mc/runs/y44238ky)), so the agents were about 245× slower. That compares different categories, so treat it as context only.
-- **The same-seed comparison is the fair one.** On seed `8398967436125155523` (Java 1.16.5), the [rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent) LLM agent's best run is **8:43.300** (`README.md:7`). A verified human run on the same seed takes **2:54.545** ([speedrun.com](https://www.speedrun.com/mc/runs/yoex3d0z)). The agent is **3.0× slower**, and it had help the human did not: Peaceful difficulty instead of Easy, a pre-surveyed route, the seed's coordinates, and a dragon-position sensor.
-- **The agent's own notes list pro-avoidable mistakes:** "The agent collected extra food, wood, and tools on Peaceful difficulty" (`optimization/NOTES.md:13`). It "placed and recovered crafting tables after crafting was complete" (`NOTES.md:14`). It died walking back through a dragon-breath cloud (`optimization/nether/REVIEW.md:37`).
-- **So "did it finish?" is the wrong question.** What matters is efficiency and judgment against human experts.
+- **Agents can now finish Minecraft, but finishing says little.** Four Gemini 4 agents beat it in 27 h 14 min with 605 deaths on Easy ([Tom's Hardware](https://www.tomshardware.com/tech-industry/artificial-intelligence/google-deepmind-claims-four-gemini-4-agents-beat-minecraft-in-27-hours-by-writing-2-783-programs-of-their-own-the-ai-team-died-605-times-on-easy-difficulty-and-ran-up-an-estimated-usd520-in-tokens)). That is a different category from the 6:39.813 random-seed record ([speedrun.com](https://www.speedrun.com/mc/runs/y44238ky)), so it is context only.
+- **The fair comparison is the same seed.** [rmalde/minecraft-agent](https://github.com/rmalde/minecraft-agent) published an LLM agent run on seed `8398967436125155523` (Java 1.16.5). Two verified pro runs exist on that same seed. That allows segment-by-segment comparison against human experts, which is what tells you where an agent wastes time.
 
 ## What we built
 
-- **21 decision tasks** (`tasks/`) covering 9 splits of an Any% run: reset (3), Nether entry (3), bastion (3), fortress (2), blind travel (2), triangulation (2), portal room (2), dragon (2), full route (2).
-  - 7 tasks use the real surveyed seed and follow the human route (reset, Nether entry, the "do you need rods?" fortress check, Nether exit, full route). The other 14 are generic random-seed (RSG) situations for the splits this seed skips (bastion, fortress, triangulation, portal room) and for general Nether entry and dragon play. They are sourced from the wiki and game data, not from the human run.
-  - Each prompt is self-contained: version, difficulty, state as JSON, question, and the exact JSON reply format.
-- **Reference answers** (`reference/`) for every task. Each has the reason it is right, the trap, the pro techniques with sources, one miss tag, at least one alternate valid answer, and at least one broken answer with its expected verdict.
-- **Pro split table** (`splits/pro_splits.json`), taken from the human runner's own segment times, and a **time-cost table** (`splits/time_costs.json`). Every cost is tagged `wiki`, `run`, `agent` or `estimate`.
-- **Reproducible answer math** (`tools/compute_answers.py`): triangulation, Nether coordinates, barter expectations, rod counts, eye-break odds, and the ruined-portal frame search. `tools/validate_refs.py` checks that alternates pass and broken answers fail the stated tolerances.
-- **The checker** (`code/`, Person A) and the AI runs (`attempts/`, `runs/`, Person C).
+- **Same-seed baselines** (`baseline/`):
+  - Rayoh's **1:48.421 IGT** run ([speedrun.com zqe4g39z](https://www.speedrun.com/mc/runs/zqe4g39z), 1.16.5, Easy, set seed) is the headline. Its segments come from a human timing sheet (`baseline/timing_sheet_1m48.md` → `make_splits.py`), plus a playbook of the pro's actions (`baseline/pro_1m48_playbook.md`).
+  - dumbo0116's **2:49.149 IGT** run ([speedrun.com yoex3d0z](https://www.speedrun.com/mc/runs/yoex3d0z), official 2:54.545 RTA) is the backup. Its segments come from the runner's own run comment.
+- **Agent timeline** (`agent_runs/published_montage/timeline.json`): the agent's milestones read off the banner of its published montage (true elapsed time, XYZ, planner objective). The montage has cuts, so every milestone is a **[low, high] bracket**.
+- **The check** (`baseline/rules.json`; Person A's checker in `code/`; B's reference implementation in `baseline/reference_check.py`):
+  - Four segments with the same boundaries for every run: Nether in, Nether out, End in, finish.
+  - For each segment: agent seconds (bracketed), pro seconds, ratio, a verdict, and waste entries `{tag, seconds, evidence}`.
+- **Diagnosis** (`analysis/agent_vs_pro.md`): per segment, *where* time is lost, *why* (agent evidence from banner frames and the agent repo; pro evidence from the playbook), and *what it missed* (waste tag). Every "why" is labelled **confirmed** or **inferred**.
+- **Checker tests** (`fixtures/`, expected outputs included):
+  - the pro run fed in as an agent: all OK
+  - +50 s on exit → End: only that segment FLAGs, tagged `missed_shortcut`
+  - the same total with 50 s moved into the Nether: only the Nether FLAGs
+  - 2 extra beds: `extra_items` in segment 1
+  - the real montage
 
 ## How it checks
 
-1. **Legality.** A state simulator runs a `plan` answer action by action, tracking inventory, dimension and position. It rejects steps that cannot happen: lighting a portal without flint and steel, mining obsidian without a diamond pickaxe, building a 10-block frame from 8 obsidian, or killing blazes on Peaceful. Verdict: `ILLEGAL`.
-2. **Time against the pro route.** Each legal plan is priced from `splits/time_costs.json`. Travel uses wiki movement speeds, and the End fight uses the human run's own End segment. A plan more than the task's tolerance (15–20 s) slower than the priced reference is `SLOW`.
-3. **Exact answers.** Number, coordinate and choice tasks are compared with the reference within a stated tolerance. Examples: ±2 Nether blocks (16 overworld blocks) for portal links, ±16 blocks for triangulation, exact counts for obsidian and rods. Outside tolerance is `WRONG`.
-4. **Techniques missed.** Each reference lists the pro techniques that apply (for example `nether_travel_8to1`, `complete_ruined_portal`, `skip_fortress_active_portal`, `bed_one_cycle`). The report names the ones the AI missed and the seconds each cost, along with one of 8 miss tags: `no_reset_judgment`, `brute_force_over_trick`, `no_nether_shortcut`, `ignores_information`, `resource_miscount`, `mob_rule_unaware`, `detour_overprep`, `unnecessary_risk`.
-
-## Ground truth and fairness
-
-- **Every number has a source**: the seed survey files, game data (the 1.16.1 and 1.16.5 barter loot tables), minecraft.wiki pages read as raw wikitext with line numbers, Wikipedia's speedrunning article, or the speedrun.com run's own segment times. `SOURCES.md` maps each source to the tasks that use it. Anything not confirmed is marked `"verified": false` and listed in `UNVERIFIED.md`. Only T01 is unverified at the task level.
-- **Seed-exact answers, not trivia.** Examples:
-  - The ruined portal needs exactly **7** new obsidian, because the most intact frame is blocked by crying obsidian.
-  - The route needs **17** obsidian, so the village chest is required even though the two portal chests hold 15.
-  - The Nether exit belongs at **(−141.25, 107)**.
-  - **0** blaze rods are needed: all 12 End frames are pre-filled, and on Peaceful blazes cannot spawn anyway.
-- **Any legal route counts.** Plans are scored only by legality and time, never by string match. Each task's alternates must come back `OK`: a fresh 10-block frame instead of completing the ruined one, a different crafting order, rounded coordinates, or the staircase position instead of the chunk corner. T18 accepts both the one-cycle and the zero-cycle dragon kill, since both are documented strategies.
-- **Checker tests are kept apart from AI results.** Reference, alternate and broken answers prove the checker works. They are never counted as AI results.
-- **Version consistency.** All tasks use 1.16.5, the seed's version, except one deliberate pair: T07 (1.16.1) vs T08 (1.16.5). Pearls per gold ingot fell 4.3× between them (0.284 → 0.065).
+1. **Brackets.** Agent segment low = next milestone's earliest time − previous milestone's latest time; high is the reverse. Verdicts use the side most favourable to the agent.
+2. **Verdict per segment.**
+   - **FLAG:** ratio > 2 × the run's own median ratio *and* at least 5 s over the pro.
+   - **SLOW:** ratio > 1.25.
+   - **OK:** otherwise.
+   - A uniformly slower player comes out SLOW everywhere. FLAG marks the segment where time is lost out of proportion, which is where a missed technique shows. Raw ratios are always reported.
+3. **Waste tags with evidence:** `missed_shortcut` (for example, the exit portal arrives more than 8 blocks from the End portal), `extra_items` (beds collected minus beds used, compared with the pro), `idle_wait` (model latency, reported on its own line), `longer_path`, `failed_or_retried_action`, `unnecessary_risk`, `wrong_order`.
 
 ## What we found
 
-Model: TODO(C) · Date: TODO(C) · One fresh conversation per task, first answer kept, prompts exactly as in `tasks/*.json`. Raw attempts are in `attempts/`.
+Against the 2:49 backup (from `fixtures/published_montage.json`). The 1:48 columns fill in from `baseline/pro_1m48_segments.json` once the timing sheet is done.
 
-| Split | Tasks | OK | SLOW | ILLEGAL | WRONG | Seconds lost vs pro (plans) |
+| Segment | Agent s | Pro s (2:49) | Ratio | Verdict | Pro s (1:48) | Ratio (1:48) |
 |---|---|---|---|---|---|---|
-| reset | 3 | TODO(C) | – | – | TODO(C) | – |
-| nether_entry | 3 | TODO(C) | TODO(C) | TODO(C) | TODO(C) | TODO(C) |
-| bastion | 3 | TODO(C) | – | – | TODO(C) | – |
-| fortress | 2 | TODO(C) | – | – | TODO(C) | – |
-| blind_travel | 2 | TODO(C) | – | – | TODO(C) | – |
-| triangulation | 2 | TODO(C) | – | – | TODO(C) | – |
-| portal_room | 2 | TODO(C) | – | – | TODO(C) | – |
-| dragon | 2 | TODO(C) | – | – | TODO(C) | – |
-| full_route | 2 | TODO(C) | TODO(C) | TODO(C) | TODO(C) | TODO(C) |
-| **Total** | **21** | TODO(C) | TODO(C) | TODO(C) | TODO(C) | TODO(C) |
+| spawn → Nether | 184.7–189.45 | 66.683 | 2.77–2.84× | SLOW | TODO(human) | TODO |
+| Nether | 108.7–118.1 | 40.783 | 2.67–2.90× | SLOW | TODO(human) | TODO |
+| **exit portal → End portal** | **51.55–56.7** | **2.45** | **21.0–23.1×** | **FLAG** | TODO(human) | TODO |
+| End | 161.35–162.35 | 59.233 | 2.72–2.74× | SLOW | TODO(human) | TODO |
+| **Total** | **516.2–516.7** | 169.149 | **3.05×** | | **108.421** | **4.76× IGT / 4.33× RTA** |
 
-**Top misses by tag:** TODO(C), from `runs/results.csv`. Count of failed tasks per `miss_category`, plus the techniques missed most often.
+**Biggest losses and misses:**
 
-**Worked example: T12, Nether exit on the real seed.**
-- **Task:** You are in the Nether at (−47.5, 77, 24.5). The End portal is active at overworld (−1130, 34, 856). Where in the Nether do you build your exit portal?
-- **Pro answer:** (−1130 / 8, 856 / 8) = **(−141.25, 107)**. Y is not scaled.
-  - With no existing portal nearby, the game places the overworld portal within 16 blocks of 8× the Nether position, so each Nether block of error costs 8 overworld blocks.
-  - The human took 2.450 s from leaving this portal to entering the End portal.
-  - The agent built at (−141, 40, 104), 3 Nether blocks off, and arrived about 24 overworld blocks away.
-- **AI answer:** TODO(C)
-- **What SplitCheck caught:** TODO(C), e.g. the distance in Nether and overworld blocks, the verdict, and the missed technique `precise_portal_link` / tag `no_nether_shortcut`.
+1. **`missed_shortcut`, the exit-portal placement (confirmed).**
+   - The route's Nether exit is (−141, 40, 104). The ideal is (−1130/8, 856/8) = (−141.25, 107).
+   - The game created the overworld portal at y 24–26, z 837 (agent repo `exit-link.json`). The agent came out at (−1129.5, 24, 837.5): 18.5 blocks horizontally and 10 blocks below the End portal.
+   - It then digs and walks for about 52 s. The pro's exit lands next to the portal (2.45 s).
+   - Up to 49–54 s is lost here. That is an upper bound: some of it is slow execution, not placement.
+2. **`extra_items`, beds (agent side confirmed; comparison pending).** The agent collects 8 beds (montage "4th of 8 beds"; route kit of 8), and the bed phase spans about 120 s of the banner (00:14.7 to 02:15.25; frames in between are cut). The dragon died to 6. If the pro takes 6, about 8–30 s is wasted.
+3. **Steady slowdown elsewhere (inferred).** The Nether route is only 12 % longer than a straight line, so `longer_path` is mostly rejected. The loss is in digging, descending and building. The End is mostly a 150 s wait for the first perch, followed by a one-cycle with six beds (agent README). Perch timing is partly random.
+4. **`idle_wait`.** The run made 131 JEV decisions and 35 Astra calls, but its latency total is not published. An earlier run logged 50 s of API time, which can overlap game actions.
+
+Full evidence, labelled confirmed or inferred: `analysis/agent_vs_pro.md`.
+
+## Ground truth and fairness
+
+- **Every number has a source:** a speedrun.com API record, the runner's own comment, an agent-repo file and line, a montage banner timestamp, or the minecraft.wiki. See `SOURCES.md`. Open items are in `UNVERIFIED.md`.
+- **Adjustments, stated rather than hidden:**
+  - The agent ran on Peaceful and the pros on Easy, which only helps the agent.
+  - The agent's banner is a wall clock that includes model latency. It is compared with both pro IGT and pro RTA.
+  - Pros practise set seeds. The agent run is its authors' best published run after many development runs, so neither side is a first attempt.
+  - Montage cuts are handled as brackets, and verdicts use the side most favourable to the agent.
+  - The agent's route was supplied by its authors (`README.md:104`), so `missed_shortcut` is attributed to the agent *system*.
+  - The banner says 8:36.7 and the README says 8:43.300. We use the banner, which favours the agent.
+- **Pro variance:** the two pro runs differ by 1.56× in total. That is why the 1.25 "OK" margin is small, and why both baselines are shown.
 
 ## Limitations
 
-- **One set seed.** The seed-based tasks come from one surveyed seed, and it is unusual: all 12 End frames are pre-filled, about a 1-in-10¹² event per portal (though over 8 million such seeds are known). Generic tasks cover the normal random-seed splits (bastion, fortress, triangulation), but they are not tied to a pro VOD.
-- **Peaceful vs Easy.** The agent ran on Peaceful and the human on Easy. Seed tasks state their difficulty. The human time is an upper bound for Peaceful, since Peaceful is not harder.
-- **Time costs.** Movement, portal delay, obsidian mining, barter time and the End segment are sourced. Chest, placement, crafting-overhead and gravel costs are estimates (tagged `estimate`). Conclusions should be checked at ±30% on those costs.
-- **No VOD timestamps.** The sandbox could not play the VOD. The split durations come from the runner's own comment on the verified run, not from our timing. `UNVERIFIED.md` lists what a human must time: the boundaries, the human's beds and portal coordinates, and the bed count.
-- **Unverified items.** T01's reset label lacks a runner-side source (mcsr.info was blocked). The ruined-portal air blocks and the spawn point should be confirmed in-game. See `UNVERIFIED.md`.
-- **Chatbot, not live agent.** These tasks test decisions, not execution: mouse control, pathing and combat timing are out of scope. A model that answers every task correctly can still play slowly.
+- **Coverage.** The montage shows about 39 s of a roughly 517 s run (about 7.5 %). Anything inside a cut is diagnosed only from timing and from the agent repo's notes, and those notes describe earlier runs of the same harness.
+- **The 1:48 segment times need a human with the video** (5 boundaries, about 5 minutes). The playbook needs about 10 more minutes. Until then, per-segment ratios use the 2:49 run.
+- **One seed, one agent run.** We report what it shows, not a general rate.
+- **No event log** for the published run, so `failed_or_retried_action` and `longer_path` can't be measured inside cuts.
+
+## Supplementary: decision tasks
+
+- **7 seed decision tasks** (`tasks/`, `reference/`): single decisions on the same seed, each with a sourced answer, alternates that must pass and broken answers that must fail. Examples: where to build the Nether exit (T12), how much obsidian the ruined frame needs (T05: 7), whether blaze rods are needed (T10: 0). AI results: TODO(C), if C ran them.
+- **14 generic decision tasks** (`extras/generic_tasks/`): **supplementary, not part of the headline result.** They cover the random-seed splits this seed skips (bastion barter tables for 1.16.1 vs 1.16.5, rod counts, triangulation, eye-break odds, the dragon method).

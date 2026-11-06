@@ -1,5 +1,21 @@
 # Sources
 
+## Efficiency check (headline), added 13:30
+
+| Source | What it establishes | Used in |
+|---|---|---|
+| https://www.speedrun.com/api/v1/runs/zqe4g39z (fetched 2026-11-06) | Rayoh, Any% Glitchless, Set Seed, Java 1.16.5, Easy, Modded (allowed mods), **IGT 108.421 s, RTA 119.331 s**, verified 2023-01-25; comment gives the seed 8398967436125155523 and the raw VOD https://youtu.be/F1VOO0eHiys; no splits in the comment | `baseline/timing_sheet_1m48.md`, `WRITEUP.md`, `analysis/` |
+| https://www.youtube.com/watch?v=2NEvhsZG5iY (page metadata) | Title "[FWR] Minecraft in 1:48 (Set Seed Speedrun)", channel Rayoh, 128 s long, published 2023-01-01; description gives "Seed: 8398967436125155523" and "Version 1.16.5"; no chapters or splits | `baseline/` |
+| https://www.speedrun.com/api/v1/runs/yoex3d0z | Backup pro: segment times in the run comment (see `baseline/pro_2m49_segments.json`) | `baseline/pro_2m49_segments.json` |
+| `agent_runs/published_montage/timeline.json` | Agent milestone brackets read from the published montage banner (copied from rustybubble/treehacks-ideas, branch mercor-verification-ideas, `reports/agent_montage_timeline.json`, commit 2102e03) | `fixtures/published_montage.json`, `analysis/` |
+| rmalde/minecraft-agent:optimization/nether/exit-link.json | Agent's overworld arrival portal blocks at x -1130..-1129, y 24-26, z 837; player at (-1129.5, 24, 837.5) | exit-portal finding |
+| rmalde/minecraft-agent:optimization/nether/config.json:34-39, 52-56, 58-64, 108-149 | Route-fixed Nether exit (-141, 40, 104); active End portal (-1130, 34, 856); kit (8 beds, 20 obsidian); Nether waypoints | `analysis/` |
+| rmalde/minecraft-agent:nether-agent.mjs:47, 50, 52, 57, 58 | Agent action strings: Nether walking/digging path, approach bridging, exit portal from `route.exitPortal`, End-portal approach and careful entry | `analysis/` |
+| rmalde/minecraft-agent:README.md:7, 9, 11, 23, 104 | 8:43.300; six bed explosions on the first landing, no deaths; 131 JEV decisions and 35 Astra calls; notes describe earlier versions; route fixed in config | `WRITEUP.md`, `analysis/`, `baseline/rules.json` |
+| rmalde/minecraft-agent:optimization/NOTES.md:7, 13-14, 54; optimization/nether/REVIEW.md:9, 33, 35, 37, 43, 47, 49, 58 | Earlier-run mistakes and timings of the same harness | `analysis/` |
+
+## Decision tasks (secondary), earlier
+
 All web sources were fetched on 2026-11-06. Minecraft wiki pages were read as raw wikitext (`https://minecraft.wiki/w/<Page>?action=raw`), so "raw line N" in a reference file means line N of that wikitext. The wiki describes the current game version; facts that changed after 1.16 are taken from game data or the wiki's history sections instead (barter tables, portal search radius).
 
 `rmalde/minecraft-agent:<path>:<line>` means that file in https://github.com/rmalde/minecraft-agent at commit `78b40ed` (the only commit when cloned).
