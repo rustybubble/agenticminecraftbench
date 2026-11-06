@@ -1,0 +1,17 @@
+{
+  "runId": "end-run",
+  "startedAt": "2026-11-06T21:03:26.741Z",
+  "endedAt": "2026-11-06T21:04:37.596Z",
+  "elapsedS": 71,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": 100.5,
+    "y": 49,
+    "z": 0.5
+  },
+  "memory": []
+}

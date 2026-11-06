@@ -732,11 +732,16 @@ class Skills {
   async enterPortal (ms = 15000) {
     const t0 = Date.now()
     const dim0 = this.bot.game.dimension
-    const portal = this.findBlock('nether_portal', 24)
+    // End portals are a different block id; both transfer on walk-in.
+    const portal = this.findBlock('nether_portal', 24) || this.findBlock('end_portal', 24)
     if (!portal) return { ok: false, error: 'no portal in range' }
     try {
-      await this.goto(portal.position.x, portal.position.y, portal.position.z, 1)
-    } catch {}
+      // stand *in* the portal block (range 0); hovering next to the frame never transfers
+      await this.goto(portal.position.x, portal.position.y, portal.position.z, 0)
+    } catch {
+      try { await this.bot.pathfinder.goto(new (require('mineflayer-pathfinder').goals).GoalBlock(
+        portal.position.x, portal.position.y, portal.position.z)) } catch {}
+    }
     while (Date.now() - t0 < ms) {
       this.check()
       if (this.bot.game.dimension !== dim0) return { ok: true, dimension: this.bot.game.dimension }

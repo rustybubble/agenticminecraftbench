@@ -1,0 +1,164 @@
+[
+ {
+  "split": "wood",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "collect_wood",
+  "ms": 892,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "wood",
+  "backend": "deepseek-flash",
+  "ok": true,
+  "skill": "collect_wood",
+  "ms": 6709,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "wood",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "collect_wood",
+  "ms": 2650,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "stone",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "mine_blocks",
+  "ms": 676,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "stone",
+  "backend": "deepseek-flash",
+  "ok": true,
+  "skill": "mine_blocks",
+  "ms": 2814,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "stone",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "mine_blocks",
+  "ms": 2144,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "portal",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "light_portal",
+  "ms": 716,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "portal",
+  "backend": "deepseek-flash",
+  "ok": true,
+  "skill": "water_on_lava",
+  "ms": 7901,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "portal",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "light_portal",
+  "ms": 1116,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "pearls",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "take_from_chest",
+  "ms": 828,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "pearls",
+  "backend": "deepseek-flash",
+  "ok": true,
+  "skill": "barter",
+  "ms": 2031,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "pearls",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "barter",
+  "ms": 1134,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "rods",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "attack",
+  "ms": 609,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "rods",
+  "backend": "deepseek-flash",
+  "ok": true,
+  "skill": "attack",
+  "ms": 3714,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "rods",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "attack",
+  "ms": 2726,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "stronghold",
+  "backend": "nvidia-bolt (current)",
+  "ok": true,
+  "skill": "goto",
+  "ms": 839,
+  "allowed": true,
+  "err": null
+ },
+ {
+  "split": "stronghold",
+  "backend": "deepseek-flash",
+  "ok": false,
+  "err": "deepseek returned no parsable JSON: ",
+  "skill": null,
+  "ms": 14777,
+  "allowed": null
+ },
+ {
+  "split": "stronghold",
+  "backend": "openai-gpt-5.4-mini",
+  "ok": true,
+  "skill": "throw_eye",
+  "ms": 1235,
+  "allowed": true,
+  "err": null
+ }
+]

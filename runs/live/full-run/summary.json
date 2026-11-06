@@ -1,0 +1,17 @@
+{
+  "runId": "full-run",
+  "startedAt": "2026-11-06T20:55:38.118Z",
+  "endedAt": "2026-11-06T20:58:47.786Z",
+  "elapsedS": 190,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": -1128.3189461657093,
+    "y": 60,
+    "z": 867.724274865259
+  },
+  "memory": []
+}

@@ -94,6 +94,27 @@ function parseArgs (argv) {
     }
   }
 
+  if (args['staged-end'] && run.bot.game.dimension === 'the_nether') {
+    // Demo-only: the agent cannot yet build the nether exit portal, so the demo jump-cuts from the
+    // Nether to the End portal's doorstep. Every staged step is logged as `staged` and labelled in
+    // the overlay; the End entry itself is the agent's own enter_portal skill.
+    run.log({ type: 'staged', msg: 'demo jump-cut: nether -> End portal doorstep' })
+    run.bot.chat('/execute in minecraft:overworld run tp @s -1128 70 840')
+    await new Promise(r => setTimeout(r, 3000))
+    run.log({ type: 'staged', msg: 'walk to the active End portal' })
+    await run.executor.run({ name: 'goto', args: { x: -1130, y: 34, z: 856, range: 3 } }, { timeoutMs: 90000 })
+    const end = await run.executor.run({ name: 'enter_portal', args: {} }, { timeoutMs: 45000 })
+    run.log({ type: 'staged', msg: 'enter the End', dimension: run.bot.game.dimension })
+    console.log('END:', JSON.stringify(end.result), run.bot.game.dimension)
+    if (run.bot.game.dimension === 'the_end') {
+      await new Promise(r => setTimeout(r, 4000))
+      run.log({ type: 'staged', msg: 'dragon killed by command (demo only, not gameplay)' })
+      run.bot.chat('/kill @e[type=ender_dragon]')
+      await new Promise(r => setTimeout(r, 5000))
+      run.log({ type: 'staged', msg: 'dragon dead - run complete' })
+    }
+  }
+
   // what the frame looks like now
   const frame = run.observer.snapshot().blocks
   run.log({ type: 'route_state', obsidian: frame.obsidian, netherPortal: frame.netherPortal })

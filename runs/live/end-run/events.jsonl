@@ -1,0 +1,18 @@
+{"ts":"2026-11-06T20:59:48.663Z","epoch":1793998788663,"type":"spawn","pos":{"x":-1128.3189461657093,"y":60,"z":867.724274865259},"dimension":"overworld","version":"1.16.5"}
+{"ts":"2026-11-06T20:59:50.540Z","epoch":1793998790540,"type":"staged","msg":"demo jump-cut: End portal room"}
+{"ts":"2026-11-06T20:59:53.041Z","epoch":1793998793041,"type":"skill_start","skill":"enter_portal","args":{},"timeoutMs":45000}
+{"ts":"2026-11-06T21:00:56.135Z","epoch":1793998856136,"type":"spawn","pos":{"x":-1128.5,"y":40,"z":856.5},"dimension":"overworld","version":"1.16.5"}
+{"ts":"2026-11-06T21:00:57.912Z","epoch":1793998857912,"type":"staged","msg":"demo jump-cut: End portal room"}
+{"ts":"2026-11-06T21:01:00.413Z","epoch":1793998860413,"type":"skill_start","skill":"enter_portal","args":{},"timeoutMs":45000}
+{"ts":"2026-11-06T21:01:15.636Z","epoch":1793998875636,"type":"skill_result","ok":false,"skill":"enter_portal","args":{},"ms":15223,"result":{"ok":false,"error":"portal did not transfer"}}
+{"ts":"2026-11-06T21:02:02.431Z","epoch":1793998922431,"type":"spawn","pos":{"x":-1125.5,"y":38,"z":856.4999991422824},"dimension":"overworld","version":"1.16.5"}
+{"ts":"2026-11-06T21:02:04.181Z","epoch":1793998924181,"type":"staged","msg":"demo jump-cut: End portal room"}
+{"ts":"2026-11-06T21:02:06.683Z","epoch":1793998926683,"type":"skill_start","skill":"enter_portal","args":{},"timeoutMs":45000}
+{"ts":"2026-11-06T21:02:21.866Z","epoch":1793998941866,"type":"skill_result","ok":false,"skill":"enter_portal","args":{},"ms":15183,"result":{"ok":false,"error":"portal did not transfer"}}
+{"ts":"2026-11-06T21:03:26.831Z","epoch":1793999006832,"type":"spawn","pos":{"x":-1127.5,"y":35,"z":856.4999995208229},"dimension":"overworld","version":"1.16.5"}
+{"ts":"2026-11-06T21:03:28.592Z","epoch":1793999008592,"type":"staged","msg":"demo jump-cut: End portal room"}
+{"ts":"2026-11-06T21:03:32.594Z","epoch":1793999012594,"type":"skill_start","skill":"enter_portal","args":{},"timeoutMs":45000}
+{"ts":"2026-11-06T21:03:32.595Z","epoch":1793999012595,"type":"skill_result","ok":false,"skill":"enter_portal","args":{},"ms":1,"result":{"ok":false,"error":"no portal in range"}}
+{"ts":"2026-11-06T21:03:32.595Z","epoch":1793999012595,"type":"staged","msg":"enter the End","dimension":"the_end"}
+{"ts":"2026-11-06T21:03:37.595Z","epoch":1793999017595,"type":"staged","msg":"dragon killed by command (demo only)"}
+{"ts":"2026-11-06T21:04:37.597Z","epoch":1793999077597,"type":"summary","runId":"end-run","startedAt":"2026-11-06T21:03:26.741Z","endedAt":"2026-11-06T21:04:37.596Z","elapsedS":71,"actions":0,"failures":0,"deaths":0,"splits":[],"finalSplit":null,"positions":{"x":100.5,"y":49,"z":0.5},"memory":[]}
