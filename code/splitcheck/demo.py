@@ -248,6 +248,37 @@ def published_data(root: Path):
     }
 
 
+PITCH_RUNS = ["agent-01", "agent-02", "agent-03", "agent-04", "agent-05", "demo-01", "demo-02", "demo-03",
+              "demo-04", "demo-05", "live-01", "live-02", "live-03"]  # 13 distinct runs (agent-06 == demo-01)
+
+
+def pitch_data(root: Path):
+    rows = []
+    for run in PITCH_RUNS:
+        d = root / "runs" / f"{run}-eval"
+        rv, eff = _load(d / "runeval.json"), _load(d / "efficiency.json")
+        s0 = eff["segments"][0]
+        contra = sum(1 for f in rv["findings"] if f["code"] == "self_report_contradiction")
+        w = sorted((f for f in rv["findings"] if f.get("attributed_s")), key=lambda f: -f["attributed_s"])
+        big = (f"{w[0]['code']} {w[0]['attributed_s']:.1f} s (line {w[0]['lines'][0]})" if w and w[0].get("lines")
+               else (f"{w[0]['code']} {w[0]['attributed_s']:.1f} s" if w else "-"))
+        rows.append({"run": run, "nether": bool(rv["summary"]["milestones"].get("nether_entry")),
+                     "ratio": s0.get("ratio_low"), "verdict": s0["verdict"], "contra": contra, "waste": big})
+    det = _load(root / "runs" / "results_pack" / "determinism.json")
+    txt = (root / "runs" / "results_pack" / "RESULTS.md").read_text()
+    st = {m.group(1): (int(m.group(2)), int(m.group(3))) for m in re.finditer(r"- (seed|generic): (\d+)/(\d+) cases pass", txt)}
+    dm = re.search(r"\| (\S+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|\n\n\| task", txt)
+    nt = re.search(r"across (\d+) tasks", txt)
+    return {"runs": rows, "n_runs": len(rows), "n_contra": sum(1 for r in rows if r["contra"]),
+            "det_files": det["files"], "det_identical": det["identical"],
+            "selftest": {k: v[0] for k, v in st.items()}, "selftest_total": sum(v[1] for v in st.values()),
+            "selftest_pass": sum(v[0] for v in st.values()),
+            "decision": ({"model": dm.group(1), "illegal": int(dm.group(2)), "ok": int(dm.group(3)),
+                          "wrong": int(dm.group(4)), "total": int(dm.group(5))} if dm else None),
+            "n_tasks": int(nt.group(1)) if nt else None,
+            "seed": "8398967436125155523", "version": "Java 1.16.5"}
+
+
 def build(root: Path, out: Path) -> Path:
     root, out = root.resolve(), out.resolve()
     media = out / "media"
@@ -260,7 +291,19 @@ def build(root: Path, out: Path) -> Path:
     if not still.exists() and shutil.which("ffmpeg"):
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(root / "evidence" / "footage" / "agent-01-chests.mp4"),
                         "-frames:v", "1", "-vf", "scale=960:-2", "-q:v", "3", "-map_metadata", "-1", str(still)], check=True)
-    data = {"replay": replay_data(root), "caught": caught_data(root), "published": published_data(root),
+    stills = [  # (source, ffmpeg select / seek, output) -- overlay strips cropped off
+        (root / "evidence" / "footage" / "demo-01-nether-entry.mp4", ["-vf", "select=eq(n\\,285),crop=960:430:0:40"], "s-portal.jpg"),
+        (root / "evidence" / "footage" / "demo-04-nether-travel.mp4", ["-ss", "20", "-vf", "crop=960:430:0:40"], "s-nether.jpg"),
+        (root / "agent_runs" / "agent-05" / "frames-clean" / "f00100.jpg", ["-vf", "scale=960:-2"], "s-chests.jpg"),
+    ]
+    for src, args, name in stills:
+        dst_s = media / name
+        if not dst_s.exists() and src.exists() and shutil.which("ffmpeg"):
+            pre = args[:2] if args[0] == "-ss" else []
+            rest = args[2:] if pre else args
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-y", *pre, "-i", str(src), *rest, "-frames:v", "1",
+                            "-q:v", "4", "-map_metadata", "-1", str(dst_s)], check=True)
+    data = {"replay": replay_data(root), "caught": caught_data(root), "published": published_data(root), "pitch": pitch_data(root),
             "reproduce": "cd code && python -m splitcheck.demo --root .. --out ../runs/demo"}
     blob = json.dumps(data, sort_keys=True, ensure_ascii=False, indent=None).replace("</", "<\\/")
     tpl = (Path(__file__).with_name("demo_template.html")).read_text()

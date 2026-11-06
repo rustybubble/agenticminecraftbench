@@ -68,7 +68,7 @@ Total 91.652 s, attributed waste (overlaps merged) 0.0 s, efficiency 1.0, milest
 
 ## Evidence coverage
 
-Server log: `runs/live/demo-07/server.jsonl`, 95 samples, t=0.877-96.085 s (agent run t=0.0-91.652 s). Agent snapshots checked against a server sample within +-1.5 s: 1; without one: 0.
+Server log: `runs/live/demo-07/server.jsonl`, 400 samples, t=0.877-434.263 s (agent run t=0.0-91.652 s). Agent snapshots checked against a server sample within +-1.5 s: 1; without one: 0.
 - server log covers the whole agent run
 
 ## Fairness notes (from baseline/rules.json)

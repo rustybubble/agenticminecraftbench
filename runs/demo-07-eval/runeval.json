@@ -251,8 +251,8 @@
       ],
       "notes": [],
       "server_first_t_s": 0.877,
-      "server_last_t_s": 96.085,
-      "server_samples": 95,
+      "server_last_t_s": 434.263,
+      "server_samples": 400,
       "snapshots_checked": 1,
       "snapshots_without_server_sample": []
     },

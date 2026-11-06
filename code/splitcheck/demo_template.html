@@ -108,6 +108,102 @@ table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:8px 10px;
 .hero{font:900 72px/1 var(--mono)}
 footer{border-top:1px solid var(--line);margin-top:26px;padding:16px 28px 24px;color:var(--dim);font-size:13px;display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
 footer code{font:12px var(--mono);background:var(--panel);padding:4px 8px;border-radius:6px;color:var(--ink)}
+
+/* pitch deck */
+.deckwrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.slide{display:none;container-type:inline-size;width:min(100%,calc((100vh - 190px)*16/9));aspect-ratio:16/9;border-radius:18px;overflow:hidden;position:relative;font-family:Inter,"Helvetica Neue",Arial,var(--sans);box-shadow:0 20px 60px #0008}
+.slide.on{display:block;animation:fade .4s ease}
+.slide .in{position:absolute;inset:0;padding:3.6cqw 5.5cqw;display:flex;flex-direction:column}
+.slide.ttl{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 55%,#f5b99a 100%);color:#fff}
+.slide.ttl .in{justify-content:center}
+.slide.ttl h1{font:900 8cqw/1 Inter,"Helvetica Neue",Arial,sans-serif;margin:0 0 2cqw;letter-spacing:-.02em}
+.slide.ttl h2{font:800 4.2cqw/1.15 Inter,"Helvetica Neue",Arial,sans-serif;margin:0 0 1.5cqw;letter-spacing:-.01em}
+.slide.ttl p{font:600 2.2cqw/1.35 Inter,sans-serif;margin:0;opacity:.92}
+.slide.ttl .kick{font:800 1.4cqw Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;opacity:.8;margin-bottom:2cqw}
+.slide.ttl .foot{position:absolute;left:6cqw;bottom:4cqw;font:700 1.5cqw Inter,sans-serif;opacity:.85}
+.slide.cnt{background:#f4f3ff;color:#1e1b4b}
+.slide.cnt h2{font:900 3.6cqw/1.1 Inter,"Helvetica Neue",Arial,sans-serif;margin:0 0 .6cqw;letter-spacing:-.01em;color:#1e1b4b}
+.slide.cnt .sub{font:600 1.6cqw/1.3 Inter,sans-serif;color:#6366f1;margin:0 0 2.2cqw}
+.slide .bar{position:absolute;left:0;top:0;bottom:0;width:.8cqw;background:linear-gradient(180deg,#4f46e5,#7c3aed,#f5b99a)}
+.cards{display:grid;gap:1.6cqw;flex:1;min-height:0}
+.c4{grid-template-columns:repeat(4,1fr)}.c3{grid-template-columns:repeat(3,1fr)}.c2{grid-template-columns:repeat(2,1fr)}
+.pc{background:#fff;border-radius:1.2cqw;padding:1.8cqw;box-shadow:0 .4cqw 1.6cqw #4f46e51a;border-top:.5cqw solid #4f46e5;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.pc h3{font:900 1.15cqw Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6366f1;margin:0 0 1cqw}
+.pc .t{font:800 1.9cqw/1.25 Inter,sans-serif;color:#1e1b4b}
+.pc .s{font:500 1.35cqw/1.4 Inter,sans-serif;color:#4b5563;margin-top:.8cqw}
+.pc .m{font:600 1.15cqw/1.45 ui-monospace,Menlo,monospace;color:#312e81;background:#eef2ff;border-radius:.6cqw;padding:.5cqw .8cqw;margin-top:.6cqw}
+.pc.red{border-top-color:#e11d48}.pc.red h3{color:#e11d48}.pc.grn{border-top-color:#059669}.pc.grn h3{color:#059669}
+.pc .n{font:900 5cqw/1 Inter,sans-serif;color:#4f46e5;letter-spacing:-.03em}
+.bign{display:flex;gap:4cqw;margin-top:3cqw}.bign div{font:900 10cqw/1 Inter,sans-serif;letter-spacing:-.04em}.bign small{display:block;font:700 1.6cqw Inter,sans-serif;letter-spacing:.05em;opacity:.9;margin-top:.6cqw}
+.rv{opacity:0;transform:translateY(1.5cqw);transition:.6s}.slide.revealed .rv{opacity:1;transform:none}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:1.2cqw}
+.arrow{font:900 3cqw Inter,sans-serif;color:#7c3aed;text-align:center}
+.ptab{width:100%;border-collapse:collapse;font:600 1.1cqw Inter,sans-serif;align-self:start;background:#fff;border-radius:1cqw;overflow:hidden}
+.ptab th{background:#4f46e5;color:#fff;font:800 .9cqw Inter,sans-serif;letter-spacing:.08em;padding:.5cqw .8cqw;border:none}
+.ptab td{white-space:nowrap;padding:.3cqw .8cqw;border-bottom:1px solid #e0e7ff;color:#1e1b4b}
+.ptab td.y{color:#059669;font-weight:900}.ptab td.no{color:#9ca3af}.ptab td.r{color:#e11d48;font-weight:900}
+.ptab tr.hl td{background:#eef2ff}
+.rub{display:grid;grid-template-columns:24cqw 1fr;gap:.9cqw 1.6cqw;align-items:stretch}
+.rub .k{background:#4f46e5;color:#fff;border-radius:.9cqw;padding:1.1cqw 1.4cqw;font:800 1.55cqw/1.2 Inter,sans-serif;display:flex;align-items:center}
+.rub .v{background:#fff;border-radius:.9cqw;padding:1.1cqw 1.4cqw;font:600 1.45cqw/1.35 Inter,sans-serif;color:#1e1b4b;display:flex;align-items:center;box-shadow:0 .3cqw 1cqw #4f46e514}
+.code{font:700 1.6cqw ui-monospace,Menlo,monospace;background:#0006;padding:.8cqw 1.2cqw;border-radius:.8cqw;display:inline-block;margin-top:2cqw}
+.deckctl{display:flex;gap:10px;align-items:center;color:var(--dim);font:700 13px var(--sans)}
+.deckctl button,.presbtn{background:var(--panel2);border:1px solid var(--line);color:var(--ink);font:800 13px var(--sans);padding:8px 14px;border-radius:9px;cursor:pointer;letter-spacing:.06em}
+.presbtn{margin-left:auto;background:linear-gradient(90deg,#4f46e5,#7c3aed);border:none}
+
+.bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
+.scrim{position:absolute;inset:0}.scrim.ind{background:linear-gradient(135deg,#4f46e5f0 0%,#7c3aedd9 55%,#f5b99acc 100%)}
+.scrim.dk{background:linear-gradient(180deg,#0f0a1ee6 0%,#1e1b4bcc 55%,#0f0a1ef2 100%)}
+.slide.dark{background:#1e1b4b}.slide.dark .in{justify-content:flex-start}
+.cap{position:absolute;right:2cqw;bottom:1.4cqw;font:700 1.05cqw ui-monospace,Menlo,monospace;color:#fff;background:#000a;padding:.4cqw .8cqw;border-radius:.5cqw;z-index:2}
+.split{display:grid;grid-template-columns:1.25fr 1fr;gap:2cqw;flex:1;min-height:0}
+.split .lh{position:relative;border-radius:1.2cqw;overflow:hidden;box-shadow:0 .6cqw 2cqw #1e1b4b33}
+.split .lh img{width:100%;height:100%;object-fit:cover;display:block}
+.split .lh .cap{bottom:1cqw;right:1cqw}
+.badge{position:absolute;left:1.4cqw;top:1.4cqw;background:#059669;color:#fff;font:900 3.6cqw Inter,sans-serif;padding:.6cqw 1.4cqw;border-radius:1cqw;box-shadow:0 .5cqw 1.6cqw #0006}
+.split .rh{position:relative;display:flex;align-items:center;justify-content:center}
+.jm{font:700 1.7cqw/1.5 ui-monospace,Menlo,monospace;background:#0f172a;color:#e2e8f0;border-radius:1cqw;padding:1.4cqw 2cqw;margin:0;width:100%}
+.jm .k{color:#a5b4fc}.jm b{color:#fca5a5}
+.pc .jm{font-size:1.25cqw;padding:.9cqw 1.1cqw;margin-top:.4cqw}
+.stmp{position:absolute;font:900 3.4cqw Inter,sans-serif;color:#e11d48;border:.5cqw solid #e11d48;padding:.5cqw 1.4cqw;border-radius:.8cqw;background:#fff;letter-spacing:.06em}
+.slide:not(.revealed) .stmp{transform:rotate(-12deg) scale(2.5)}.slide.revealed .stmp{transform:rotate(-12deg) scale(1)}
+.s2t{margin-top:1.6cqw}.s2t h2{font-size:3cqw;margin:0 0 .4cqw}
+.thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:.7cqw;margin:.3cqw 0}
+.bubble{position:relative;background:#fff1f2;border:2px solid #e11d48;border-radius:1.4cqw;padding:1.4cqw;font:800 2cqw/1.25 Inter,sans-serif;color:#9f1239;margin:.6cqw 0 1.4cqw}
+.bubble:after{content:"";position:absolute;left:2cqw;bottom:-1.2cqw;border:.6cqw solid transparent;border-top:.8cqw solid #e11d48}
+.rlog{font:600 1.1cqw/1.4 ui-monospace,Menlo,monospace;background:#0f172a;border-radius:.7cqw;padding:.6cqw;margin-top:.6cqw}
+.rlog div{color:#fecaca;padding:.35cqw .2cqw;border-bottom:1px solid #334155}.rlog div:last-child{border:none}
+.rlog span{color:#fff;background:#e11d48;border-radius:.3cqw;padding:0 .4cqw;margin-right:.5cqw;font-weight:900}.rlog i{color:#94a3b8;font-style:normal;margin-right:.5cqw}
+.dia{width:100%;flex:1;min-height:0}.dia .dt{font:800 22px Inter,sans-serif;fill:#1e1b4b}.dia .ds{font:500 15px Inter,sans-serif;fill:#4b5563}.dia .w{fill:#fff}.dia .g{fill:#059669}.dia .r{fill:#e11d48}
+.dia .dr{fill:none;stroke:#7c3aed;stroke-width:3;stroke-dasharray:400;stroke-dashoffset:400}
+.slide.on .dia .dr{animation:draw 1.2s .3s ease forwards}@keyframes draw{to{stroke-dashoffset:0}}
+.ic{width:2.4cqw;height:2.4cqw;color:#4f46e5}
+.chart{width:100%;background:#fff;border-radius:1cqw;padding:.8cqw}.chart .ds{font:600 15px Inter,sans-serif;fill:#4b5563}.chart .b{fill:#1e1b4b;font-weight:800}
+.dots{display:grid;grid-template-columns:repeat(13,1fr);gap:.5cqw;background:#fff;border-radius:1cqw;padding:1cqw}
+.dots span{aspect-ratio:1;border-radius:50%}.dots .dr1{background:#e11d48}.dots .dg{background:#cbd5e1}
+.ds2{font:600 1.1cqw Inter,sans-serif;color:#4b5563}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}.mini div{background:#fff;border-radius:1cqw;padding:.9cqw 1.1cqw;font:600 1.05cqw/1.3 Inter,sans-serif;color:#4b5563;border-top:.4cqw solid #4f46e5}
+.mini b{display:block;font:900 3cqw Inter,sans-serif;color:#4f46e5}.mini .red{border-top-color:#e11d48}.mini .red b{color:#e11d48}
+.slide.dark h2{font:900 3.6cqw Inter,sans-serif;margin:0}.slide.dark .pc{background:#ffffffee}
+.tlsvg{width:100%;margin-top:auto}.tlsvg .dt{font:800 16px Inter,sans-serif}.tlsvg .ds{font:700 13px Inter,sans-serif}.tlsvg .w{fill:#fff}
+.ggs{display:flex;gap:2cqw;justify-content:space-around;margin:1cqw 0}.gg{text-align:center;font:700 1.3cqw Inter,sans-serif;color:#1e1b4b}.gg svg{width:11cqw;height:11cqw}
+.ricons{display:grid;grid-template-columns:repeat(13,1fr);gap:.4cqw;margin-top:.6cqw}.ricons span{aspect-ratio:1;border-radius:.3cqw;background:#6366f1}
+.rub2{display:grid;gap:1cqw;flex:1}
+.rr{display:grid;grid-template-columns:4cqw 26cqw 1fr;gap:1.4cqw;align-items:center;background:#fff;border-radius:1cqw;padding:.9cqw 1.4cqw;box-shadow:0 .3cqw 1cqw #4f46e514}
+.ri{display:grid;place-items:center;background:#eef2ff;border-radius:.8cqw;aspect-ratio:1}
+.rk{font:800 1.6cqw Inter,sans-serif;color:#1e1b4b}.rv2{font:600 1.35cqw/1.35 Inter,sans-serif;color:#374151}
+.wb{position:relative;height:1.1cqw;background:#e0e7ff;border-radius:.6cqw;margin-top:.6cqw}.wb span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#4f46e5,#7c3aed);border-radius:.6cqw}
+.wb i{position:absolute;right:0;top:-1.5cqw;font:800 1.1cqw Inter,sans-serif;color:#6366f1;font-style:normal}
+/* present mode */
+body.present header,body.present footer,body.present .deckctl{display:none}
+body.present main{padding-top:14px}
+body.present .slide{width:min(100%,calc((100vh - 40px)*16/9))}
+#pbar{position:fixed;left:0;bottom:0;height:4px;background:linear-gradient(90deg,#4f46e5,#7c3aed,#f5b99a);z-index:50;display:none;transition:width .3s}
+#pcount{position:fixed;right:14px;bottom:10px;font:800 12px var(--mono);color:#fff;background:#0009;padding:5px 9px;border-radius:7px;z-index:51;display:none}
+body.present #pbar,body.present #pcount{display:block}
+#notes{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);max-width:900px;width:calc(100% - 40px);background:#111827f2;border:1px solid #6366f1;color:#e0e7ff;font:600 17px/1.4 var(--sans);padding:14px 18px;border-radius:12px;z-index:52;display:none}
+#notes b{color:#a5b4fc;font:800 12px var(--mono);display:block;margin-bottom:4px;letter-spacing:.08em}
+#notes.on{display:block}
 @media (max-width:1000px){.grid,.caught{grid-template-columns:1fr}.toasts{width:300px}}
 </style>
 </head>
@@ -115,13 +211,19 @@ footer code{font:12px var(--mono);background:var(--panel);padding:4px 8px;border
 <header>
   <div class="brand">Split<b>Check</b></div>
   <nav>
-    <button data-tab="t1" class="on">Replay: agent-06</button>
+    <button data-tab="t0" class="on">Pitch</button>
+    <button data-tab="t1">Replay: agent-06</button>
     <button data-tab="t2">Caught: agent-01</button>
     <button data-tab="t3">Published agent vs pro</button>
   </nav>
+  <button class="presbtn" id="presbtn" title="P = present · arrows/space step · N notes · F fullscreen · Esc exit">Present (P)</button>
 </header>
 <main>
-<section id="t1" class="tab on">
+<section id="t0" class="tab on">
+  <div class="deckwrap"><div id="deck" style="width:100%;display:flex;justify-content:center"></div>
+  <div class="deckctl"><button id="sprev">&larr;</button><span id="snum"></span><button id="snext">&rarr;</button><span>· arrows to navigate · P to present · F fullscreen</span></div></div>
+</section>
+<section id="t1" class="tab">
   <div class="chips" id="chips"></div>
   <div class="grid">
     <div class="card">
@@ -180,6 +282,7 @@ footer code{font:12px var(--mono);background:var(--panel);padding:4px 8px;border
 </section>
 </main>
 <div class="toasts" id="toasts"></div>
+<div id="pbar"></div><div id="pcount"></div><div id="notes"></div>
 <footer><span><b>Deterministic:</b> every number from evaluator outputs; reruns byte-identical; AI used only for validated perception.</span><code id="repro"></code></footer>
 <script id="demo-data" type="application/json">/*__DATA__*/null</script>
 <script>
@@ -259,7 +362,119 @@ const T=P.total;
 $('total').innerHTML='<div class="card"><div class="lbl">Total vs pro 2:49 ('+T.pro_s+' s IGT)</div><div class="hero">'+T.ratio_low.toFixed(2)+'x</div>agent '+T.agent_s_low+'–'+T.agent_s_high+' s · ratio '+T.ratio_low+'–'+T.ratio_high+' · run median '+P.median+'</div>'+
 '<div class="card" style="border-color:var(--bad)"><div class="lbl" style="color:var(--bad)">FLAG · exit_to_end_portal · missed_shortcut</div><div class="hero" style="color:var(--bad);font-size:48px">'+P.segments[2].ratio_low.toFixed(0)+'–'+P.segments[2].ratio_high.toFixed(0)+'x</div><p style="color:#c8d0dc;line-height:1.5">'+esc(P.missed_shortcut)+'</p><p class="method">Rule (baseline/rules.json): '+esc(P.missed_shortcut_rule)+'</p></div>'+
 '<div class="card"><div class="lbl">Evaluator fixtures</div><div class="hero" style="color:var(--good)">'+P.fixtures.filter(f=>f.pass).length+'/'+P.fixtures.length+'</div>'+P.fixtures.map(f=>'<div style="font:13px var(--mono);margin:4px 0">'+(f.pass?'<span style="color:var(--good)">PASS</span>':'<span style="color:var(--bad)">FAIL</span>')+' '+esc(f.fixture)+'</div>').join('')+'</div>';
-if(H){const tb=H.slice(0,2);document.querySelector('nav button[data-tab="'+tb+'"]').click();if(H==='t2r')$('check').click();if(H==='t1d'){const s=R.segments[2];detail(s,s.t0,s.t1)}if(H==='t1v'){vid.addEventListener('loadedmetadata',()=>{vid.currentTime=vidT(R.portal_t+1);})}}
+// ---------- PITCH DECK (all numbers from D)
+const Q=D.pitch,sg=R.segments,gotoS=sg[2],exitS=sg[3],deathM=R.markers[0],sumM=R.markers[1],s0=R.seg_rows[0];
+const nAct=R.rows.filter(r=>r.type==='skill_result').length,nFail=R.rows.filter(r=>r.type==='skill_result'&&r.action.state==='fail').length;
+const sumLine=sumM.lines[0],FL=P.segments[2],fx=P.fixtures.filter(f=>f.pass).length+'/'+P.fixtures.length,DC=Q.decision;
+const f1=x=>Number(x).toFixed(1),f2=x=>Number(x).toFixed(2);
+const mmss=s=>Math.floor(s/60)+':'+String(Math.round(s%60)).padStart(2,'0');
+const card=(h,t,s,cls)=>'<div class="pc '+(cls||'')+'"><h3>'+h+'</h3>'+(t?'<div class="t">'+t+'</div>':'')+(s||'')+'</div>';
+const IMG={portal:'media/s-portal.jpg',nether:'media/s-nether.jpg',chests:'media/s-chests.jpg',site:K.still};
+const cap=t=>'<div class="cap">'+t+'</div>';
+const bg=(src,c)=>'<div class="bgimg" style="background-image:url('+src+')"></div><div class="scrim'+(c?' '+c:'')+'"></div>';
+const portalCap='demo-01 · t='+f1(C.frames[285])+' s · lines '+sg[1].lines[1]+'-'+sg[1].lines[2]+' · portal lit, entering the Nether';
+const ico={log:'<svg viewBox="0 0 24 24" class="ic"><path d="M5 3h10l4 4v14H5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11h8M8 15h8M8 7h5" stroke="currentColor" stroke-width="2"/></svg>',
+ srv:'<svg viewBox="0 0 24 24" class="ic"><rect x="4" y="3" width="16" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="14" width="16" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="6.5" r="1.2" fill="currentColor"/><circle cx="8" cy="17.5" r="1.2" fill="currentColor"/></svg>',
+ cam:'<svg viewBox="0 0 24 24" class="ic"><rect x="3" y="6" width="13" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 10l5-3v10l-5-3z" fill="currentColor"/></svg>',
+ chk:'<svg viewBox="0 0 24 24" class="ic"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+ scale:'<svg viewBox="0 0 24 24" class="ic"><path d="M12 3v18M5 21h14M4 8h16M7 8l-3 7h6zM17 8l-3 7h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" class="ic"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+ chart:'<svg viewBox="0 0 24 24" class="ic"><path d="M4 20V4M4 20h16M8 16v-5M12 16V7M16 16v-8" stroke="currentColor" stroke-width="2.4" fill="none"/></svg>',
+ mic:'<svg viewBox="0 0 24 24" class="ic"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 11a6 6 0 0012 0M12 17v4" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+ glob:'<svg viewBox="0 0 24 24" class="ic"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'};
+const jsonMock='<pre class="jm">{\n  <span class="k">"type"</span>: "summary",\n  <span class="k">"actions"</span>: <b>0</b>,\n  <span class="k">"failures"</span>: <b>0</b>,\n  <span class="k">"splits"</span>: <b>0</b>\n}</pre>';
+const logLines=[[gotoS.lines[0],gotoS.t1,'goto FAILED after '+Math.round(gotoS.t1-gotoS.t0)+' s'],[exitS.lines[0],exitS.t0+(exitS.t1-exitS.t0),'exit portal FAILED: no obsidian'],[deathM.lines[0],deathM.t,'death: lava (server log agrees)']];
+const redLog='<div class="rlog">'+logLines.map(l=>'<div><span>L'+l[0]+'</span><i>t='+f1(l[1])+'</i>'+l[2]+'</div>').join('')+'</div>';
+// S4 diagram
+const dia='<svg viewBox="0 0 1000 400" class="dia"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker><clipPath id="cl1"><rect x="20" y="268" width="250" height="110" rx="10"/></clipPath></defs>'+
+ [['Agent log','events.jsonl · what it did + claims',20],['Server telemetry','independent server log + RCON',145],['Footage + AI vision','validated fields only',270]].map((r,i)=>'<g><rect x="20" y="'+r[2]+'" width="250" height="110" rx="10" fill="#fff" stroke="#c7d2fe"/>'+(i==2?'<image href="'+IMG.chests+'" x="20" y="268" width="250" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#cl1)" opacity=".35"/>':'')+'<text x="40" y="'+(r[2]+45)+'" class="dt">'+r[0]+'</text><text x="40" y="'+(r[2]+75)+'" class="ds">'+r[1]+'</text></g>').join('')+
+ '<path class="dr" d="M270 75 C340 75,340 200,400 200" marker-end="url(#ah)"/><path class="dr" d="M270 200 L400 200" marker-end="url(#ah)"/><path class="dr" d="M270 323 C340 323,340 200,400 200" marker-end="url(#ah)"/>'+
+ '<rect x="405" y="140" width="230" height="120" rx="12" fill="#4f46e5"/><text x="520" y="192" text-anchor="middle" class="dt w">Deterministic</text><text x="520" y="222" text-anchor="middle" class="dt w">rules</text>'+
+ '<rect x="405" y="20" width="230" height="74" rx="12" fill="#ecfdf5" stroke="#059669"/><text x="520" y="52" text-anchor="middle" class="dt g">Pro run '+mmss(P.total.pro_s)+'</text><text x="520" y="78" text-anchor="middle" class="ds">answer key, same seed</text><path class="dr" d="M520 94 L520 136" marker-end="url(#ah)"/>'+
+ '<path class="dr" d="M635 200 L735 200" marker-end="url(#ah)"/><rect x="740" y="130" width="240" height="140" rx="12" fill="#fff" stroke="#e11d48" stroke-width="3"/><text x="860" y="180" text-anchor="middle" class="dt r">Verdict</text><text x="860" y="212" text-anchor="middle" class="ds">line-cited findings</text><text x="860" y="240" text-anchor="middle" class="ds">split ratios vs pro</text></svg>';
+// S5 charts
+const nr=Q.runs.filter(r=>r.nether),bmax=Math.max(s0.pro_s,...nr.map(r=>r.ratio*s0.pro_s))*1.08;
+const bars='<svg viewBox="0 0 500 '+(40+(nr.length+1)*44)+'" class="chart"><text x="0" y="18" class="ds">time to Nether (s) · lower is faster</text>'+
+ [{n:'pro (2:49 run)',v:s0.pro_s,c:'#a78bfa'}].concat(nr.map(r=>({n:r.run,v:r.ratio*s0.pro_s,c:'#10b981',r:r.ratio}))).map((b,i)=>{const y=34+i*44,w=b.v/bmax*330;return '<text x="0" y="'+(y+22)+'" class="ds b">'+b.n+'</text><rect x="120" y="'+y+'" width="'+w+'" height="30" rx="5" fill="'+b.c+'" class="gb"/><text x="'+(126+w)+'" y="'+(y+21)+'" class="ds b">'+f1(b.v)+' s'+(b.r?' · '+f2(b.r)+'x':'')+'</text>'}).join('')+'</svg>';
+const dots='<div class="dots">'+Q.runs.map(r=>'<span class="'+(r.contra?'dr1':'dg')+'" title="'+r.run+'"></span>').join('')+'</div><div class="ds2"><b style="color:#e11d48">'+Q.n_contra+'</b> red = summary contradicted by own log · grey = no summary</div>';
+// S6 timeline
+const TE=R.end_t,tx=t=>20+t/TE*960;
+const tl='<svg viewBox="0 0 1000 150" class="tlsvg"><defs><pattern id="hz" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#e11d48"/><rect width="6" height="12" fill="#9f1239"/></pattern></defs>'+
+ sg.map(s=>'<rect x="'+tx(s.t0)+'" y="40" width="'+Math.max(3,tx(s.t1)-tx(s.t0)-2)+'" height="46" rx="5" fill="'+(s.id==='goto'?'url(#hz)':s.kind==='good'?'#10b981':s.kind==='bad'?'#e11d48':'#f59e0b')+'"/>').join('')+
+ '<text x="'+((tx(gotoS.t0)+tx(gotoS.t1))/2)+'" y="70" text-anchor="middle" class="dt w">Nether goto · '+Math.round(gotoS.t1-gotoS.t0)+' s timeout</text>'+
+ '<text x="'+tx(20)+'" y="30" class="ds w">chests</text><text x="'+tx(sg[1].t0)+'" y="30" class="ds w">build</text><text x="'+tx(exitS.t0+4)+'" y="30" class="ds w">exit fail</text>'+
+ '<text x="'+tx(deathM.t)+'" y="120" text-anchor="end" class="dt w">&#9760; died '+f1(deathM.t)+' s</text><line x1="'+tx(deathM.t)+'" y1="34" x2="'+tx(deathM.t)+'" y2="92" stroke="#fff" stroke-width="3"/>'+
+ [0,100,200,300].map(t=>'<text x="'+tx(t)+'" y="145" class="ds w">'+t+' s</text>').join('')+'</svg>';
+const gauge=(n,d,c,l)=>{const a=n/d,r=40,C=2*Math.PI*r;return '<div class="gg"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="'+r+'" fill="none" stroke="#e5e7eb" stroke-width="12"/><circle cx="50" cy="50" r="'+r+'" fill="none" stroke="'+c+'" stroke-width="12" stroke-dasharray="'+(a*C)+' '+C+'" transform="rotate(-90 50 50)" stroke-linecap="round"/><text x="50" y="57" text-anchor="middle" style="font:900 20px Inter,sans-serif;fill:'+c+'">'+n+'/'+d+'</text></svg><div>'+l+'</div></div>'};
+const runIcons='<div class="ricons">'+Q.runs.map(()=>'<span></span>').join('')+'</div>';
+const RUB=[['Problem quality &amp; realism',25,ico.glob,'A real agent, real pro runs, a real seed.'],['Correctness &amp; fairness',25,ico.scale,'Deterministic: '+Q.det_files+' files byte-identical across reruns. Limits disclosed.'],['Verification quality',25,ico.shield,'3 independent sources · line-cited · '+Q.selftest_pass+'/'+Q.selftest_total+' self-tests · '+fx+' fixtures · 360 tests'],['Experimental evidence',10,ico.chart,Q.n_runs+' live runs · '+Q.n_tasks+' decision tasks ('+DC.ok+' OK / '+DC.illegal+' ILLEGAL / '+DC.wrong+' WRONG of '+DC.total+') · montage'],['Technical communication',15,ico.mic,'This demo, regenerated by one command.']];
+const SL=[
+ {c:'ttl',h:'<div class="kick">Georgia Tech &times; Mercor Hack Day</div><h1>SplitCheck</h1><h2 style="font-weight:700">Checking AI agents against pro speedrunners</h2><div class="foot">Minecraft '+Q.version+' · seed '+Q.seed+'</div>',b:bg(IMG.portal,'ind'),k:cap(portalCap)},
+ {c:'cnt',h:'<div class="split"><div class="lh"><img src="'+IMG.portal+'" alt="portal lit"><div class="badge">'+f2(s0.ratio)+'x pro</div>'+cap(portalCap)+'</div><div class="rh">'+jsonMock+'<div class="stmp rv">CONTRADICTED</div></div></div><div class="s2t"><h2>Our agent beat a pro speedrunner to the Nether.</h2><h2 class="rv" style="color:#e11d48">Then it misreported its own run. <span style="color:#1e1b4b">'+Q.n_contra+'/'+Q.n_runs+' runs.</span></h2></div>'},
+ {c:'cnt',h:'<h2>One task, one trap, one catch</h2><div class="sub">Live run demo-01 · seed '+Q.seed+' · '+Q.version+'</div><div class="cards c4">'+
+   card('The task','Speedrun to the Nether','<img class="thumb" src="'+IMG.chests+'" alt="chest route"><div class="s">Pro answer key: '+mmss(P.total.pro_s)+' run, same seed</div>')+
+   card('The trap','Agent summary',jsonMock+'<div class="s">Sounds right.</div>','red')+
+   card('The AI says','','<div class="bubble">&ldquo;Run complete, nothing failed.&rdquo;</div><div class="s">Log line '+sumLine+', the agent&rsquo;s own summary.</div>','red')+
+   card('Our check catches it','Log shows '+nAct+' actions, '+nFail+' failures',redLog,'grn')+'</div>'},
+ {c:'cnt',h:'<h2>How the check works</h2><div class="sub">Three sources in, one verdict out</div>'+dia+'<div style="font:900 2.3cqw Inter,sans-serif;color:#4f46e5;text-align:center">No AI judge. Same log in, same verdict out.</div>'},
+ {c:'cnt',h:'<h2>Evidence</h2><div class="sub">'+Q.n_runs+' live runs, one seed · published agent on the same seed</div><div style="display:grid;grid-template-columns:1.45fr 1fr;gap:1.6cqw;flex:1;min-height:0"><table class="ptab"><tr><th>run</th><th>nether?</th><th>vs pro</th><th>contra&shy;dictions</th><th>biggest waste</th></tr>'+
+   Q.runs.map(r=>'<tr'+(r.nether?' class="hl"':'')+'><td>'+r.run+'</td><td class="'+(r.nether?'y':'no')+'">'+(r.nether?'yes':'no')+'</td><td>'+(r.ratio!=null?f2(r.ratio)+'x':'-')+'</td><td class="'+(r.contra?'r':'no')+'">'+r.contra+'</td><td>'+esc(r.waste)+'</td></tr>').join('')+'</table><div style="display:flex;flex-direction:column;gap:1.1cqw;min-height:0">'+bars+dots+
+   '<div class="mini"><div><b>'+f2(P.total.ratio_low)+'x</b>published agent total</div><div class="red"><b>'+Math.round(FL.ratio_low)+'&ndash;'+Math.round(FL.ratio_high)+'x</b>FLAG exit&rarr;End missed_shortcut</div></div></div></div>'},
+ {c:'ttl dark',h:'<h2>What the agent can&rsquo;t do (yet)</h2><div class="cards c4" style="flex:none;margin:1.5cqw 0 2cqw">'+
+   card('Fast','Scripted steps','<div class="s">Ahead of the pro at every chest; Nether in '+f1(s0.agent_s)+' s vs '+f1(s0.pro_s)+' s.</div>','grn')+
+   card('Fails','Long-horizon navigation','<div class="s">'+Math.round(gotoS.t1-gotoS.t0)+' s goto timeout, line '+gotoS.lines[0]+'.</div>','red')+
+   card('Fails','Resource planning','<div class="s">Exit portal: out of obsidian, line '+exitS.lines[0]+'.</div>','red')+
+   card('Fails','Honest self-reports','<div class="s">'+Q.n_contra+'/'+Q.n_runs+' summaries contradicted by own logs.</div>','red')+'</div>'+tl,b:bg(IMG.nether,'dk'),k:cap('demo-04 · Nether travel footage · netherrack and lava, the terrain where demo-01&rsquo;s goto timed out')},
+ {c:'cnt',h:'<h2>What we don&rsquo;t claim</h2><div class="sub">Limits, disclosed up front</div><div style="display:grid;grid-template-columns:1.1fr 1fr;gap:1.6cqw;flex:1;min-height:0"><div class="pc"><h3>Perception validation</h3><div class="ggs">'+gauge(32,32,'#059669','portal frame (agent-05)')+gauge(0,32,'#e11d48','chests')+'</div><div class="s">Unvalidated fields are refused by the checker. Claude vs Codex agree 41/41 on coarse facts, 10/41 on chests, 0/41 on lava.</div></div><div style="display:grid;gap:1.1cqw">'+
+   card('Sample',Q.n_runs+' runs · 1 seed',runIcons)+card('Difficulty &amp; coverage','Peaceful, not Easy · no run past the Nether','<div class="s">Later segments only from the published montage.</div>')+card('Estimates','Some time costs are estimates','<div class="s">Labelled as such in the reports.</div>')+'</div></div>'},
+ {c:'cnt',h:'<h2>Scored against your rubric</h2><div class="sub">Mercor hack day judging criteria · weight</div><div class="rub2">'+RUB.map(r=>'<div class="rr"><div class="ri">'+r[2]+'</div><div class="rk">'+r[0]+'<div class="wb"><span style="width:'+(r[1]*4)+'%"></span><i>'+r[1]+'%</i></div></div><div class="rv2">'+r[3]+'</div></div>').join('')+'</div>'},
+ {c:'ttl',h:'<h2 style="font-size:5cqw">Agents will say they succeeded.</h2><h2 style="font-weight:700;opacity:.95">Expert-grounded, deterministic checks are how you know.</h2><div><span class="code">'+esc(D.reproduce)+'</span></div><div class="foot">github.com/anshulk08 · SplitCheck</div>',b:bg(IMG.nether,'ind'),k:cap('demo-04 · Nether travel footage')},
+];
+const deck=$('deck');SL.forEach((x,i)=>{const e=el('div','slide '+x.c,(x.b||'')+'<div class="in">'+x.h+'</div>'+(x.k||'')+(x.c==='cnt'?'<div class="bar"></div>':''));e.id='S'+(i+1);deck.append(e)});
+let cur=0;function slide(i,rev){cur=Math.max(0,Math.min(SL.length-1,i));document.querySelectorAll('.slide').forEach((s,j)=>{s.classList.toggle('on',j===cur);if(j!==cur)s.classList.remove('revealed')});if(rev)$('S'+(cur+1)).classList.add('revealed');$('snum').textContent=(cur+1)+' / '+SL.length}
+slide(0);
+function deckStep(d){const s=$('S'+(cur+1));if(d>0&&cur===1&&!s.classList.contains('revealed')){s.classList.add('revealed');return}slide(cur+d)}
+$('sprev').onclick=()=>deckStep(-1);$('snext').onclick=()=>deckStep(1);
+function showTab(id){const b=document.querySelector('nav button[data-tab="'+id+'"]');if(b)b.click()}
+// ---------- PRESENT MODE
+const STEPS=[
+ {s:1,n:'HOOK (20 s) · SplitCheck: we check AI agents against pro speedrunners, on the same seed.'},
+ {s:2,n:'HOOK · Our agent got to the Nether faster than a pro: '+f2(s0.ratio)+'x the pro\'s time.'},
+ {s:2,r:1,n:'HOOK · Then it misreported its own run. '+Q.n_contra+' of '+Q.n_runs+' runs did the same.'},
+ {s:3,n:'CATCH (50 s) · Mercor\'s slide-7 format: the task, the trap, what the AI says, and our catch with line numbers.'},
+ {t:'beat',n:'CATCH · Watch it: the agent enters the Nether '+f1(R.ahead_s)+' s ahead of the pro ghost.'},
+ {t:'t1d',n:'CATCH · Right after: goto times out after '+Math.round(gotoS.t1-gotoS.t0)+' s (line '+gotoS.lines[0]+'), exit portal fails, dies in lava. Summary says 0 failures.'},
+ {s:4,n:'HOW (35 s) · Agent log, independent server telemetry, validated footage. Deterministic rules, pro run as the answer key. No AI judge.'},
+ {t:'t2r',n:'HOW · Run agent-01: claims '+K.claimed.actions+' actions / '+K.claimed.failures+' failures; the log has '+K.actual.actions+' / '+K.actual.failures+'. Obsidian consumed, nothing built.'},
+ {s:5,n:'EVIDENCE (30 s) · '+Q.n_runs+' live runs: 2 reached the Nether, both under pro pace; '+Q.n_contra+' had contradicted summaries.'},
+ {t:'t3',n:'EVIDENCE · The published agent: '+f2(P.total.ratio_low)+'x the pro overall, and a '+Math.round(FL.ratio_low)+'x FLAG on exit-to-End (missed shortcut).'},
+ {s:6,n:'LIMITS (25 s) · Fast at scripted steps; fails long-horizon navigation, resource planning and honest self-reporting.'},
+ {s:7,n:'LIMITS · What we do not claim: Peaceful, one seed, nothing past the Nether live, perception validated only for the portal frame.'},
+ {s:8,n:'CLOSE (20 s) · Against your rubric: real tasks, deterministic and reproducible, three sources, live evidence.'},
+ {s:9,n:'CLOSE · Agents will say they succeeded. Expert-grounded, deterministic checks are how you know.'},
+];
+let ps=-1,presenting=false;
+function goStep(i){ps=Math.max(0,Math.min(STEPS.length-1,i));const x=STEPS[ps];window.scrollTo(0,0);
+  if(x.s){showTab('t0');slide(x.s-1,!!x.r)}
+  else if(x.t==='beat'){showTab('t1');$('detail').classList.remove('on');vid.currentTime=Math.max(0,vidT(R.portal_t-4));render();vid.play().catch(()=>{})}
+  else if(x.t==='t1d'){showTab('t1');vid.pause();detail(gotoS,gotoS.t0,gotoS.t1);setTimeout(()=>$('detail').scrollIntoView({block:'center'}),60)}
+  else if(x.t==='t2r'){showTab('t2');if(!$('reveal').classList.contains('on'))$('check').click()}
+  else if(x.t==='t3'){showTab('t3')}
+  $('pcount').textContent=(ps+1)+'/'+STEPS.length;$('pbar').style.width=((ps+1)/STEPS.length*100)+'%';$('notes').innerHTML='<b>'+(ps+1)+'/'+STEPS.length+' · SPEAKER NOTE</b>'+esc(x.n)}
+function present(on){presenting=on;document.body.classList.toggle('present',on);if(on)goStep(ps<0?0:ps);else{$('notes').classList.remove('on');vid.pause()}}
+$('presbtn').onclick=()=>{ps=-1;present(true)};
+function fs(){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen().catch(()=>{})}
+document.addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key;
+  if(k==='f'||k==='F'){fs();e.preventDefault();e.stopImmediatePropagation();return}
+  if(presenting){
+    if(k==='ArrowRight'||k===' '||k==='PageDown'){goStep(ps+1)}else if(k==='ArrowLeft'||k==='PageUp'){goStep(ps-1)}
+    else if(k==='n'||k==='N'){$('notes').classList.toggle('on')}else if(k==='Escape'){present(false)}else return;
+    e.preventDefault();e.stopImmediatePropagation();return}
+  if(k==='p'||k==='P'){ps=-1;present(true);e.preventDefault();e.stopImmediatePropagation();return}
+  if($('t0').classList.contains('on')){if(k==='ArrowRight'||k===' '){deckStep(1)}else if(k==='ArrowLeft'){deckStep(-1)}else return;e.preventDefault();e.stopImmediatePropagation()}
+},true);
+if(/^s\d+$/.test(H)){slide(+H.slice(1)-1,true)}else if(H==='present'){present(true)}else if(H&&H!=='t0'){const tb=H.slice(0,2);document.querySelector('nav button[data-tab="'+tb+'"]').click();if(H==='t2r')$('check').click();if(H==='t1d'){const s=R.segments[2];detail(s,s.t0,s.t1)}if(H==='t1v'){vid.addEventListener('loadedmetadata',()=>{vid.currentTime=vidT(R.portal_t+1);})}}
 function grow(){document.querySelectorAll('.bars .b').forEach(b=>{b.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>b.style.width=b.dataset.w+'%'))})}
 </script>
 </body>

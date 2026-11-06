@@ -15,7 +15,7 @@ python - "$ROOT" "$ZIP" <<'PY'
 import os, subprocess, sys, zipfile
 root, zpath = sys.argv[1], sys.argv[2]
 LIMIT = 50 * 1024 * 1024
-SKIP = {"node_modules", "__pycache__", ".pytest_cache", ".git", "frames"}  # frames: re-extracted deterministically from the mp4
+SKIP = {"node_modules", "__pycache__", ".pytest_cache", ".git", "frames", "frames-clean", "clipframes", "demo-01_frames", "clip-portal", "clip-resources"}  # frames: re-extracted deterministically from the mp4
 files = set(subprocess.run(["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"], cwd=root, check=True,
                            capture_output=True, text=True).stdout.split("\0")) - {""}
 for extra in ("runs", "code/.perception_cache"):
