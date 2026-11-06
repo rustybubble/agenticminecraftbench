@@ -1,0 +1,1217 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 1,
+    "knowledge_features": [
+      "chest_ruined_portal",
+      "chest_village_weaponsmith",
+      "chest_west",
+      "entry_portal_site"
+    ],
+    "merged_waste_intervals": [],
+    "meta": {
+      "duration_s": 51.64,
+      "event_type_counts": {
+        "linger": 1,
+        "route_inventory": 1,
+        "route_loot": 3,
+        "route_start": 1,
+        "route_state": 1,
+        "route_step": 4,
+        "skill_result": 7,
+        "skill_start": 7,
+        "spawn": 1,
+        "summary": 1,
+        "viewer": 1
+      },
+      "knowledge_source": "route_start",
+      "lines": 28,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [
+          {
+            "inv": {
+              "bread": 7,
+              "cobblestone": 4,
+              "diamond_horse_armor": 1,
+              "flint": 1,
+              "glistering_melon_slice": 4,
+              "gold_ingot": 2,
+              "golden_leggings": 1,
+              "iron_helmet": 2,
+              "iron_ingot": 6,
+              "iron_pickaxe": 1,
+              "iron_sword": 1,
+              "oak_planks": 1,
+              "obsidian": 21,
+              "saddle": 1
+            },
+            "line": 26,
+            "t": 43.63
+          }
+        ],
+        "loot_lines": [
+          8,
+          14,
+          20
+        ],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 6,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 15.477
+          },
+          {
+            "error": null,
+            "line": 8,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 15.747
+          },
+          {
+            "error": null,
+            "line": 12,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 36.568
+          },
+          {
+            "error": null,
+            "line": 14,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 37.632
+          },
+          {
+            "error": null,
+            "line": 18,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 42.117
+          },
+          {
+            "error": null,
+            "line": 20,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 42.173
+          },
+          {
+            "error": null,
+            "line": 24,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 43.226
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 5,
+            "skill": "goto",
+            "t": 0.576
+          },
+          {
+            "line": 7,
+            "skill": "loot_chest",
+            "t": 15.477
+          },
+          {
+            "line": 11,
+            "skill": "goto",
+            "t": 16.148
+          },
+          {
+            "line": 13,
+            "skill": "loot_chest",
+            "t": 36.569
+          },
+          {
+            "line": 17,
+            "skill": "goto",
+            "t": 38.033
+          },
+          {
+            "line": 19,
+            "skill": "loot_chest",
+            "t": 42.117
+          },
+          {
+            "line": 23,
+            "skill": "goto",
+            "t": 42.573
+          }
+        ],
+        "split_events": [],
+        "summary": {
+          "actions": 0,
+          "deaths": 0,
+          "elapsedS": 53,
+          "failures": 0,
+          "finalSplit": null,
+          "line": 28,
+          "runId": "agent-05",
+          "splits": [],
+          "t": 51.64
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "agent_runs/agent-05/events.jsonl",
+      "run_id": "agent-05",
+      "seed": "8398967436125155523",
+      "t0_epoch": 1793993653.643,
+      "untimed_lines": 0,
+      "version": "1.16.5"
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 28,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": true,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          6,
+          8,
+          12,
+          14,
+          18,
+          20,
+          24
+        ],
+        "field": "actions",
+        "logged": 7,
+        "summary_line": 28
+      },
+      "lines": [
+        6,
+        8,
+        12,
+        14,
+        18,
+        20,
+        24,
+        28
+      ],
+      "message": "line 28: summary claims actions=0, but the log shows 7 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24)",
+      "severity": "high",
+      "t_end": 51.64,
+      "t_start": 51.64
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 4
+        }
+      },
+      "lines": [
+        8
+      ],
+      "message": "line 8: gathered {'bread': 4} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 15.747,
+      "t_start": 15.477
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 3
+        }
+      },
+      "lines": [
+        14
+      ],
+      "message": "line 14: gathered {'bread': 3} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 37.632,
+      "t_start": 36.568
+    }
+  ],
+  "perception": {
+    "backend": "claude",
+    "backend_params": {
+      "backend": "claude",
+      "cli_version": "2.1.319 (Claude Code)",
+      "effort": null
+    },
+    "distinct_frames": 34,
+    "findings": [
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "lava_visible",
+          "frames": [
+            {
+              "frame_sha": "eeb9c3e69fb431f999f7ac7123184122bcecf3189a8189e6e7ec54d4d5a2e66c",
+              "run_t": 32.039,
+              "video_t": 32.039
+            },
+            {
+              "frame_sha": "59e9b1e98a7740d67cf78ebef6f1435119b61eaa7de3c44e3265f6ea8e13a7a1",
+              "run_t": 32.122,
+              "video_t": 32.122
+            },
+            {
+              "frame_sha": "1d1b4da2dedd17277df015778fd4ada98fa6f115a2d9c3f5c96623544cb8a6a3",
+              "run_t": 32.168,
+              "video_t": 32.168
+            },
+            {
+              "frame_sha": "096fcff9919a674b7d7680d7ffdb93eecfafadf043c115e9638e90462560d648",
+              "run_t": 32.618,
+              "video_t": 32.618
+            },
+            {
+              "frame_sha": "f9bc42fc7270be7be361f3c1e498b6cd5b1ef4fd4dd133ff197899a59e0420e3",
+              "run_t": 32.687,
+              "video_t": 32.687
+            },
+            {
+              "frame_sha": "c604409df0d3ee71733d36f50c6d1fe74d8e0c109b538fe37d54d897bc07d603",
+              "run_t": 32.986,
+              "video_t": 32.986
+            },
+            {
+              "frame_sha": "0bcd8d36d5e286d3a264f392f56b4c6b44e6e38df28d6419edb2daef4c70eec9",
+              "run_t": 33.12,
+              "video_t": 33.12
+            },
+            {
+              "frame_sha": "05fe99974b701de4aa6e5c0f301d8c9375b74af90c8301691197af18517226f9",
+              "run_t": 33.172,
+              "video_t": 33.172
+            },
+            {
+              "frame_sha": "4e5303efa24396b8ec7f2eb9602ea2d81aea265baff5b407c271720f7803a3fc",
+              "run_t": 33.651,
+              "video_t": 33.651
+            },
+            {
+              "frame_sha": "d8b5c44bc20b5964ff08f3300c05a80b7898e934491c3b41e58b8fd23f7fb90b",
+              "run_t": 33.686,
+              "video_t": 33.686
+            },
+            {
+              "frame_sha": "2f4bc1dd8ff13457fa4a5809011e2fd7e05ee14eb042d914df3f1471ddd53646",
+              "run_t": 34.007,
+              "video_t": 34.007
+            },
+            {
+              "frame_sha": "c5249c297048a45c8825f145d333ce0ef1b10241858d461ea7121dd7eb108d01",
+              "run_t": 34.154,
+              "video_t": 34.154
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.652,
+              "video_t": 34.652
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.689,
+              "video_t": 34.689
+            },
+            {
+              "frame_sha": "3fa1568322a299877af18a77b28a0527291bee52c6fa3acac556e92e9ea5a22d",
+              "run_t": 35.0,
+              "video_t": 35.0
+            },
+            {
+              "frame_sha": "0aa30c96657a9a97ab797d3f4c1a6dbec634c01e6d6ca0f2df2da419e89ce6bd",
+              "run_t": 35.134,
+              "video_t": 35.134
+            },
+            {
+              "frame_sha": "bcb73c2d64311d2e3e7c3df7d669935004a1a35a14c2d54c25efbceb67ab5141",
+              "run_t": 35.172,
+              "video_t": 35.172
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.637,
+              "video_t": 35.637
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.688,
+              "video_t": 35.688
+            },
+            {
+              "frame_sha": "13784ee9b0db9c69b5766f05398055c6a3efa5c60c97c64ed62930694e40fe06",
+              "run_t": 35.984,
+              "video_t": 35.984
+            },
+            {
+              "frame_sha": "094a64548b069fc24c636beacefb2c735c10b97ad0a46d455ef94f4abfb38ba3",
+              "run_t": 36.118,
+              "video_t": 36.118
+            },
+            {
+              "frame_sha": "a2f3928f3eaf5ff5be28bcf2010b4eb6d410954679702c0faed3332ece58647b",
+              "run_t": 36.184,
+              "video_t": 36.184
+            },
+            {
+              "frame_sha": "ae0c9a4545c66a49f46a1d7d248c0fcd0033f45e055362d60eb7ce6ac51df117",
+              "run_t": 36.635,
+              "video_t": 36.635
+            },
+            {
+              "frame_sha": "8865f0268f677f40d234c89a604c4fef393f3d9f780f1c64432932e8f1c56bfc",
+              "run_t": 36.685,
+              "video_t": 36.685
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.0,
+              "video_t": 37.0
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.151,
+              "video_t": 37.151
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.189,
+              "video_t": 37.189
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.634,
+              "video_t": 37.634
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.674,
+              "video_t": 37.674
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.985,
+              "video_t": 37.985
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.135,
+              "video_t": 38.135
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.167,
+              "video_t": 38.167
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.617,
+              "video_t": 38.617
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.654,
+              "video_t": 38.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.001,
+              "video_t": 39.001
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.12,
+              "video_t": 39.12
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.168,
+              "video_t": 39.168
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.654,
+              "video_t": 39.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 40.004,
+              "video_t": 40.004
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.134,
+              "video_t": 40.134
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.17,
+              "video_t": 40.17
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.654,
+              "video_t": 40.654
+            },
+            {
+              "frame_sha": "ab3012819865f982e2d3827c9b5b53a4861cf17aff4a1f2d0ff48cb5fe7cc750",
+              "run_t": 41.001,
+              "video_t": 41.001
+            },
+            {
+              "frame_sha": "c1dbb289f60d18dc9da23900807d71cead0920a76ba69204d2b5e9fba057ee83",
+              "run_t": 41.139,
+              "video_t": 41.139
+            },
+            {
+              "frame_sha": "4ecbc2829e84b7b3507431cc9a5c21b30fad9c8effb051feab4c9db7787cb4cd",
+              "run_t": 41.186,
+              "video_t": 41.186
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.636,
+              "video_t": 41.636
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.684,
+              "video_t": 41.684
+            },
+            {
+              "frame_sha": "52824faf9cc7b7676cc68137535244b935e4cb00b4c43d6e3eb884b0afa527ce",
+              "run_t": 42.0,
+              "video_t": 42.0
+            },
+            {
+              "frame_sha": "ea9e90a3541d435daaf9397effca0bbedc65f54efad0f6b1ea42cc2ce1a487c3",
+              "run_t": 42.134,
+              "video_t": 42.134
+            },
+            {
+              "frame_sha": "b7aea9da147f0ed46f3cb7e8896bc2d4fb9ab7406a64ab07cb614f0ad13b70f6",
+              "run_t": 42.168,
+              "video_t": 42.168
+            },
+            {
+              "frame_sha": "f6a6a89a0f955443f54ad1198ef43036399b572330965adb04f70d215e8925a8",
+              "run_t": 42.64,
+              "video_t": 42.64
+            },
+            {
+              "frame_sha": "d69f00ef9d20d7603e46efd938dbd10dc9da0c28657839899331ca2712ce1f72",
+              "run_t": 42.685,
+              "video_t": 42.685
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.019,
+              "video_t": 43.019
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.135,
+              "video_t": 43.135
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.166,
+              "video_t": 43.166
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.617,
+              "video_t": 43.617
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.684,
+              "video_t": 43.684
+            }
+          ],
+          "label": "perception-assisted",
+          "low_confidence": true,
+          "perception_assisted": true,
+          "reason": "unvalidated: no ground truth for lava_visible",
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=32.039-43.684 s) (unvalidated: no ground truth for lava_visible); not used as evidence",
+        "severity": "low",
+        "t_end": 43.684,
+        "t_start": 32.039
+      },
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "obsidian_frame",
+          "frames": [
+            {
+              "frame_sha": "eeb9c3e69fb431f999f7ac7123184122bcecf3189a8189e6e7ec54d4d5a2e66c",
+              "run_t": 32.039,
+              "video_t": 32.039
+            },
+            {
+              "frame_sha": "59e9b1e98a7740d67cf78ebef6f1435119b61eaa7de3c44e3265f6ea8e13a7a1",
+              "run_t": 32.122,
+              "video_t": 32.122
+            },
+            {
+              "frame_sha": "1d1b4da2dedd17277df015778fd4ada98fa6f115a2d9c3f5c96623544cb8a6a3",
+              "run_t": 32.168,
+              "video_t": 32.168
+            },
+            {
+              "frame_sha": "096fcff9919a674b7d7680d7ffdb93eecfafadf043c115e9638e90462560d648",
+              "run_t": 32.618,
+              "video_t": 32.618
+            },
+            {
+              "frame_sha": "f9bc42fc7270be7be361f3c1e498b6cd5b1ef4fd4dd133ff197899a59e0420e3",
+              "run_t": 32.687,
+              "video_t": 32.687
+            },
+            {
+              "frame_sha": "c604409df0d3ee71733d36f50c6d1fe74d8e0c109b538fe37d54d897bc07d603",
+              "run_t": 32.986,
+              "video_t": 32.986
+            },
+            {
+              "frame_sha": "0bcd8d36d5e286d3a264f392f56b4c6b44e6e38df28d6419edb2daef4c70eec9",
+              "run_t": 33.12,
+              "video_t": 33.12
+            },
+            {
+              "frame_sha": "05fe99974b701de4aa6e5c0f301d8c9375b74af90c8301691197af18517226f9",
+              "run_t": 33.172,
+              "video_t": 33.172
+            },
+            {
+              "frame_sha": "4e5303efa24396b8ec7f2eb9602ea2d81aea265baff5b407c271720f7803a3fc",
+              "run_t": 33.651,
+              "video_t": 33.651
+            },
+            {
+              "frame_sha": "d8b5c44bc20b5964ff08f3300c05a80b7898e934491c3b41e58b8fd23f7fb90b",
+              "run_t": 33.686,
+              "video_t": 33.686
+            },
+            {
+              "frame_sha": "2f4bc1dd8ff13457fa4a5809011e2fd7e05ee14eb042d914df3f1471ddd53646",
+              "run_t": 34.007,
+              "video_t": 34.007
+            },
+            {
+              "frame_sha": "c5249c297048a45c8825f145d333ce0ef1b10241858d461ea7121dd7eb108d01",
+              "run_t": 34.154,
+              "video_t": 34.154
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.652,
+              "video_t": 34.652
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.689,
+              "video_t": 34.689
+            },
+            {
+              "frame_sha": "3fa1568322a299877af18a77b28a0527291bee52c6fa3acac556e92e9ea5a22d",
+              "run_t": 35.0,
+              "video_t": 35.0
+            },
+            {
+              "frame_sha": "0aa30c96657a9a97ab797d3f4c1a6dbec634c01e6d6ca0f2df2da419e89ce6bd",
+              "run_t": 35.134,
+              "video_t": 35.134
+            },
+            {
+              "frame_sha": "bcb73c2d64311d2e3e7c3df7d669935004a1a35a14c2d54c25efbceb67ab5141",
+              "run_t": 35.172,
+              "video_t": 35.172
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.637,
+              "video_t": 35.637
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.688,
+              "video_t": 35.688
+            },
+            {
+              "frame_sha": "13784ee9b0db9c69b5766f05398055c6a3efa5c60c97c64ed62930694e40fe06",
+              "run_t": 35.984,
+              "video_t": 35.984
+            },
+            {
+              "frame_sha": "094a64548b069fc24c636beacefb2c735c10b97ad0a46d455ef94f4abfb38ba3",
+              "run_t": 36.118,
+              "video_t": 36.118
+            },
+            {
+              "frame_sha": "a2f3928f3eaf5ff5be28bcf2010b4eb6d410954679702c0faed3332ece58647b",
+              "run_t": 36.184,
+              "video_t": 36.184
+            },
+            {
+              "frame_sha": "ae0c9a4545c66a49f46a1d7d248c0fcd0033f45e055362d60eb7ce6ac51df117",
+              "run_t": 36.635,
+              "video_t": 36.635
+            },
+            {
+              "frame_sha": "8865f0268f677f40d234c89a604c4fef393f3d9f780f1c64432932e8f1c56bfc",
+              "run_t": 36.685,
+              "video_t": 36.685
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.0,
+              "video_t": 37.0
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.151,
+              "video_t": 37.151
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.189,
+              "video_t": 37.189
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.634,
+              "video_t": 37.634
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.674,
+              "video_t": 37.674
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.985,
+              "video_t": 37.985
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.135,
+              "video_t": 38.135
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.167,
+              "video_t": 38.167
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.617,
+              "video_t": 38.617
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.654,
+              "video_t": 38.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.001,
+              "video_t": 39.001
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.12,
+              "video_t": 39.12
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.168,
+              "video_t": 39.168
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.654,
+              "video_t": 39.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 40.004,
+              "video_t": 40.004
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.134,
+              "video_t": 40.134
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.17,
+              "video_t": 40.17
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.654,
+              "video_t": 40.654
+            },
+            {
+              "frame_sha": "ab3012819865f982e2d3827c9b5b53a4861cf17aff4a1f2d0ff48cb5fe7cc750",
+              "run_t": 41.001,
+              "video_t": 41.001
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.636,
+              "video_t": 41.636
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.684,
+              "video_t": 41.684
+            },
+            {
+              "frame_sha": "52824faf9cc7b7676cc68137535244b935e4cb00b4c43d6e3eb884b0afa527ce",
+              "run_t": 42.0,
+              "video_t": 42.0
+            },
+            {
+              "frame_sha": "ea9e90a3541d435daaf9397effca0bbedc65f54efad0f6b1ea42cc2ce1a487c3",
+              "run_t": 42.134,
+              "video_t": 42.134
+            },
+            {
+              "frame_sha": "f6a6a89a0f955443f54ad1198ef43036399b572330965adb04f70d215e8925a8",
+              "run_t": 42.64,
+              "video_t": 42.64
+            },
+            {
+              "frame_sha": "d69f00ef9d20d7603e46efd938dbd10dc9da0c28657839899331ca2712ce1f72",
+              "run_t": 42.685,
+              "video_t": 42.685
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.019,
+              "video_t": 43.019
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.135,
+              "video_t": 43.135
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.166,
+              "video_t": 43.166
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.617,
+              "video_t": 43.617
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.684,
+              "video_t": 43.684
+            }
+          ],
+          "label": "perception-assisted",
+          "perception_assisted": true,
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] obsidian frame (ruined portal) visible, but the agent never started a portal skill: first seen t=32.039-43.684 s in 54 confident frame(s) (obsidian_frame accuracy 1.0 (n=32)); report only, seeing a feature on camera does not mean the agent perceived it",
+        "severity": "low",
+        "t_end": 43.684,
+        "t_start": 32.039
+      }
+    ],
+    "frame_span_s": [
+      32.039,
+      43.684
+    ],
+    "frames": 57,
+    "frames_after_run_log_end": 0,
+    "frames_after_server_log": null,
+    "frames_aligned": 57,
+    "frames_in_run": 57,
+    "label": "perception-assisted",
+    "model": "claude-sonnet-5-5",
+    "perception": "runs/perception/agent-05_perception.json",
+    "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+    "run_duration_s": 51.64,
+    "server_last_t_s": null,
+    "validation": {
+      "error": null,
+      "insufficient_fields": [],
+      "log_consistency": {
+        "obsidian_frame": {
+          "consistent": 25,
+          "n": 25,
+          "source": "agent log claim"
+        },
+        "portal_lit": {
+          "consistent": 57,
+          "n": 57,
+          "source": "agent log claim"
+        }
+      },
+      "min_n": 10,
+      "notes": [
+        "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+      ],
+      "per_field": {
+        "chest_visible": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.107
+          ],
+          "correct": 0,
+          "n": 32,
+          "sufficient": true
+        },
+        "obsidian_frame": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.893,
+            1.0
+          ],
+          "correct": 32,
+          "n": 32,
+          "sufficient": true
+        },
+        "player_in_water": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "portal_lit": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "village_visible": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        }
+      },
+      "unvalidated_fields": [
+        "portal_lit",
+        "village_visible",
+        "lava_visible",
+        "water_visible",
+        "player_visible",
+        "player_in_water",
+        "player_activity",
+        "confidence"
+      ],
+      "validated_fields": [
+        "chest_visible",
+        "obsidian_frame"
+      ]
+    }
+  },
+  "progress": {
+    "failed_at": {
+      "line": 20,
+      "note": "never attempted after chest_3",
+      "step": "flint_and_steel"
+    },
+    "steps": [
+      {
+        "agent_t": 15.747,
+        "agent_t_lo": null,
+        "delta_hi": -13.253,
+        "delta_lo": -17.253,
+        "line": 8,
+        "note": "village chest (iron_pickaxe 1, obsidian 6)",
+        "pro_hi": 33.0,
+        "pro_lo": 29.0,
+        "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51–0:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": 37.632,
+        "agent_t_lo": null,
+        "delta_hi": -16.368,
+        "delta_lo": -16.368,
+        "line": 14,
+        "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+        "pro_hi": 54.0,
+        "pro_lo": 54.0,
+        "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": 42.173,
+        "agent_t_lo": null,
+        "delta_hi": -6.827,
+        "delta_lo": -8.827,
+        "line": 20,
+        "note": "flint chest (flint 1, obsidian 4)",
+        "pro_hi": 51.0,
+        "pro_lo": 49.0,
+        "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11–1:13\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "run_facts": {
+    "facts": {
+      "agent": "clean route take (third attempts series)",
+      "difficulty": null,
+      "first_attempt": null,
+      "first_attempt_world": false,
+      "interventions": "none during the run. World regenerated from the seed immediately before it; player cleared at spawn.",
+      "interventions_none": true,
+      "live": false,
+      "outcome": "looted all three supply chests (obsidian 21, iron pickaxe, flint, iron 6, beds not taken), crafted `flint_and_steel`. The portal build step was not run in this take (it still fails, see below). No deaths, no hostiles engaged.",
+      "outcome_short": "looted all three supply chests (obsidian 21, iron pickaxe, flint, iron 6, beds not taken), crafted `flint_and_steel`.",
+      "planner_model": null,
+      "planner_model_text": null,
+      "run_id": "agent-05 (the previous takes in this round: agent-02, agent-03, agent-04)",
+      "source": "agent_runs/agent-05/RUN_NOTES.md",
+      "title": "RUN agent-05 — clean route take (third attempts series)"
+    },
+    "fairness_not_applicable": {
+      "rng": "agent-05 (the previous takes in this round: agent-02, agent-03, agent-04) never reached the End, so dragon RNG plays no part"
+    }
+  },
+  "score": {
+    "attributed_waste_s": 0.0,
+    "efficiency": 1.0,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 0.0,
+    "raw_cost_sum_s": 0.0,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 51.64,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 0.0,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        51.64
+      ],
+      "notes": [],
+      "server_first_t_s": null,
+      "server_last_t_s": null,
+      "server_samples": 0,
+      "snapshots_checked": 0,
+      "snapshots_without_server_sample": [
+        1,
+        6,
+        8,
+        12,
+        14,
+        18,
+        20,
+        24,
+        26,
+        28
+      ]
+    },
+    "findings": [],
+    "server_log": "agent_runs/agent-05/server_events.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 0.0,
+    "efficiency": 1.0,
+    "findings": 3,
+    "findings_by_category": {
+      "claim": 1,
+      "decision": 0,
+      "micro": 2,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 1,
+      "low": 2,
+      "medium": 0
+    },
+    "log": "agent_runs/agent-05/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 51.64
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 0.0,
+    "safety": 0.0
+  }
+}

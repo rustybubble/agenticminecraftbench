@@ -1,0 +1,86 @@
+{
+  "run_median_ratio": null,
+  "total": {
+    "agent_s_low": null,
+    "agent_s_high": null,
+    "pro_s": 169.149,
+    "ratio_low": null,
+    "ratio_high": null
+  },
+  "segments": [
+    {
+      "segment": "spawn_to_nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 66.683,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [
+        {
+          "tag": "longer_path",
+          "seconds": 27.79,
+          "evidence": "path 200.4 blocks vs straight 2.3 blocks (87.72x)"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.305,
+          "evidence": "RunEval failed_action at t=27.249 s (line 8): line 8: action 'loot_chest' failed (FAILED: not ok); 0.305 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.657,
+          "evidence": "RunEval failed_action at t=44.306 s (line 14): line 14: action 'loot_chest' failed (FAILED: not ok); 0.657 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.051,
+          "evidence": "RunEval failed_action at t=48.051 s (line 20): line 20: action 'loot_chest' failed (FAILED: not ok); 0.051 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 0.401,
+          "evidence": "RunEval failed_action at t=49.114 s (line 27): line 27: action 'build_portal' failed (FAILED: need flint + iron_ingot for flint_and_steel); 0.401 s lost"
+        },
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 4.919,
+          "evidence": "RunEval failed_action at t=213.683 s (line 59): line 59: action 'build_portal' failed (FAILED: frame incomplete); 4.919 s lost"
+        }
+      ],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "nether",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 40.783,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 2.45,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    },
+    {
+      "segment": "end",
+      "agent_s_low": null,
+      "agent_s_high": null,
+      "pro_s": 59.233,
+      "ratio_low": null,
+      "ratio_high": null,
+      "waste": [],
+      "verdict": "NOT_REACHED"
+    }
+  ],
+  "flags": [
+    "M_finish: not reached (unfinished: no finish event (log ends at t=249.039 s); end segment and total not scored); total not scored"
+  ]
+}

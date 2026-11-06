@@ -1,0 +1,33 @@
+{
+ "backend": "codex",
+ "created_utc": "2026-11-06T19:23:07Z",
+ "frame_sha": "c422d3a4b28cb30e65570222a5bf7bb17fa7a1eca37e7ad5636a68eef2f6702e",
+ "key": "bbf0ee04e0a3924835a6e9be80a5a7326ab5aecff23d74d9a2f81e6e107048f0",
+ "label": "perception-assisted",
+ "model": "gpt-6-astra",
+ "parsed": {
+  "chest_visible": false,
+  "confidence": 0.91,
+  "lava_visible": false,
+  "obsidian_frame": "partial",
+  "player_activity": "standing",
+  "player_in_water": false,
+  "player_visible": true,
+  "portal_lit": false,
+  "village_visible": true,
+  "water_visible": true
+ },
+ "prompt": "You are looking at ONE frame rendered from a Minecraft Java 1.16 world by prismarine-viewer.\nThe camera is third-person, looking down at a single player character (the bot) from above and behind.\nSome rectangular areas may be solid black; they are masked out, ignore them.\nReport ONLY what is visible in this image. Do not guess about anything outside the frame.\n\nFields:\n- obsidian_frame: \"complete\" if a full rectangular nether-portal frame of obsidian (dark purple-black blocks) is visible;\n  \"partial\" if some obsidian blocks forming part of a frame / ruined portal are visible but the rectangle is incomplete;\n  \"none\" if no obsidian is visible.\n- portal_lit: true only if purple swirling nether-portal blocks fill a frame.\n- chest_visible: a chest block (brown wooden box with a latch) is visible.\n- village_visible: village buildings (houses, paths, bells, farms built by villagers) are visible.\n- lava_visible: lava (bright orange liquid) is visible anywhere.\n- water_visible: water (blue liquid) is visible anywhere.\n- player_visible: the player character (bot) is visible.\n- player_in_water: if the player is visible, true when the player is standing or swimming in water, else false; null if the player is not visible.\n- player_activity: what the player appears to be doing: walking, standing, swimming, placing_or_mining, or unknown.\n- confidence: your overall confidence in these answers, 0.0 to 1.0.\n\nReply with the JSON object only.",
+ "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+ "raw": "{\"obsidian_frame\":\"partial\",\"portal_lit\":false,\"chest_visible\":false,\"village_visible\":true,\"lava_visible\":false,\"water_visible\":true,\"player_visible\":true,\"player_in_water\":false,\"player_activity\":\"standing\",\"confidence\":0.91}",
+ "schema_sha": "8108ca63d26b08164f0fe60f140a9ea1e5199a521de1550e73be34dc182e0e57",
+ "tool_events": [],
+ "usage": {
+  "cache_write_input_tokens": 0,
+  "cached_input_tokens": 0,
+  "input_tokens": 17867,
+  "output_tokens": 115,
+  "reasoning_output_tokens": 46
+ },
+ "vote": 0
+}

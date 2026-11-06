@@ -1,0 +1,379 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "inventory_loss_without_effect",
+   "cost_s": 0.0,
+   "evidence": {
+    "after": 17,
+    "before": 21,
+    "before_line": 25,
+    "item": "obsidian",
+    "skill_line": 27,
+    "snapshot_line": 30
+   },
+   "lines": [
+    20,
+    25,
+    27,
+    30
+   ],
+   "message": "lines 25->30: obsidian 21 -> 17 (-4) across failed build_portal (line 27: placed 0, frame incomplete); items consumed, nothing built",
+   "severity": "high",
+   "t_end": 48.048,
+   "t_start": 44.101
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     6,
+     8,
+     12,
+     14,
+     18,
+     20,
+     24,
+     27
+    ],
+    "field": "actions",
+    "logged": 8,
+    "summary_line": 32
+   },
+   "lines": [
+    6,
+    8,
+    12,
+    14,
+    18,
+    20,
+    24,
+    27,
+    32
+   ],
+   "message": "line 32: summary claims actions=0, but the log shows 8 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27)",
+   "severity": "high",
+   "t_end": 83.267,
+   "t_start": 83.267
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     27
+    ],
+    "field": "failures",
+    "logged": 1,
+    "summary_line": 32
+   },
+   "lines": [
+    27,
+    32
+   ],
+   "message": "line 32: summary claims failures=0, but the log shows 1 (skill_result lines with ok:false: lines 27)",
+   "severity": "high",
+   "t_end": 83.267,
+   "t_start": 83.267
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": true,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish; failed at step `portal_built` (line 27: build_portal failed: frame incomplete, placed 0)",
+ "perception_validation": {
+  "error": null,
+  "insufficient_fields": [
+   "chest_visible",
+   "obsidian_frame"
+  ],
+  "log_consistency": {
+   "obsidian_frame": {
+    "consistent": 59,
+    "n": 59,
+    "source": "agent log claim"
+   },
+   "portal_lit": {
+    "consistent": 62,
+    "n": 62,
+    "source": "agent log claim"
+   }
+  },
+  "min_n": 10,
+  "notes": [
+   "insufficient ground truth (n < 10) for: chest_visible (n=3), obsidian_frame (n=3); these accuracies must not gate findings",
+   "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+  ],
+  "per_field": {
+   "chest_visible": {
+    "accuracy": 0.0,
+    "ci95": [
+     0.0,
+     0.562
+    ],
+    "correct": 0,
+    "n": 3,
+    "sufficient": false
+   },
+   "obsidian_frame": {
+    "accuracy": 1.0,
+    "ci95": [
+     0.438,
+     1.0
+    ],
+    "correct": 3,
+    "n": 3,
+    "sufficient": false
+   },
+   "player_in_water": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   },
+   "portal_lit": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   },
+   "village_visible": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   }
+  },
+  "unvalidated_fields": [
+   "portal_lit",
+   "village_visible",
+   "lava_visible",
+   "water_visible",
+   "player_visible",
+   "player_in_water",
+   "player_activity",
+   "confidence"
+  ],
+  "validated_fields": []
+ },
+ "progress": {
+  "failed_at": {
+   "line": 27,
+   "note": "build_portal failed: frame incomplete, placed 0",
+   "step": "portal_built"
+  },
+  "steps": [
+   {
+    "agent_t": 16.108,
+    "agent_t_lo": null,
+    "delta_hi": -12.892,
+    "delta_lo": -16.892,
+    "line": 8,
+    "note": "village chest (iron_pickaxe 1, obsidian 6)",
+    "pro_hi": 33.0,
+    "pro_lo": 29.0,
+    "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51\u20130:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": 38.105,
+    "agent_t_lo": null,
+    "delta_hi": -15.895,
+    "delta_lo": -15.895,
+    "line": 14,
+    "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+    "pro_hi": 54.0,
+    "pro_lo": 54.0,
+    "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": 42.654,
+    "agent_t_lo": null,
+    "delta_hi": -6.346,
+    "delta_lo": -8.346,
+    "line": 20,
+    "note": "flint chest (flint 1, obsidian 4)",
+    "pro_hi": 51.0,
+    "pro_lo": 49.0,
+    "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11\u20131:13\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": 48.048,
+    "agent_t_lo": 42.654,
+    "delta_hi": -11.952,
+    "delta_lo": -12.952,
+    "line": 30,
+    "note": "first seen in inventory at line 30 (no craft event in the log); crafted after the flint pickup at t=42.654 (line 20)",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 44.101,
+    "agent_t_lo": null,
+    "delta_hi": -10.899,
+    "delta_lo": -10.899,
+    "line": 26,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": 27,
+    "note": "build_portal failed: frame incomplete, placed 0",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "agent-01",
+ "score": {
+  "attributed_waste_s": 4.345,
+  "efficiency": 0.9478,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": 0.0,
+  "raw_cost_sum_s": 4.345,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 83.267,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 4.345,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   83.267
+  ],
+  "notes": [
+   "server log ends at t=44.322 s, 38.945 s before the agent run ends (t=83.267 s)",
+   "server log ends during the build_portal attempt (started t=44.101 s, line 26; result t=48.045 s, line 27)",
+   "no server evidence for build_portal result at t=48.045 s (line 27, FAILED)",
+   "no server evidence for the inventory snapshot at t=48.048 s (line 30)"
+  ],
+  "server_first_t_s": 0.573,
+  "server_last_t_s": 44.322,
+  "server_samples": 88,
+  "snapshots_checked": 8,
+  "snapshots_without_server_sample": [
+   27,
+   30,
+   32
+  ]
+ },
+ "summary": {
+  "attributed_waste_s": 4.345,
+  "efficiency": 0.9478,
+  "findings": 6,
+  "findings_by_category": {
+   "claim": 3,
+   "decision": 0,
+   "micro": 3,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 3,
+   "low": 2,
+   "medium": 1
+  },
+  "log": "agent_runs/agent-01/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 83.267
+ },
+ "top_waste": [
+  {
+   "attributed_s": 4.345,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 4.345,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: frame incomplete"
+   },
+   "lines": [
+    27
+   ],
+   "message": "line 27: action 'build_portal' failed (FAILED: frame incomplete); 4.345 s lost",
+   "severity": "medium",
+   "t_end": 48.045,
+   "t_start": 43.7
+  }
+ ]
+}

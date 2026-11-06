@@ -1,0 +1,336 @@
+[
+ {
+  "fixture": "extra_beds.json",
+  "got": {
+   "run_median_ratio": 1.0,
+   "segments": [
+    {
+     "agent_s_high": 74.683,
+     "agent_s_low": 74.683,
+     "pro_s": 66.683,
+     "ratio_high": 1.12,
+     "ratio_low": 1.12,
+     "segment": "spawn_to_nether",
+     "verdict": "OK",
+     "waste": [
+      {
+       "evidence": "8 beds collected, 6 used",
+       "seconds": 8.0,
+       "tag": "extra_items"
+      }
+     ]
+    },
+    {
+     "agent_s_high": 40.783,
+     "agent_s_low": 40.783,
+     "pro_s": 40.783,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 2.45,
+     "agent_s_low": 2.45,
+     "pro_s": 2.45,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "exit_to_end_portal",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 59.233,
+     "agent_s_low": 59.233,
+     "pro_s": 59.233,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "end",
+     "verdict": "OK",
+     "waste": []
+    }
+   ],
+   "total": {
+    "agent_s_high": 177.149,
+    "agent_s_low": 177.149,
+    "pro_s": 169.149,
+    "ratio_high": 1.047,
+    "ratio_low": 1.047
+   }
+  },
+  "has_expected": true,
+  "pass": true,
+  "total_ratio": [
+   1.047,
+   1.047
+  ],
+  "verdicts": "spawn_to_nether=OK, nether=OK, exit_to_end_portal=OK, end=OK"
+ },
+ {
+  "fixture": "inflated_exit.json",
+  "got": {
+   "run_median_ratio": 1.0,
+   "segments": [
+    {
+     "agent_s_high": 66.683,
+     "agent_s_low": 66.683,
+     "pro_s": 66.683,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "spawn_to_nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 40.783,
+     "agent_s_low": 40.783,
+     "pro_s": 40.783,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 52.45,
+     "agent_s_low": 52.45,
+     "pro_s": 2.45,
+     "ratio_high": 21.408,
+     "ratio_low": 21.408,
+     "segment": "exit_to_end_portal",
+     "verdict": "FLAG",
+     "waste": [
+      {
+       "evidence": "overworld arrival 21.0 blocks from the End portal",
+       "seconds": 50.0,
+       "tag": "missed_shortcut"
+      }
+     ]
+    },
+    {
+     "agent_s_high": 59.233,
+     "agent_s_low": 59.233,
+     "pro_s": 59.233,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "end",
+     "verdict": "OK",
+     "waste": []
+    }
+   ],
+   "total": {
+    "agent_s_high": 219.149,
+    "agent_s_low": 219.149,
+    "pro_s": 169.149,
+    "ratio_high": 1.296,
+    "ratio_low": 1.296
+   }
+  },
+  "has_expected": true,
+  "pass": true,
+  "total_ratio": [
+   1.296,
+   1.296
+  ],
+  "verdicts": "spawn_to_nether=OK, nether=OK, exit_to_end_portal=FLAG, end=OK"
+ },
+ {
+  "fixture": "pro_as_agent.json",
+  "got": {
+   "run_median_ratio": 1.0,
+   "segments": [
+    {
+     "agent_s_high": 66.683,
+     "agent_s_low": 66.683,
+     "pro_s": 66.683,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "spawn_to_nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 40.783,
+     "agent_s_low": 40.783,
+     "pro_s": 40.783,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 2.45,
+     "agent_s_low": 2.45,
+     "pro_s": 2.45,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "exit_to_end_portal",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 59.233,
+     "agent_s_low": 59.233,
+     "pro_s": 59.233,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "end",
+     "verdict": "OK",
+     "waste": []
+    }
+   ],
+   "total": {
+    "agent_s_high": 169.149,
+    "agent_s_low": 169.149,
+    "pro_s": 169.149,
+    "ratio_high": 1.0,
+    "ratio_low": 1.0
+   }
+  },
+  "has_expected": true,
+  "pass": true,
+  "total_ratio": [
+   1.0,
+   1.0
+  ],
+  "verdicts": "spawn_to_nether=OK, nether=OK, exit_to_end_portal=OK, end=OK"
+ },
+ {
+  "fixture": "published_montage.json",
+  "got": {
+   "run_median_ratio": 2.793,
+   "segments": [
+    {
+     "agent_s_high": 189.45,
+     "agent_s_low": 184.7,
+     "pro_s": 66.683,
+     "ratio_high": 2.841,
+     "ratio_low": 2.77,
+     "segment": "spawn_to_nether",
+     "verdict": "SLOW",
+     "waste": [
+      {
+       "evidence": "8 beds collected, 6 used",
+       "seconds": 8.0,
+       "tag": "extra_items"
+      }
+     ]
+    },
+    {
+     "agent_s_high": 118.1,
+     "agent_s_low": 108.7,
+     "pro_s": 40.783,
+     "ratio_high": 2.896,
+     "ratio_low": 2.665,
+     "segment": "nether",
+     "verdict": "SLOW",
+     "waste": []
+    },
+    {
+     "agent_s_high": 56.7,
+     "agent_s_low": 51.55,
+     "pro_s": 2.45,
+     "ratio_high": 23.143,
+     "ratio_low": 21.041,
+     "segment": "exit_to_end_portal",
+     "verdict": "FLAG",
+     "waste": [
+      {
+       "evidence": "overworld arrival 21.0 blocks from the End portal",
+       "seconds": 49.1,
+       "tag": "missed_shortcut"
+      }
+     ]
+    },
+    {
+     "agent_s_high": 162.35,
+     "agent_s_low": 161.35,
+     "pro_s": 59.233,
+     "ratio_high": 2.741,
+     "ratio_low": 2.724,
+     "segment": "end",
+     "verdict": "SLOW",
+     "waste": []
+    }
+   ],
+   "total": {
+    "agent_s_high": 516.7,
+    "agent_s_low": 516.2,
+    "pro_s": 169.149,
+    "ratio_high": 3.055,
+    "ratio_low": 3.052
+   }
+  },
+  "has_expected": true,
+  "pass": true,
+  "total_ratio": [
+   3.052,
+   3.055
+  ],
+  "verdicts": "spawn_to_nether=SLOW, nether=SLOW, exit_to_end_portal=FLAG, end=SLOW"
+ },
+ {
+  "fixture": "same_total_diff_split.json",
+  "got": {
+   "run_median_ratio": 1.0,
+   "segments": [
+    {
+     "agent_s_high": 66.683,
+     "agent_s_low": 66.683,
+     "pro_s": 66.683,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "spawn_to_nether",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 90.783,
+     "agent_s_low": 90.783,
+     "pro_s": 40.783,
+     "ratio_high": 2.226,
+     "ratio_low": 2.226,
+     "segment": "nether",
+     "verdict": "FLAG",
+     "waste": []
+    },
+    {
+     "agent_s_high": 2.45,
+     "agent_s_low": 2.45,
+     "pro_s": 2.45,
+     "ratio_high": 1.0,
+     "ratio_low": 1.0,
+     "segment": "exit_to_end_portal",
+     "verdict": "OK",
+     "waste": []
+    },
+    {
+     "agent_s_high": 9.233,
+     "agent_s_low": 9.233,
+     "pro_s": 59.233,
+     "ratio_high": 0.156,
+     "ratio_low": 0.156,
+     "segment": "end",
+     "verdict": "OK",
+     "waste": []
+    }
+   ],
+   "total": {
+    "agent_s_high": 169.149,
+    "agent_s_low": 169.149,
+    "pro_s": 169.149,
+    "ratio_high": 1.0,
+    "ratio_low": 1.0
+   }
+  },
+  "has_expected": true,
+  "pass": true,
+  "total_ratio": [
+   1.0,
+   1.0
+  ],
+  "verdicts": "spawn_to_nether=OK, nether=FLAG, exit_to_end_portal=OK, end=OK"
+ }
+]

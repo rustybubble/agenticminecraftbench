@@ -1,0 +1,1039 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 1,
+    "knowledge_features": [
+      "chest_ruined_portal",
+      "chest_village_weaponsmith",
+      "chest_west",
+      "entry_portal_site"
+    ],
+    "merged_waste_intervals": [
+      [
+        43.7,
+        48.045
+      ]
+    ],
+    "meta": {
+      "duration_s": 83.267,
+      "event_type_counts": {
+        "linger": 1,
+        "route_inventory": 1,
+        "route_loot": 3,
+        "route_portal": 1,
+        "route_start": 1,
+        "route_state": 1,
+        "route_step": 5,
+        "skill_result": 8,
+        "skill_start": 8,
+        "spawn": 1,
+        "summary": 1,
+        "viewer": 1
+      },
+      "knowledge_source": "route_start",
+      "lines": 32,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [
+          {
+            "inv": {
+              "bread": 7,
+              "cobblestone": 4,
+              "diamond_horse_armor": 1,
+              "flint_and_steel": 1,
+              "glistering_melon_slice": 4,
+              "gold_ingot": 2,
+              "golden_leggings": 1,
+              "iron_helmet": 2,
+              "iron_ingot": 5,
+              "iron_pickaxe": 1,
+              "iron_sword": 1,
+              "mossy_cobblestone": 1,
+              "oak_planks": 1,
+              "obsidian": 17,
+              "saddle": 1
+            },
+            "line": 30,
+            "t": 48.048
+          }
+        ],
+        "loot_lines": [
+          8,
+          14,
+          20
+        ],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 6,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 15.953
+          },
+          {
+            "error": null,
+            "line": 8,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 16.108
+          },
+          {
+            "error": null,
+            "line": 12,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 37.051
+          },
+          {
+            "error": null,
+            "line": 14,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 38.105
+          },
+          {
+            "error": null,
+            "line": 18,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 42.601
+          },
+          {
+            "error": null,
+            "line": 20,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 42.654
+          },
+          {
+            "error": null,
+            "line": 24,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 43.7
+          },
+          {
+            "error": "frame incomplete",
+            "line": 27,
+            "ok": false,
+            "placed": 0,
+            "skill": "build_portal",
+            "t": 48.045
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 5,
+            "skill": "goto",
+            "t": 0.584
+          },
+          {
+            "line": 7,
+            "skill": "loot_chest",
+            "t": 15.953
+          },
+          {
+            "line": 11,
+            "skill": "goto",
+            "t": 16.509
+          },
+          {
+            "line": 13,
+            "skill": "loot_chest",
+            "t": 37.051
+          },
+          {
+            "line": 17,
+            "skill": "goto",
+            "t": 38.506
+          },
+          {
+            "line": 19,
+            "skill": "loot_chest",
+            "t": 42.601
+          },
+          {
+            "line": 23,
+            "skill": "goto",
+            "t": 43.056
+          },
+          {
+            "line": 26,
+            "skill": "build_portal",
+            "t": 44.101
+          }
+        ],
+        "split_events": [],
+        "summary": {
+          "actions": 0,
+          "deaths": 0,
+          "elapsedS": 84,
+          "failures": 0,
+          "finalSplit": null,
+          "line": 32,
+          "runId": "agent-01",
+          "splits": [],
+          "t": 83.267
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "agent_runs/agent-01/events.jsonl",
+      "run_id": "agent-01",
+      "seed": "8398967436125155523",
+      "t0_epoch": 1793990743.418,
+      "untimed_lines": 0,
+      "version": "1.16.5"
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 32,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": true,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 4.345,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 4.345,
+      "evidence": {
+        "action": "build_portal",
+        "result": "FAILED: frame incomplete"
+      },
+      "lines": [
+        27
+      ],
+      "message": "line 27: action 'build_portal' failed (FAILED: frame incomplete); 4.345 s lost",
+      "severity": "medium",
+      "t_end": 48.045,
+      "t_start": 43.7
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "inventory_loss_without_effect",
+      "cost_s": 0.0,
+      "evidence": {
+        "after": 17,
+        "before": 21,
+        "before_line": 25,
+        "item": "obsidian",
+        "skill_line": 27,
+        "snapshot_line": 30
+      },
+      "lines": [
+        20,
+        25,
+        27,
+        30
+      ],
+      "message": "lines 25->30: obsidian 21 -> 17 (-4) across failed build_portal (line 27: placed 0, frame incomplete); items consumed, nothing built",
+      "severity": "high",
+      "t_end": 48.048,
+      "t_start": 44.101
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          6,
+          8,
+          12,
+          14,
+          18,
+          20,
+          24,
+          27
+        ],
+        "field": "actions",
+        "logged": 8,
+        "summary_line": 32
+      },
+      "lines": [
+        6,
+        8,
+        12,
+        14,
+        18,
+        20,
+        24,
+        27,
+        32
+      ],
+      "message": "line 32: summary claims actions=0, but the log shows 8 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27)",
+      "severity": "high",
+      "t_end": 83.267,
+      "t_start": 83.267
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          27
+        ],
+        "field": "failures",
+        "logged": 1,
+        "summary_line": 32
+      },
+      "lines": [
+        27,
+        32
+      ],
+      "message": "line 32: summary claims failures=0, but the log shows 1 (skill_result lines with ok:false: lines 27)",
+      "severity": "high",
+      "t_end": 83.267,
+      "t_start": 83.267
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 4
+        }
+      },
+      "lines": [
+        8
+      ],
+      "message": "line 8: gathered {'bread': 4} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 16.108,
+      "t_start": 15.953
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 3
+        }
+      },
+      "lines": [
+        14
+      ],
+      "message": "line 14: gathered {'bread': 3} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 38.105,
+      "t_start": 37.051
+    }
+  ],
+  "perception": {
+    "backend": "claude",
+    "backend_params": {
+      "backend": "claude",
+      "cli_version": "2.1.319 (Claude Code)",
+      "effort": null
+    },
+    "distinct_frames": 44,
+    "findings": [
+      {
+        "category": "claim",
+        "code": "portal_outcome_check",
+        "cost_s": 0.0,
+        "evidence": {
+          "agent_ok": false,
+          "detector": "portal_outcome_check",
+          "frames": [
+            {
+              "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e",
+              "run_t": 48.56,
+              "video_t": 0.0
+            },
+            {
+              "frame_sha": "d25da6096946a6a4115ce56056350da81c030bd0ad09dc0012de197b657e5998",
+              "run_t": 49.002,
+              "video_t": 0.442
+            },
+            {
+              "frame_sha": "7dc550b266a53a665ad573abe701b7756e2095d1cb946ad0bffa859af27dfd79",
+              "run_t": 49.666,
+              "video_t": 1.106
+            },
+            {
+              "frame_sha": "39ae0576ef489b53f2d68de0802ec49a91f8917edbcd136a435f44ad6fa5c64a",
+              "run_t": 50.108,
+              "video_t": 1.548
+            },
+            {
+              "frame_sha": "5913c75bee3d7863fe44a339079d34c108eaa4361550d773cdc099f6ab7664a6",
+              "run_t": 50.55,
+              "video_t": 1.99
+            },
+            {
+              "frame_sha": "bfdea4a0ddae927a08c602b3ef9038a5abfd4f4544709e152ddcf33289cf8872",
+              "run_t": 50.992,
+              "video_t": 2.432
+            },
+            {
+              "frame_sha": "09e5a1a8139a88640139836de47c4a8803846cbb235e87f8fa231f68a2ef1c7f",
+              "run_t": 51.656,
+              "video_t": 3.096
+            },
+            {
+              "frame_sha": "fb7480b43a1ed36cd40f5b317d5397e355fd108acf7009520e6f67bc396b1753",
+              "run_t": 52.098,
+              "video_t": 3.538
+            },
+            {
+              "frame_sha": "6752deef8226d6d4a7bf993c51a48fb344ce9b8d0f735ab1a1569e3fe83975f5",
+              "run_t": 52.54,
+              "video_t": 3.98
+            },
+            {
+              "frame_sha": "aa17127201901ba95f308fc32f4a784ca185ad6818af0e53caca91f50578221c",
+              "run_t": 52.982,
+              "video_t": 4.422
+            },
+            {
+              "frame_sha": "2833ce1c8816e3d95cf92b21eb2f18217c11f736845474814cfa883bc31b2d00",
+              "run_t": 53.646,
+              "video_t": 5.086
+            },
+            {
+              "frame_sha": "0ae537cbac3daa421f8425e0afec93154624512a9fe9b3cd28d20f317e96840c",
+              "run_t": 54.088,
+              "video_t": 5.528
+            },
+            {
+              "frame_sha": "8643d6b3b5162cdbbfddd95861915254168fad24a269a4ce0e4888b035dd063f",
+              "run_t": 54.53,
+              "video_t": 5.97
+            },
+            {
+              "frame_sha": "a86ea376e1e77204a26315d28109e7c56a7e1385dc4da34730d8886f56712b4d",
+              "run_t": 54.973,
+              "video_t": 6.413
+            },
+            {
+              "frame_sha": "afd0b974bb6991c179a0088d1e61ebe0f20e1a13c3302f22fdf52a4478271a41",
+              "run_t": 55.636,
+              "video_t": 7.076
+            },
+            {
+              "frame_sha": "259bc4f2adb37a3bf82dba8297ca46e7c3d7805ea19d14b50b1c5bcefd3c243c",
+              "run_t": 56.078,
+              "video_t": 7.518
+            },
+            {
+              "frame_sha": "08489f2e2fb399a8d1a7bc156d01ef0ec2a08695988301003b978607a3f964db",
+              "run_t": 56.52,
+              "video_t": 7.96
+            },
+            {
+              "frame_sha": "8ae5ace9eb6d0102b9cbf2c410a8c1f5b97786d560e99a22be5ea339cc9df7bc",
+              "run_t": 56.963,
+              "video_t": 8.403
+            },
+            {
+              "frame_sha": "ed58343e0d8898505992b1cd23f55ddc0b6b97484beb9c77a1d6c4d487dc7ae1",
+              "run_t": 57.626,
+              "video_t": 9.066
+            },
+            {
+              "frame_sha": "fd1086decbf60aea455468bff183a27bcc65d9e99614bb8a27e1245931ecbc08",
+              "run_t": 58.51,
+              "video_t": 9.95
+            },
+            {
+              "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
+              "run_t": 60.501,
+              "video_t": 11.941
+            },
+            {
+              "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
+              "run_t": 62.491,
+              "video_t": 13.931
+            },
+            {
+              "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
+              "run_t": 64.481,
+              "video_t": 15.921
+            },
+            {
+              "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
+              "run_t": 66.471,
+              "video_t": 17.911
+            }
+          ],
+          "label": "perception-assisted",
+          "low_confidence": true,
+          "outcome": "low_confidence",
+          "perception_assisted": true,
+          "reason": "unvalidated: no ground truth for portal_lit"
+        },
+        "lines": [
+          27
+        ],
+        "message": "[perception-assisted] low-confidence observation: agent log line 27: build_portal FAILED (placed 0), error 'frame incomplete' (unvalidated: no ground truth for portal_lit); not used as evidence",
+        "severity": "low",
+        "t_end": 68.045,
+        "t_start": 48.045
+      },
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "lava_visible",
+          "frames": [
+            {
+              "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e",
+              "run_t": 48.56,
+              "video_t": 0.0
+            },
+            {
+              "frame_sha": "d25da6096946a6a4115ce56056350da81c030bd0ad09dc0012de197b657e5998",
+              "run_t": 49.002,
+              "video_t": 0.442
+            },
+            {
+              "frame_sha": "7dc550b266a53a665ad573abe701b7756e2095d1cb946ad0bffa859af27dfd79",
+              "run_t": 49.666,
+              "video_t": 1.106
+            },
+            {
+              "frame_sha": "39ae0576ef489b53f2d68de0802ec49a91f8917edbcd136a435f44ad6fa5c64a",
+              "run_t": 50.108,
+              "video_t": 1.548
+            },
+            {
+              "frame_sha": "5913c75bee3d7863fe44a339079d34c108eaa4361550d773cdc099f6ab7664a6",
+              "run_t": 50.55,
+              "video_t": 1.99
+            },
+            {
+              "frame_sha": "bfdea4a0ddae927a08c602b3ef9038a5abfd4f4544709e152ddcf33289cf8872",
+              "run_t": 50.992,
+              "video_t": 2.432
+            },
+            {
+              "frame_sha": "09e5a1a8139a88640139836de47c4a8803846cbb235e87f8fa231f68a2ef1c7f",
+              "run_t": 51.656,
+              "video_t": 3.096
+            },
+            {
+              "frame_sha": "fb7480b43a1ed36cd40f5b317d5397e355fd108acf7009520e6f67bc396b1753",
+              "run_t": 52.098,
+              "video_t": 3.538
+            },
+            {
+              "frame_sha": "6752deef8226d6d4a7bf993c51a48fb344ce9b8d0f735ab1a1569e3fe83975f5",
+              "run_t": 52.54,
+              "video_t": 3.98
+            },
+            {
+              "frame_sha": "aa17127201901ba95f308fc32f4a784ca185ad6818af0e53caca91f50578221c",
+              "run_t": 52.982,
+              "video_t": 4.422
+            },
+            {
+              "frame_sha": "2833ce1c8816e3d95cf92b21eb2f18217c11f736845474814cfa883bc31b2d00",
+              "run_t": 53.646,
+              "video_t": 5.086
+            },
+            {
+              "frame_sha": "0ae537cbac3daa421f8425e0afec93154624512a9fe9b3cd28d20f317e96840c",
+              "run_t": 54.088,
+              "video_t": 5.528
+            },
+            {
+              "frame_sha": "8643d6b3b5162cdbbfddd95861915254168fad24a269a4ce0e4888b035dd063f",
+              "run_t": 54.53,
+              "video_t": 5.97
+            },
+            {
+              "frame_sha": "a86ea376e1e77204a26315d28109e7c56a7e1385dc4da34730d8886f56712b4d",
+              "run_t": 54.973,
+              "video_t": 6.413
+            },
+            {
+              "frame_sha": "afd0b974bb6991c179a0088d1e61ebe0f20e1a13c3302f22fdf52a4478271a41",
+              "run_t": 55.636,
+              "video_t": 7.076
+            },
+            {
+              "frame_sha": "259bc4f2adb37a3bf82dba8297ca46e7c3d7805ea19d14b50b1c5bcefd3c243c",
+              "run_t": 56.078,
+              "video_t": 7.518
+            },
+            {
+              "frame_sha": "08489f2e2fb399a8d1a7bc156d01ef0ec2a08695988301003b978607a3f964db",
+              "run_t": 56.52,
+              "video_t": 7.96
+            },
+            {
+              "frame_sha": "8ae5ace9eb6d0102b9cbf2c410a8c1f5b97786d560e99a22be5ea339cc9df7bc",
+              "run_t": 56.963,
+              "video_t": 8.403
+            },
+            {
+              "frame_sha": "ed58343e0d8898505992b1cd23f55ddc0b6b97484beb9c77a1d6c4d487dc7ae1",
+              "run_t": 57.626,
+              "video_t": 9.066
+            },
+            {
+              "frame_sha": "fd1086decbf60aea455468bff183a27bcc65d9e99614bb8a27e1245931ecbc08",
+              "run_t": 58.51,
+              "video_t": 9.95
+            },
+            {
+              "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
+              "run_t": 60.501,
+              "video_t": 11.941
+            },
+            {
+              "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
+              "run_t": 62.491,
+              "video_t": 13.931
+            },
+            {
+              "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
+              "run_t": 64.481,
+              "video_t": 15.921
+            },
+            {
+              "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
+              "run_t": 66.471,
+              "video_t": 17.911
+            },
+            {
+              "frame_sha": "036a3a0b7a0168b2c6b91af546214343a55a401533a9dbca38317fa97fcd307f",
+              "run_t": 68.461,
+              "video_t": 19.901
+            },
+            {
+              "frame_sha": "bf55d9aafb38614fd3155a1d23e2f8277fd0bf674a738ec84a09d7a9e50c0059",
+              "run_t": 70.451,
+              "video_t": 21.891
+            },
+            {
+              "frame_sha": "c422d3a4b28cb30e65570222a5bf7bb17fa7a1eca37e7ad5636a68eef2f6702e",
+              "run_t": 72.662,
+              "video_t": 24.102
+            },
+            {
+              "frame_sha": "56358574374e95153a7b4402a82965e812de86464d78b8feb9393c2021a8036b",
+              "run_t": 74.652,
+              "video_t": 26.092
+            },
+            {
+              "frame_sha": "ff61cea5dcf693ec3f9c110eb12d5fd722cde6b863061d844607b41b892cd415",
+              "run_t": 76.642,
+              "video_t": 28.082
+            },
+            {
+              "frame_sha": "53bd3af5d9c99a7b233f736ce9eda6119997fd7c5d7dde69ebebba4587ca4593",
+              "run_t": 78.633,
+              "video_t": 30.073
+            },
+            {
+              "frame_sha": "c63fc38af61a7cc6b1c4d9ef0243bbe22fc3df76a4c193dbc2d0717c0ee8c903",
+              "run_t": 80.623,
+              "video_t": 32.063
+            },
+            {
+              "frame_sha": "5b776fa7c2afc8b531dae5794f5803c0628b6ce58a63c5a029d9c5511944c359",
+              "run_t": 82.613,
+              "video_t": 34.053
+            }
+          ],
+          "label": "perception-assisted",
+          "low_confidence": true,
+          "perception_assisted": true,
+          "reason": "unvalidated: no ground truth for lava_visible",
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=48.56-82.613 s) (unvalidated: no ground truth for lava_visible); not used as evidence",
+        "severity": "low",
+        "t_end": 82.613,
+        "t_start": 48.56
+      }
+    ],
+    "frame_span_s": [
+      48.56,
+      142.537
+    ],
+    "frames": 62,
+    "frames_after_run_log_end": 30,
+    "frames_after_server_log": 32,
+    "frames_aligned": 62,
+    "frames_in_run": 32,
+    "label": "perception-assisted",
+    "model": "claude-sonnet-5-5",
+    "perception": "runs/perception/agent-01_perception.json",
+    "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+    "run_duration_s": 83.267,
+    "server_last_t_s": 44.322,
+    "validation": {
+      "error": null,
+      "insufficient_fields": [
+        "chest_visible",
+        "obsidian_frame"
+      ],
+      "log_consistency": {
+        "obsidian_frame": {
+          "consistent": 59,
+          "n": 59,
+          "source": "agent log claim"
+        },
+        "portal_lit": {
+          "consistent": 62,
+          "n": 62,
+          "source": "agent log claim"
+        }
+      },
+      "min_n": 10,
+      "notes": [
+        "insufficient ground truth (n < 10) for: chest_visible (n=3), obsidian_frame (n=3); these accuracies must not gate findings",
+        "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+      ],
+      "per_field": {
+        "chest_visible": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.562
+          ],
+          "correct": 0,
+          "n": 3,
+          "sufficient": false
+        },
+        "obsidian_frame": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.438,
+            1.0
+          ],
+          "correct": 3,
+          "n": 3,
+          "sufficient": false
+        },
+        "player_in_water": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "portal_lit": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "village_visible": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        }
+      },
+      "unvalidated_fields": [
+        "portal_lit",
+        "village_visible",
+        "lava_visible",
+        "water_visible",
+        "player_visible",
+        "player_in_water",
+        "player_activity",
+        "confidence"
+      ],
+      "validated_fields": []
+    }
+  },
+  "progress": {
+    "failed_at": {
+      "line": 27,
+      "note": "build_portal failed: frame incomplete, placed 0",
+      "step": "portal_built"
+    },
+    "steps": [
+      {
+        "agent_t": 16.108,
+        "agent_t_lo": null,
+        "delta_hi": -12.892,
+        "delta_lo": -16.892,
+        "line": 8,
+        "note": "village chest (iron_pickaxe 1, obsidian 6)",
+        "pro_hi": 33.0,
+        "pro_lo": 29.0,
+        "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51–0:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": 38.105,
+        "agent_t_lo": null,
+        "delta_hi": -15.895,
+        "delta_lo": -15.895,
+        "line": 14,
+        "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+        "pro_hi": 54.0,
+        "pro_lo": 54.0,
+        "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": 42.654,
+        "agent_t_lo": null,
+        "delta_hi": -6.346,
+        "delta_lo": -8.346,
+        "line": 20,
+        "note": "flint chest (flint 1, obsidian 4)",
+        "pro_hi": 51.0,
+        "pro_lo": 49.0,
+        "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11–1:13\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": 48.048,
+        "agent_t_lo": 42.654,
+        "delta_hi": -11.952,
+        "delta_lo": -12.952,
+        "line": 30,
+        "note": "first seen in inventory at line 30 (no craft event in the log); crafted after the flint pickup at t=42.654 (line 20)",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": 44.101,
+        "agent_t_lo": null,
+        "delta_hi": -10.899,
+        "delta_lo": -10.899,
+        "line": 26,
+        "note": "build_portal skill started",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": 27,
+        "note": "build_portal failed: frame incomplete, placed 0",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "run_facts": {
+    "facts": {
+      "agent": "live agent",
+      "difficulty": "easy",
+      "first_attempt": "No for the harness, yes for this world: the world was regenerated from the seed immediately before the take, and the player was cleared (`/clear @s`) at spawn.",
+      "first_attempt_world": true,
+      "interventions": "none (no restarts, no code edits, no console commands, no pauses). The world reset, spawn clear and RCON start happened before the take.",
+      "interventions_none": true,
+      "live": true,
+      "outcome": "looted all three supply chests (obsidian 21, iron pickaxe, flint, iron, beds not taken), crafted `flint_and_steel`, then attempted a portal build near the ruined frame at x=−281. The frame build placed 0 verified blocks (4 obsidian left the inventory, verification still read air), so the portal was never lit and the bot never entered the Nether. No deaths. 0 hostile encounters.",
+      "outcome_short": "looted all three supply chests (obsidian 21, iron pickaxe, flint, iron, beds not taken), crafted `flint_and_steel`, then attempted a portal build near the ruined frame at x=−281.",
+      "planner_model": "deepseek-flash",
+      "planner_model_text": "`deepseek-flash` (effort low) · Action classifier: `nvidia/nemotron-3.5-bolt-e4b` (free tier)",
+      "run_id": "agent-01",
+      "source": "agent_runs/agent-01/RUN_NOTES.md",
+      "title": "RUN agent-01 — live agent, seed 8398967436125155523"
+    },
+    "fairness_not_applicable": {
+      "brackets": "agent-01 is a live run with a continuous timestamped event log, not the published montage; its milestones are exact log times, not brackets",
+      "difficulty": "the rules say the agent played on Peaceful, but agent-01 was on Easy (RUN_NOTES)",
+      "practice": "the agent half: agent-01 is a live run, not the author's best published run; first attempt: No for the harness, yes for this world: the world was regenerated from the seed immediately before the take, and the player was cleared (`/clear @s`) at spawn.",
+      "rng": "agent-01 never reached the End, so dragon RNG plays no part",
+      "route_supplied": "the note describes the published rmalde/minecraft-agent config; agent-01 is a live agent whose route is fixed in its own route_start event (the point that the route is supplied, not chosen by the LLM, still holds)"
+    }
+  },
+  "score": {
+    "attributed_waste_s": 4.345,
+    "efficiency": 0.9478,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 0.0,
+    "raw_cost_sum_s": 4.345,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 83.267,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 4.345,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        83.267
+      ],
+      "notes": [
+        "server log ends at t=44.322 s, 38.945 s before the agent run ends (t=83.267 s)",
+        "server log ends during the build_portal attempt (started t=44.101 s, line 26; result t=48.045 s, line 27)",
+        "no server evidence for build_portal result at t=48.045 s (line 27, FAILED)",
+        "no server evidence for the inventory snapshot at t=48.048 s (line 30)"
+      ],
+      "server_first_t_s": 0.573,
+      "server_last_t_s": 44.322,
+      "server_samples": 88,
+      "snapshots_checked": 8,
+      "snapshots_without_server_sample": [
+        27,
+        30,
+        32
+      ]
+    },
+    "findings": [],
+    "server_log": "agent_runs/agent-01/server_events.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 4.345,
+    "efficiency": 0.9478,
+    "findings": 6,
+    "findings_by_category": {
+      "claim": 3,
+      "decision": 0,
+      "micro": 3,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 3,
+      "low": 2,
+      "medium": 1
+    },
+    "log": "agent_runs/agent-01/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 83.267
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 4.345,
+    "safety": 0.0
+  }
+}

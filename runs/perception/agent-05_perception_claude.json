@@ -1,0 +1,1729 @@
+{
+ "alignment": {
+  "method": "frames_index frames_index.json (run_t per frame)",
+  "offset_s": 0.0
+ },
+ "backend": "claude",
+ "backend_params": {
+  "backend": "claude",
+  "cli_version": "2.1.319 (Claude Code)",
+  "effort": null
+ },
+ "clock_check": null,
+ "crop": {
+  "masks_xywh": [
+   [
+    880,
+    0,
+    400,
+    36
+   ],
+   [
+    0,
+    574,
+    1280,
+    36
+   ]
+  ],
+  "scene_y": [
+   52,
+   662
+  ],
+  "size": [
+   1280,
+   610
+  ]
+ },
+ "every_s": 1.0,
+ "frames": [
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "83d9e05e2e3fc89e5f855b49f2dd5b15fed7628f3dee4935133611be57f7299f"
+   ],
+   "created_utc": "2026-11-06T19:49:19Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00054.jpg",
+   "frame_sha": "eeb9c3e69fb431f999f7ac7123184122bcecf3189a8189e6e7ec54d4d5a2e66c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.65,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.039,
+   "video_t": 32.039,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "b2c428f343fe2e7f174c1850775d22bc78b0164adc79d3d203b9676f0410c1c0"
+   ],
+   "created_utc": "2026-11-06T19:49:20Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00056.jpg",
+   "frame_sha": "59e9b1e98a7740d67cf78ebef6f1435119b61eaa7de3c44e3265f6ea8e13a7a1",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.122,
+   "video_t": 32.122,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "f72d6106d13f9599ede4f301c11ddf7c5556f96d6d621e2ab382e0a1c0cac3dd"
+   ],
+   "created_utc": "2026-11-06T19:49:20Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00057.jpg",
+   "frame_sha": "1d1b4da2dedd17277df015778fd4ada98fa6f115a2d9c3f5c96623544cb8a6a3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.168,
+   "video_t": 32.168,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "59a166975767694a8b450285d1d36bfcef2136418eaa65572e493c0b8b3f0850"
+   ],
+   "created_utc": "2026-11-06T19:49:23Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00069.jpg",
+   "frame_sha": "096fcff9919a674b7d7680d7ffdb93eecfafadf043c115e9638e90462560d648",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.618,
+   "video_t": 32.618,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "567eb2c8b1641becb8c253a69878ace70e141abb59ec22c15dc897f6707f2daa"
+   ],
+   "created_utc": "2026-11-06T19:49:32Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00071.jpg",
+   "frame_sha": "f9bc42fc7270be7be361f3c1e498b6cd5b1ef4fd4dd133ff197899a59e0420e3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.687,
+   "video_t": 32.687,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "bfe21434af4698b29d53023572bd639526a3b59b385d34378b13168655d5a345"
+   ],
+   "created_utc": "2026-11-06T19:49:32Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00078.jpg",
+   "frame_sha": "c604409df0d3ee71733d36f50c6d1fe74d8e0c109b538fe37d54d897bc07d603",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 32.986,
+   "video_t": 32.986,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "90ecf44b5c2fb83c3ef9a67f5c5b8757c12d89f0fca6559650a73c19346382c1"
+   ],
+   "created_utc": "2026-11-06T19:49:33Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00081.jpg",
+   "frame_sha": "0bcd8d36d5e286d3a264f392f56b4c6b44e6e38df28d6419edb2daef4c70eec9",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 33.12,
+   "video_t": 33.12,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "6ea29de24e185029e162a04a54816133c1ab442b4be653782bde19e2141f6535"
+   ],
+   "created_utc": "2026-11-06T19:49:36Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00082.jpg",
+   "frame_sha": "05fe99974b701de4aa6e5c0f301d8c9375b74af90c8301691197af18517226f9",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 33.172,
+   "video_t": 33.172,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "956206c254e23284f48df9ceadfcf72b14cb9fe87286862ed6c52afa8bfe0279"
+   ],
+   "created_utc": "2026-11-06T19:49:43Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00092.jpg",
+   "frame_sha": "4e5303efa24396b8ec7f2eb9602ea2d81aea265baff5b407c271720f7803a3fc",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 33.651,
+   "video_t": 33.651,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "b067bedaddbc54da4843d7dec86053a8e0c2667d54794de1e0a6c7584e6a5318"
+   ],
+   "created_utc": "2026-11-06T19:49:43Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00093.jpg",
+   "frame_sha": "d8b5c44bc20b5964ff08f3300c05a80b7898e934491c3b41e58b8fd23f7fb90b",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 33.686,
+   "video_t": 33.686,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "3fd26b23d2b2c6f752e26f758eff3b9f2d0350229f6c37fcc85899c505c893d4"
+   ],
+   "created_utc": "2026-11-06T19:49:45Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00100.jpg",
+   "frame_sha": "2f4bc1dd8ff13457fa4a5809011e2fd7e05ee14eb042d914df3f1471ddd53646",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 34.007,
+   "video_t": 34.007,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "68caa9966489abfbf1612f33712fc6a78901b3ce17d9b98b9d84c3ba8984db06"
+   ],
+   "created_utc": "2026-11-06T19:49:48Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00103.jpg",
+   "frame_sha": "c5249c297048a45c8825f145d333ce0ef1b10241858d461ea7121dd7eb108d01",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.65,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 34.154,
+   "video_t": 34.154,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "8de1c399fde3b517a84f375fc7e421cb138d955b7721e4b103ea95f78c69e401"
+   ],
+   "created_utc": "2026-11-06T19:49:55Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00115.jpg",
+   "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 34.652,
+   "video_t": 34.652,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "8de1c399fde3b517a84f375fc7e421cb138d955b7721e4b103ea95f78c69e401"
+   ],
+   "created_utc": "2026-11-06T19:49:55Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00116.jpg",
+   "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 34.689,
+   "video_t": 34.689,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "0332e160b54dd465d7b734c7d7f35fc3d59bdfe663164f00f088f94c1400d177"
+   ],
+   "created_utc": "2026-11-06T19:49:56Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00124.jpg",
+   "frame_sha": "3fa1568322a299877af18a77b28a0527291bee52c6fa3acac556e92e9ea5a22d",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.0,
+   "video_t": 35.0,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "7896a41559c0ca6cb75f870e637f1e69a3f602ca8c8970fa4366c56d07ae8a72"
+   ],
+   "created_utc": "2026-11-06T19:50:01Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00127.jpg",
+   "frame_sha": "0aa30c96657a9a97ab797d3f4c1a6dbec634c01e6d6ca0f2df2da419e89ce6bd",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.134,
+   "video_t": 35.134,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "d1d6e1071c1b8655e2122cfa98b16c5ab71412dd63d5296253a3531d423332bc"
+   ],
+   "created_utc": "2026-11-06T19:50:08Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00128.jpg",
+   "frame_sha": "bcb73c2d64311d2e3e7c3df7d669935004a1a35a14c2d54c25efbceb67ab5141",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.172,
+   "video_t": 35.172,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "f559a522fefd49d2fe107356a8a5002444f9ff2bc6f249b8bab5ac9fd0663eec"
+   ],
+   "created_utc": "2026-11-06T19:50:08Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00140.jpg",
+   "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.637,
+   "video_t": 35.637,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "f559a522fefd49d2fe107356a8a5002444f9ff2bc6f249b8bab5ac9fd0663eec"
+   ],
+   "created_utc": "2026-11-06T19:50:08Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00141.jpg",
+   "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.688,
+   "video_t": 35.688,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "d13356f1827dbbca14a7a49cdcea0cb0d9719a6130f6f9c089afc4a2f01673e4"
+   ],
+   "created_utc": "2026-11-06T19:50:14Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00147.jpg",
+   "frame_sha": "13784ee9b0db9c69b5766f05398055c6a3efa5c60c97c64ed62930694e40fe06",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 35.984,
+   "video_t": 35.984,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "9a9d24805a71af2ecc54d2f79cab5941aa94c85105acd08d3c96597a85872d32"
+   ],
+   "created_utc": "2026-11-06T19:50:20Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00151.jpg",
+   "frame_sha": "094a64548b069fc24c636beacefb2c735c10b97ad0a46d455ef94f4abfb38ba3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 36.118,
+   "video_t": 36.118,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "7b7984dba1da68d62f04d5c7604a5db59e6227bd7d31f38df53afe9628807ede"
+   ],
+   "created_utc": "2026-11-06T19:50:19Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00153.jpg",
+   "frame_sha": "a2f3928f3eaf5ff5be28bcf2010b4eb6d410954679702c0faed3332ece58647b",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 36.184,
+   "video_t": 36.184,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "7d70d2d75ba7f9c83c730636fabef342b56a5158a79d450db2a70a9bf7460c3c"
+   ],
+   "created_utc": "2026-11-06T19:50:21Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00163.jpg",
+   "frame_sha": "ae0c9a4545c66a49f46a1d7d248c0fcd0033f45e055362d60eb7ce6ac51df117",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 36.635,
+   "video_t": 36.635,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "1d2a23b397b27d93842106cfb5813754fcc725f9e757a1b09e04f21f4c89e065"
+   ],
+   "created_utc": "2026-11-06T19:50:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00164.jpg",
+   "frame_sha": "8865f0268f677f40d234c89a604c4fef393f3d9f780f1c64432932e8f1c56bfc",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 36.685,
+   "video_t": 36.685,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00171.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.0,
+   "video_t": 37.0,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00175.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.151,
+   "video_t": 37.151,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00176.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.189,
+   "video_t": 37.189,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00187.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.634,
+   "video_t": 37.634,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00188.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.674,
+   "video_t": 37.674,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00195.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 37.985,
+   "video_t": 37.985,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00198.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 38.135,
+   "video_t": 38.135,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00199.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 38.167,
+   "video_t": 38.167,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00211.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 38.617,
+   "video_t": 38.617,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00212.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 38.654,
+   "video_t": 38.654,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00221.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 39.001,
+   "video_t": 39.001,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00224.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 39.12,
+   "video_t": 39.12,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00225.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 39.168,
+   "video_t": 39.168,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00237.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 39.654,
+   "video_t": 39.654,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "a29751c2962183f301fd4dd4ba9d36b00474b26ebfe8eed5c63764919a044450"
+   ],
+   "created_utc": "2026-11-06T19:50:29Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00245.jpg",
+   "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 40.004,
+   "video_t": 40.004,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "3e4299d9436c5583dc8c9d044bf35485c28030b7de555b07053d8683389282b5"
+   ],
+   "created_utc": "2026-11-06T19:50:45Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00248.jpg",
+   "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 40.134,
+   "video_t": 40.134,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "3e4299d9436c5583dc8c9d044bf35485c28030b7de555b07053d8683389282b5"
+   ],
+   "created_utc": "2026-11-06T19:50:45Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00249.jpg",
+   "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 40.17,
+   "video_t": 40.17,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "3e4299d9436c5583dc8c9d044bf35485c28030b7de555b07053d8683389282b5"
+   ],
+   "created_utc": "2026-11-06T19:50:45Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00261.jpg",
+   "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 40.654,
+   "video_t": 40.654,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "ec967041ffa637c6f63a1791f332362e35a1a0de9c6f49396732554e4d3d79c2"
+   ],
+   "created_utc": "2026-11-06T19:50:42Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00269.jpg",
+   "frame_sha": "ab3012819865f982e2d3827c9b5b53a4861cf17aff4a1f2d0ff48cb5fe7cc750",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 41.001,
+   "video_t": 41.001,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "1227a86eab48ee5744c4b266217a6a9506d26606b2b7d1a0a7a3b23be5ee52dc"
+   ],
+   "created_utc": "2026-11-06T19:50:55Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00272.jpg",
+   "frame_sha": "c1dbb289f60d18dc9da23900807d71cead0920a76ba69204d2b5e9fba057ee83",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.55,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 41.139,
+   "video_t": 41.139,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "4e4f04b222e6c79a273a7db89bbffb8b9c4a90835b066d3d76595af0da2db413"
+   ],
+   "created_utc": "2026-11-06T19:50:59Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00273.jpg",
+   "frame_sha": "4ecbc2829e84b7b3507431cc9a5c21b30fad9c8effb051feab4c9db7787cb4cd",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.55,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 41.186,
+   "video_t": 41.186,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "c4f8b9615793dedbf6b4c5835add855cecad42d7ada39f9ddc3e799e88864b5e"
+   ],
+   "created_utc": "2026-11-06T19:51:02Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00284.jpg",
+   "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 41.636,
+   "video_t": 41.636,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "c4f8b9615793dedbf6b4c5835add855cecad42d7ada39f9ddc3e799e88864b5e"
+   ],
+   "created_utc": "2026-11-06T19:51:02Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00285.jpg",
+   "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 41.684,
+   "video_t": 41.684,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "062aedafc435a6c13b308692f10efc01fc971d95b4046ff32009bb58c59e0214"
+   ],
+   "created_utc": "2026-11-06T19:51:08Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00294.jpg",
+   "frame_sha": "52824faf9cc7b7676cc68137535244b935e4cb00b4c43d6e3eb884b0afa527ce",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 42.0,
+   "video_t": 42.0,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "cc5d188ad26478fcd090f1da4690bbc375429ecba4c31064cbfb0d36ad416f30"
+   ],
+   "created_utc": "2026-11-06T19:51:10Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00298.jpg",
+   "frame_sha": "ea9e90a3541d435daaf9397effca0bbedc65f54efad0f6b1ea42cc2ce1a487c3",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 42.134,
+   "video_t": 42.134,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "12982aead7ce6ce10f46812e0364a37f5b3620a09076fde5de3c63a4a2e55fc1"
+   ],
+   "created_utc": "2026-11-06T19:51:17Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00299.jpg",
+   "frame_sha": "b7aea9da147f0ed46f3cb7e8896bc2d4fb9ab7406a64ab07cb614f0ad13b70f6",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.5,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "standing",
+    "player_in_water": false,
+    "player_visible": true,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 42.168,
+   "video_t": 42.168,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "66507d56f9863f57d06268ed41275c5ff78637819cdb0f7320b0cfeb3199f83a"
+   ],
+   "created_utc": "2026-11-06T19:51:18Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00311.jpg",
+   "frame_sha": "f6a6a89a0f955443f54ad1198ef43036399b572330965adb04f70d215e8925a8",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.6,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 42.64,
+   "video_t": 42.64,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "c9d3a6a557ffe35b996112f478d98c62fc8922d76af031d61ab7571d3842b7b5"
+   ],
+   "created_utc": "2026-11-06T19:51:20Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00312.jpg",
+   "frame_sha": "d69f00ef9d20d7603e46efd938dbd10dc9da0c28657839899331ca2712ce1f72",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 42.685,
+   "video_t": 42.685,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": false,
+   "cache_keys": [
+    "2000a9b7518b38ae8846ef2bdd0f5cb21187ea69e693c7d3cf630554bd73d516"
+   ],
+   "created_utc": "2026-11-06T19:51:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00319.jpg",
+   "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 43.019,
+   "video_t": 43.019,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "2000a9b7518b38ae8846ef2bdd0f5cb21187ea69e693c7d3cf630554bd73d516"
+   ],
+   "created_utc": "2026-11-06T19:51:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00322.jpg",
+   "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 43.135,
+   "video_t": 43.135,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "2000a9b7518b38ae8846ef2bdd0f5cb21187ea69e693c7d3cf630554bd73d516"
+   ],
+   "created_utc": "2026-11-06T19:51:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00323.jpg",
+   "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 43.166,
+   "video_t": 43.166,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "2000a9b7518b38ae8846ef2bdd0f5cb21187ea69e693c7d3cf630554bd73d516"
+   ],
+   "created_utc": "2026-11-06T19:51:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00334.jpg",
+   "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 43.617,
+   "video_t": 43.617,
+   "votes": 1
+  },
+  {
+   "after_run_log_end": false,
+   "cache_hit": true,
+   "cache_keys": [
+    "2000a9b7518b38ae8846ef2bdd0f5cb21187ea69e693c7d3cf630554bd73d516"
+   ],
+   "created_utc": "2026-11-06T19:51:26Z",
+   "frame_path": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames-clean/f00336.jpg",
+   "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+   "label": "perception-assisted",
+   "model": "claude-sonnet-5-5",
+   "obs": {
+    "chest_visible": false,
+    "confidence": 0.7,
+    "lava_visible": true,
+    "obsidian_frame": "partial",
+    "player_activity": "unknown",
+    "player_in_water": null,
+    "player_visible": false,
+    "portal_lit": false,
+    "village_visible": true,
+    "water_visible": true
+   },
+   "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+   "run_t": 43.684,
+   "video_t": 43.684,
+   "votes": 1
+  }
+ ],
+ "label": "perception-assisted",
+ "model": "claude-sonnet-5-5",
+ "obs_schema": {
+  "additionalProperties": false,
+  "properties": {
+   "chest_visible": {
+    "type": "boolean"
+   },
+   "confidence": {
+    "type": "number"
+   },
+   "lava_visible": {
+    "type": "boolean"
+   },
+   "obsidian_frame": {
+    "enum": [
+     "none",
+     "partial",
+     "complete"
+    ],
+    "type": "string"
+   },
+   "player_activity": {
+    "enum": [
+     "walking",
+     "standing",
+     "swimming",
+     "placing_or_mining",
+     "unknown"
+    ],
+    "type": "string"
+   },
+   "player_in_water": {
+    "type": [
+     "boolean",
+     "null"
+    ]
+   },
+   "player_visible": {
+    "type": "boolean"
+   },
+   "portal_lit": {
+    "type": "boolean"
+   },
+   "village_visible": {
+    "type": "boolean"
+   },
+   "water_visible": {
+    "type": "boolean"
+   }
+  },
+  "required": [
+   "obsidian_frame",
+   "portal_lit",
+   "chest_visible",
+   "village_visible",
+   "lava_visible",
+   "water_visible",
+   "player_visible",
+   "player_in_water",
+   "player_activity",
+   "confidence"
+  ],
+  "type": "object"
+ },
+ "prompt": "You are looking at ONE frame rendered from a Minecraft Java 1.16 world by prismarine-viewer.\nThe camera is third-person, looking down at a single player character (the bot) from above and behind.\nSome rectangular areas may be solid black; they are masked out, ignore them.\nReport ONLY what is visible in this image. Do not guess about anything outside the frame.\n\nFields:\n- obsidian_frame: \"complete\" if a full rectangular nether-portal frame of obsidian (dark purple-black blocks) is visible;\n  \"partial\" if some obsidian blocks forming part of a frame / ruined portal are visible but the rectangle is incomplete;\n  \"none\" if no obsidian is visible.\n- portal_lit: true only if purple swirling nether-portal blocks fill a frame.\n- chest_visible: a chest block (brown wooden box with a latch) is visible.\n- village_visible: village buildings (houses, paths, bells, farms built by villagers) are visible.\n- lava_visible: lava (bright orange liquid) is visible anywhere.\n- water_visible: water (blue liquid) is visible anywhere.\n- player_visible: the player character (bot) is visible.\n- player_in_water: if the player is visible, true when the player is standing or swimming in water, else false; null if the player is not visible.\n- player_activity: what the player appears to be doing: walking, standing, swimming, placing_or_mining, or unknown.\n- confidence: your overall confidence in these answers, 0.0 to 1.0.\n\nReply with the JSON object only.",
+ "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+ "run": {
+  "run_duration_s": 51.64,
+  "run_id": "agent-05",
+  "run_log": "../agent_runs/agent-05/events.jsonl"
+ },
+ "sampling": {
+  "adaptive": true,
+  "dense_event_run_t": [
+   15.747,
+   37.632,
+   42.173
+  ],
+  "dense_every_s": 0.5,
+  "dense_window_s": 10.0
+ },
+ "schema_version": 1,
+ "stats": {
+  "backend_calls": 34,
+  "cache_hits": 23,
+  "errors": [],
+  "n_frames": 57,
+  "n_observed": 57
+ },
+ "video": "/Users/anshul/agenticgamebech/agent_runs/agent-05/frames_index.json",
+ "video_sha": "9a94e29289da7d943a96e679d011f8f0facb9ecef4b2c4accdf86190271e0ada",
+ "votes": 1
+}

@@ -1,0 +1,424 @@
+{
+ "claims": [
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "inventory_loss_without_effect",
+   "cost_s": 0.0,
+   "evidence": {
+    "after": 17,
+    "before": 21,
+    "before_line": 57,
+    "item": "obsidian",
+    "skill_line": 59,
+    "snapshot_line": 62
+   },
+   "lines": [
+    52,
+    57,
+    59,
+    62
+   ],
+   "message": "lines 57->62: obsidian 21 -> 17 (-4) across failed build_portal (line 59: placed 0, frame incomplete); items consumed, nothing built",
+   "severity": "high",
+   "t_end": 218.606,
+   "t_start": 214.084
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     6,
+     8,
+     12,
+     14,
+     18,
+     20,
+     24,
+     27,
+     38,
+     40,
+     44,
+     46,
+     50,
+     52,
+     56,
+     59
+    ],
+    "field": "actions",
+    "logged": 16,
+    "summary_line": 64
+   },
+   "lines": [
+    6,
+    8,
+    12,
+    14,
+    18,
+    20,
+    24,
+    27,
+    38,
+    40,
+    44,
+    46,
+    50,
+    52,
+    56,
+    59,
+    64
+   ],
+   "message": "line 64: summary claims actions=0, but the log shows 16 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 38, 40, 44, 46, 50, 52, 56, 59)",
+   "severity": "high",
+   "t_end": 249.039,
+   "t_start": 249.039
+  },
+  {
+   "attributed_s": 0.0,
+   "category": "claim",
+   "code": "self_report_contradiction",
+   "cost_s": 0.0,
+   "evidence": {
+    "claimed": 0,
+    "evidence_lines": [
+     8,
+     14,
+     20,
+     27,
+     59
+    ],
+    "field": "failures",
+    "logged": 5,
+    "summary_line": 64
+   },
+   "lines": [
+    8,
+    14,
+    20,
+    27,
+    59,
+    64
+   ],
+   "message": "line 64: summary claims failures=0, but the log shows 5 (skill_result lines with ok:false: lines 8, 14, 20, 27, 59)",
+   "severity": "high",
+   "t_end": 249.039,
+   "t_start": 249.039
+  }
+ ],
+ "efficiency_verdicts": {
+  "end": "NOT_REACHED",
+  "exit_to_end_portal": "NOT_REACHED",
+  "nether": "NOT_REACHED",
+  "spawn_to_nether": "NOT_REACHED"
+ },
+ "inputs": {
+  "perception": false,
+  "server_log": true
+ },
+ "milestones": {
+  "dragon_kill": false,
+  "end_entry": false,
+  "game_won": false,
+  "nether_entry": false,
+  "nether_exit": false
+ },
+ "milestones_reached": [],
+ "ok": true,
+ "outcome": "did not finish; failed at step `portal_built` (line 27: build_portal failed: need flint + iron_ingot for flint_and_steel)",
+ "perception_validation": null,
+ "progress": {
+  "failed_at": {
+   "line": 27,
+   "note": "build_portal failed: need flint + iron_ingot for flint_and_steel",
+   "step": "portal_built"
+  },
+  "steps": [
+   {
+    "agent_t": 185.94,
+    "agent_t_lo": null,
+    "delta_hi": 156.94,
+    "delta_lo": 152.94,
+    "line": 40,
+    "note": "village chest (iron_pickaxe 1, obsidian 6)",
+    "pro_hi": 33.0,
+    "pro_lo": 29.0,
+    "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51\u20130:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_1"
+   },
+   {
+    "agent_t": 208.121,
+    "agent_t_lo": null,
+    "delta_hi": 154.121,
+    "delta_lo": 154.121,
+    "line": 46,
+    "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+    "pro_hi": 54.0,
+    "pro_lo": 54.0,
+    "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_2"
+   },
+   {
+    "agent_t": 212.637,
+    "agent_t_lo": null,
+    "delta_hi": 163.637,
+    "delta_lo": 161.637,
+    "line": 52,
+    "note": "flint chest (flint 1, obsidian 4)",
+    "pro_hi": 51.0,
+    "pro_lo": 49.0,
+    "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11\u20131:13\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "chest_3"
+   },
+   {
+    "agent_t": 218.606,
+    "agent_t_lo": 212.637,
+    "delta_hi": 158.606,
+    "delta_lo": 157.606,
+    "line": 62,
+    "note": "first seen in inventory at line 62 (no craft event in the log); crafted after the flint pickup at t=212.637 (line 52)",
+    "pro_hi": 61.0,
+    "pro_lo": 60.0,
+    "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2\u00d72 inventory grid at about 1:22\u20131:23\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "flint_and_steel"
+   },
+   {
+    "agent_t": 49.515,
+    "agent_t_lo": null,
+    "delta_hi": -5.485,
+    "delta_lo": -5.485,
+    "line": 26,
+    "note": "build_portal skill started",
+    "pro_hi": 55.0,
+    "pro_lo": 55.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": true,
+    "step": "portal_build_attempted"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": 27,
+    "note": "build_portal failed: need flint + iron_ingot for flint_and_steel",
+    "pro_hi": 63.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17\u20131:25\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_built"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 64.0,
+    "pro_lo": 63.0,
+    "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25\u20131:26\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "portal_lit"
+   },
+   {
+    "agent_t": null,
+    "agent_t_lo": null,
+    "line": null,
+    "note": "not reached",
+    "pro_hi": 66.7,
+    "pro_lo": 66.7,
+    "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+    "reached": false,
+    "step": "nether_entered"
+   }
+  ]
+ },
+ "run": "agent-02",
+ "score": {
+  "attributed_waste_s": 6.333,
+  "efficiency": 0.9746,
+  "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+  "milestone_completion": 0.0,
+  "milestones_reached": 0,
+  "milestones_total": 5,
+  "overlap_removed_s": -0.0,
+  "raw_cost_sum_s": 6.333,
+  "split_ratio_vs_pro_last": null,
+  "split_ratio_vs_pro_mean": null,
+  "total_time_s": 249.039,
+  "waste_by_category_s": {
+   "claim": 0.0,
+   "decision": 0.0,
+   "micro": 6.333,
+   "safety": 0.0
+  }
+ },
+ "server_coverage": {
+  "agent_span_s": [
+   0.0,
+   249.039
+  ],
+  "notes": [
+   "server log ends at t=30.177 s, 218.862 s before the agent run ends (t=249.039 s)",
+   "server log ends during the goto attempt (started t=27.955 s, line 11; result t=44.306 s, line 12)",
+   "no server evidence for goto result at t=44.306 s (line 12)",
+   "no server evidence for loot_chest result at t=44.963 s (line 14, FAILED)",
+   "no server evidence for goto result at t=48.051 s (line 18)",
+   "no server evidence for loot_chest result at t=48.102 s (line 20, FAILED)",
+   "no server evidence for goto result at t=49.114 s (line 24)",
+   "no server evidence for build_portal result at t=49.515 s (line 27, FAILED)",
+   "no server evidence for goto result at t=185.781 s (line 38)",
+   "no server evidence for loot_chest result at t=185.94 s (line 40)",
+   "no server evidence for goto result at t=207.089 s (line 44)",
+   "no server evidence for loot_chest result at t=208.121 s (line 46)",
+   "no server evidence for goto result at t=212.583 s (line 50)",
+   "no server evidence for loot_chest result at t=212.637 s (line 52)",
+   "no server evidence for goto result at t=213.683 s (line 56)",
+   "no server evidence for build_portal result at t=218.602 s (line 59, FAILED)",
+   "no server evidence for the inventory snapshot at t=49.519 s (line 30)",
+   "no server evidence for the inventory snapshot at t=218.606 s (line 62)"
+  ],
+  "server_first_t_s": 0.526,
+  "server_last_t_s": 30.177,
+  "server_samples": 60,
+  "snapshots_checked": 3,
+  "snapshots_without_server_sample": [
+   12,
+   14,
+   18,
+   20,
+   24,
+   27,
+   30,
+   32,
+   33,
+   38,
+   40,
+   44,
+   46,
+   50,
+   52,
+   56,
+   59,
+   62,
+   64
+  ]
+ },
+ "summary": {
+  "attributed_waste_s": 6.333,
+  "efficiency": 0.9746,
+  "findings": 10,
+  "findings_by_category": {
+   "claim": 3,
+   "decision": 0,
+   "micro": 7,
+   "safety": 0
+  },
+  "findings_by_severity": {
+   "high": 3,
+   "low": 2,
+   "medium": 5
+  },
+  "log": "agent_runs/agent-02/events.jsonl",
+  "milestones": {
+   "dragon_kill": false,
+   "end_entry": false,
+   "game_won": false,
+   "nether_entry": false,
+   "nether_exit": false
+  },
+  "source": "live_agent",
+  "total_time_s": 249.039
+ },
+ "top_waste": [
+  {
+   "attributed_s": 4.919,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 4.919,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: frame incomplete"
+   },
+   "lines": [
+    59
+   ],
+   "message": "line 59: action 'build_portal' failed (FAILED: frame incomplete); 4.919 s lost",
+   "severity": "medium",
+   "t_end": 218.602,
+   "t_start": 213.683
+  },
+  {
+   "attributed_s": 0.657,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.657,
+   "evidence": {
+    "action": "loot_chest",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    14
+   ],
+   "message": "line 14: action 'loot_chest' failed (FAILED: not ok); 0.657 s lost",
+   "severity": "medium",
+   "t_end": 44.963,
+   "t_start": 44.306
+  },
+  {
+   "attributed_s": 0.401,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.401,
+   "evidence": {
+    "action": "build_portal",
+    "result": "FAILED: need flint + iron_ingot for flint_and_steel"
+   },
+   "lines": [
+    27
+   ],
+   "message": "line 27: action 'build_portal' failed (FAILED: need flint + iron_ingot for flint_and_steel); 0.401 s lost",
+   "severity": "medium",
+   "t_end": 49.515,
+   "t_start": 49.114
+  },
+  {
+   "attributed_s": 0.305,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.305,
+   "evidence": {
+    "action": "loot_chest",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    8
+   ],
+   "message": "line 8: action 'loot_chest' failed (FAILED: not ok); 0.305 s lost",
+   "severity": "medium",
+   "t_end": 27.554,
+   "t_start": 27.249
+  },
+  {
+   "attributed_s": 0.051,
+   "category": "micro",
+   "code": "failed_action",
+   "cost_s": 0.051,
+   "evidence": {
+    "action": "loot_chest",
+    "result": "FAILED: not ok"
+   },
+   "lines": [
+    20
+   ],
+   "message": "line 20: action 'loot_chest' failed (FAILED: not ok); 0.051 s lost",
+   "severity": "medium",
+   "t_end": 48.102,
+   "t_start": 48.051
+  }
+ ]
+}

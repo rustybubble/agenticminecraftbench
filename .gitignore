@@ -1,7 +1,6 @@
 code/tests/fixtures/runs/
 __pycache__/
 .pytest_cache/
-
 # Live agent runtime (Person C): binaries, worlds, frame dumps, node_modules
 live/agent/node_modules/
 live/agent/runs/
@@ -19,10 +18,11 @@ live/server/whitelist.json
 evidence/footage/frames-*/
 evidence/footage/overlay-frames/
 evidence/footage/*.ass
-
 live/client/.cache/
-
 agent_runs/*/frames/
-
 runs/live/*/frames/
 runs/live/*/clipframes/
+||||||| 216cc5c
+code/.perception_cache/frames/
+runs/agent-01-eval-b/
+runs/agent-01-eval-noperc/

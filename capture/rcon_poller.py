@@ -142,6 +142,24 @@ def now():
     return datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
 
 
+def _sample(r, a, pos_t):
+    """One full sample; any exception is turned into a poll_error by the caller (never crashes)."""
+    pos = parse_pos(pos_t)
+    dim = parse_dim(r.cmd(f"data get entity {a.player} Dimension"))
+    inv = parse_inventory(r.cmd_long(f"data get entity {a.player} Inventory"))
+    hp = parse_health(r.cmd(f"data get entity {a.player} Health"))
+    food = parse_int_data(r.cmd(f"data get entity {a.player} foodLevel"))
+    sel = parse_selected(r.cmd(f"data get entity {a.player} SelectedItem"))
+    feet = head = eye = None
+    if pos:
+        bx, by, bz = (math.floor(v) for v in pos)
+        feet = block_kind(r, dim, bx, by, bz)
+        head = block_kind(r, dim, bx, by + 1, bz)
+        ey = math.floor(pos[1] + 1.62)  # standing eye height (swimming: y + 0.4)
+        eye = head if ey == by + 1 else block_kind(r, dim, bx, ey, bz)
+    return pos, dim, inv, hp, food, sel, feet, head, eye
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--player", required=True)
@@ -172,22 +190,26 @@ def main():
     try:
         while True:
             t0 = time.time()
-            pos_t = r.cmd(f"data get entity {a.player} Pos")
+            try:
+                pos_t = r.cmd(f"data get entity {a.player} Pos")
+            except Exception as e:  # never crash: log, reconnect, keep polling
+                log("poll_error", error=repr(e)[:300])
+                print(f"poll error: {e!r}; reconnecting", file=sys.stderr)
+                time.sleep(1)
+                try:
+                    r = Rcon(a.host, a.port, a.password)
+                except Exception as e2:
+                    log("poll_error", error="reconnect failed: " + repr(e2)[:200])
+                continue
             if "No entity was found" in pos_t:
                 time.sleep(1); continue
-            pos = parse_pos(pos_t)
-            dim = parse_dim(r.cmd(f"data get entity {a.player} Dimension"))
-            inv = parse_inventory(r.cmd_long(f"data get entity {a.player} Inventory"))
-            hp = parse_health(r.cmd(f"data get entity {a.player} Health"))
-            food = parse_int_data(r.cmd(f"data get entity {a.player} foodLevel"))
-            sel = parse_selected(r.cmd(f"data get entity {a.player} SelectedItem"))
-            feet = head = eye = None
-            if pos:
-                bx, by, bz = (math.floor(v) for v in pos)
-                feet = block_kind(r, dim, bx, by, bz)
-                head = block_kind(r, dim, bx, by + 1, bz)
-                ey = math.floor(pos[1] + 1.62)  # standing eye height (swimming: y + 0.4)
-                eye = head if ey == by + 1 else block_kind(r, dim, bx, ey, bz)
+            try:
+                pos, dim, inv, hp, food, sel, feet, head, eye = _sample(r, a, pos_t)
+            except Exception as e:
+                log("poll_error", error=repr(e)[:300])
+                print(f"poll error: {e!r}", file=sys.stderr)
+                time.sleep(budget)
+                continue
             poll_ms = round((time.time() - t0) * 1000, 1)
             log("position_sample", player=a.player, position=pos, dimension=dim, inventory=inv,
                 health=hp, food=food, selected_item=sel, feet_block=feet, head_block=head, eye_block=eye,
