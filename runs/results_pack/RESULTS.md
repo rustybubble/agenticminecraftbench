@@ -551,6 +551,40 @@ Perception findings: portal_outcome_check, visible_feature_ignored
 | portal_lit | no | - | 63-64 | - | not derivable from this log |
 | nether_entered | no | - | 66.7 | - | not derivable from this log |
 
+### demo-08
+
+- Outcome: **did not finish**
+- Milestones reached: 1/5 (nether_entry)
+- Total time 90.291 s; attributed waste 0 s; efficiency 1; findings 5 {"claim": 3, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-08-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 3
+  - line 32: summary claims actions=0, but the log shows 8 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27)
+  - line 32: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)
+  - line 32: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 1
+  - agent line 27 reports pos (-285.5, 67.0, 260.5) (overworld); server line 78 (t=60.502) has (-36.5, 77.0, 32.5) (the_nether), 337.77 blocks apart
+
+**Top waste findings**
+
+- none with cost > 0
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 15.225 | 29-33 | -17.775..-13.775 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 37.019 | 54 | -16.981..-16.981 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 41.535 | 49-51 | -9.465..-7.465 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 60.021 | 60-61 | -0.979..0.021 | first seen in inventory at line 30 (no craft event in the log); crafted after the flint pickup at t=41.535 (line 20) |
+| portal_build_attempted | yes | 42.99 | 55 | -12.01..-12.01 | build_portal skill started |
+| portal_built | yes | 60.02 | 63 | -2.98..-2.98 | build_portal ok |
+| portal_lit | yes | 60.021 | 63-64 | -3.979..-2.979 | implied by nether entry (no lit event) |
+| nether_entered | yes | 60.021 | 66.7 | -6.679..-6.679 | nether_entered |
+
 ### foot-01
 
 - Outcome: **did not finish**
@@ -847,4 +881,4 @@ python -m splitcheck.check --root <generic_root> --costs ../splits/time_costs.js
 cd .. && bash make_submission.sh
 ```
 
-Determinism: two packs built into separate temp dirs; 93 files compared with filecmp (shallow=False): **all byte-identical**
+Determinism: two packs built into separate temp dirs; 98 files compared with filecmp (shallow=False): **all byte-identical**

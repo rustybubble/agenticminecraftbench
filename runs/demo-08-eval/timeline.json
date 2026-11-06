@@ -1,0 +1,88 @@
+{
+  "baseline": "/Users/anshul/agenticgamebech/baseline/pro_2m49_segments.json",
+  "facts": {
+    "beds_collected": 0,
+    "beds_used": null,
+    "beds_used_note": "unknown: the run did not finish the dragon fight",
+    "deaths": 0,
+    "end": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null,
+      "straight_note": "dragon fight: no single destination, straight_blocks not computed"
+    },
+    "end_portal_source": "seed features (config.json#activePortal); not disclosed to the player",
+    "end_portal_xyz": {
+      "x": -1130.0,
+      "y": 34.0,
+      "z": 856.0
+    },
+    "exit_to_end_portal": {
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": null
+    },
+    "model_latency_s": null,
+    "nether": {
+      "dimension": "the_nether",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 0.0,
+      "straight_blocks": 339.214
+    },
+    "spawn_to_nether": {
+      "dimension": "overworld",
+      "distance": "horizontal (x,z) blocks",
+      "failed_actions": 0,
+      "path_blocks": 49.019,
+      "straight_blocks": 99.298
+    }
+  },
+  "finish_flag": "unfinished",
+  "kind": "agent_timeline",
+  "log": "runs/live/demo-08/events.jsonl",
+  "milestones": {
+    "M_end_in": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_finish": {
+      "high": null,
+      "low": null,
+      "note": "unfinished: no finish event (log ends at t=90.291 s); end segment and total not scored",
+      "reached": false
+    },
+    "M_portal_in": {
+      "evidence": "nether_entered event (derived)",
+      "high": 60.021,
+      "line": 28,
+      "low": 60.021
+    },
+    "M_portal_out": {
+      "high": null,
+      "low": null,
+      "note": "not reached in the log",
+      "reached": false
+    },
+    "M_start": {
+      "evidence": "run start",
+      "high": 0.0,
+      "line": 1,
+      "low": 0.0
+    }
+  },
+  "notes": [
+    "Milestones read from the game log: low == high (no montage cuts).",
+    "waste_extra comes from RunEval findings (cost_s estimates); it is listed per segment and does not change verdicts. attributed_s is RunEval's de-duplicated share."
+  ],
+  "run_id": "demo-08",
+  "source": "live_agent",
+  "waste_extra": [],
+  "waste_extra_unmapped_codes": {
+    "self_report_contradiction": 3
+  }
+}
