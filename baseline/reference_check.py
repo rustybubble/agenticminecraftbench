@@ -48,7 +48,7 @@ def check(timeline, baseline):
             r["waste"].append({"tag": "missed_shortcut", "seconds": round(max(0.0, r["agent_s_low"] - r["pro_s"]), 3),
                                "evidence": "overworld arrival {:.1f} blocks from the End portal".format(d)})
     if "beds_collected" in facts and "beds_used" in facts:
-        pro_left = baseline.get("items", {}).get("beds_leftover", 0)
+        pro_left = baseline.get("items", {}).get("beds_leftover", 0)  # 2:49 pro: 6 collected, 6 used
         extra = (facts["beds_collected"] - facts["beds_used"]) - pro_left
         if extra > 0:
             per = [w for w in RULES["waste_rules"] if w["tag"] == "extra_items"][0]["seconds_per_extra_bed"]

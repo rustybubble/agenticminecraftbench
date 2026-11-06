@@ -4,12 +4,12 @@
 
 A. **Optional: 1:48 segment times.** The per-segment baseline is now the 2:49 run, so this is no longer blocking. Fill `baseline/timing_sheet_1m48.md` (5 rows) from https://www.youtube.com/watch?v=2NEvhsZG5iY, then run `python baseline/make_splits.py`. No text source has these splits: not the video description, not the speedrun.com comment, and the raw VOD is a 2 h 8 min stream.
 B. **Optional: 1:48 playbook.** It would add the pro-side "why". Answer the 23 questions in `baseline/pro_1m48_playbook.md`. These decide whether `extra_items` (beds), and the "why" for each segment, hold up against the pro.
-C. **Where the pro's Nether exit lands** (playbook Q2.3, Q3.1). The 2:49 run's 2.45 s exit → End split implies it lands at the portal, but nobody has seen it.
+C. ~~Where the pro's Nether exit lands~~: **resolved.** Inside the End portal room (2:49 VOD 2:10.6–2:12.5). Still open: the pro's Nether exit **coordinates**, because F3 was closed during the run.
 D. **Reported banner objectives** in `analysis/agent_vs_pro.md` (End: fountain → west cover → "maintain breath-safe cover… next perch" → detonate at about 8:25) come from the teammate's reading and are not yet in `timeline.json` with timestamps. Add them, or keep them labelled "reported".
 E. **Banner 8:36.7 vs README 8:43.300** (6.6 s gap). Unexplained; we use the banner (favours the agent). Ask the agent's author.
 F. **Model latency of the 8:43 run** is not published. Only an earlier run's totals are (REVIEW.md:58).
 G. **Exit-terrain inference:** "no surveyed standing surface near the ideal exit point" comes from the absence of `exit-terrain.json` entries at x −143..−139, z 102..109. Not confirmed in-game.
-H. **`extra_items` seconds** use a 4 s/bed estimate (pro pace) up to about 15 s/bed (agent average over a phase with cuts). Both are estimates.
+H. **`extra_items` seconds** (the beds themselves are now confirmed: agent 8, pro 6) use a 4 s/bed estimate (pro pace) up to about 15 s/bed (agent average over a phase with cuts). Both are estimates.
 
 ## Decision tasks (secondary and supplementary)
 
@@ -17,10 +17,10 @@ Everything here is either marked `"verified": false` in a file, or is an assumpt
 
 ## Needs the VOD (https://www.youtube.com/watch?v=n1M95cySBQ0, 3:31 long)
 
-1. **VOD timestamps** for the four segment boundaries in `splits/pro_splits.json` (first portal enter, second portal enter, End portal enter, finish). The segment *durations* are verified from the runner's own speedrun.com comment; only the `vod_timestamp` fields are `null`. Fill `vod_timestamp` as `mm:ss` and set `timestamp_verified: true`.
-2. **What the human collected before the first portal**: which chests, how many beds (and which), whether they used the ruined frame (7 placements) or a fresh frame. This decides whether `T04`/`T20` reference plans match the human route. Note it in `splits/pro_splits.json` → `notes`.
-3. **The human's Nether exit portal coordinates** (F3 is on in the run). `T12` claims the ideal is (-141.25, ~, 107); the 2.450 s from exit to End portal suggests the human built very close to that. Record the coordinates in `reference/T12_blind_seed_nether_exit.json` → `why`.
-4. **Number of bed explosions** the human used on the dragon. `splits/time_costs.json` → `rules.dragon_beds_required` is 6 (from the agent and Wikipedia's "fewer than 7").
+1. ~~VOD timestamps~~ **resolved** (filled in `splits/pro_splits.json` from the VOD by B). Original item: **VOD timestamps** for the four segment boundaries in `splits/pro_splits.json` (first portal enter, second portal enter, End portal enter, finish). The segment *durations* are verified from the runner's own speedrun.com comment; only the `vod_timestamp` fields are `null`. Fill `vod_timestamp` as `mm:ss` and set `timestamp_verified: true`.
+2. ~~What the human collected~~ **resolved** (`baseline/pro_2m49_playbook.md`). Original item: **What the human collected before the first portal**: which chests, how many beds (and which), whether they used the ruined frame (7 placements) or a fresh frame. This decides whether `T04`/`T20` reference plans match the human route. Note it in `splits/pro_splits.json` → `notes`.
+3. **Still open:** **The human's Nether exit portal coordinates** (F3 is closed during the run, so they are not in the VOD) (F3 is on in the run). `T12` claims the ideal is (-141.25, ~, 107); the 2.450 s from exit to End portal suggests the human built very close to that. Record the coordinates in `reference/T12_blind_seed_nether_exit.json` → `why`.
+4. ~~Number of bed explosions~~ **resolved: 6, one perch.** Original item: **Number of bed explosions** the human used on the dragon. `splits/time_costs.json` → `rules.dragon_beds_required` is 6 (from the agent and Wikipedia's "fewer than 7").
 
 ## Needs a game check (C's 1.16.5 server on the seed, `/tp` + F3)
 

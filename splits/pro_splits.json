@@ -6,10 +6,10 @@
     "time_s": 66.683,
     "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
     "vod": "https://www.youtube.com/watch?v=n1M95cySBQ0",
-    "vod_timestamp": null,
+    "vod_timestamp": "1:28.7",
     "verified": true,
-    "timestamp_verified": false,
-    "notes": "Segment time from the runner's own run comment on speedrun.com (API field data.comment). Includes everything done in the overworld before the first portal (chests, beds). VOD timestamp not timed: the sandbox cannot play the video."
+    "timestamp_verified": true,
+    "notes": "Segment time from the runner's own run comment on speedrun.com (API field data.comment). Includes everything done in the overworld before the first portal (chests, beds). VOD timestamp: video time at the end of the segment (run starts at 0:22.0), found by B from loading-screen frames."
   },
   {
     "split": "blind_travel",
@@ -18,10 +18,10 @@
     "time_s": 107.466,
     "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
     "vod": "https://www.youtube.com/watch?v=n1M95cySBQ0",
-    "vod_timestamp": null,
+    "vod_timestamp": "2:10.1",
     "verified": true,
-    "timestamp_verified": false,
-    "notes": "Runner's comment. On this seed there is no bastion or fortress split: the End portal is pre-filled."
+    "timestamp_verified": true,
+    "notes": "Runner's comment. On this seed there is no bastion or fortress split: the End portal is pre-filled. VOD timestamp: video time at the end of the segment (run starts at 0:22.0), found by B from loading-screen frames."
   },
   {
     "split": "portal_room",
@@ -30,10 +30,10 @@
     "time_s": 109.916,
     "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
     "vod": "https://www.youtube.com/watch?v=n1M95cySBQ0",
-    "vod_timestamp": null,
+    "vod_timestamp": "2:13.0",
     "verified": true,
-    "timestamp_verified": false,
-    "notes": "Runner's comment. 2.45 s implies the overworld exit portal generated right next to the End portal. No triangulation split on this seed (location known)."
+    "timestamp_verified": true,
+    "notes": "Runner's comment. 2.45 s implies the overworld exit portal generated right next to the End portal. No triangulation split on this seed (location known). VOD timestamp: video time at the end of the segment (run starts at 0:22.0), found by B from loading-screen frames."
   },
   {
     "split": "dragon",
@@ -42,10 +42,10 @@
     "time_s": 169.149,
     "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
     "vod": "https://www.youtube.com/watch?v=n1M95cySBQ0",
-    "vod_timestamp": null,
+    "vod_timestamp": "3:16.5",
     "verified": true,
-    "timestamp_verified": false,
-    "notes": "Runner's comment. The runner paused the game in the End; paused time is not counted."
+    "timestamp_verified": true,
+    "notes": "Runner's comment. The runner paused the game in the End; paused time is not counted. VOD timestamp: video time at the end of the segment (run starts at 0:22.0), found by B from loading-screen frames."
   },
   {
     "split": "full_route",
@@ -55,9 +55,9 @@
     "official_time_s": 174.545,
     "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
     "vod": "https://www.youtube.com/watch?v=n1M95cySBQ0",
-    "vod_timestamp": null,
+    "vod_timestamp": "3:16.5",
     "verified": true,
-    "timestamp_verified": false,
-    "notes": "Runner dumbo0116, Any% Glitchless, Set Seed, 1.16.5, Easy, PC, vanilla, verified 2025-07-31. Runner-reported IGT 2:49.149 = sum of the four segments. Official (moderator-retimed RTA) time 2:54.545; mod note: 'retimed rta, took rta for igt'. The 5.396 s gap is load and portal-transition time."
+    "timestamp_verified": true,
+    "notes": "Runner dumbo0116, Any% Glitchless, Set Seed, 1.16.5, Easy, PC, vanilla, verified 2025-07-31. Runner-reported IGT 2:49.149 = sum of the four segments. Official (moderator-retimed RTA) time 2:54.545; mod note: 'retimed rta, took rta for igt'. The 5.396 s gap is load and portal-transition time. VOD timestamp: video time at the end of the segment (run starts at 0:22.0), found by B from loading-screen frames."
   }
 ]

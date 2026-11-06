@@ -52,10 +52,13 @@ Against the 2:49 run (from `fixtures/published_montage.json`). The last row adds
 1. **`missed_shortcut`, the exit-portal placement (confirmed).**
    - The route's Nether exit is (−141, 40, 104). The ideal is (−1130/8, 856/8) = (−141.25, 107).
    - The game created the overworld portal at y 24–26, z 837 (agent repo `exit-link.json`). The agent came out at (−1129.5, 24, 837.5): 18.5 blocks horizontally and 10 blocks below the End portal.
-   - It then digs and walks for about 52 s. The pro's exit lands next to the portal (2.45 s).
+   - It then digs and walks for about 52 s. **The pro's exit lands inside the End portal room**: in the VOD the pro steps out, places 2 blocks and drops into the portal (2.45 s).
    - Up to 49–54 s is lost here. That is an upper bound: some of it is slow execution, not placement.
-2. **`extra_items`, beds (agent side confirmed; comparison pending).** The agent collects 8 beds (montage "4th of 8 beds"; route kit of 8), and the bed phase spans about 120 s of the banner (00:14.7 to 02:15.25; frames in between are cut). The dragon died to 6. If the pro takes 6, about 8–30 s is wasted.
-3. **Steady slowdown elsewhere (inferred).** The Nether route is only 12 % longer than a straight line, so `longer_path` is mostly rejected. The loss is in digging, descending and building. The End is mostly a 150 s wait for the first perch, followed by a one-cycle with six beds (agent README). Perch timing is partly random.
+2. **`extra_items`, beds (confirmed).** The agent collects 8 beds (montage "4th of 8 beds"; route kit of 8), and the bed phase spans about 120 s of the banner (00:14.7 to 02:15.25; frames in between are cut). The dragon died to 6. The pro takes exactly 6 and uses all 6 on one perch (VOD). About 8–30 s is wasted.
+3. **Steady slowdown elsewhere.**
+   - **Same route as the pro.** The pro's VOD shows the same plan: the same 3 chests, the ruined frame completed with 7 obsidian, the Nether exit built after a straight sprint, and a one-perch, 6-bed kill.
+   - **Nether.** The agent's Nether route is only 12 % longer than a straight line, so `longer_path` is mostly rejected. The loss is execution: digging, descending and building (inferred).
+   - **End.** The agent takes about 150 s to its bed cycle; the pro takes about 42 s. Perch timing is partly random.
 4. **`idle_wait`.** The run made 131 JEV decisions and 35 Astra calls, but its latency total is not published. An earlier run logged 50 s of API time, which can overlap game actions.
 
 Full evidence, labelled confirmed or inferred: `analysis/agent_vs_pro.md`.
@@ -75,8 +78,8 @@ Full evidence, labelled confirmed or inferred: `analysis/agent_vs_pro.md`.
 ## Limitations
 
 - **Coverage.** The montage shows about 39 s of a roughly 517 s run (about 7.5 %). Anything inside a cut is diagnosed only from timing and from the agent repo's notes, and those notes describe earlier runs of the same harness.
-- **Per-segment numbers use the 2:49 run, not the fastest one.** Against the 1:48 run only the total is compared, because its splits would need a human timing the video. Pro-side actions (beds taken, where the exit landed) are not watched for either run. The 2:49 run's 2.45 s exit → End split is what shows that its exit lands at the portal.
-- **Runner-reported splits.** The 2:49 segment times are the runner's own numbers from the run comment. Moderators verified the run but retimed only the total (2:54.545 RTA).
+- **Per-segment numbers use the 2:49 run, not the fastest one.** Against the 1:48 run only the total is compared. The 2:49 run's actions were read frame by frame from its VOD (`baseline/pro_2m49_playbook.md`). F3 was closed during the run, so the pro's portal coordinates are not visible.
+- **Runner-reported splits, checked against the video.** The 2:49 segment times are the runner's own numbers from the run comment (moderators retimed only the total, 2:54.545 RTA). B reproduced all four segments from the VOD's loading screens to within 0.1 s.
 - **One seed, one agent run.** We report what it shows, not a general rate.
 - **No event log** for the published run, so `failed_or_retried_action` and `longer_path` can't be measured inside cuts.
 
