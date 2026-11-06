@@ -1,0 +1,253 @@
+{
+  "id": "T21_full_route_peaceful_prep",
+  "split": "full_route",
+  "version": "1.16.5",
+  "seed": "8398967436125155523",
+  "difficulty": "peaceful",
+  "prompt": "You are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Peaceful. Seed: 8398967436125155523.\n\nYou are at the village on this seed, Peaceful difficulty. Your route is: loot the chests, take beds, build a portal at the ruined portal, cross the Nether, exit next to the stronghold's already-active End portal, and kill the dragon with beds. The village chests contain obsidian, flint, iron, an iron pickaxe, armor and a lot of food (see state).\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": -181.5,\n  \"y\": 70,\n  \"z\": 234.5\n },\n \"inventory\": {},\n \"known_locations\": {\n  \"start\": {\n   \"x\": -181.5,\n   \"y\": 70,\n   \"z\": 234.5,\n   \"dimension\": \"overworld\"\n  },\n  \"village_center\": {\n   \"x\": -225,\n   \"y\": 71,\n   \"z\": 255,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_village\": {\n   \"x\": -228,\n   \"y\": 71,\n   \"z\": 240,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_portal_a\": {\n   \"x\": -284,\n   \"y\": 66,\n   \"z\": 262,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_portal_b\": {\n   \"x\": -290,\n   \"y\": 68,\n   \"z\": 253,\n   \"dimension\": \"overworld\"\n  },\n  \"ruined_portal\": {\n   \"x\": -285,\n   \"y\": 67,\n   \"z\": 259,\n   \"dimension\": \"overworld\"\n  },\n  \"stronghold_end_portal\": {\n   \"x\": -1130,\n   \"y\": 34,\n   \"z\": 856,\n   \"dimension\": \"overworld\"\n  },\n  \"nether_arrival\": {\n   \"x\": -47.5,\n   \"y\": 77,\n   \"z\": 24.5,\n   \"dimension\": \"the_nether\"\n  },\n  \"chest_food_1\": {\n   \"x\": -174,\n   \"y\": 70,\n   \"z\": 254,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_food_2\": {\n   \"x\": -225,\n   \"y\": 68,\n   \"z\": 251,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_food_3\": {\n   \"x\": -213,\n   \"y\": 69,\n   \"z\": 273,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_food_4\": {\n   \"x\": -244,\n   \"y\": 72,\n   \"z\": 254,\n   \"dimension\": \"overworld\"\n  },\n  \"chest_food_5\": {\n   \"x\": -226,\n   \"y\": 74,\n   \"z\": 299,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_1\": {\n   \"x\": -214,\n   \"y\": 73,\n   \"z\": 225,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_2\": {\n   \"x\": -201,\n   \"y\": 71,\n   \"z\": 254,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_3\": {\n   \"x\": -207,\n   \"y\": 73,\n   \"z\": 311,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_4\": {\n   \"x\": -226,\n   \"y\": 72,\n   \"z\": 320,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_5\": {\n   \"x\": -224,\n   \"y\": 74,\n   \"z\": 302,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_6\": {\n   \"x\": -247,\n   \"y\": 72,\n   \"z\": 256,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_7\": {\n   \"x\": -269,\n   \"y\": 74,\n   \"z\": 266,\n   \"dimension\": \"overworld\"\n  },\n  \"bed_8\": {\n   \"x\": -270,\n   \"y\": 75,\n   \"z\": 254,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"chests\": {\n   \"chest_village\": {\n    \"obsidian\": 6,\n    \"iron_pickaxe\": 1,\n    \"gold_ingot\": 2,\n    \"iron_helmet\": 2,\n    \"bread\": 4,\n    \"iron_sword\": 1\n   },\n   \"chest_portal_a\": {\n    \"flint\": 1,\n    \"golden_leggings\": 1,\n    \"glistering_melon_slice\": 4,\n    \"obsidian\": 4\n   },\n   \"chest_portal_b\": {\n    \"obsidian\": 11,\n    \"bread\": 3,\n    \"iron_ingot\": 6,\n    \"diamond_horse_armor\": 1,\n    \"saddle\": 1\n   },\n   \"chest_food_1\": {\n    \"potato\": 13,\n    \"apple\": 11,\n    \"bread\": 3\n   },\n   \"chest_food_2\": {\n    \"bread\": 5,\n    \"map\": 1\n   },\n   \"chest_food_3\": {\n    \"bread\": 4,\n    \"leather_chestplate\": 1\n   },\n   \"chest_food_4\": {\n    \"potato\": 6,\n    \"oak_sapling\": 4,\n    \"apple\": 2,\n    \"bread\": 3\n   },\n   \"chest_food_5\": {\n    \"oak_sapling\": 3,\n    \"bread\": 7,\n    \"apple\": 1\n   }\n  },\n  \"structures\": {\n   \"village_center\": {\n    \"type\": \"village\",\n    \"notes\": \"plains village\"\n   },\n   \"ruined_portal\": {\n    \"type\": \"ruined_portal\",\n    \"notes\": \"The ruined portal frame stands in the vertical plane x = -285. Its remaining blocks (z, y) are: obsidian at (258,66), (259,66), (260,66), (261,68), (261,69), (259,70), (260,70), (261,70); crying obsidian at (261,66) and (261,67). Other positions in that plane near the frame are air.\"\n   },\n   \"stronghold_end_portal\": {\n    \"type\": \"end_portal\",\n    \"notes\": \"already active (all 12 frames filled)\"\n   },\n   \"bed_1\": {\n    \"type\": \"bed\",\n    \"notes\": \"white_bed\"\n   },\n   \"bed_2\": {\n    \"type\": \"bed\",\n    \"notes\": \"yellow_bed\"\n   },\n   \"bed_3\": {\n    \"type\": \"bed\",\n    \"notes\": \"white_bed\"\n   },\n   \"bed_4\": {\n    \"type\": \"bed\",\n    \"notes\": \"yellow_bed\"\n   },\n   \"bed_5\": {\n    \"type\": \"bed\",\n    \"notes\": \"yellow_bed\"\n   },\n   \"bed_6\": {\n    \"type\": \"bed\",\n    \"notes\": \"yellow_bed\"\n   },\n   \"bed_7\": {\n    \"type\": \"bed\",\n    \"notes\": \"white_bed\"\n   },\n   \"bed_8\": {\n    \"type\": \"bed\",\n    \"notes\": \"yellow_bed\"\n   }\n  },\n  \"facts\": [\n   \"Chest contents and bed positions are known from a survey of this seed.\",\n   \"The End portal at overworld (-1130, 34, 856) is already active.\",\n   \"Your first Nether portal at the ruined portal arrives in the Nether at about (-47.5, 77, 24.5).\"\n  ]\n },\n \"elapsed_s\": 0\n}\n\nWhat do you collect before going to the portal?\nA: Take only what the route uses: the obsidian, the flint and an iron ingot for flint and steel, and the beds. Leave the food, saplings and extra items.\nB: Everything in A, plus all the bread, potatoes and apples from the village chests so your hunger bar stays full.\nC: Everything in A, plus wood to craft a crafting table, a stone pickaxe, a stone sword and a shield.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\"}",
+  "state": {
+    "dimension": "overworld",
+    "position": {
+      "x": -181.5,
+      "y": 70,
+      "z": 234.5
+    },
+    "inventory": {},
+    "known_locations": {
+      "start": {
+        "x": -181.5,
+        "y": 70,
+        "z": 234.5,
+        "dimension": "overworld"
+      },
+      "village_center": {
+        "x": -225,
+        "y": 71,
+        "z": 255,
+        "dimension": "overworld"
+      },
+      "chest_village": {
+        "x": -228,
+        "y": 71,
+        "z": 240,
+        "dimension": "overworld"
+      },
+      "chest_portal_a": {
+        "x": -284,
+        "y": 66,
+        "z": 262,
+        "dimension": "overworld"
+      },
+      "chest_portal_b": {
+        "x": -290,
+        "y": 68,
+        "z": 253,
+        "dimension": "overworld"
+      },
+      "ruined_portal": {
+        "x": -285,
+        "y": 67,
+        "z": 259,
+        "dimension": "overworld"
+      },
+      "stronghold_end_portal": {
+        "x": -1130,
+        "y": 34,
+        "z": 856,
+        "dimension": "overworld"
+      },
+      "nether_arrival": {
+        "x": -47.5,
+        "y": 77,
+        "z": 24.5,
+        "dimension": "the_nether"
+      },
+      "chest_food_1": {
+        "x": -174,
+        "y": 70,
+        "z": 254,
+        "dimension": "overworld"
+      },
+      "chest_food_2": {
+        "x": -225,
+        "y": 68,
+        "z": 251,
+        "dimension": "overworld"
+      },
+      "chest_food_3": {
+        "x": -213,
+        "y": 69,
+        "z": 273,
+        "dimension": "overworld"
+      },
+      "chest_food_4": {
+        "x": -244,
+        "y": 72,
+        "z": 254,
+        "dimension": "overworld"
+      },
+      "chest_food_5": {
+        "x": -226,
+        "y": 74,
+        "z": 299,
+        "dimension": "overworld"
+      },
+      "bed_1": {
+        "x": -214,
+        "y": 73,
+        "z": 225,
+        "dimension": "overworld"
+      },
+      "bed_2": {
+        "x": -201,
+        "y": 71,
+        "z": 254,
+        "dimension": "overworld"
+      },
+      "bed_3": {
+        "x": -207,
+        "y": 73,
+        "z": 311,
+        "dimension": "overworld"
+      },
+      "bed_4": {
+        "x": -226,
+        "y": 72,
+        "z": 320,
+        "dimension": "overworld"
+      },
+      "bed_5": {
+        "x": -224,
+        "y": 74,
+        "z": 302,
+        "dimension": "overworld"
+      },
+      "bed_6": {
+        "x": -247,
+        "y": 72,
+        "z": 256,
+        "dimension": "overworld"
+      },
+      "bed_7": {
+        "x": -269,
+        "y": 74,
+        "z": 266,
+        "dimension": "overworld"
+      },
+      "bed_8": {
+        "x": -270,
+        "y": 75,
+        "z": 254,
+        "dimension": "overworld"
+      }
+    },
+    "world": {
+      "chests": {
+        "chest_village": {
+          "obsidian": 6,
+          "iron_pickaxe": 1,
+          "gold_ingot": 2,
+          "iron_helmet": 2,
+          "bread": 4,
+          "iron_sword": 1
+        },
+        "chest_portal_a": {
+          "flint": 1,
+          "golden_leggings": 1,
+          "glistering_melon_slice": 4,
+          "obsidian": 4
+        },
+        "chest_portal_b": {
+          "obsidian": 11,
+          "bread": 3,
+          "iron_ingot": 6,
+          "diamond_horse_armor": 1,
+          "saddle": 1
+        },
+        "chest_food_1": {
+          "potato": 13,
+          "apple": 11,
+          "bread": 3
+        },
+        "chest_food_2": {
+          "bread": 5,
+          "map": 1
+        },
+        "chest_food_3": {
+          "bread": 4,
+          "leather_chestplate": 1
+        },
+        "chest_food_4": {
+          "potato": 6,
+          "oak_sapling": 4,
+          "apple": 2,
+          "bread": 3
+        },
+        "chest_food_5": {
+          "oak_sapling": 3,
+          "bread": 7,
+          "apple": 1
+        }
+      },
+      "structures": {
+        "village_center": {
+          "type": "village",
+          "notes": "plains village"
+        },
+        "ruined_portal": {
+          "type": "ruined_portal",
+          "notes": "The ruined portal frame stands in the vertical plane x = -285. Its remaining blocks (z, y) are: obsidian at (258,66), (259,66), (260,66), (261,68), (261,69), (259,70), (260,70), (261,70); crying obsidian at (261,66) and (261,67). Other positions in that plane near the frame are air."
+        },
+        "stronghold_end_portal": {
+          "type": "end_portal",
+          "notes": "already active (all 12 frames filled)"
+        },
+        "bed_1": {
+          "type": "bed",
+          "notes": "white_bed"
+        },
+        "bed_2": {
+          "type": "bed",
+          "notes": "yellow_bed"
+        },
+        "bed_3": {
+          "type": "bed",
+          "notes": "white_bed"
+        },
+        "bed_4": {
+          "type": "bed",
+          "notes": "yellow_bed"
+        },
+        "bed_5": {
+          "type": "bed",
+          "notes": "yellow_bed"
+        },
+        "bed_6": {
+          "type": "bed",
+          "notes": "yellow_bed"
+        },
+        "bed_7": {
+          "type": "bed",
+          "notes": "white_bed"
+        },
+        "bed_8": {
+          "type": "bed",
+          "notes": "yellow_bed"
+        }
+      },
+      "facts": [
+        "Chest contents and bed positions are known from a survey of this seed.",
+        "The End portal at overworld (-1130, 34, 856) is already active.",
+        "Your first Nether portal at the ruined portal arrives in the Nether at about (-47.5, 77, 24.5)."
+      ]
+    },
+    "elapsed_s": 0
+  },
+  "answer_type": "choice",
+  "answer_schema": "{\"choice\": \"A\" | \"B\" | \"C\"}",
+  "options": [
+    "A",
+    "B",
+    "C"
+  ]
+}

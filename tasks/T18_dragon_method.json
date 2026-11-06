@@ -1,0 +1,33 @@
+{
+  "id": "T18_dragon_method",
+  "split": "dragon",
+  "version": "1.16.5",
+  "seed": null,
+  "difficulty": "easy",
+  "prompt": "You are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou have just arrived in the End on the obsidian platform. You hold 6 beds, an iron sword, an iron pickaxe and 40 cobblestone. You have no bow.\n\nCurrent state (JSON):\n{\n \"dimension\": \"the_end\",\n \"position\": {\n  \"x\": 100,\n  \"y\": 49,\n  \"z\": 0\n },\n \"inventory\": {\n  \"white_bed\": 6,\n  \"iron_sword\": 1,\n  \"iron_pickaxe\": 1,\n  \"cobblestone\": 40\n },\n \"known_locations\": {},\n \"world\": {},\n \"elapsed_s\": null\n}\n\nWhich way kills the dragon fastest with what you have?\nA: Fight with the iron sword: wait for the dragon to perch on the exit portal and hit its head until it dies.\nB: Wait for the dragon to perch on the exit portal, then place and explode beds next to its head, with a block between you and the blast.\nC: Explode the beds on the island while the dragon is flying around the pillars, before it perches.\nD: Climb the obsidian pillars and destroy every end crystal first, then fight the dragon with the sword.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"choice\": \"A\" | \"B\" | \"C\" | \"D\"}",
+  "state": {
+    "dimension": "the_end",
+    "position": {
+      "x": 100,
+      "y": 49,
+      "z": 0
+    },
+    "inventory": {
+      "white_bed": 6,
+      "iron_sword": 1,
+      "iron_pickaxe": 1,
+      "cobblestone": 40
+    },
+    "known_locations": {},
+    "world": {},
+    "elapsed_s": null
+  },
+  "answer_type": "choice",
+  "answer_schema": "{\"choice\": \"A\" | \"B\" | \"C\" | \"D\"}",
+  "options": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ]
+}

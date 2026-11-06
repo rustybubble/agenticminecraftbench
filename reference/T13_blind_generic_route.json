@@ -1,0 +1,62 @@
+{
+  "id": "T13_blind_generic_route",
+  "answer": {
+    "choice": "B"
+  },
+  "tolerance": {
+    "choices": [
+      "B"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "The overworld trip is 1950.2 blocks. In the Nether the same trip is 243.8 blocks, because X and Z are divided by 8: the target is (1800/8, -900/8) = (225, -112.5). At sprint speed (5.6 blocks/s) that is roughly 350 s versus 45 s, and the extra portal costs far less than the 300 s saved.",
+  "trap": "A ignores the Nether shortcut. C forgets to divide by 8 and ends up 8x too far. D multiplies instead of dividing.",
+  "techniques": [
+    {
+      "tag": "nether_travel_8to1",
+      "description": "Travel long distances in the Nether.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Nether_Portal (raw line 61)"
+    }
+  ],
+  "miss_category": "no_nether_shortcut",
+  "sources": [
+    "https://minecraft.wiki/w/Nether_Portal",
+    "https://minecraft.wiki/w/Sprinting (raw line 33: 5.612 m/s)",
+    "tools/compute_answers.py blind_generic()"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "B",
+        "reasoning": "8x shorter in the Nether."
+      },
+      "why_valid": "Same choice."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "A"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "8x longer trip."
+    },
+    {
+      "answer": {
+        "choice": "C"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "No scaling."
+    },
+    {
+      "answer": {
+        "choice": "D"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Scaled the wrong way."
+    }
+  ]
+}

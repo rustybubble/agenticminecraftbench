@@ -1,0 +1,79 @@
+{
+  "id": "T14_triangulation_overworld",
+  "answer": {
+    "x": 1504.3,
+    "z": -2112.5,
+    "dimension": "overworld"
+  },
+  "tolerance": {
+    "blocks": 16
+  },
+  "pro_time_s": null,
+  "why": "Minecraft yaw a means direction (dx, dz) = (-sin a, cos a): -145.0 points north-east. Intersect the two lines (x1 - t sin a1, z1 + t cos a1) and (x2 - s sin a2, z2 + s cos a2). The intersection is (1504.3, -2112.5), 564.2 blocks from throw 1 and 2593.4 blocks from (0, 0), inside the first ring (1,280-2,816), so it is plausible. Reading each yaw to 0.1 degrees moves the answer by at most 6.1 blocks; 16 blocks (one chunk) is the tolerance.",
+  "trap": "Using yaw as a math angle from +X (1186.1, -1646.5), mixing up the sign so the point is south-west, or skipping the math and following eyes one throw at a time.",
+  "techniques": [
+    {
+      "tag": "triangulation",
+      "description": "Intersect two eye throws instead of following eyes.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (Triangulation)"
+    }
+  ],
+  "miss_category": "ignores_information",
+  "sources": [
+    "https://minecraft.wiki/w/Rotation (raw line 16: yaw -180 north, -90 east, 0 south, 90 west)",
+    "https://minecraft.wiki/w/Debug_screen (Facing line)",
+    "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (Triangulation section, raw lines 117-124; eyes point to the staircase chunk's NW corner, raw line 133)",
+    "https://minecraft.wiki/w/Stronghold (raw line 30: first ring 1,280-2,816)",
+    "tools/compute_answers.py triangulation()"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "x": 1508,
+        "z": -2108,
+        "dimension": "overworld"
+      },
+      "why_valid": "Answers with the staircase position (chunk offset 4, 4), which is where a runner digs; 5.7 blocks from the intersection."
+    },
+    {
+      "answer": {
+        "x": 1500,
+        "z": -2120,
+        "dimension": "overworld"
+      },
+      "why_valid": "Rounded; 8.6 blocks off."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "x": 1186.1,
+        "z": -1646.5,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Math-angle convention instead of Minecraft yaw."
+    },
+    {
+      "answer": {
+        "x": -1504,
+        "z": 2112,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Sign flipped."
+    },
+    {
+      "answer": {
+        "x": 188.0,
+        "z": -264.1,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Divided by 8 but labelled overworld."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "T12_blind_seed_nether_exit",
+  "answer": {
+    "x": -141.25,
+    "y": 34,
+    "z": 107.0,
+    "dimension": "the_nether"
+  },
+  "tolerance": {
+    "blocks": 2
+  },
+  "pro_time_s": null,
+  "why": "Nether X and Z are overworld X and Z divided by 8; Y is not scaled. (-1130, 856) / 8 = (-141.25, 107). Going back, the game converts the portal position x8 and, with no portal nearby, creates the overworld portal at the closest valid spot within 16 blocks horizontally. So each Nether block of error moves the arrival 8 overworld blocks; 2 Nether blocks of tolerance keeps the arrival within about 16 blocks of the End portal. The human 2:54.545 run on this seed took 2.450 s from leaving its second portal to entering the End portal, which needs an arrival this close. The agent built at (-141, 40, 104), 3.0 Nether blocks off, and arrived about 24 overworld blocks from the portal. Y is not scored (building near y 34 helps the arrival land at portal-room depth, but that is not verified).",
+  "trap": "(-1130, 856) in the Nether (forgot to divide by 8), (-9040, 6848) (multiplied instead of divided), or scaling Y (34 / 8 = 4.25).",
+  "techniques": [
+    {
+      "tag": "nether_travel_8to1",
+      "description": "Travel in the Nether; divide overworld X/Z by 8.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Nether_Portal (raw lines 61, 70)"
+    },
+    {
+      "tag": "precise_portal_link",
+      "description": "Build the exit portal at the exact /8 point so the overworld portal generates next to the target.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Nether_Portal (raw line 88: new portal within 16 blocks horizontally); https://www.speedrun.com/api/v1/runs/yoex3d0z (comment field, fetched 2026-11-06) (2.450 s exit to End portal)"
+    }
+  ],
+  "miss_category": "no_nether_shortcut",
+  "sources": [
+    "https://minecraft.wiki/w/Nether_Portal",
+    "rmalde/minecraft-agent:optimization/nether/config.json:34-39,52-56",
+    "rmalde/minecraft-agent:optimization/nether/entry-link.json (Nether arrival -47.5, 77, 24.5)",
+    "https://www.speedrun.com/api/v1/runs/yoex3d0z (comment field, fetched 2026-11-06)",
+    "tools/compute_answers.py seed_nether_exit()"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "x": -141,
+        "y": 40,
+        "z": 107,
+        "dimension": "the_nether"
+      },
+      "why_valid": "Rounded to whole blocks; 0.25 off."
+    },
+    {
+      "answer": {
+        "x": -142,
+        "y": 34,
+        "z": 106,
+        "dimension": "the_nether"
+      },
+      "why_valid": "1.25 blocks off; arrival within about 10 overworld blocks."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "x": -1130,
+        "y": 34,
+        "z": 856,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "No scaling: links about 8,000 overworld blocks away."
+    },
+    {
+      "answer": {
+        "x": -9040,
+        "y": 34,
+        "z": 6848,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Multiplied by 8."
+    },
+    {
+      "answer": {
+        "x": -141.25,
+        "y": 34,
+        "z": 107,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Wrong dimension."
+    },
+    {
+      "answer": {
+        "x": -150,
+        "y": 34,
+        "z": 100,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "11 Nether blocks off: arrives about 90 overworld blocks away."
+    }
+  ]
+}

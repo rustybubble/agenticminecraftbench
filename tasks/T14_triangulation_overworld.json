@@ -1,0 +1,44 @@
+{
+  "id": "T14_triangulation_overworld",
+  "split": "triangulation",
+  "version": "1.16.5",
+  "seed": null,
+  "difficulty": "easy",
+  "prompt": "You are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou are in the overworld after leaving the Nether. You threw two eyes of ender. For each throw you put your crosshair on the flying eye and read your yaw from the F3 screen's Facing line. Throw 1: standing at (1180.7, 70, -1650.3), F3 shows Facing: north (Towards negative Z), yaw -145.0. Throw 2: standing at (1262.4, 70, -1609.8), F3 shows Facing: north (Towards negative Z), yaw -154.3. Both eyes survived and you picked them up. Assume both eyes fly exactly toward the same point.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": {\n  \"x\": 1262.4,\n  \"y\": 70,\n  \"z\": -1609.8\n },\n \"inventory\": {\n  \"ender_eye\": 12,\n  \"obsidian\": 10,\n  \"flint_and_steel\": 1\n },\n \"known_locations\": {\n  \"throw_1\": {\n   \"x\": 1180.7,\n   \"y\": 70,\n   \"z\": -1650.3,\n   \"dimension\": \"overworld\"\n  },\n  \"throw_2\": {\n   \"x\": 1262.4,\n   \"y\": 70,\n   \"z\": -1609.8,\n   \"dimension\": \"overworld\"\n  }\n },\n \"world\": {\n  \"facts\": [\n   \"Throw 1 yaw -145.0\",\n   \"Throw 2 yaw -154.3\"\n  ]\n },\n \"elapsed_s\": null\n}\n\nWhat overworld X and Z do the eyes point to?\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"x\": <number>, \"z\": <number>, \"dimension\": \"overworld\"}",
+  "state": {
+    "dimension": "overworld",
+    "position": {
+      "x": 1262.4,
+      "y": 70,
+      "z": -1609.8
+    },
+    "inventory": {
+      "ender_eye": 12,
+      "obsidian": 10,
+      "flint_and_steel": 1
+    },
+    "known_locations": {
+      "throw_1": {
+        "x": 1180.7,
+        "y": 70,
+        "z": -1650.3,
+        "dimension": "overworld"
+      },
+      "throw_2": {
+        "x": 1262.4,
+        "y": 70,
+        "z": -1609.8,
+        "dimension": "overworld"
+      }
+    },
+    "world": {
+      "facts": [
+        "Throw 1 yaw -145.0",
+        "Throw 2 yaw -154.3"
+      ]
+    },
+    "elapsed_s": null
+  },
+  "answer_type": "coordinates",
+  "answer_schema": "{\"x\": <number>, \"z\": <number>, \"dimension\": \"overworld\"}"
+}

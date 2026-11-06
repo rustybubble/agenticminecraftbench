@@ -1,0 +1,62 @@
+{
+  "id": "T21_full_route_peaceful_prep",
+  "answer": {
+    "choice": "A"
+  },
+  "tolerance": {
+    "choices": [
+      "A"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "On Peaceful the hunger bar never depletes, and in Java you cannot eat normal food then (only golden apples, chorus fruit, milk, honey and suspicious stew), so food is useless. The chests already give an iron pickaxe, so crafting stone tools is wasted time. Every extra chest or craft is seconds off a 3-minute run.",
+  "trap": "B and C are the agent's real mistakes: 'The agent collected extra food, wood, and tools on Peaceful difficulty.'",
+  "techniques": [
+    {
+      "tag": "no_peaceful_food",
+      "description": "Skip food on Peaceful.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Difficulty (raw line 29)"
+    },
+    {
+      "tag": "no_extra_tools",
+      "description": "Use the looted iron pickaxe.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:optimization/NOTES.md:13-14"
+    }
+  ],
+  "miss_category": "detour_overprep",
+  "sources": [
+    "https://minecraft.wiki/w/Difficulty (raw line 29)",
+    "rmalde/minecraft-agent:optimization/NOTES.md:13-14",
+    "rmalde/minecraft-agent:optimization/nether/chest-survey.json"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "A",
+        "reasoning": "Food cannot be eaten on Peaceful."
+      },
+      "why_valid": "Same choice."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "B"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Food is useless on Peaceful."
+    },
+    {
+      "answer": {
+        "choice": "C"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Tools already looted; crafting wastes time."
+    }
+  ]
+}

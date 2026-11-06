@@ -1,0 +1,55 @@
+{
+  "id": "T16_portal_room_eyes",
+  "answer": {
+    "eyes_to_place": 10,
+    "eyes_short": 1
+  },
+  "tolerance": {
+    "abs": 0
+  },
+  "pro_time_s": null,
+  "why": "Two of the 12 frames already hold an eye (each frame has a 10% chance to generate with one). Only the 10 empty frames need eyes. You hold 9, so you are 1 short.",
+  "trap": "12 to place and 3 short: ignores the pre-filled frames.",
+  "techniques": [
+    {
+      "tag": "count_prefilled_frames",
+      "description": "Count eyes already in the frame.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/End_Portal_Frame (raw lines 16, 117-119)"
+    }
+  ],
+  "miss_category": "resource_miscount",
+  "sources": [
+    "https://minecraft.wiki/w/End_Portal_Frame"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "eyes_to_place": 10,
+        "eyes_short": 1,
+        "reasoning": "two pre-filled"
+      },
+      "why_valid": "Same numbers."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "eyes_to_place": 12,
+        "eyes_short": 3
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Ignores pre-filled frames."
+    },
+    {
+      "answer": {
+        "eyes_to_place": 10,
+        "eyes_short": 0
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Miscounts the shortfall."
+    }
+  ]
+}

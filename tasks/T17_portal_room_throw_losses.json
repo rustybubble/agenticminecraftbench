@@ -1,0 +1,20 @@
+{
+  "id": "T17_portal_room_throw_losses",
+  "split": "portal_room",
+  "version": "1.16.5",
+  "seed": null,
+  "difficulty": "easy",
+  "prompt": "You are advising a Minecraft Java Edition speedrunner (Any%, glitchless, single player, Survival). The goal is to finish the game (kill the ender dragon and enter the exit portal) in the least in-game time. Answer the way an expert runner would.\n\nVersion: Java 1.16.5. Difficulty: Easy. Seed: random (unknown to you).\n\nYou hold exactly 12 eyes of ender. Before you reach the portal room you will throw eyes 3 more times (one eye per throw) to locate the stronghold, and pick up every eye that survives.\n\nCurrent state (JSON):\n{\n \"dimension\": \"overworld\",\n \"position\": null,\n \"inventory\": {\n  \"ender_eye\": 12\n },\n \"known_locations\": {},\n \"world\": {},\n \"elapsed_s\": null\n}\n\n(1) What is the expected number of eyes you lose over the 3 throws? (2) What is the probability that none of the 3 thrown eyes breaks? Give decimals.\n\nReply with ONLY one JSON object in exactly this shape (you may add a \"reasoning\" string key; it is not scored):\n{\"expected_eyes_lost\": <number>, \"p_no_eye_lost\": <number>}",
+  "state": {
+    "dimension": "overworld",
+    "position": null,
+    "inventory": {
+      "ender_eye": 12
+    },
+    "known_locations": {},
+    "world": {},
+    "elapsed_s": null
+  },
+  "answer_type": "number",
+  "answer_schema": "{\"expected_eyes_lost\": <number>, \"p_no_eye_lost\": <number>}"
+}

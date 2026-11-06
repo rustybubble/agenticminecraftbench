@@ -1,0 +1,55 @@
+{
+  "id": "T19_dragon_breath_safety",
+  "answer": {
+    "choice": "B"
+  },
+  "tolerance": {
+    "choices": [
+      "B"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "Dragon's-breath clouds deal Harming damage, which is magic damage and ignores armor, and they persist. A death ends the run, so a few seconds or one missed perch is the cheaper loss. The agent this project draws on died exactly this way: it escaped one cloud into another and then walked back through the first.",
+  "trap": "A: the shortest path through the cloud. C: standing next to it is also inside the damage zone's edge.",
+  "techniques": [
+    {
+      "tag": "avoid_breath_clouds",
+      "description": "Path around every breath cloud.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "rmalde/minecraft-agent:optimization/NOTES.md:26 (decision 171/172 crossed two clouds), rmalde/minecraft-agent:optimization/nether/REVIEW.md:37"
+    }
+  ],
+  "miss_category": "unnecessary_risk",
+  "sources": [
+    "https://minecraft.wiki/w/Ender_Dragon (raw lines 147, 171: breath and fireball clouds damage like Harming)",
+    "rmalde/minecraft-agent:optimization/NOTES.md:26,54",
+    "rmalde/minecraft-agent:optimization/nether/REVIEW.md:37"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "choice": "B",
+        "reasoning": "Never enter a cloud."
+      },
+      "why_valid": "Same choice."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "A"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Takes Harming damage that ignores armor."
+    },
+    {
+      "answer": {
+        "choice": "C"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Waiting at the edge risks damage and still walks through."
+    }
+  ]
+}

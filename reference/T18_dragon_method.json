@@ -1,0 +1,65 @@
+{
+  "id": "T18_dragon_method",
+  "answer": {
+    "choice": "B"
+  },
+  "tolerance": {
+    "choices": [
+      "B"
+    ]
+  },
+  "pro_time_s": null,
+  "why": "Beds explode when used in the End, and an explosion next to the perched dragon removes up to a quarter of its health per bed. The dragon only stays still while perched, so that is when the beds are used. The blast also hurts you, so a block between you and the bed is standard. Sword damage is small (the dragon takes about a quarter of damage that misses its head), so A takes many perches. C wastes beds on a moving target. D spends minutes climbing pillars. The agent on this project's seed killed the dragon with six bed explosions on one perch.",
+  "trap": "A or D: the 'normal player' sword fight, which is many times slower.",
+  "techniques": [
+    {
+      "tag": "bed_one_cycle",
+      "description": "Explode beds on the perched dragon.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (raw line 89); https://minecraft.wiki/w/Bed (raw lines 179, 288)"
+    }
+  ],
+  "miss_category": "brute_force_over_trick",
+  "sources": [
+    "https://minecraft.wiki/w/Bed",
+    "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (Beds section)",
+    "https://minecraft.wiki/w/Ender_Dragon (raw line 72: damage not on the head reduced about 75%)",
+    "rmalde/minecraft-agent:README.md:9 (six bed explosions on the first landing)",
+    "rmalde/minecraft-agent:optimization/nether/REVIEW.md:41,57"
+  ],
+  "verified": true,
+  "verified_note": "Runner-side source for the one-cycle (mcsr.info/speedrunning/one-cycle, cited in the agent README:88) was blocked from the sandbox.",
+  "alternates": [
+    {
+      "answer": {
+        "choice": "B",
+        "reasoning": "One-cycle with beds."
+      },
+      "why_valid": "Same choice."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "choice": "A"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Sword only: many perches."
+    },
+    {
+      "answer": {
+        "choice": "C"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Beds while flying mostly miss."
+    },
+    {
+      "answer": {
+        "choice": "D"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Pillar climbing is slow and risky."
+    }
+  ]
+}

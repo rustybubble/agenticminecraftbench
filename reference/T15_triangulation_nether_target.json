@@ -1,0 +1,79 @@
+{
+  "id": "T15_triangulation_nether_target",
+  "answer": {
+    "x": 188.0,
+    "z": -264.1,
+    "dimension": "the_nether"
+  },
+  "tolerance": {
+    "blocks": 2
+  },
+  "pro_time_s": null,
+  "why": "First triangulate: the eyes point to overworld (1504.3, -2112.5) (see T14). Then divide X and Z by 8: (188.0, -264.1). 2 Nether blocks = 16 overworld blocks of tolerance.",
+  "trap": "Giving the overworld coordinates in the Nether (8x too far), or dividing a throw position by 8 instead of the intersection.",
+  "techniques": [
+    {
+      "tag": "triangulation",
+      "description": "Intersect two throws.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon"
+    },
+    {
+      "tag": "nether_travel_8to1",
+      "description": "Divide by 8 for the Nether.",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Nether_Portal (raw line 61)"
+    }
+  ],
+  "miss_category": "no_nether_shortcut",
+  "sources": [
+    "https://minecraft.wiki/w/Rotation (raw line 16: yaw -180 north, -90 east, 0 south, 90 west)",
+    "https://minecraft.wiki/w/Debug_screen (Facing line)",
+    "https://minecraft.wiki/w/Tutorial:Defeating_the_ender_dragon (Triangulation section, raw lines 117-124; eyes point to the staircase chunk's NW corner, raw line 133)",
+    "https://minecraft.wiki/w/Stronghold (raw line 30: first ring 1,280-2,816)",
+    "tools/compute_answers.py triangulation()",
+    "https://minecraft.wiki/w/Nether_Portal"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "x": 188,
+        "z": -264,
+        "dimension": "the_nether"
+      },
+      "why_valid": "Rounded."
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "x": 1504.3,
+        "z": -2112.5,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Not divided by 8."
+    },
+    {
+      "answer": {
+        "x": 147.6,
+        "z": -206.3,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Divides throw 1's position, not the target."
+    },
+    {
+      "answer": {
+        "x": 188.0,
+        "z": -264.1,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "Wrong dimension."
+    }
+  ]
+}

@@ -34,7 +34,7 @@ TASKS = []
 # ---------------------------------------------------------------- reset
 TASKS.append({
     "id": "T01_reset_hopeless_plains",
-    "split": "reset", "version": "1.16.1", "seed": None, "difficulty": "easy",
+    "split": "reset", "version": "1.16.5", "seed": None, "difficulty": "easy",
     "situation": "You have just loaded into a new random-seed world (about 5 seconds of in-game time used). "
                  "You spawned in the middle of a large plains biome. Looking around to the edge of your render distance (about 100 blocks), "
                  "you see no trees, no water, no lava, no village, no ruined portal, no shipwreck and no ocean. Your inventory is empty.",
@@ -104,7 +104,7 @@ TASKS.append({
 
 TASKS.append({
     "id": "T03_reset_keep_beach_treasure",
-    "split": "reset", "version": "1.16.1", "seed": None, "difficulty": "easy",
+    "split": "reset", "version": "1.16.5", "seed": None, "difficulty": "easy",
     "situation": "You have just loaded into a new random-seed world (about 5 seconds used). You spawned on a beach next to an ocean. "
                  "There are trees about 20 blocks inland, and a shipwreck is visible in the shallow water about 40 blocks away. Your inventory is empty.",
     "question": "Do you keep playing this world or reset and generate a new one? Answer with \"keep\" or \"reset\".",
@@ -274,7 +274,7 @@ T06_ref = [
 ]
 TASKS.append({
     "id": "T06_nether_entry_lava_pool",
-    "split": "nether_entry", "version": "1.16.1", "seed": None, "difficulty": "easy",
+    "split": "nether_entry", "version": "1.16.5", "seed": None, "difficulty": "easy",
     "situation": "Random seed, 2:10 into the run. You are at (100, 64, -40). There is no village, ruined portal or known obsidian within 300 blocks, and you have found no diamonds. "
                  "A surface lava pool with more than 20 lava source blocks is at about (130, 62, -15). A patch of exposed gravel (30+ blocks) is at about (110, 63, -55).",
     "question": "Give the fastest plan from now until you are standing in the Nether.",
@@ -370,7 +370,7 @@ PIGLIN_OPTS = {
 }
 TASKS.append({
     "id": "T09_bastion_piglin_rules",
-    "split": "bastion", "version": "1.16.1", "seed": None, "difficulty": "easy",
+    "split": "bastion", "version": "1.16.5", "seed": None, "difficulty": "easy",
     "situation": "You are entering a bastion remnant with about 8 adult piglins in view, within 10 blocks. You hold 20 gold ingots and a golden helmet (in your inventory, not worn), "
                  "and you are wearing no armor. There are chests and blocks of gold in the room with the piglins.",
     "question": "Which approach gets you pearls fastest without a fight? Options:\n" + "\n".join("{}: {}".format(k, v) for k, v in PIGLIN_OPTS.items()),
@@ -438,7 +438,7 @@ TASKS.append({
 
 TASKS.append({
     "id": "T11_fortress_rods_generic",
-    "split": "fortress", "version": "1.16.1", "seed": None, "difficulty": "easy",
+    "split": "fortress", "version": "1.16.5", "seed": None, "difficulty": "easy",
     "situation": "You are in a Nether fortress next to a blaze spawner. You hold 11 ender pearls, 2 blaze rods and 1 blaze powder. You want to craft an eye of ender from every pearl you have.",
     "question": "What is the minimum number of additional blaze rods you must get from blazes?",
     "state": {"dimension": "the_nether", "position": None, "inventory": {"ender_pearl": 11, "blaze_rod": 2, "blaze_powder": 1}, "known_locations": {},
