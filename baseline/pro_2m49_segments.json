@@ -1,0 +1,35 @@
+{
+  "role": "secondary baseline (backup); the headline baseline is baseline/pro_1m48_segments.json",
+  "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
+  "api": "https://www.speedrun.com/api/v1/runs/yoex3d0z",
+  "video": "https://www.youtube.com/watch?v=n1M95cySBQ0",
+  "runner": "dumbo0116",
+  "date": "2025-07-21",
+  "version": "1.16.5",
+  "difficulty": "easy",
+  "category": "Any% Glitchless, Set Seed, Vanilla, PC",
+  "seed": "8398967436125155523",
+  "status": "verified 2025-07-31",
+  "official": {
+    "primary_s": 174.545,
+    "rta_s": 174.545,
+    "igt_s_on_leaderboard": 174.545,
+    "note": "Moderator retimed the run as RTA and used the RTA value for IGT too (mod note in the run comment: 'retimed rta, took rta for igt'). This is the 2:54.545 the agent repo cites (rmalde/minecraft-agent:optimization/nether/REVIEW.md:5)."
+  },
+  "timer": "runner-reported IGT segments (from the run comment). They sum to the runner's 'Total IGT: 2m 49s 149ms'. Portal loading time is not in IGT; that is most of the 5.396 s gap to RTA.",
+  "milestones_s": {
+    "M_start": 0.0,
+    "M_portal_in": 66.683,
+    "M_portal_out": 107.466,
+    "M_end_in": 109.916,
+    "M_finish": 169.149
+  },
+  "segments": [
+    {"segment": "spawn_to_nether", "from": "M_start", "to": "M_portal_in", "pro_s": 66.683, "comment_text": "Start to first portal enter: 1m 06s 683ms"},
+    {"segment": "nether", "from": "M_portal_in", "to": "M_portal_out", "pro_s": 40.783, "comment_text": "First portal exit to second portal enter: 40s 783ms"},
+    {"segment": "exit_to_end_portal", "from": "M_portal_out", "to": "M_end_in", "pro_s": 2.45, "comment_text": "Second portal exit to end portal enter: 2s 450ms"},
+    {"segment": "end", "from": "M_end_in", "to": "M_finish", "pro_s": 59.233, "comment_text": "End portal exit to pause game: 7s 733ms + Resume game to finish: 51s 500ms"}
+  ],
+  "verified": true,
+  "source": "speedrun.com API run comment, fetched 2026-11-06"
+}

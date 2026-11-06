@@ -1,0 +1,94 @@
+{
+  "source": {
+    "file": "Ronak_Malde_-_Jev_Astra_beats_the_Ender_Dragon_in_Minecraft_in_8_minutes_43_secon_2E27Di.mp4",
+    "origin": "Montage posted on Twitter/X by Ronak Malde (author of github.com/rmalde/minecraft-agent)",
+    "duration_s": 39.1,
+    "resolution": "1280x720",
+    "agent": "GPT-6 Astra (planner) + typesafe JEV (action selection) on Mineflayer",
+    "version": "Java 1.16.5",
+    "difficulty": "Peaceful (per repo README)",
+    "seed": "8398967436125155523",
+    "method": "Read the burned-in top banner ('ASTRA + JEV | elapsed | XYZ', Astra objective) from frames sampled at 2 fps. The montage cuts footage, but the banner shows true elapsed run time, so each milestone is bracketed between the last frame before it and the first frame after it.",
+    "caveats": [
+      "Montage: the gameplay between cuts is not visible, so waste inside a cut can't be diagnosed from video alone; only the brackets and Astra objectives can.",
+      "The banner shows COMPLETE at about 08:36.7, but the title and README say 8:43.300. The 6.6 s gap is unexplained (possibly a different timer start or end event). Ask the author or report both.",
+      "This is the author's published run, not a first attempt we ran. Exact prompts are not available; label it as published context."
+    ]
+  },
+  "milestones": [
+    {
+      "id": "M0_start",
+      "after_s": 0.0,
+      "by_s": 0.0,
+      "evidence": "spawn near (-181.5, 70, 234.5)"
+    },
+    {
+      "id": "M1_first_supply_chest",
+      "after_s": 7.45,
+      "by_s": 14.7,
+      "evidence": "advancements 'Ice Bucket Challenge' + 'Isn't It Iron Pick' on screen at 00:14.700, (-224.5, 71, 240.7); objective 'Loot the first supply chest for the iron pickaxe'"
+    },
+    {
+      "id": "M2_beds_collected",
+      "after_s": 68.0,
+      "by_s": 135.25,
+      "evidence": "collecting 4th of 8 beds at 01:08.000; objective switches to 'Finish the remaining kit at the two supply chests' by 02:15.250"
+    },
+    {
+      "id": "M3_kit_done_portal_work",
+      "after_s": 136.75,
+      "by_s": 176.95,
+      "evidence": "kit objective still active at 02:16.750; portal repair ('Place one cobblestone portal frame block at (-282,67,259)') at 02:56.950"
+    },
+    {
+      "id": "M4_enter_nether",
+      "after_s": 184.7,
+      "by_s": 189.45,
+      "evidence": "lit with flint and steel at 03:03.4; at the overworld portal (-283.1, 68, 259.6) at 03:04.700; in the Nether (-36.1, 77, 32.5) with 'We Need to Go Deeper' at 03:09.450"
+    },
+    {
+      "id": "M5_exit_nether",
+      "after_s": 298.15,
+      "by_s": 302.8,
+      "evidence": "building the exit portal in the Nether (-138.7, 41, 103.8) at 04:58.150; overworld (-1129.5, 24, 837.5) at 05:02.800"
+    },
+    {
+      "id": "M6_stronghold",
+      "after_s": 302.8,
+      "by_s": 303.3,
+      "evidence": "'Eye Spy' advancement at 05:03.300"
+    },
+    {
+      "id": "M7_enter_end",
+      "after_s": 354.35,
+      "by_s": 354.85,
+      "evidence": "portal room (-1129.6, 34.9, 856.5) at 05:54.350; End (100.5, 49, 0.5) at 05:54.850 with 'The End?'"
+    },
+    {
+      "id": "M8_dragon_dead",
+      "after_s": 509.2,
+      "by_s": 513.7,
+      "evidence": "objective 'Detonate the already placed bed\u2026' through 08:29.200; 'Wait for the dragon death animation' at 08:33.700"
+    },
+    {
+      "id": "M9_complete_exit",
+      "after_s": 516.2,
+      "by_s": 516.7,
+      "evidence": "banner 'COMPLETE' at 08:36.700; back at the overworld spawn (-192.5, 71, 214.5) at 08:37.250"
+    }
+  ],
+  "segment_durations_s_approx": {
+    "spawn_to_nether_entry": "185-189",
+    "nether_travel": "109-118",
+    "overworld_to_end_entry": "52-57",
+    "end_fight_to_complete": "161-162"
+  },
+  "pro_comparison": {
+    "pro_run": "[FWR] Minecraft in 1:48 (Set Seed Speedrun) https://www.youtube.com/watch?v=2NEvhsZG5iY (same seed 8398967436125155523 and uses the Nether, per teammate; confirm version and IGT vs RTA)",
+    "pro_final_s": 108.0,
+    "overall_ratio_using_banner_complete": "516.7 / 108 = 4.78x",
+    "overall_ratio_using_headline": "523.3 / 108 = 4.85x",
+    "secondary_reference": "https://www.speedrun.com/mc/runs/yoex3d0z (2:54.545, same seed, cited in rmalde/minecraft-agent optimization/nether/REVIEW.md) -> 2.96x",
+    "per_segment": "TODO: time the 1:48 video at the same milestone ids"
+  }
+}

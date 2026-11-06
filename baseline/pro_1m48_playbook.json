@@ -1,0 +1,166 @@
+{
+  "run": "https://www.speedrun.com/mc/runs/zqe4g39z",
+  "video": "https://www.youtube.com/watch?v=2NEvhsZG5iY",
+  "filled_by": null,
+  "filled_at": null,
+  "status": "TEMPLATE: waiting on a human with the video",
+  "answers": {
+    "Q1.1": {
+      "question": "In what order does the pro visit things? (village chest, beds, ruined-portal chests, the portal) Give a timestamp for each.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.2": {
+      "question": "How many beds does the pro pick up before the Nether? Which ones, roughly (near spawn, village centre, by the portal)?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.3": {
+      "question": "How many obsidian does the pro end with before building? Which chests does it open (all 3 supply chests? any food chests?)",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.4": {
+      "question": "How is the portal lit: flint and steel (crafted when?) or a fire charge?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.5": {
+      "question": "Does the pro complete the ruined frame or build a fresh one? About how many blocks are placed?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.6": {
+      "question": "Does the pro take any food or tools (crafting table, pickaxe, sword, bucket)?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q1.7": {
+      "question": "Movement: sprint-jumping in the open? Anything else (boat, pearls, bridging)?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q2.1": {
+      "question": "F3 coordinates on arrival in the Nether (if F3 is shown).",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q2.2": {
+      "question": "Route: straight line, or around terrain? Any digging, bridging, or tunnelling through netherrack?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q2.3": {
+      "question": "Where is the exit portal built? F3 X, Y, Z if visible.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q2.4": {
+      "question": "How long from arriving at the exit spot to the portal being lit (timestamps)?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q2.5": {
+      "question": "Is there any bartering, fortress, or other detour? (Expected: none, since the End portal is pre-filled.)",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q3.1": {
+      "question": "Where does the overworld exit land? F3 X, Y, Z if visible. Is it inside the portal room, next to it, or somewhere the pro has to dig or walk from?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q3.2": {
+      "question": "What does the pro do between arriving and jumping into the End portal (walk, dig, drop down)? Timestamps.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q3.3": {
+      "question": "Does the pro place any eyes? (Expected: no, since all 12 frames are pre-filled.)",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.1": {
+      "question": "Timestamp of the first bed placed or used in the End.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.2": {
+      "question": "Strategy: one-cycle (beds on the perched dragon), zero-cycle (beds on the dragon in flight from a pillar), or other?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.3": {
+      "question": "How many perches/cycles before the dragon dies?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.4": {
+      "question": "How many beds are used on the dragon? How many are left over?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.5": {
+      "question": "Any blocks placed for cover? Any damage taken or near-deaths?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q4.6": {
+      "question": "Timestamp of the dragon death and of entering the exit portal / timer stop.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q5.1": {
+      "question": "Is an on-screen IGT timer visible? Where?",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    },
+    "Q5.2": {
+      "question": "Any cuts in the edited video (jumps in the timer or scene)? Timestamps.",
+      "answer": null,
+      "video_timestamp": null,
+      "visible": null
+    }
+  },
+  "items_before_nether": {
+    "beds": null,
+    "obsidian": null,
+    "flint_or_fire_charge": null,
+    "food": null,
+    "tools": null
+  },
+  "portals": {
+    "nether_entry_xyz": null,
+    "nether_exit_xyz_nether": null,
+    "overworld_arrival_xyz": null,
+    "arrival_vs_end_portal": null
+  },
+  "end": {
+    "first_bed_s": null,
+    "strategy": null,
+    "perches": null,
+    "beds_used": null
+  }
+}
