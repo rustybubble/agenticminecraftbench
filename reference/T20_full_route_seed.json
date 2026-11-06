@@ -119,10 +119,10 @@
     ]
   },
   "tolerance": {
-    "seconds": 30
+    "seconds": 20
   },
-  "pro_time_s": 169.149,
-  "pro_time_note": "Human IGT on this seed (dumbo0116, 1.16.5, Easy, set seed): 2:49.149 IGT, 2:54.545 RTA (official time). Segments from the runner's comment: start to first portal 66.683 s, Nether 40.783 s, second portal exit to End portal 2.450 s, End 7.733 + 51.500 s. The human played on Easy, which is no easier than Peaceful.",
+  "pro_time_s": null,
+  "pro_time_note": "Price `answer` with splits/time_costs.json. Human reference: IGT on this seed (dumbo0116, 1.16.5, Easy, set seed): 2:49.149 IGT, 2:54.545 RTA (official time). Segments from the runner's comment: start to first portal 66.683 s, Nether 40.783 s, second portal exit to End portal 2.450 s, End 7.733 + 51.500 s. The human played on Easy, which is no easier than Peaceful.",
   "why": "Obsidian: the frame needs 7 (completing the ruined portal) and the Nether exit needs 10, so 17; the two portal chests have only 15, so the village chest's 6 are needed too (21 total). Flint (chest_portal_a) + iron (chest_portal_b) make flint and steel. Beds come from the village on the way (6 used; the agent's kill took six). No blaze rods or pearls: the End portal is already active. No food or armor: Peaceful. In the Nether, go to (-1130/8, 856/8) = (-141.25, 107) and build the exit there so the overworld portal generates next to the End portal (the human took 2.45 s from that exit to the End portal). Two portal crossings in total, like the human run.",
   "trap": "Skipping the village chest (15 obsidian is 2 short for two portals), walking 1,100 blocks in the overworld, going to a fortress for blaze rods, or collecting food and armor.",
   "techniques": [

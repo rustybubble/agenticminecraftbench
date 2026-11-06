@@ -370,9 +370,9 @@ TASKS.append({
     "answer_schema": PLAN_SCHEMA,
     "reference": {
         "answer": {"actions": FR_REF},
-        "tolerance": {"seconds": 30},
-        "pro_time_s": 169.149,
-        "pro_time_note": "Human IGT on this seed (dumbo0116, 1.16.5, Easy, set seed): 2:49.149 IGT, 2:54.545 RTA (official time). Segments from the runner's comment: "
+        "tolerance": {"seconds": 20},
+        "pro_time_s": None,
+        "pro_time_note": "Price `answer` with splits/time_costs.json. Human reference: IGT on this seed (dumbo0116, 1.16.5, Easy, set seed): 2:49.149 IGT, 2:54.545 RTA (official time). Segments from the runner's comment: "
                          "start to first portal 66.683 s, Nether 40.783 s, second portal exit to End portal 2.450 s, End 7.733 + 51.500 s. The human played on Easy, which is no easier than Peaceful.",
         "why": "Obsidian: the frame needs 7 (completing the ruined portal) and the Nether exit needs 10, so 17; the two portal chests have only 15, so the village chest's 6 are needed too (21 total). "
                "Flint (chest_portal_a) + iron (chest_portal_b) make flint and steel. Beds come from the village on the way (6 used; the agent's kill took six). "
