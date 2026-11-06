@@ -1,5 +1,5 @@
 {
-  "role": "secondary baseline (backup); the headline baseline is baseline/pro_1m48_segments.json",
+  "role": "per-segment baseline (chosen 13:40: the only same-seed pro run with published splits). The 1:48 run (zqe4g39z, IGT 108.421) is used for the total only.",
   "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
   "api": "https://www.speedrun.com/api/v1/runs/yoex3d0z",
   "video": "https://www.youtube.com/watch?v=n1M95cySBQ0",

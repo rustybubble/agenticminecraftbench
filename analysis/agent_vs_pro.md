@@ -1,8 +1,8 @@
 # Agent vs pro on seed 8398967436125155523: where, why, what it missed
 
 - **Agent:** the published Astra + JEV run. Milestone brackets come from the montage banner (`agent_runs/published_montage/timeline.json`).
-- **Pro (headline):** Rayoh, 1:48.421 IGT / 1:59.331 RTA ([speedrun.com](https://www.speedrun.com/mc/runs/zqe4g39z)). **Segment times: waiting on a human** (`baseline/timing_sheet_1m48.md`).
-- **Pro (backup, used for the numbers below until the 1:48 sheet is filled):** dumbo0116, 2:49.149 IGT ([speedrun.com](https://www.speedrun.com/mc/runs/yoex3d0z), segments from the run comment).
+- **Pro (per-segment baseline):** dumbo0116, 2:49.149 IGT ([speedrun.com](https://www.speedrun.com/mc/runs/yoex3d0z), segments from the runner's run comment).
+- **Pro (total only):** Rayoh, 1:48.421 IGT / 1:59.331 RTA ([speedrun.com](https://www.speedrun.com/mc/runs/zqe4g39z)). No text source has its splits; the timing sheet `baseline/timing_sheet_1m48.md` is optional.
 - **Numbers:** `fixtures/published_montage.json` → `expected` (rules in `baseline/rules.json`).
 
 **Labels.**
@@ -13,17 +13,18 @@
 
 **Coverage caveat.** The montage shows about 39 s of a roughly 517 s run (about 7.5 %). The agent repo's notes (`NOTES.md`, `REVIEW.md`) describe **earlier** runs of the same harness, not the 8:43 run. Its README says "Historical review notes describe earlier versions" (`rmalde/minecraft-agent:README.md:23`). Those notes show what the harness tends to do, not what happened in this run.
 
-## Summary (vs the 2:49 backup; re-run against 1:48 when timed)
+## Summary (vs the 2:49 run; 1:48 total for context)
 
-| Segment | Agent s (low–high) | Pro s (2:49) | Ratio | Verdict | Pro s (1:48) | Ratio (1:48) |
-|---|---|---|---|---|---|---|
-| spawn → Nether | 184.7–189.45 | 66.683 | 2.77–2.84× | SLOW | TODO(human) | TODO |
-| Nether | 108.7–118.1 | 40.783 | 2.67–2.90× | SLOW | TODO(human) | TODO |
-| exit portal → End portal | 51.55–56.7 | 2.45 | **21.0–23.1×** | **FLAG** | TODO(human) | TODO |
-| End | 161.35–162.35 | 59.233 | 2.72–2.74× | SLOW | TODO(human) | TODO |
-| **Total** | 516.2–516.7 | 169.149 | **3.05×** | | 108.421 IGT / 119.331 RTA | **4.76–4.77× IGT**, 4.33× RTA |
+| Segment | Agent s (low–high) | Pro s (2:49) | Ratio | Verdict |
+|---|---|---|---|---|
+| spawn → Nether | 184.7–189.45 | 66.683 | 2.77–2.84× | SLOW |
+| Nether | 108.7–118.1 | 40.783 | 2.67–2.90× | SLOW |
+| exit portal → End portal | 51.55–56.7 | 2.45 | **21.0–23.1×** | **FLAG** |
+| End | 161.35–162.35 | 59.233 | 2.72–2.74× | SLOW |
+| **Total** | 516.2–516.7 | 169.149 | **3.05×** | |
+| Total vs 1:48 (context) | 516.2–516.7 | 108.421 IGT / 119.331 RTA | 4.76–4.77× IGT, 4.33× RTA | |
 
-The run's median segment ratio is 2.79. Only the exit → End portal segment exceeds 2 × median, so it is the only FLAG. The other three segments are all about 2.7–2.9×: a steady slowdown with no single detour. The total ratio against 1:48 is known now, since it needs only the final time; the per-segment 1:48 ratios need the timing sheet.
+The run's median segment ratio is 2.79. Only the exit → End portal segment exceeds 2 × median, so it is the only FLAG. The other three segments are all about 2.7–2.9×: a steady slowdown with no single detour.
 
 ## 1. Spawn → Nether entry (agent 184.7–189.45 s; pro 66.683 s)
 
@@ -38,7 +39,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - So the agent spent roughly 120 s (00:14.7 → 02:15.25) mostly on beds, about 15 s per bed. That is an upper bound, because the frames in between are cut.
 - confirmed (docs), earlier runs: beds were collected through house walls and a 5 s pickup timeout expired (`REVIEW.md:43`); long village approaches timed out (`REVIEW.md:33`); the agent "repeated a long entry-path search" (`REVIEW.md:47`). These are the harness's known slow spots in this segment.
 
-**Why (pro side):** TODO(human), from playbook Q1.1–Q1.7: order, bed count, chests, frame type.
+**Why (pro side):** not watched. The pro's order, bed count and frame type are unknown (optional playbook Q1.1–Q1.7). Known: 66.683 s for the whole segment.
 
 **What it missed:**
 - `extra_items`: 2 beds collected but never used (8 vs 6). Cost: 2 × 4 s (pro-pace estimate, `rules.json`) to 2 × about 15 s (agent average per bed). **Inferred**, and pending the pro's bed count: if the pro also takes 8, this tag goes away.
@@ -53,7 +54,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - confirmed (code): the Nether action is "Follow a normal walking and digging path to the surveyed Nether exit approach" (`nether-agent.mjs:47`). The exit needs a placed approach ("Place one safe approach block toward the Nether exit", `nether-agent.mjs:50`) and "ten obsidian blocks and four ordinary corner supports" (`REVIEW.md:9`).
 - confirmed (docs/code): the surveyed waypoint path (`config.json:108-149` plus `netherRoute`) is 139 blocks horizontally against 125 straight-line, so only 12 % longer. That is about 20–25 s of movement at sprint or sprint-jump speed.
 
-**Why (pro side):** TODO(human), from playbook Q2.1–Q2.4: route, movement, exit build time.
+**Why (pro side):** not watched (optional playbook Q2.1–Q2.4). Known: 40.783 s including the exit-portal build.
 
 **What it missed:**
 - `longer_path`: **mostly rejected**. The route is only about 12 % longer than straight, worth about 2–3 s.
@@ -73,7 +74,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 **Why (pro side):**
 - confirmed (run comment): "Second portal exit to end portal enter: 2s 450ms" (2:49 run). The pro's exit must therefore land almost on the portal.
 - The ideal Nether position is (−1130/8, 856/8) = (−141.25, 107). The agent's exit is 3 Nether blocks off in Z.
-- Where the 1:48 pro's exit lands: TODO(human), playbook Q2.3 and Q3.1.
+- The pro's exact exit coordinates are not watched (optional playbook Q2.3, Q3.1). The 2.45 s split is the evidence.
 
 **What it missed:**
 - `missed_shortcut`: the exit-portal placement. Up to 49.1–54.3 s (the whole excess). This is an **upper bound**: if the agent had arrived next to the portal, some of its execution slowness would still remain.
@@ -91,7 +92,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - confirmed (docs): "killed the dragon with six bed explosions on the first landing" (`README.md:9`). "The End combat stage took 152 seconds" (`README.md:7`). So nearly all of the End time is **waiting for the first perch**, followed by one cycle.
 - confirmed (docs), earlier runs: the harness waits east of the fountain, because "player distance affects strafe selection and player direction affects the landing approach" (`REVIEW.md:49`, from the 1.16.5 server classes). An earlier run died in breath clouds (`REVIEW.md:37`, `NOTES.md:54`). So the agent plays the End conservatively.
 
-**Why (pro side):** TODO(human), from playbook Q4.1–Q4.6: time to first bed, perches, beds used.
+**Why (pro side):** not watched (optional playbook Q4.1–Q4.6). Known: 59.233 s in the End (the runner paused once; paused time is not counted).
 
 **What it missed:**
 - **Fairness:** perch timing is partly random ("Dragon flight and landing times can vary between runs", `README.md:7`). We cannot separate RNG from positioning without the pro's perch count and the agent's flight log.
@@ -108,7 +109,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 
 | Hypothesis | Status |
 |---|---|
-| Spawn → Nether: 8 beds collected, 6 used → 2 `extra_items` | confirmed for the agent (frame + docs); pro comparison pending the playbook |
+| Spawn → Nether: 8 beds collected, 6 used → 2 `extra_items` | confirmed for the agent (frame + docs); the pro's bed count is not watched, so the tag assumes the pro takes only what it uses |
 | Nether: `longer_path` | mostly rejected (route 12 % longer than straight); the loss is execution, inferred |
 | Exit → End: exit placed so the arrival is 21 blocks from the portal → `missed_shortcut` | **confirmed** (config, exit-link survey, montage XYZ, pro 2.45 s); size of the loss is an upper bound |
 | End: waiting for perch, RNG vs decisions | confirmed that most time is the wait for the first perch (docs); RNG vs decision unresolved |

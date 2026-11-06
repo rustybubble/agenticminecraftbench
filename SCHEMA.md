@@ -173,7 +173,7 @@ The decision tasks above are now secondary. The main check compares an agent run
 
 **Inputs**
 
-- `baseline/<run>_segments.json` (pro): `milestones_s` = `{M_start, M_portal_in, M_portal_out, M_end_in, M_finish}` in seconds, plus `run`, `timer` (IGT or RTA), `official`. Files: `baseline/pro_1m48_segments.json` (headline, written by `baseline/make_splits.py` once a human fills `baseline/timing_sheet_1m48.md`) and `baseline/pro_2m49_segments.json` (backup, ready).
+- `baseline/<run>_segments.json` (pro): `milestones_s` = `{M_start, M_portal_in, M_portal_out, M_end_in, M_finish}` in seconds, plus `run`, `timer` (IGT or RTA), `official`. Files: `baseline/pro_2m49_segments.json` (**the per-segment baseline**, ready). `baseline/rules.json` → `baselines.total_only` holds the 1:48 run's total. `baseline/pro_1m48_segments.json` exists only if someone fills the optional timing sheet.
 - `agent_runs/<run>/timeline.json` (agent) or `fixtures/<name>.json`. Checker-facing shape (the fixtures use it; the raw montage file has `milestones[]` with `after_s`/`by_s`, which map to `low`/`high`):
   ```json
   {"run_id": "...", "kind": "agent_timeline", "baseline": "baseline/pro_2m49_segments.json",
@@ -215,3 +215,4 @@ Plus a `total` block (same fields) and `run_median_ratio`. Bracket math, the ver
   - `splits/time_costs.json` adds a `tag` per entry (`wiki` | `run` | `agent` | `estimate`), a `rules` block (`dragon_beds_required`, `gravel_flint_rate`, `eye_break_rate`) and a `calibration` block. Action keys: `travel` is per block; `build_portal_<method>`, `enter_portal_nether` / `enter_portal_end`, `mine_<block>` with `mine_other` as fallback; `end_fight_beds` is a fixed cost for a bed kill.
   - All generic tasks now use 1.16.5, except `T07_bastion_pearls_1161`, which deliberately tests the 1.16.1 barter table (paired with `T08` on 1.16.5).
 - v4 (13:23): **rescope.** Section 8 added: the efficiency check is the headline. New inputs `baseline/*.json`, `agent_runs/*/timeline.json`, `fixtures/*.json`, `baseline/rules.json`. The 14 generic decision tasks move to `extras/generic_tasks/{tasks,reference}/`; the 7 seed tasks stay in `tasks/` and `reference/` as the secondary decision check.
+- v4.1 (13:40): the 2:49 run is the per-segment baseline; the 1:48 run is used for its total only (`rules.json` → `baselines`). No format change.

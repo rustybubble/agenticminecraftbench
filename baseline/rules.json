@@ -1,5 +1,6 @@
 {
-  "version": 1,
+  "version": 2,
+  "baselines": {"per_segment": "baseline/pro_2m49_segments.json", "total_only": {"run": "https://www.speedrun.com/mc/runs/zqe4g39z", "igt_s": 108.421, "rta_s": 119.331}, "optional": "baseline/pro_1m48_segments.json (only if a human fills baseline/timing_sheet_1m48.md)"},
   "segments": [
     {"segment": "spawn_to_nether", "from": "M_start", "to": "M_portal_in"},
     {"segment": "nether", "from": "M_portal_in", "to": "M_portal_out"},

@@ -1,6 +1,6 @@
 # SplitCheck: is an AI agent as efficient as a pro Minecraft speedrunner?
 
-**Headline.** On the same set seed, the published LLM agent (Astra + JEV) finishes in 516.7 s on its banner. That is **4.8× slower than the 1:48 pro run** (IGT 108.421 s; 4.3× against its RTA of 119.331 s) and **3.1× slower than a 2:49 pro run**. Most segments are a steady 2.7–2.9× slower. One segment is an outlier: getting from the Nether exit to the End portal takes the agent **51.6–56.7 s against the pro's 2.45 s (21–23×)**. The agent's Nether exit portal was placed 3 Nether blocks off the ideal ÷8 point, so it came out in the overworld 21 blocks from the End portal. That is a missed shortcut in the route its authors supplied.
+**Headline.** On the same set seed, the published LLM agent (Astra + JEV) finishes in 516.7 s on its banner: **3.1× slower than a verified 2:49 pro run** (169.149 s IGT), and 4.8× slower than the fastest known pro run on the seed (1:48.421 IGT; 4.3× against its 1:59.331 RTA). Segment by segment against the 2:49 run, the agent is a steady 2.7–2.9× slower in three of the four segments. The fourth is the outlier: getting from the Nether exit to the End portal takes the agent **51.6–56.7 s against the pro's 2.45 s (21–23×)**. The agent's Nether exit portal was placed 3 Nether blocks off the ideal ÷8 point, so it came out in the overworld 21 blocks from the End portal. That is a missed shortcut in the route its authors supplied.
 
 ## Exigence
 
@@ -10,8 +10,8 @@
 ## What we built
 
 - **Same-seed baselines** (`baseline/`):
-  - Rayoh's **1:48.421 IGT** run ([speedrun.com zqe4g39z](https://www.speedrun.com/mc/runs/zqe4g39z), 1.16.5, Easy, set seed) is the headline. Its segments come from a human timing sheet (`baseline/timing_sheet_1m48.md` → `make_splits.py`), plus a playbook of the pro's actions (`baseline/pro_1m48_playbook.md`).
-  - dumbo0116's **2:49.149 IGT** run ([speedrun.com yoex3d0z](https://www.speedrun.com/mc/runs/yoex3d0z), official 2:54.545 RTA) is the backup. Its segments come from the runner's own run comment.
+  - dumbo0116's **2:49.149 IGT** run ([speedrun.com yoex3d0z](https://www.speedrun.com/mc/runs/yoex3d0z), 1.16.5, Easy, set seed; official 2:54.545 RTA) is **the per-segment baseline**. Its segment times come from the runner's own run comment (`baseline/pro_2m49_segments.json`).
+  - Rayoh's **1:48.421 IGT** run ([speedrun.com zqe4g39z](https://www.speedrun.com/mc/runs/zqe4g39z), same seed and version) is used for the **total only**: the fastest known pro time on this seed. No text source has its splits. An optional timing sheet and playbook (`baseline/timing_sheet_1m48.md`, `baseline/pro_1m48_playbook.md`) can add them later.
 - **Agent timeline** (`agent_runs/published_montage/timeline.json`): the agent's milestones read off the banner of its published montage (true elapsed time, XYZ, planner objective). The montage has cuts, so every milestone is a **[low, high] bracket**.
 - **The check** (`baseline/rules.json`; Person A's checker in `code/`; B's reference implementation in `baseline/reference_check.py`):
   - Four segments with the same boundaries for every run: Nether in, Nether out, End in, finish.
@@ -36,15 +36,16 @@
 
 ## What we found
 
-Against the 2:49 backup (from `fixtures/published_montage.json`). The 1:48 columns fill in from `baseline/pro_1m48_segments.json` once the timing sheet is done.
+Against the 2:49 run (from `fixtures/published_montage.json`). The last row adds the 1:48 total for context.
 
-| Segment | Agent s | Pro s (2:49) | Ratio | Verdict | Pro s (1:48) | Ratio (1:48) |
-|---|---|---|---|---|---|---|
-| spawn → Nether | 184.7–189.45 | 66.683 | 2.77–2.84× | SLOW | TODO(human) | TODO |
-| Nether | 108.7–118.1 | 40.783 | 2.67–2.90× | SLOW | TODO(human) | TODO |
-| **exit portal → End portal** | **51.55–56.7** | **2.45** | **21.0–23.1×** | **FLAG** | TODO(human) | TODO |
-| End | 161.35–162.35 | 59.233 | 2.72–2.74× | SLOW | TODO(human) | TODO |
-| **Total** | **516.2–516.7** | 169.149 | **3.05×** | | **108.421** | **4.76× IGT / 4.33× RTA** |
+| Segment | Agent s | Pro s (2:49) | Ratio | Verdict |
+|---|---|---|---|---|
+| spawn → Nether | 184.7–189.45 | 66.683 | 2.77–2.84× | SLOW |
+| Nether | 108.7–118.1 | 40.783 | 2.67–2.90× | SLOW |
+| **exit portal → End portal** | **51.55–56.7** | **2.45** | **21.0–23.1×** | **FLAG** |
+| End | 161.35–162.35 | 59.233 | 2.72–2.74× | SLOW |
+| **Total** | **516.2–516.7** | 169.149 | **3.05×** | |
+| Total vs 1:48 (context) | 516.2–516.7 | 108.421 IGT / 119.331 RTA | 4.76× IGT / 4.33× RTA | |
 
 **Biggest losses and misses:**
 
@@ -69,12 +70,13 @@ Full evidence, labelled confirmed or inferred: `analysis/agent_vs_pro.md`.
   - Montage cuts are handled as brackets, and verdicts use the side most favourable to the agent.
   - The agent's route was supplied by its authors (`README.md:104`), so `missed_shortcut` is attributed to the agent *system*.
   - The banner says 8:36.7 and the README says 8:43.300. We use the banner, which favours the agent.
-- **Pro variance:** the two pro runs differ by 1.56× in total. That is why the 1.25 "OK" margin is small, and why both baselines are shown.
+- **Pro variance:** the two pro runs differ by 1.56× in total. Using the slower 2:49 run per segment is the agent-friendly choice.
 
 ## Limitations
 
 - **Coverage.** The montage shows about 39 s of a roughly 517 s run (about 7.5 %). Anything inside a cut is diagnosed only from timing and from the agent repo's notes, and those notes describe earlier runs of the same harness.
-- **The 1:48 segment times need a human with the video** (5 boundaries, about 5 minutes). The playbook needs about 10 more minutes. Until then, per-segment ratios use the 2:49 run.
+- **Per-segment numbers use the 2:49 run, not the fastest one.** Against the 1:48 run only the total is compared, because its splits would need a human timing the video. Pro-side actions (beds taken, where the exit landed) are not watched for either run. The 2:49 run's 2.45 s exit → End split is what shows that its exit lands at the portal.
+- **Runner-reported splits.** The 2:49 segment times are the runner's own numbers from the run comment. Moderators verified the run but retimed only the total (2:54.545 RTA).
 - **One seed, one agent run.** We report what it shows, not a general rate.
 - **No event log** for the published run, so `failed_or_retried_action` and `longer_path` can't be measured inside cuts.
 

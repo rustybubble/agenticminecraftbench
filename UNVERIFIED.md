@@ -2,8 +2,8 @@
 
 ## Efficiency check (headline): open items, 13:30
 
-A. **1:48 segment times.** Fill `baseline/timing_sheet_1m48.md` (5 rows) from https://www.youtube.com/watch?v=2NEvhsZG5iY, then run `python baseline/make_splits.py`. No text source has these splits: not the video description, not the speedrun.com comment, and the raw VOD is a 2 h 8 min stream.
-B. **1:48 playbook.** Answer the 23 questions in `baseline/pro_1m48_playbook.md`. These decide whether `extra_items` (beds), and the "why" for each segment, hold up against the pro.
+A. **Optional: 1:48 segment times.** The per-segment baseline is now the 2:49 run, so this is no longer blocking. Fill `baseline/timing_sheet_1m48.md` (5 rows) from https://www.youtube.com/watch?v=2NEvhsZG5iY, then run `python baseline/make_splits.py`. No text source has these splits: not the video description, not the speedrun.com comment, and the raw VOD is a 2 h 8 min stream.
+B. **Optional: 1:48 playbook.** It would add the pro-side "why". Answer the 23 questions in `baseline/pro_1m48_playbook.md`. These decide whether `extra_items` (beds), and the "why" for each segment, hold up against the pro.
 C. **Where the pro's Nether exit lands** (playbook Q2.3, Q3.1). The 2:49 run's 2.45 s exit → End split implies it lands at the portal, but nobody has seen it.
 D. **Reported banner objectives** in `analysis/agent_vs_pro.md` (End: fountain → west cover → "maintain breath-safe cover… next perch" → detonate at about 8:25) come from the teammate's reading and are not yet in `timeline.json` with timestamps. Add them, or keep them labelled "reported".
 E. **Banner 8:36.7 vs README 8:43.300** (6.6 s gap). Unexplained; we use the banner (favours the agent). Ask the agent's author.

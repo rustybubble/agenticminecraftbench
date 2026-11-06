@@ -1,5 +1,7 @@
 # Timing sheet: Rayoh 1:48 set-seed run (for a human with the video)
 
+> **Optional.** The per-segment baseline is the 2:49 run (`baseline/pro_2m49_segments.json`). Fill this only if there is time; the 1:48 run is otherwise used for its total only.
+
 - Video: https://www.youtube.com/watch?v=2NEvhsZG5iY ("[FWR] Minecraft in 1:48 (Set Seed Speedrun)", 2:08 long, edited)
 - speedrun.com: https://www.speedrun.com/mc/runs/zqe4g39z: **IGT 1:48.421, RTA 1:59.331**, Any% Glitchless, Set Seed, Java 1.16.5, Easy, verified 2023-01-25.
 - Raw stream VOD, if the edited video cuts anything: https://youtu.be/F1VOO0eHiys (2:08:14 long; the run is somewhere inside it).

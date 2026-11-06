@@ -1,5 +1,7 @@
 # Pro playbook: Rayoh 1:48 run (template for a human to fill from the video)
 
+> **Optional.** It would add the pro-side "why" to `analysis/agent_vs_pro.md`. The same questions work for the 2:49 run's video (https://www.youtube.com/watch?v=n1M95cySBQ0), which is now the per-segment baseline.
+
 Video: https://www.youtube.com/watch?v=2NEvhsZG5iY · Run: https://www.speedrun.com/mc/runs/zqe4g39z (IGT 1:48.421, RTA 1:59.331, 1.16.5, Easy, Set Seed).
 
 **About 10 minutes of watching.** Answer each question with what you **see**, plus the video timestamp. Write "not visible" when you can't tell, and never guess. Then copy the answers into `baseline/pro_1m48_playbook.json` (same question ids), or paste them to B in chat and B will fill the JSON.
