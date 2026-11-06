@@ -1,0 +1,36 @@
+{
+  "id": "FX2_nether_exit_coords",
+  "split": "blind_travel",
+  "version": "1.16.5",
+  "seed": "8398967436125155523",
+  "difficulty": "peaceful",
+  "prompt": "FIXTURE. Minecraft Java 1.16.5, seed 8398967436125155523. You are in the Nether. The active End portal is at overworld (-1130, 34, 856). At what Nether coordinates should you build your exit portal to come out closest to it? Reply with JSON only: {\"x\": <int>, \"y\": <int>, \"z\": <int>, \"dimension\": \"the_nether\"}",
+  "state": {
+    "dimension": "the_nether",
+    "position": {
+      "x": -36,
+      "y": 70,
+      "z": 32
+    },
+    "inventory": {
+      "obsidian": 10,
+      "flint_and_steel": 1
+    },
+    "known_locations": {
+      "end_portal": {
+        "x": -1130,
+        "y": 34,
+        "z": 856,
+        "dimension": "overworld"
+      }
+    },
+    "world": {
+      "facts": [
+        "the End portal at overworld (-1130, 34, 856) is already active"
+      ]
+    },
+    "elapsed_s": 120
+  },
+  "answer_type": "coordinates",
+  "answer_schema": "{\"x\": <int>, \"y\": <int>, \"z\": <int>, \"dimension\": \"the_nether\"}"
+}

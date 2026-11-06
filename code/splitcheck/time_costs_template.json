@@ -1,0 +1,145 @@
+{
+  "_comment": "SCHEMA section 5 skeleton generated from splitcheck.sim.DEFAULT_COSTS: every key the sim prices. Person B: replace seconds with sourced numbers, set source to a url or repo:path:line and verified true, then save as splits/time_costs.json (load_costs merges it over the defaults).",
+  "actions": {
+    "travel": {
+      "seconds": 14.031,
+      "per": "100_blocks",
+      "source": "estimate",
+      "verified": false,
+      "notes": "horizontal sprint-jump 7.127 blocks/s"
+    },
+    "travel_nether": {
+      "seconds": 14.031,
+      "per": "100_blocks",
+      "source": "estimate",
+      "verified": false,
+      "notes": "same speed as overworld"
+    },
+    "mine": {
+      "seconds": 1.0,
+      "per": "block",
+      "source": "estimate",
+      "verified": false,
+      "notes": "generic block with the right tool"
+    },
+    "mine_obsidian": {
+      "seconds": 9.4,
+      "per": "block",
+      "source": "estimate",
+      "verified": false,
+      "notes": "diamond pickaxe, no efficiency"
+    },
+    "mine_gravel": {
+      "seconds": 1.0,
+      "per": "block",
+      "source": "estimate",
+      "verified": false,
+      "notes": "flint chance 10%"
+    },
+    "craft": {
+      "seconds": 1.5,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "per craft operation"
+    },
+    "smelt": {
+      "seconds": 10.0,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "furnace 10 s per item"
+    },
+    "loot_chest": {
+      "seconds": 3.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "open + take all"
+    },
+    "build_portal_bucket_lava": {
+      "seconds": 30.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "lava-pool portal with water + lava bucket"
+    },
+    "build_portal_chest_obsidian": {
+      "seconds": 12.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "place 10 obsidian, cornerless"
+    },
+    "build_portal_complete_ruined": {
+      "seconds": 8.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "place the missing blocks"
+    },
+    "build_portal_mine_obsidian": {
+      "seconds": 0.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "mining is priced by the mine action"
+    },
+    "light_portal": {
+      "seconds": 1.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": ""
+    },
+    "enter_portal": {
+      "seconds": 4.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "portal animation"
+    },
+    "barter": {
+      "seconds": 6.0,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "per gold ingot"
+    },
+    "kill": {
+      "seconds": 5.0,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "per mob"
+    },
+    "throw_eye": {
+      "seconds": 3.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "throw + read angle"
+    },
+    "place_eyes": {
+      "seconds": 0.5,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "per eye"
+    },
+    "bed_explode": {
+      "seconds": 6.0,
+      "per": "item",
+      "source": "estimate",
+      "verified": false,
+      "notes": "per bed"
+    },
+    "reset": {
+      "seconds": 0.0,
+      "per": "action",
+      "source": "estimate",
+      "verified": false,
+      "notes": "ends the plan"
+    }
+  }
+}

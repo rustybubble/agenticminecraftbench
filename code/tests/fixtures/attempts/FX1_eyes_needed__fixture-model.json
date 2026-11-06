@@ -1,0 +1,7 @@
+{
+  "task_id": "FX1_eyes_needed",
+  "model": "fixture-model",
+  "date": "2026-11-06",
+  "prompt": "(see task)",
+  "raw_response": "{\"eyes_needed\": 9, \"reasoning\": \"12 frames, 3 filled\"}"
+}

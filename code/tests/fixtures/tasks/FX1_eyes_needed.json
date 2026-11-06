@@ -1,0 +1,41 @@
+{
+  "id": "FX1_eyes_needed",
+  "split": "portal_room",
+  "version": "1.16.5",
+  "seed": null,
+  "difficulty": "peaceful",
+  "prompt": "SYNTHETIC FIXTURE. You stand in a stronghold portal room in Minecraft Java 1.16.5. The End portal has 12 frames; 3 of them already hold an eye of ender. How many eyes of ender must you place to activate it? Reply with JSON only: {\"eyes_needed\": <int>, \"reasoning\": \"<string>\"}",
+  "state": {
+    "dimension": "overworld",
+    "position": {
+      "x": 1500,
+      "y": 30,
+      "z": -400
+    },
+    "inventory": {
+      "ender_eye": 12
+    },
+    "known_locations": {
+      "portal_room": {
+        "x": 1500,
+        "y": 30,
+        "z": -400,
+        "dimension": "overworld"
+      }
+    },
+    "world": {
+      "structures": {
+        "portal_room": {
+          "type": "end_portal",
+          "notes": "3 of 12 frames pre-filled"
+        }
+      },
+      "facts": [
+        "3 of the 12 End portal frames already contain an eye"
+      ]
+    },
+    "elapsed_s": 600
+  },
+  "answer_type": "number",
+  "answer_schema": "{\"eyes_needed\": <int>, \"reasoning\": \"<string>\"}"
+}

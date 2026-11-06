@@ -1,0 +1,51 @@
+{
+  "id": "FX1_eyes_needed",
+  "answer": {
+    "eyes_needed": 9
+  },
+  "tolerance": {
+    "abs": 0
+  },
+  "pro_time_s": null,
+  "why": "12 frames - 3 pre-filled = 9 eyes.",
+  "trap": "Answering 12 ignores the pre-filled frames.",
+  "techniques": [
+    {
+      "tag": "count_prefilled_frames",
+      "description": "Count eyes already in frames",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/End_portal"
+    }
+  ],
+  "miss_category": "ignores_information",
+  "sources": [
+    "https://minecraft.wiki/w/End_portal"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "eyes_needed": 9,
+        "reasoning": "12 minus 3"
+      },
+      "why_valid": "reasoning key is ignored"
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "eyes_needed": 12
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "ignores pre-filled frames"
+    },
+    {
+      "answer": {
+        "eyes": 9
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "missing required field eyes_needed"
+    }
+  ]
+}

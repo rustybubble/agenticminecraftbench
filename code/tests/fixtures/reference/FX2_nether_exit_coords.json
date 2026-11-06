@@ -1,0 +1,63 @@
+{
+  "id": "FX2_nether_exit_coords",
+  "answer": {
+    "x": -141,
+    "y": 40,
+    "z": 107,
+    "dimension": "the_nether"
+  },
+  "tolerance": {
+    "blocks": 16
+  },
+  "pro_time_s": null,
+  "why": "Nether X/Z = overworld / 8: -1130/8 = -141.25, 856/8 = 107.",
+  "trap": "Giving overworld coordinates or multiplying by 8.",
+  "techniques": [
+    {
+      "tag": "nether_travel_8to1",
+      "description": "Divide overworld X/Z by 8",
+      "est_time_saved_s": null,
+      "verified": true,
+      "source": "https://minecraft.wiki/w/Nether_portal"
+    }
+  ],
+  "miss_category": "no_nether_shortcut",
+  "sources": [
+    "https://minecraft.wiki/w/Nether_portal",
+    "repo:rmalde/minecraft-agent:optimization/nether/config.json"
+  ],
+  "verified": true,
+  "alternates": [
+    {
+      "answer": {
+        "x": -141,
+        "y": 40,
+        "z": 104,
+        "dimension": "the_nether"
+      },
+      "why_valid": "the agent's real exit portal (config.json exitPortal), 3 blocks away"
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "x": -1130,
+        "y": 34,
+        "z": 856,
+        "dimension": "the_nether"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "overworld coordinates not divided by 8"
+    },
+    {
+      "answer": {
+        "x": -141,
+        "y": 40,
+        "z": 107,
+        "dimension": "overworld"
+      },
+      "expected_verdict": "WRONG",
+      "why_wrong": "wrong dimension"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "id": "FX3_nether_entry_plan",
+  "answer": {
+    "actions": [
+      {
+        "action": "travel",
+        "to": "portal_chest_1"
+      },
+      {
+        "action": "loot_chest",
+        "at": "portal_chest_1"
+      },
+      {
+        "action": "travel",
+        "to": "portal_chest_2"
+      },
+      {
+        "action": "loot_chest",
+        "at": "portal_chest_2"
+      },
+      {
+        "action": "craft",
+        "item": "flint_and_steel",
+        "count": 1
+      },
+      {
+        "action": "travel",
+        "to": "portal_site"
+      },
+      {
+        "action": "build_portal",
+        "method": "chest_obsidian"
+      },
+      {
+        "action": "light_portal",
+        "with": "flint_and_steel"
+      },
+      {
+        "action": "enter_portal"
+      }
+    ]
+  },
+  "tolerance": {
+    "seconds": 30
+  },
+  "pro_time_s": 35.45,
+  "why": "The two portal chests hold 16 obsidian, flint and iron: loot both, craft flint and steel, build a chest-obsidian portal. pro_time_s = reference plan priced with sim.DEFAULT_COSTS (fixture splits/time_costs.json is empty; estimates).",
+  "trap": "Mining obsidian (needs a diamond pickaxe) or forgetting to craft flint and steel.",
+  "techniques": [
+    {
+      "tag": "chest_obsidian_portal",
+      "description": "Build the portal from looted chest obsidian",
+      "est_time_saved_s": null,
+      "verified": false,
+      "source": "repo:rmalde/minecraft-agent:optimization/nether/portal-loot.json"
+    }
+  ],
+  "miss_category": "brute_force_over_trick",
+  "sources": [
+    "repo:rmalde/minecraft-agent:optimization/nether/portal-loot.json",
+    "repo:rmalde/minecraft-agent:optimization/nether/config.json"
+  ],
+  "verified": false,
+  "alternates": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "portal_chest_2"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_2"
+          },
+          {
+            "action": "travel",
+            "to": "portal_chest_1"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_1"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "portal_site"
+          },
+          {
+            "action": "build_portal",
+            "method": "chest_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "why_valid": "same chests in the other order; a few blocks of extra walking"
+    }
+  ],
+  "broken": [
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "portal_chest_1"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_1"
+          },
+          {
+            "action": "travel",
+            "to": "portal_chest_2"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_2"
+          },
+          {
+            "action": "travel",
+            "to": "portal_site"
+          },
+          {
+            "action": "build_portal",
+            "method": "chest_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "lights the portal without flint and steel"
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "far_field"
+          },
+          {
+            "action": "travel",
+            "to": "village"
+          },
+          {
+            "action": "travel",
+            "to": "portal_chest_1"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_1"
+          },
+          {
+            "action": "travel",
+            "to": "portal_chest_2"
+          },
+          {
+            "action": "loot_chest",
+            "at": "portal_chest_2"
+          },
+          {
+            "action": "craft",
+            "item": "flint_and_steel",
+            "count": 1
+          },
+          {
+            "action": "travel",
+            "to": "portal_site"
+          },
+          {
+            "action": "build_portal",
+            "method": "chest_obsidian"
+          },
+          {
+            "action": "light_portal",
+            "with": "flint_and_steel"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "SLOW",
+      "why_wrong": "~2000-block detour before the route"
+    },
+    {
+      "answer": {
+        "actions": [
+          {
+            "action": "travel",
+            "to": "portal_site"
+          },
+          {
+            "action": "enter_portal"
+          }
+        ]
+      },
+      "expected_verdict": "ILLEGAL",
+      "why_wrong": "enters a portal that was never built or lit"
+    }
+  ]
+}

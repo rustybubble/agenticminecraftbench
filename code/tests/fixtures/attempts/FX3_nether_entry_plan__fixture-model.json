@@ -1,0 +1,7 @@
+{
+  "task_id": "FX3_nether_entry_plan",
+  "model": "fixture-model",
+  "date": "2026-11-06",
+  "prompt": "(see task)",
+  "raw_response": "Here is my plan. I will loot the portal chests first.\n\n```json\n{\n  \"actions\": [\n    {\n      \"action\": \"travel\",\n      \"to\": \"portal_chest_1\"\n    },\n    {\n      \"action\": \"loot_chest\",\n      \"at\": \"portal_chest_1\"\n    },\n    {\n      \"action\": \"travel\",\n      \"to\": \"portal_chest_2\"\n    },\n    {\n      \"action\": \"loot_chest\",\n      \"at\": \"portal_chest_2\"\n    },\n    {\n      \"action\": \"craft\",\n      \"item\": \"flint_and_steel\",\n      \"count\": 1\n    },\n    {\n      \"action\": \"travel\",\n      \"to\": \"portal_site\"\n    },\n    {\n      \"action\": \"build_portal\",\n      \"method\": \"chest_obsidian\"\n    },\n    {\n      \"action\": \"light_portal\",\n      \"with\": \"flint_and_steel\"\n    },\n    {\n      \"action\": \"enter_portal\"\n    }\n  ]\n}\n```\n\nThis should be fast."
+}

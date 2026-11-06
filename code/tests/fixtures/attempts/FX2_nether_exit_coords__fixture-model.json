@@ -1,0 +1,7 @@
+{
+  "task_id": "FX2_nether_exit_coords",
+  "model": "fixture-model",
+  "date": "2026-11-06",
+  "prompt": "(see task)",
+  "raw_response": "The portal is at {\"x\": -1130, \"y\": 34, \"z\": 856, \"dimension\": \"the_nether\"} so go there."
+}
