@@ -39,10 +39,14 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - So the agent spent roughly 120 s (00:14.7 → 02:15.25) mostly on beds, about 15 s per bed. That is an upper bound, because the frames in between are cut.
 - confirmed (docs), earlier runs: beds were collected through house walls and a 5 s pickup timeout expired (`REVIEW.md:43`); long village approaches timed out (`REVIEW.md:33`); the agent "repeated a long entry-path search" (`REVIEW.md:47`). These are the harness's known slow spots in this segment.
 
-**Why (pro side):** not watched. The pro's order, bed count and frame type are unknown (optional playbook Q1.1–Q1.7). Known: 66.683 s for the whole segment.
+**Why (pro side), seen in the VOD** (`baseline/pro_2m49_playbook.md`):
+- Same plan as the agent: 3 village beds → village chest (iron pickaxe, 6 obsidian) → 1 more bed → both ruined-portal chests (21 obsidian) → complete the ruined frame with 7 obsidian → flint and steel crafted in the inventory → lit at about 1:26.
+- **6 beds**, all later used on the dragon.
+- No crafting table and no extra tools; 4 bread taken but never eaten.
+- So the route is the same. The difference is 2 beds plus execution speed.
 
 **What it missed:**
-- `extra_items`: 2 beds collected but never used (8 vs 6). Cost: 2 × 4 s (pro-pace estimate, `rules.json`) to 2 × about 15 s (agent average per bed). **Inferred**, and pending the pro's bed count: if the pro also takes 8, this tag goes away.
+- `extra_items`: **confirmed.** 2 beds collected but never used (agent 8 vs pro 6). Cost: 2 × 4 s (pro-pace estimate, `rules.json`) to 2 × about 15 s (agent average per bed); the size is inferred.
 - Everything else in this segment is execution speed (inferred), not a route difference that we can see.
 
 ## 2. Nether (agent 108.7–118.1 s; pro 40.783 s)
@@ -54,7 +58,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - confirmed (code): the Nether action is "Follow a normal walking and digging path to the surveyed Nether exit approach" (`nether-agent.mjs:47`). The exit needs a placed approach ("Place one safe approach block toward the Nether exit", `nether-agent.mjs:50`) and "ten obsidian blocks and four ordinary corner supports" (`REVIEW.md:9`).
 - confirmed (docs/code): the surveyed waypoint path (`config.json:108-149` plus `netherRoute`) is 139 blocks horizontally against 125 straight-line, so only 12 % longer. That is about 20–25 s of movement at sprint or sprint-jump speed.
 
-**Why (pro side):** not watched (optional playbook Q2.1–Q2.4). Known: 40.783 s including the exit-portal build.
+**Why (pro side), seen:** sprints straight through a warped forest for about 23 s, digs into netherrack above a lava lake, and builds the exit upward in about 8–9 s (12 obsidian placed). The portal is lit at about 2:07. No detours. Exit coordinates are not visible (F3 closed).
 
 **What it missed:**
 - `longer_path`: **mostly rejected**. The route is only about 12 % longer than straight, worth about 2–3 s.
@@ -74,7 +78,7 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 **Why (pro side):**
 - confirmed (run comment): "Second portal exit to end portal enter: 2s 450ms" (2:49 run). The pro's exit must therefore land almost on the portal.
 - The ideal Nether position is (−1130/8, 856/8) = (−141.25, 107). The agent's exit is 3 Nether blocks off in Z.
-- The pro's exact exit coordinates are not watched (optional playbook Q2.3, Q3.1). The 2.45 s split is the evidence.
+- **Seen in the VOD (2:10.6–2:12.5):** the pro's overworld portal generates **inside the End portal room**, in the wall next to the frame. The pro places 2 netherrack to step across and drops in. Exit coordinates are not visible (F3 closed), so we can't say how close the pro built to (−141.25, 107), only that it was close enough to land in the room.
 
 **What it missed:**
 - `missed_shortcut`: the exit-portal placement. Up to 49.1–54.3 s (the whole excess). This is an **upper bound**: if the agent had arrived next to the portal, some of its execution slowness would still remain.
@@ -92,7 +96,11 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 - confirmed (docs): "killed the dragon with six bed explosions on the first landing" (`README.md:9`). "The End combat stage took 152 seconds" (`README.md:7`). So nearly all of the End time is **waiting for the first perch**, followed by one cycle.
 - confirmed (docs), earlier runs: the harness waits east of the fountain, because "player distance affects strafe selection and player direction affects the landing approach" (`REVIEW.md:49`, from the 1.16.5 server classes). An earlier run died in breath clouds (`REVIEW.md:37`, `NOTES.md:54`). So the agent plays the End conservatively.
 
-**Why (pro side):** not watched (optional playbook Q4.1–Q4.6). Known: 59.233 s in the End (the runner paused once; paused time is not counted).
+**Why (pro side), seen:**
+- First bed about 41.7 s IGT after arriving.
+- **One perch**, one-cycle with **all 6 beds** (2:59–3:07). Dragon death beams at about 3:10.
+- Takes blast damage (about 10 → 5 hearts), no death.
+- Agent: in the End at 05:54.85; detonation reported at about 8:25, so about 150 s to its bed cycle against the pro's about 42 s. Both waited for one perch, so the difference is the wait for the perch (positioning and RNG) plus slower bed placement.
 
 **What it missed:**
 - **Fairness:** perch timing is partly random ("Dragon flight and landing times can vary between runs", `README.md:7`). We cannot separate RNG from positioning without the pro's perch count and the agent's flight log.
@@ -109,8 +117,8 @@ The run's median segment ratio is 2.79. Only the exit → End portal segment exc
 
 | Hypothesis | Status |
 |---|---|
-| Spawn → Nether: 8 beds collected, 6 used → 2 `extra_items` | confirmed for the agent (frame + docs); the pro's bed count is not watched, so the tag assumes the pro takes only what it uses |
+| Spawn → Nether: 8 beds collected, 6 used → 2 `extra_items` | **confirmed**: the agent took 8 and used 6; the pro took 6 and used 6 (VOD hotbar, human count) |
 | Nether: `longer_path` | mostly rejected (route 12 % longer than straight); the loss is execution, inferred |
-| Exit → End: exit placed so the arrival is 21 blocks from the portal → `missed_shortcut` | **confirmed** (config, exit-link survey, montage XYZ, pro 2.45 s); size of the loss is an upper bound |
-| End: waiting for perch, RNG vs decisions | confirmed that most time is the wait for the first perch (docs); RNG vs decision unresolved |
+| Exit → End: exit placed so the arrival is 21 blocks from the portal → `missed_shortcut` | **confirmed on both sides**: the agent arrives 21 blocks away (config, exit-link survey, montage XYZ); the pro arrives inside the portal room (VOD 2:10.6–2:12.5); size of the loss is an upper bound |
+| End: waiting for perch, RNG vs decisions | both one-perch, 6-bed kills (agent docs, pro VOD). Agent about 150 s to its cycle against the pro's about 42 s; RNG vs positioning unresolved |
 | Model latency as `idle_wait` | count confirmed, seconds unknown for this run |

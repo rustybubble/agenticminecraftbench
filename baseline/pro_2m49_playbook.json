@@ -1,0 +1,40 @@
+{
+  "run": "https://www.speedrun.com/mc/runs/yoex3d0z",
+  "video": "VOD '[Former PB] Minecraft SSG Any% Speedrun in 2:49' (sqwishi channel; = https://www.youtube.com/watch?v=n1M95cySBQ0), frames extracted by B with ffmpeg",
+  "filled_by": "B from video frames; bed count confirmed by the human",
+  "filled_at": "2026-11-06",
+  "status": "FILLED",
+  "text": "baseline/pro_2m49_playbook.md",
+  "items_before_nether": {
+    "beds": 6,
+    "obsidian": 21,
+    "flint_or_fire_charge": "flint and steel (crafted 1:22)",
+    "food": "4 bread, not eaten",
+    "tools": "iron pickaxe from chest"
+  },
+  "portals": {
+    "nether_entry": "completed ruined portal, 7 obsidian placed",
+    "nether_exit_xyz_nether": null,
+    "nether_exit_note": "not visible: F3 closed; 12 obsidian placed in the Nether",
+    "overworld_arrival_xyz": null,
+    "arrival_vs_end_portal": "inside the End portal room, next to the frame; 2 blocks placed, then into the portal"
+  },
+  "end": {
+    "first_bed_igt_after_arrival_s": 41.7,
+    "strategy": "one-cycle",
+    "perches": 1,
+    "beds_used": 6,
+    "beds_left": 0
+  },
+  "segments_video": {
+    "M_start": "0:22.0",
+    "M_portal_in": "1:28.7",
+    "nether_arrival": "1:29.3",
+    "M_portal_out": "2:10.1",
+    "overworld_arrival": "2:10.6",
+    "M_end_in": "2:13.0",
+    "end_arrival": "2:13.4",
+    "pause": "2:21.1-2:25.0",
+    "M_finish": "3:16.5"
+  }
+}

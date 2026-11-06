@@ -14,6 +14,8 @@
 | rmalde/minecraft-agent:README.md:7, 9, 11, 23, 104 | 8:43.300; six bed explosions on the first landing, no deaths; 131 JEV decisions and 35 Astra calls; notes describe earlier versions; route fixed in config | `WRITEUP.md`, `analysis/`, `baseline/rules.json` |
 | rmalde/minecraft-agent:optimization/NOTES.md:7, 13-14, 54; optimization/nether/REVIEW.md:9, 33, 35, 37, 43, 47, 49, 58 | Earlier-run mistakes and timings of the same harness | `analysis/` |
 
+| 2:49 run VOD, local copy of https://www.youtube.com/watch?v=n1M95cySBQ0 ('[Former PB] Minecraft SSG Any% Speedrun in 2:49', 210.5 s) | Frame-by-frame reads by B: segment boundaries, items, the exit landing inside the portal room, 6 beds on one perch; F3 after the run shows 1.16.5 vanilla and seed 8398967436125155523 | `baseline/pro_2m49_playbook.md`, `baseline/pro_2m49_segments.json`, `splits/pro_splits.json`, `analysis/` |
+
 ## Decision tasks (secondary), earlier
 
 All web sources were fetched on 2026-11-06. Minecraft wiki pages were read as raw wikitext (`https://minecraft.wiki/w/<Page>?action=raw`), so "raw line N" in a reference file means line N of that wikitext. The wiki describes the current game version; facts that changed after 1.16 are taken from game data or the wiki's history sections instead (barter tables, portal search radius).

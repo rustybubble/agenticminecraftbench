@@ -25,11 +25,62 @@
     "M_finish": 169.149
   },
   "segments": [
-    {"segment": "spawn_to_nether", "from": "M_start", "to": "M_portal_in", "pro_s": 66.683, "comment_text": "Start to first portal enter: 1m 06s 683ms"},
-    {"segment": "nether", "from": "M_portal_in", "to": "M_portal_out", "pro_s": 40.783, "comment_text": "First portal exit to second portal enter: 40s 783ms"},
-    {"segment": "exit_to_end_portal", "from": "M_portal_out", "to": "M_end_in", "pro_s": 2.45, "comment_text": "Second portal exit to end portal enter: 2s 450ms"},
-    {"segment": "end", "from": "M_end_in", "to": "M_finish", "pro_s": 59.233, "comment_text": "End portal exit to pause game: 7s 733ms + Resume game to finish: 51s 500ms"}
+    {
+      "segment": "spawn_to_nether",
+      "from": "M_start",
+      "to": "M_portal_in",
+      "pro_s": 66.683,
+      "comment_text": "Start to first portal enter: 1m 06s 683ms"
+    },
+    {
+      "segment": "nether",
+      "from": "M_portal_in",
+      "to": "M_portal_out",
+      "pro_s": 40.783,
+      "comment_text": "First portal exit to second portal enter: 40s 783ms"
+    },
+    {
+      "segment": "exit_to_end_portal",
+      "from": "M_portal_out",
+      "to": "M_end_in",
+      "pro_s": 2.45,
+      "comment_text": "Second portal exit to end portal enter: 2s 450ms"
+    },
+    {
+      "segment": "end",
+      "from": "M_end_in",
+      "to": "M_finish",
+      "pro_s": 59.233,
+      "comment_text": "End portal exit to pause game: 7s 733ms + Resume game to finish: 51s 500ms"
+    }
   ],
   "verified": true,
-  "source": "speedrun.com API run comment, fetched 2026-11-06"
+  "source": "speedrun.com API run comment, fetched 2026-11-06",
+  "vod_timestamps": {
+    "M_start": "0:22.0",
+    "M_portal_in": "1:28.7",
+    "nether_arrival": "1:29.3",
+    "M_portal_out": "2:10.1",
+    "overworld_arrival": "2:10.6",
+    "M_end_in": "2:13.0",
+    "end_arrival": "2:13.4",
+    "pause": "2:21.1-2:25.0",
+    "M_finish": "3:16.5"
+  },
+  "video_check": "All four runner-reported segments reproduced from the video within 0.1 s (66.7 / 40.8 / 2.4 / 7.7 + 51.5 s). VOD '[Former PB] Minecraft SSG Any% Speedrun in 2:49' (sqwishi channel; = https://www.youtube.com/watch?v=n1M95cySBQ0), frames extracted by B with ffmpeg. See baseline/pro_2m49_playbook.md.",
+  "items": {
+    "beds_collected": 6,
+    "beds_used": 6,
+    "beds_leftover": 0,
+    "obsidian_from_chests": 21,
+    "obsidian_placed_entry": 7,
+    "obsidian_placed_nether": 12,
+    "food_taken": "4 bread (never eaten)",
+    "source": "baseline/pro_2m49_playbook.md (hotbar crops at 1:00, 1:20, 1:26, 1:59, 2:09, 2:56; bed count also from the human)"
+  },
+  "exit_arrival": {
+    "where": "inside the End portal room, in the wall next to the End portal frame",
+    "seen_at": "2:10.6-2:12.5",
+    "coordinates": "not visible (F3 closed during the run)"
+  }
 }
