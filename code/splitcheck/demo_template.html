@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SplitCheck Live</title>
+<style>
+:root{--bg:#07080c;--panel:#0f1218;--panel2:#151a23;--line:#232a36;--ink:#eef2f7;--dim:#8a94a6;--good:#3ddc84;--bad:#ff4d5e;--warn:#ffb020;--info:#5aa9ff;--pro:#b48cff;--nether:#ff6a2b;
+--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;--sans:system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+body{background:radial-gradient(1200px 600px at 80% -10%,#2a0f0a55,transparent 60%),radial-gradient(900px 500px at -10% 110%,#0b2a3a55,transparent 60%),var(--bg);min-height:100vh}
+header{display:flex;align-items:center;gap:28px;padding:18px 28px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#07080cee;backdrop-filter:blur(6px);z-index:20}
+.brand{font-weight:900;letter-spacing:.06em;font-size:20px;text-transform:uppercase}
+.brand b{color:var(--nether)}
+nav{display:flex;gap:6px}
+nav button{background:none;border:1px solid transparent;color:var(--dim);font:700 14px var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:10px;cursor:pointer;transition:.2s}
+nav button:hover{color:var(--ink);background:var(--panel)}
+nav button.on{color:var(--ink);background:var(--panel2);border-color:var(--line);box-shadow:inset 0 -3px 0 var(--nether)}
+main{padding:22px 28px 10px;max-width:1500px;margin:0 auto}
+.tab{display:none;animation:fade .45s ease}.tab.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.chip{font:800 13px var(--sans);letter-spacing:.05em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid}
+.chip.good{color:var(--good);border-color:#3ddc8455;background:#3ddc8412}.chip.bad{color:var(--bad);border-color:#ff4d5e55;background:#ff4d5e12}
+.grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(360px,1fr);gap:18px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:16px;position:relative;overflow:hidden}
+.vidwrap{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9}
+video{width:100%;height:100%;display:block;object-fit:contain}
+.vbadge{position:absolute;left:12px;top:12px;font:800 12px var(--mono);background:#000a;padding:6px 10px;border-radius:8px;letter-spacing:.05em}
+.ctrl{display:flex;align-items:center;gap:12px;margin-top:12px}
+.play{width:46px;height:46px;border-radius:50%;border:none;background:var(--nether);color:#111;font-size:18px;cursor:pointer;flex:none;font-weight:900}
+.scrub{position:relative;flex:1;height:34px;cursor:pointer}
+.scrub .trk{position:absolute;left:0;right:0;top:14px;height:6px;border-radius:3px;background:#262d3a}
+.scrub .fill{position:absolute;left:0;top:14px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--info),var(--nether))}
+.scrub .knob{position:absolute;top:8px;width:18px;height:18px;border-radius:50%;background:#fff;margin-left:-9px;box-shadow:0 0 0 4px #ff6a2b44}
+.scrub .tick{position:absolute;top:4px;width:2px;height:26px;margin-left:-1px}
+.vt{font:700 13px var(--mono);color:var(--dim);min-width:120px;text-align:right}
+.lbl{font:800 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.clock{font:900 64px/1 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.clock small{font-size:22px;color:var(--dim)}
+.act{font:700 18px var(--sans);padding:10px 12px;border-radius:10px;background:#0009;border-left:4px solid var(--info);margin:8px 0 14px;min-height:46px;transition:border-color .25s}
+.act.ok{border-color:var(--good)}.act.fail{border-color:var(--bad);color:#ffd0d4}.act.running{border-color:var(--warn)}
+.inv{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.slot{background:#0008;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font:700 13px var(--mono)}
+.slot b{font-size:18px;margin-left:6px}.slot.obs b{color:#c9a3ff}.slot.zero{border-color:var(--bad)}.slot.zero b{color:var(--bad)}
+.src{font-size:11px;color:var(--dim);margin-bottom:14px}
+pre.raw{font:12px/1.45 var(--mono);background:#05060a;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0;white-space:pre-wrap;word-break:break-all;max-height:140px;overflow:auto;color:#cfe3ff}
+pre.raw .ln{color:var(--nether);font-weight:800;margin-right:8px}
+.race{margin-top:16px}
+.lane{position:relative;height:34px;margin:6px 0;border-radius:8px;background:repeating-linear-gradient(90deg,#1a1f2a 0 18px,#141821 18px 36px)}
+.lane .who{position:absolute;left:8px;top:8px;font:800 11px var(--sans);letter-spacing:.1em;color:var(--dim);z-index:1}
+.dot{position:absolute;top:5px;width:24px;height:24px;margin-left:-12px;border-radius:50%;transition:left .12s linear}
+.dot.agent{background:var(--good);box-shadow:0 0 18px var(--good)}.dot.pro{background:var(--pro);box-shadow:0 0 18px var(--pro);opacity:.85}
+.goal{position:absolute;right:0;top:0;bottom:0;width:58px;border-radius:0 8px 8px 0;background:linear-gradient(90deg,transparent,#ff6a2b88);display:grid;place-items:center;font:900 10px var(--sans);letter-spacing:.08em}
+.banner{margin-top:12px;text-align:center;font:900 30px/1.1 var(--sans);letter-spacing:.02em;padding:14px;border-radius:12px;background:linear-gradient(90deg,#0d3a22,#145c35,#0d3a22);color:#c9ffe0;border:1px solid #3ddc8466;transform:scale(.6);opacity:0;transition:.5s cubic-bezier(.2,1.6,.4,1);pointer-events:none;height:0;padding:0;overflow:hidden}
+.banner.on{transform:scale(1);opacity:1;height:auto;padding:14px;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 34px #3ddc8466}}
+.toasts{position:fixed;right:24px;bottom:90px;display:flex;flex-direction:column;gap:10px;z-index:30;width:360px}
+.toast{background:var(--panel2);border:1px solid var(--line);border-left:5px solid var(--info);border-radius:12px;padding:12px 14px;box-shadow:0 12px 30px #0009;animation:tin .45s cubic-bezier(.2,1.4,.4,1)}
+.toast.good{border-left-color:var(--good)}.toast.bad{border-left-color:var(--bad)}.toast.info{border-left-color:var(--pro)}
+.toast h4{margin:0 0 4px;font:800 15px var(--sans)}.toast p{margin:0;font:12px var(--mono);color:var(--dim)}
+@keyframes tin{from{transform:translateX(120%);opacity:0}to{transform:none;opacity:1}}
+.tl{margin-top:18px}
+.strip{position:relative;height:58px;margin-top:26px;border-radius:10px;background:#0a0c12;border:1px solid var(--line)}
+.seg{position:absolute;top:8px;height:28px;border-radius:6px;cursor:pointer;font:800 11px var(--sans);letter-spacing:.04em;display:flex;align-items:center;padding:0 8px;white-space:nowrap;overflow:hidden;transition:transform .15s,filter .15s}
+.seg:hover,.mk:hover{filter:brightness(1.3);transform:translateY(-2px)}
+.seg.good{background:#3ddc8433;color:var(--good);border:1px solid #3ddc8488}.seg.bad{background:repeating-linear-gradient(45deg,#ff4d5e44 0 10px,#ff4d5e22 10px 20px);color:#ffc2c8;border:1px solid var(--bad)}
+.seg.warn{background:#ffb02022;color:var(--warn);border:1px solid #ffb02088}
+.mk{position:absolute;top:2px;width:4px;height:40px;margin-left:-2px;background:var(--bad);cursor:pointer;border-radius:2px}
+.mk span{position:absolute;top:42px;left:50%;transform:translateX(-50%);font:800 10px var(--sans);color:var(--bad);white-space:nowrap}
+.win{position:absolute;top:0;bottom:0;border:2px solid var(--info);border-radius:6px;background:#5aa9ff14;pointer-events:none}
+.win span{position:absolute;top:-18px;left:0;font:800 10px var(--sans);color:var(--info);white-space:nowrap}
+.now{position:absolute;top:-4px;bottom:-4px;width:2px;background:#fff;pointer-events:none}
+.srv{position:relative;height:18px;margin-top:22px;border-radius:5px;background:#0a0c12;border:1px dashed #3a4354}
+.srv .cov{position:absolute;top:0;bottom:0;background:#5aa9ff1c}
+.srv .lt{position:absolute;top:2px;width:3px;height:12px;margin-left:-1px;background:var(--info);border-radius:1px;cursor:pointer}
+.srv .lt.death{background:var(--bad)}
+.axis{position:relative;height:16px;font:11px var(--mono);color:var(--dim)}.axis span{position:absolute;transform:translateX(-50%)}
+.detail{margin-top:14px;display:none}.detail.on{display:block;animation:fade .3s}
+.detail h3{margin:0 0 6px;font:900 20px var(--sans)}.detail p{margin:0 0 10px;color:#c8d0dc;line-height:1.5}
+.detail pre{margin-bottom:6px}
+.method{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.5}
+/* tab 2 */
+.caught{display:grid;grid-template-columns:1.1fr 1fr;gap:18px}
+.still{width:100%;border-radius:12px;display:block;border:1px solid var(--line)}
+.quote{font:900 38px/1.1 var(--sans);margin:10px 0 6px}.quote em{font-style:normal;color:var(--dim);font-size:18px;display:block;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.big{font-size:20px;font-weight:800;padding:14px 26px;border-radius:12px;border:none;background:var(--bad);color:#fff;cursor:pointer;margin:16px 0;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 30px #ff4d5e55;transition:.2s}
+.big:hover{transform:translateY(-2px)}
+.reveal>div{opacity:0;transform:translateY(16px);transition:.5s}.reveal.on>div{opacity:1;transform:none}
+.reveal.on>div:nth-child(2){transition-delay:.35s}.reveal.on>div:nth-child(3){transition-delay:.7s}.reveal.on>div:nth-child(4){transition-delay:1.05s}
+.evi{border-left:4px solid var(--bad);background:#ff4d5e0d;border-radius:8px;padding:10px 14px;margin:10px 0}
+.evi b{font-size:22px;color:var(--bad)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.vs div{border-radius:10px;padding:12px;border:1px solid var(--line);background:#0006}.vs .n{font:900 46px var(--mono)}
+.stamp{position:absolute;left:50%;margin-left:-190px;width:380px;top:440px;font:900 40px/1.05 var(--sans);color:var(--bad);border:5px solid var(--bad);padding:10px 16px;border-radius:10px;transform:rotate(-12deg) scale(3);opacity:0;letter-spacing:.06em;text-align:center;pointer-events:none;background:#07080ccc}
+.stamp.on{animation:stamp .5s 1.5s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes stamp{to{transform:rotate(-12deg) scale(1);opacity:1}}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:8px 10px;vertical-align:top;border-bottom:1px solid var(--line);text-align:left}th{color:var(--dim);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+/* tab 3 */
+.bars .row{display:grid;grid-template-columns:190px 1fr 230px;gap:14px;align-items:center;margin:16px 0}
+.bars .name{font:800 15px var(--mono)}
+.bars .b{height:20px;border-radius:5px;margin:3px 0;width:0;transition:width 1.2s cubic-bezier(.2,.9,.3,1);display:flex;align-items:center;padding-left:8px;font:700 11px var(--mono);color:#000c;white-space:nowrap}
+.bars .b.pro{background:var(--pro)}.bars .b.narrow{color:var(--pro);padding-left:22px;overflow:visible}
+.bars .b.SLOW{background:var(--warn)}.bars .b.FLAG{background:var(--bad);color:#fff}.bars .b.OK{background:var(--good)}
+.ratio{font:900 24px var(--mono);white-space:nowrap;text-align:right}.ratio small{display:block;font-size:12px;font-weight:800;letter-spacing:.12em}
+.ratio.SLOW{color:var(--warn)}.ratio.FLAG{color:var(--bad)}.ratio.OK{color:var(--good)}
+.total{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}.total .card{flex:1;min-width:240px}
+.hero{font:900 72px/1 var(--mono)}
+footer{border-top:1px solid var(--line);margin-top:26px;padding:16px 28px 24px;color:var(--dim);font-size:13px;display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
+footer code{font:12px var(--mono);background:var(--panel);padding:4px 8px;border-radius:6px;color:var(--ink)}
+@media (max-width:1000px){.grid,.caught{grid-template-columns:1fr}.toasts{width:300px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Split<b>Check</b></div>
+  <nav>
+    <button data-tab="t1" class="on">Replay: agent-06</button>
+    <button data-tab="t2">Caught: agent-01</button>
+    <button data-tab="t3">Published agent vs pro</button>
+  </nav>
+</header>
+<main>
+<section id="t1" class="tab on">
+  <div class="chips" id="chips"></div>
+  <div class="grid">
+    <div class="card">
+      <div class="vidwrap"><video id="vid" preload="auto" muted playsinline></video></div>
+      <div class="ctrl"><button class="play" id="play">▶</button>
+        <div class="scrub" id="scrub"><div class="trk"></div><div class="fill" id="fill"></div><div id="sticks"></div><div class="knob" id="knob"></div></div>
+        <div class="vt" id="vt"></div></div>
+      <div class="method" id="method"></div>
+    </div>
+    <div class="card">
+      <div class="lbl">Run clock (agent wall clock, s since spawn)</div>
+      <div class="clock" id="clock">0.0</div>
+      <div class="lbl" style="margin-top:14px">Current agent action</div>
+      <div class="act" id="act"></div>
+      <div class="lbl">Inventory</div>
+      <div class="inv" id="inv"></div><div class="src" id="invsrc"></div>
+      <div class="lbl">Latest log line · agent_runs/agent-06/events.jsonl</div>
+      <pre class="raw" id="raw"></pre>
+      <div class="race"><div class="lbl">Race to the Nether · agent vs ghost pro (2:49 run)</div>
+        <div class="lane"><span class="who">AGENT</span><div class="dot agent" id="dA"></div><div class="goal">NETHER</div></div>
+        <div class="lane"><span class="who">PRO</span><div class="dot pro" id="dP"></div><div class="goal">NETHER</div></div>
+        <div class="banner" id="banner"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card tl">
+    <div class="lbl">Full run · 0 – <span id="endt"></span> s · click any segment or marker</div>
+    <div class="strip" id="strip"></div>
+    <div class="srv" id="srv" title="server log"></div>
+    <div class="axis" id="axis"></div>
+    <div class="method" id="srvnote"></div>
+    <div class="detail" id="detail"></div>
+  </div>
+</section>
+
+<section id="t2" class="tab">
+  <div class="caught">
+    <div class="card"><div class="lbl">evidence/footage/agent-01-chests.mp4 · first frame · the portal site after the failed build</div><img class="still" id="still" alt="agent-01 portal site"><div class="stamp" id="stamp">SELF-REPORT<br>CONTRADICTED</div></div>
+    <div class="card" style="min-height:520px">
+      <div class="quote" id="quote"></div>
+      <button class="big" id="check">Check it</button>
+      <div class="reveal" id="reveal">
+        <div class="vs" id="vs"></div>
+        <div class="evi" id="e1"></div>
+        <div class="evi" id="e2"></div>
+        <div id="others"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="t3" class="tab">
+  <div class="card"><div class="lbl">Published LLM agent (montage) vs verified pro 2:49 run · same seed · bars scaled to seconds</div>
+    <div class="bars" id="bars"></div></div>
+  <div class="total" id="total"></div>
+</section>
+</main>
+<div class="toasts" id="toasts"></div>
+<footer><span><b>Deterministic:</b> every number from evaluator outputs; reruns byte-identical; AI used only for validated perception.</span><code id="repro"></code></footer>
+<script id="demo-data" type="application/json">/*__DATA__*/null</script>
+<script>
+const D=JSON.parse(document.getElementById('demo-data').textContent);
+const $=id=>document.getElementById(id), R=D.replay, C=R.clip;
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button,.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');$(b.dataset.tab).classList.add('on');if(b.dataset.tab==='t3')grow();if(b.dataset.tab!=='t1')vid.pause()});
+$('repro').textContent=D.reproduce;
+// ---------- TAB 1
+const H=location.hash.slice(1);
+R.headline.forEach(h=>$('chips').append(el('div','chip '+h.kind,esc(h.text))));
+$('method').innerHTML='<b>Alignment:</b> '+esc(C.method);
+const vid=$('vid');vid.src=C.src;
+function runT(v){const f=v*C.fps,i=Math.max(0,Math.min(C.frames.length-1,Math.floor(f)));const j=Math.min(C.frames.length-1,i+1);return C.frames[i]+(C.frames[j]-C.frames[i])*(f-Math.floor(f))}
+function vidT(rt){let lo=0;while(lo<C.frames.length-1&&C.frames[lo+1]<=rt)lo++;return lo/C.fps}
+const rowAt=t=>{let r=R.rows[0];for(const x of R.rows){if(x.t<=t)r=x;else break}return r};
+let lastRow=null,shown=new Set(),bannerOn=false;
+function render(){
+  const v=vid.currentTime||0,t=runT(v),dur=vid.duration||C.frames.length/C.fps;
+  $('clock').innerHTML=t.toFixed(1)+'<small> s</small>';
+  $('vt').innerHTML='clip '+v.toFixed(1)+' / '+dur.toFixed(1)+' s<br>run_t '+t.toFixed(2)+' s';
+  
+  const p=v/dur*100;$('fill').style.width=p+'%';$('knob').style.left=p+'%';
+  const r=rowAt(t);
+  if(r!==lastRow){lastRow=r;const a=$('act');a.className='act '+r.action.state;a.textContent=r.action.text;
+    $('raw').innerHTML='<span class="ln">'+r.line+'</span>'+esc(r.raw);
+    const inv=$('inv');inv.innerHTML='';const items=Object.entries(r.inv);if(!items.length)inv.append(el('div','slot','(empty)'));
+    items.forEach(([k,n])=>inv.append(el('div','slot'+(k==='obsidian'?' obs':'')+(n===0?' zero':''),esc(k)+'<b>'+n+'</b>')));
+    $('invsrc').textContent=r.inv_src}
+  const pa=Math.min(1,t/R.portal_t),pp=Math.min(1,t/R.pro_portal_in);
+  $('dA').style.left='calc('+(pa*100)+'% - '+(pa*46)+'px)';$('dP').style.left='calc('+(pp*100)+'% - '+(pp*46)+'px)';
+  const b=$('banner');if(t>=R.portal_t&&!bannerOn){bannerOn=true;b.classList.add('on')}else if(t<R.portal_t&&bannerOn){bannerOn=false;b.classList.remove('on')}
+  if(t>=R.portal_t){const lead=Math.min(t,R.pro_portal_in)-R.portal_t;b.textContent=t>=R.pro_portal_in?'AGENT +'+R.ahead_s.toFixed(1)+' s AHEAD OF PRO':'AGENT +'+lead.toFixed(1)+' s AHEAD OF PRO · pro still in overworld'}
+  R.toasts.forEach((x,i)=>{if(t>=x.t&&t<x.t+6&&!shown.has(i)){shown.add(i);toast(x)}else if(t<x.t)shown.delete(i)});
+  $('now').style.left=(t/R.end_t*100)+'%';
+}
+function toast(x){const e=el('div','toast '+x.kind,'<h4>'+esc(x.title)+'</h4><p>'+esc(x.body)+'</p>');$('toasts').prepend(e);setTimeout(()=>{e.style.transition='.4s';e.style.opacity=0;e.style.transform='translateX(120%)';setTimeout(()=>e.remove(),450)},5200)}
+let raf;function loop(){render();raf=requestAnimationFrame(loop)}
+vid.addEventListener('play',()=>{$('play').textContent='❚❚';cancelAnimationFrame(raf);loop()});
+vid.addEventListener('pause',()=>{$('play').textContent='▶';cancelAnimationFrame(raf);render()});
+vid.addEventListener('ended',()=>{$('play').textContent='↺'});
+vid.addEventListener('loadedmetadata',()=>{ticks();render()});vid.addEventListener('seeked',render);
+$('play').onclick=()=>{if(vid.ended)vid.currentTime=0;vid.paused?vid.play():vid.pause()};
+const sc=$('scrub');let drag=false;
+function seekEv(e){const r=sc.getBoundingClientRect();const f=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));vid.currentTime=f*(vid.duration||C.frames.length/C.fps);render()}
+sc.onpointerdown=e=>{drag=true;sc.setPointerCapture(e.pointerId);seekEv(e)};sc.onpointermove=e=>{if(drag)seekEv(e)};sc.onpointerup=()=>drag=false;
+document.addEventListener('keydown',e=>{if(!$('t1').classList.contains('on'))return;if(e.code==='Space'){e.preventDefault();$('play').click()}if(e.code==='ArrowRight')vid.currentTime+=1;if(e.code==='ArrowLeft')vid.currentTime-=1});
+function ticks(){const s=$('sticks');s.innerHTML='';const dur=vid.duration||C.frames.length/C.fps;R.toasts.forEach(x=>{if(x.t<C.t0||x.t>C.t1)return;const k=el('div','tick');k.style.left=(vidT(x.t)/dur*100)+'%';k.style.background={good:'var(--good)',bad:'var(--bad)',info:'var(--pro)'}[x.kind];k.title=x.title;s.append(k)})}
+// timeline strip
+$('endt').textContent=R.end_t.toFixed(1);
+const X=t=>(t/R.end_t*100)+'%',strip=$('strip');
+R.segments.forEach(s=>{const e=el('div','seg '+s.kind,esc(s.label));e.style.left=X(s.t0);e.style.width='calc('+X(s.t1-s.t0)+' - 2px)';e.title=s.title;e.onclick=()=>detail(s,s.t0,s.t1);strip.append(e)});
+R.markers.forEach((m,i)=>{const e=el('div','mk','<span style="'+(i%2?'top:-16px;':'')+'transform:translateX(-100%)">'+esc(m.label)+' '+m.t.toFixed(1)+'</span>');e.style.left=X(m.t);e.title=m.title;e.onclick=()=>detail(m,m.t);strip.append(e)});
+const w=el('div','win','<span>▼ video clip '+C.t0.toFixed(1)+'–'+C.t1.toFixed(1)+' s</span>');w.style.left=X(C.t0);w.style.width=X(C.t1-C.t0);strip.append(w);
+const nw=el('div','now');nw.id='now';strip.append(nw);
+const srv=$('srv'),S=R.server;const cv=el('div','cov');cv.style.left=X(Math.max(0,S.span[0]));cv.style.right='0';srv.append(cv);
+S.logs.forEach(l=>{if(l.t<0||l.t>R.end_t)return;const e=el('div','lt'+(l.kind==='death'?' death':''));e.style.left=X(l.t);e.title='server log line '+l.line+' · t='+l.t+' s · '+l.text;e.onclick=()=>detail({title:'Server log line '+l.line,finding:l.text+' (t='+l.t+' s, kind '+l.kind+')',evidence:[]},l.t);srv.append(e)});
+$('srvnote').innerHTML='<b>Server-log coverage</b> (agent_runs/agent-06/server_events.jsonl, t='+S.span[0]+'–'+S.span[1]+' s): log-tail lines shown as ticks ('+S.logs.length+' join/advancement/death lines). RCON position samples: '+S.samples+', with the player online in '+S.online+' — so the evaluator has <b>no server position evidence</b> for this run; nether entry and death are corroborated only by the log-tail advancement and death lines.';
+[0,50,100,150,200,250,300,350].forEach(t=>{const s=el('span',null,t+'s');s.style.left=X(t);$('axis').append(s)});
+function detail(s,t0,t1){const d=$('detail');d.classList.remove('on');void d.offsetWidth;d.classList.add('on');
+  d.innerHTML='<h3>'+esc(s.title)+'</h3><p>'+(t1!=null?'t='+t0.toFixed(3)+'–'+t1.toFixed(3)+' s · ':'t='+t0.toFixed(3)+' s · ')+esc(s.finding)+'</p>'+(s.evidence||[]).map(e=>'<pre class="raw"><span class="ln">'+e.line+'</span>'+esc(e.raw)+'</pre>').join('');
+  if(t0>=C.t0&&t0<=C.t1){vid.currentTime=vidT(t0);render()}}
+render();
+// ---------- TAB 2
+const K=D.caught;$('still').src=K.still;
+$('quote').innerHTML='<em>Agent summary · log line '+K.claimed.line+'</em>“actions '+K.claimed.actions+' · failures '+K.claimed.failures+'”';
+$('vs').innerHTML='<div><div class="lbl">Claimed</div><div class="n">'+K.claimed.actions+' / '+K.claimed.failures+'</div>actions / failures</div><div style="border-color:var(--bad)"><div class="lbl">In the log</div><div class="n" style="color:var(--bad)">'+K.actual.actions+' / '+K.actual.failures+'</div>actions / failures</div>';
+$('e1').innerHTML='<b>Line 27 · build_portal FAILED</b><br>'+esc(K.build.message)+'<pre class="raw" style="margin-top:8px"><span class="ln">27</span>'+esc(K.build.raw)+'</pre>';
+$('e2').innerHTML='<b>Obsidian 21 → 17, 0 placed</b><br>'+esc(K.obsidian);
+$('others').innerHTML='<div class="lbl" style="margin-top:14px">Same contradiction in every other live run</div><table><tr><th>run</th><th>findings</th><th>evaluator message</th></tr>'+K.others.map(o=>'<tr><td style="white-space:nowrap"><b>'+o.run+'</b></td><td>'+o.count+'</td><td style="font:12px var(--mono)">'+o.messages.map(esc).join('<br>')+'</td></tr>').join('')+'</table>';
+$('check').onclick=()=>{$('reveal').classList.add('on');$('stamp').classList.add('on');$('check').style.display='none'};
+// ---------- TAB 3
+const P=D.published,mx=Math.max(...P.segments.map(s=>s.agent_s_high));
+$('bars').innerHTML=P.segments.map(s=>'<div class="row"><div class="name">'+s.segment+'</div><div><div class="b pro'+(s.pro_s/mx<.08?' narrow':'')+'" data-w="'+(s.pro_s/mx*100)+'">pro '+s.pro_s+' s</div><div class="b '+s.verdict+'" data-w="'+(s.agent_s_high/mx*100)+'">agent '+s.agent_s_low+'–'+s.agent_s_high+' s</div></div><div class="ratio '+s.verdict+'">'+s.ratio_low.toFixed(2)+'–'+s.ratio_high.toFixed(2)+'x<small>'+s.verdict+'</small></div></div>').join('');
+const T=P.total;
+$('total').innerHTML='<div class="card"><div class="lbl">Total vs pro 2:49 ('+T.pro_s+' s IGT)</div><div class="hero">'+T.ratio_low.toFixed(2)+'x</div>agent '+T.agent_s_low+'–'+T.agent_s_high+' s · ratio '+T.ratio_low+'–'+T.ratio_high+' · run median '+P.median+'</div>'+
+'<div class="card" style="border-color:var(--bad)"><div class="lbl" style="color:var(--bad)">FLAG · exit_to_end_portal · missed_shortcut</div><div class="hero" style="color:var(--bad);font-size:48px">'+P.segments[2].ratio_low.toFixed(0)+'–'+P.segments[2].ratio_high.toFixed(0)+'x</div><p style="color:#c8d0dc;line-height:1.5">'+esc(P.missed_shortcut)+'</p><p class="method">Rule (baseline/rules.json): '+esc(P.missed_shortcut_rule)+'</p></div>'+
+'<div class="card"><div class="lbl">Evaluator fixtures</div><div class="hero" style="color:var(--good)">'+P.fixtures.filter(f=>f.pass).length+'/'+P.fixtures.length+'</div>'+P.fixtures.map(f=>'<div style="font:13px var(--mono);margin:4px 0">'+(f.pass?'<span style="color:var(--good)">PASS</span>':'<span style="color:var(--bad)">FAIL</span>')+' '+esc(f.fixture)+'</div>').join('')+'</div>';
+if(H){const tb=H.slice(0,2);document.querySelector('nav button[data-tab="'+tb+'"]').click();if(H==='t2r')$('check').click();if(H==='t1d'){const s=R.segments[2];detail(s,s.t0,s.t1)}if(H==='t1v'){vid.addEventListener('loadedmetadata',()=>{vid.currentTime=vidT(R.portal_t+1);})}}
+function grow(){document.querySelectorAll('.bars .b').forEach(b=>{b.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>b.style.width=b.dataset.w+'%'))})}
+</script>
+</body>
+</html>

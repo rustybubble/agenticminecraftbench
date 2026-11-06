@@ -1,0 +1,762 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 3,
+    "knowledge_features": [
+      "chest_ruined_portal",
+      "chest_village_weaponsmith",
+      "chest_west",
+      "entry_portal_site"
+    ],
+    "merged_waste_intervals": [
+      [
+        58.216,
+        357.191
+      ],
+      [
+        357.195,
+        383.041
+      ]
+    ],
+    "meta": {
+      "duration_s": 383.041,
+      "event_type_counts": {
+        "death": 1,
+        "linger": 1,
+        "route_exit_portal": 1,
+        "route_inventory": 1,
+        "route_loot": 3,
+        "route_portal": 1,
+        "route_start": 1,
+        "route_state": 1,
+        "route_step": 7,
+        "skill_result": 10,
+        "skill_start": 10,
+        "spawn": 1,
+        "summary": 1,
+        "viewer": 1
+      },
+      "knowledge_source": "route_start",
+      "lines": 40,
+      "live_agent": {
+        "deaths": [
+          39
+        ],
+        "inventory_snapshots": [
+          {
+            "inv": {
+              "bread": 7,
+              "diamond_horse_armor": 1,
+              "flint_and_steel": 1,
+              "glistering_melon_slice": 4,
+              "gold_ingot": 2,
+              "golden_leggings": 1,
+              "iron_helmet": 2,
+              "iron_ingot": 5,
+              "iron_pickaxe": 1,
+              "iron_sword": 1,
+              "mossy_cobblestone": 1,
+              "netherrack": 5,
+              "oak_planks": 1,
+              "saddle": 1,
+              "warped_fungus": 1
+            },
+            "line": 37,
+            "t": 357.195
+          }
+        ],
+        "loot_lines": [
+          8,
+          14,
+          20
+        ],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 6,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 12.811
+          },
+          {
+            "error": null,
+            "line": 8,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 12.969
+          },
+          {
+            "error": null,
+            "line": 12,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 34.261
+          },
+          {
+            "error": null,
+            "line": 14,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 35.315
+          },
+          {
+            "error": null,
+            "line": 18,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 39.808
+          },
+          {
+            "error": null,
+            "line": 20,
+            "ok": true,
+            "placed": null,
+            "skill": "loot_chest",
+            "t": 39.864
+          },
+          {
+            "error": null,
+            "line": 24,
+            "ok": true,
+            "placed": null,
+            "skill": "goto",
+            "t": 40.912
+          },
+          {
+            "error": null,
+            "line": 27,
+            "ok": true,
+            "placed": 14,
+            "skill": "build_portal",
+            "t": 58.216
+          },
+          {
+            "error": null,
+            "line": 31,
+            "ok": false,
+            "placed": null,
+            "skill": "goto",
+            "t": 298.216
+          },
+          {
+            "error": "frame incomplete",
+            "line": 34,
+            "ok": false,
+            "placed": null,
+            "skill": "build_portal",
+            "t": 357.191
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 5,
+            "skill": "goto",
+            "t": 0.599
+          },
+          {
+            "line": 7,
+            "skill": "loot_chest",
+            "t": 12.811
+          },
+          {
+            "line": 11,
+            "skill": "goto",
+            "t": 13.371
+          },
+          {
+            "line": 13,
+            "skill": "loot_chest",
+            "t": 34.261
+          },
+          {
+            "line": 17,
+            "skill": "goto",
+            "t": 35.716
+          },
+          {
+            "line": 19,
+            "skill": "loot_chest",
+            "t": 39.808
+          },
+          {
+            "line": 23,
+            "skill": "goto",
+            "t": 40.264
+          },
+          {
+            "line": 26,
+            "skill": "build_portal",
+            "t": 41.312
+          },
+          {
+            "line": 30,
+            "skill": "goto",
+            "t": 58.221
+          },
+          {
+            "line": 33,
+            "skill": "build_portal",
+            "t": 298.216
+          }
+        ],
+        "split_events": [],
+        "summary": {
+          "actions": 0,
+          "deaths": 1,
+          "elapsedS": 383,
+          "failures": 0,
+          "finalSplit": null,
+          "line": 40,
+          "runId": "demo-01",
+          "splits": [],
+          "t": 383.041
+        }
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "agent_runs/agent-06/events.jsonl",
+      "run_id": "demo-01",
+      "seed": "8398967436125155523",
+      "t0_epoch": 1793994928.637,
+      "untimed_lines": 0,
+      "version": "1.16.5"
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 40,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": true,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 240.0,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 240.0,
+      "evidence": {
+        "action": "goto",
+        "result": "FAILED: not ok"
+      },
+      "lines": [
+        31
+      ],
+      "message": "line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost",
+      "severity": "high",
+      "t_end": 298.216,
+      "t_start": 58.216
+    },
+    {
+      "attributed_s": 58.975,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 58.975,
+      "evidence": {
+        "action": "build_portal",
+        "result": "FAILED: frame incomplete"
+      },
+      "lines": [
+        34
+      ],
+      "message": "line 34: action 'build_portal' failed (FAILED: frame incomplete); 58.975 s lost",
+      "severity": "high",
+      "t_end": 357.191,
+      "t_start": 298.216
+    },
+    {
+      "attributed_s": 22.418,
+      "category": "micro",
+      "code": "idle",
+      "cost_s": 22.418,
+      "evidence": {
+        "api_wait_s": 0.0,
+        "pos": [
+          -285.50000000000006,
+          67.02442408821369,
+          260.5
+        ],
+        "span_s": 22.418
+      },
+      "lines": [
+        37,
+        39
+      ],
+      "message": "lines 37-39: no movement or inventory change for 22.418 s at (-285.5, 67.0, 260.5) (22.418 s excluding API waits)",
+      "severity": "medium",
+      "t_end": 379.613,
+      "t_start": 357.195
+    },
+    {
+      "attributed_s": 3.428,
+      "category": "safety",
+      "code": "death",
+      "cost_s": 3.428,
+      "evidence": {
+        "dim": "the_nether",
+        "event": "death",
+        "inventory_at_death": {
+          "bread": 7,
+          "diamond_horse_armor": 1,
+          "flint_and_steel": 1,
+          "glistering_melon_slice": 4,
+          "gold_ingot": 2,
+          "golden_leggings": 1,
+          "iron_helmet": 2,
+          "iron_ingot": 5,
+          "iron_pickaxe": 1,
+          "iron_sword": 1,
+          "mossy_cobblestone": 1,
+          "netherrack": 5,
+          "oak_planks": 1,
+          "saddle": 1,
+          "warped_fungus": 1
+        },
+        "logged": true,
+        "pos": [
+          -127.25199223336416,
+          28.130302127825992,
+          105.35856444201643
+        ]
+      },
+      "lines": [
+        39
+      ],
+      "message": "line 39: death at (-127.25199223336416, 28.130302127825992, 105.35856444201643) in the_nether; never returned to the death spot (default cost, capped at run end); 3.428 s",
+      "severity": "high",
+      "t_end": 383.041,
+      "t_start": 379.613
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          6,
+          8,
+          12,
+          14,
+          18,
+          20,
+          24,
+          27,
+          31,
+          34
+        ],
+        "field": "actions",
+        "logged": 10,
+        "summary_line": 40
+      },
+      "lines": [
+        6,
+        8,
+        12,
+        14,
+        18,
+        20,
+        24,
+        27,
+        31,
+        34,
+        40
+      ],
+      "message": "line 40: summary claims actions=0, but the log shows 10 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 31, 34)",
+      "severity": "high",
+      "t_end": 383.041,
+      "t_start": 383.041
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": null,
+        "evidence_lines": [
+          28
+        ],
+        "field": "finalSplit",
+        "logged": "nether_entered",
+        "summary_line": 40
+      },
+      "lines": [
+        28,
+        40
+      ],
+      "message": "line 40: summary claims finalSplit=None, but the log shows 'nether_entered' (last milestone reached in the log: lines 28)",
+      "severity": "high",
+      "t_end": 383.041,
+      "t_start": 383.041
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          28
+        ],
+        "field": "splits",
+        "logged": 1,
+        "summary_line": 40
+      },
+      "lines": [
+        28,
+        40
+      ],
+      "message": "line 40: summary claims splits=0, but the log shows 1 (milestones reached in the log: lines 28)",
+      "severity": "high",
+      "t_end": 383.041,
+      "t_start": 383.041
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "claim",
+      "code": "self_report_contradiction",
+      "cost_s": 0.0,
+      "evidence": {
+        "claimed": 0,
+        "evidence_lines": [
+          31,
+          34
+        ],
+        "field": "failures",
+        "logged": 2,
+        "summary_line": 40
+      },
+      "lines": [
+        31,
+        34,
+        40
+      ],
+      "message": "line 40: summary claims failures=0, but the log shows 2 (skill_result lines with ok:false: lines 31, 34)",
+      "severity": "high",
+      "t_end": 383.041,
+      "t_start": 383.041
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 4
+        }
+      },
+      "lines": [
+        8
+      ],
+      "message": "line 8: gathered {'bread': 4} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 12.969,
+      "t_start": 12.811
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "excess_food",
+      "cost_s": 0.0,
+      "evidence": {
+        "difficulty": "peaceful",
+        "food_stat": null,
+        "items": {
+          "bread": 3
+        }
+      },
+      "lines": [
+        14
+      ],
+      "message": "line 14: gathered {'bread': 3} but difficulty is peaceful (hunger never drops); 0.0 s (picked up alongside route items, no time charged)",
+      "severity": "low",
+      "t_end": 35.315,
+      "t_start": 34.261
+    }
+  ],
+  "progress": {
+    "failed_at": null,
+    "steps": [
+      {
+        "agent_t": 12.969,
+        "agent_t_lo": null,
+        "delta_hi": -16.031,
+        "delta_lo": -20.031,
+        "line": 8,
+        "note": "village chest (iron_pickaxe 1, obsidian 6)",
+        "pro_hi": 33.0,
+        "pro_lo": 29.0,
+        "pro_source": "pro_2m49_playbook.md: \"Village supply chest at about 0:51–0:55: iron pickaxe, 6 obsidian\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": 35.315,
+        "agent_t_lo": null,
+        "delta_hi": -18.685,
+        "delta_lo": -18.685,
+        "line": 14,
+        "note": "obsidian chest (iron_ingot 6, obsidian 11)",
+        "pro_hi": 54.0,
+        "pro_lo": 54.0,
+        "pro_source": "pro_2m49_playbook.md: \"the chest with 11 obsidian and iron at about 1:16\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": 39.864,
+        "agent_t_lo": null,
+        "delta_hi": -9.136,
+        "delta_lo": -11.136,
+        "line": 20,
+        "note": "flint chest (flint 1, obsidian 4)",
+        "pro_hi": 51.0,
+        "pro_lo": 49.0,
+        "pro_source": "pro_2m49_playbook.md: \"Ruined-portal chest with flint and 4 obsidian at about 1:11–1:13\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": 357.195,
+        "agent_t_lo": 39.864,
+        "delta_hi": 297.195,
+        "delta_lo": 296.195,
+        "line": 37,
+        "note": "first seen in inventory at line 37 (no craft event in the log); crafted after the flint pickup at t=39.864 (line 20)",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": 41.312,
+        "agent_t_lo": null,
+        "delta_hi": -13.688,
+        "delta_lo": -13.688,
+        "line": 26,
+        "note": "build_portal skill started",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": 58.216,
+        "agent_t_lo": null,
+        "delta_hi": -4.784,
+        "delta_lo": -4.784,
+        "line": 27,
+        "note": "build_portal ok",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": 58.221,
+        "agent_t_lo": null,
+        "delta_hi": -4.779,
+        "delta_lo": -5.779,
+        "line": 28,
+        "note": "implied by nether entry (no lit event)",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": 58.221,
+        "agent_t_lo": null,
+        "delta_hi": -8.479,
+        "delta_lo": -8.479,
+        "line": 28,
+        "note": "nether_entered",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "run_facts": {
+    "facts": {
+      "agent": "full route attempt",
+      "difficulty": null,
+      "first_attempt": null,
+      "first_attempt_world": false,
+      "interventions": null,
+      "interventions_none": false,
+      "live": false,
+      "outcome": null,
+      "outcome_short": null,
+      "planner_model": null,
+      "planner_model_text": null,
+      "run_id": null,
+      "source": "agent_runs/agent-06/RUN_NOTES.md",
+      "title": "demo-01 — full route attempt, 1.16.5 seed 8398967436125155523"
+    },
+    "fairness_not_applicable": {
+      "rng": "this run never reached the End, so dragon RNG plays no part"
+    }
+  },
+  "score": {
+    "attributed_waste_s": 324.821,
+    "efficiency": 0.152,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.2,
+    "milestones_reached": 1,
+    "milestones_total": 5,
+    "overlap_removed_s": 0.0,
+    "raw_cost_sum_s": 324.821,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 383.041,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 321.393,
+      "safety": 3.428
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        383.041
+      ],
+      "notes": [],
+      "server_first_t_s": null,
+      "server_last_t_s": null,
+      "server_samples": 0,
+      "snapshots_checked": 0,
+      "snapshots_without_server_sample": [
+        1,
+        6,
+        8,
+        12,
+        14,
+        18,
+        20,
+        24,
+        27,
+        31,
+        34,
+        37,
+        40
+      ]
+    },
+    "findings": [],
+    "server_log": "agent_runs/agent-06/server_events.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    },
+    {
+      "event_type": "nether_entered",
+      "line": 28,
+      "split": "nether_entry",
+      "time_s": 58.221
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 324.821,
+    "efficiency": 0.152,
+    "findings": 10,
+    "findings_by_category": {
+      "claim": 4,
+      "decision": 0,
+      "micro": 5,
+      "safety": 1
+    },
+    "findings_by_severity": {
+      "high": 7,
+      "low": 2,
+      "medium": 1
+    },
+    "log": "agent_runs/agent-06/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": true,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 383.041
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 321.393,
+    "safety": 3.428
+  }
+}
