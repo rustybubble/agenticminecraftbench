@@ -107,5 +107,7 @@
       "tag": "failed_or_retried_action"
     }
   ],
-  "waste_extra_unmapped_codes": {}
+  "waste_extra_unmapped_codes": {
+    "skill_warnings": 1
+  }
 }

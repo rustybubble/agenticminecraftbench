@@ -1,0 +1,364 @@
+{
+  "comparison": [],
+  "coverage": {
+    "detector_errors": {},
+    "detectors_run": [
+      "action_loop",
+      "damage_taken",
+      "death",
+      "excess_food",
+      "excess_materials",
+      "excess_tools",
+      "failed_action",
+      "idle",
+      "inventory_loss_without_effect",
+      "lost_drop",
+      "mining_in_water",
+      "no_progress",
+      "obsidian_source",
+      "oscillation",
+      "overshoot_waypoint",
+      "overworld_travel_when_nether_known",
+      "path_efficiency",
+      "place_then_recover",
+      "portal_method",
+      "self_report_contradiction",
+      "skill_trouble",
+      "stage_time",
+      "unneeded_structure_visit"
+    ],
+    "events": 1,
+    "knowledge_features": [],
+    "merged_waste_intervals": [
+      [
+        1.433,
+        181.577
+      ]
+    ],
+    "meta": {
+      "duration_s": 181.577,
+      "event_type_counts": {
+        "route_travel": 1,
+        "skill_result": 2,
+        "skill_start": 3,
+        "spawn": 1,
+        "stream": 1
+      },
+      "knowledge_source": "none",
+      "lines": 8,
+      "live_agent": {
+        "deaths": [],
+        "inventory_snapshots": [],
+        "loot_lines": [],
+        "skill_results": [
+          {
+            "error": null,
+            "line": 4,
+            "ok": true,
+            "placed": null,
+            "skill": "travel_legs",
+            "t": 1.434
+          },
+          {
+            "error": null,
+            "line": 7,
+            "ok": false,
+            "placed": null,
+            "skill": "build_portal",
+            "t": 181.577
+          }
+        ],
+        "skill_starts": [
+          {
+            "line": 3,
+            "skill": "travel_legs",
+            "t": 1.433
+          },
+          {
+            "line": 6,
+            "skill": "build_portal",
+            "t": 1.434
+          },
+          {
+            "line": 8,
+            "skill": "build_portal_here",
+            "t": 181.577
+          }
+        ],
+        "split_events": [],
+        "summary": null
+      },
+      "malformed_line_numbers": [],
+      "malformed_lines": 0,
+      "path": "runs/live/demo-06/events.jsonl",
+      "t0_epoch": 1793996874.67,
+      "untimed_lines": 0
+    },
+    "pro_splits": null,
+    "route_sheet": null,
+    "samples": 8,
+    "seed_dir": null,
+    "seed_error": null,
+    "seed_features": [
+      "beds",
+      "chests",
+      "difficulty",
+      "end_portal",
+      "entry_portal",
+      "entry_portal_nether_side",
+      "exit_portal",
+      "exit_portal_overworld_side",
+      "hazards_source",
+      "kit",
+      "lava_pools",
+      "nether_route",
+      "route_source",
+      "seed",
+      "spawn",
+      "stronghold_chests",
+      "supply_chests",
+      "supply_totals",
+      "supply_totals_source",
+      "version",
+      "village",
+      "water"
+    ],
+    "seed_match": null,
+    "source": "live_agent"
+  },
+  "findings": [
+    {
+      "attributed_s": 180.143,
+      "category": "micro",
+      "code": "failed_action",
+      "cost_s": 180.143,
+      "evidence": {
+        "action": "build_portal",
+        "result": "FAILED: not ok"
+      },
+      "lines": [
+        7
+      ],
+      "message": "line 7: action 'build_portal' failed (FAILED: not ok); 180.143 s lost",
+      "severity": "high",
+      "t_end": 181.577,
+      "t_start": 1.434
+    },
+    {
+      "attributed_s": 0.001,
+      "category": "micro",
+      "code": "no_progress",
+      "cost_s": 0.001,
+      "evidence": {
+        "action": "travel_legs",
+        "pos": [
+          -135.60075131622224,
+          41.0,
+          98.51811417394585
+        ]
+      },
+      "lines": [
+        3,
+        4
+      ],
+      "message": "lines 3-4: 'travel_legs' succeeded but position and inventory are unchanged; 0.001 s lost",
+      "severity": "medium",
+      "t_end": 1.434,
+      "t_start": 1.433
+    }
+  ],
+  "progress": {
+    "failed_at": {
+      "line": 7,
+      "note": "build_portal failed: None",
+      "step": "portal_built"
+    },
+    "steps": [
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_1"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_2"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": null,
+        "pro_lo": null,
+        "pro_source": null,
+        "reached": false,
+        "step": "chest_3"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 61.0,
+        "pro_lo": 60.0,
+        "pro_source": "pro_2m49_playbook.md: \"Flint and steel crafted in the 2×2 inventory grid at about 1:22–1:23\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "flint_and_steel"
+      },
+      {
+        "agent_t": 1.434,
+        "agent_t_lo": null,
+        "delta_hi": -53.566,
+        "delta_lo": -53.566,
+        "line": 6,
+        "note": "build_portal skill started",
+        "pro_hi": 55.0,
+        "pro_lo": 55.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": true,
+        "step": "portal_build_attempted"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": 7,
+        "note": "build_portal failed: None",
+        "pro_hi": 63.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"Frame built at 1:17–1:25\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_built"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 64.0,
+        "pro_lo": 63.0,
+        "pro_source": "pro_2m49_playbook.md: \"portal lit at about 1:25–1:26\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "portal_lit"
+      },
+      {
+        "agent_t": null,
+        "agent_t_lo": null,
+        "line": null,
+        "note": "not reached",
+        "pro_hi": 66.7,
+        "pro_lo": 66.7,
+        "pro_source": "pro_2m49_playbook.md: \"M_portal_in | 1:28.7\" (video time minus M_start 0:22.0)",
+        "reached": false,
+        "step": "nether_entered"
+      }
+    ]
+  },
+  "score": {
+    "attributed_waste_s": 180.144,
+    "efficiency": 0.0079,
+    "efficiency_formula": "(total_time_s - attributed_waste_s) / total_time_s",
+    "milestone_completion": 0.0,
+    "milestones_reached": 0,
+    "milestones_total": 5,
+    "overlap_removed_s": 0.0,
+    "raw_cost_sum_s": 180.144,
+    "split_ratio_vs_pro_last": null,
+    "split_ratio_vs_pro_mean": null,
+    "total_time_s": 181.577,
+    "waste_by_category_s": {
+      "claim": 0.0,
+      "decision": 0.0,
+      "micro": 180.144,
+      "safety": 0.0
+    }
+  },
+  "server_crosscheck": {
+    "coverage": {
+      "agent_span_s": [
+        0.0,
+        181.577
+      ],
+      "notes": [],
+      "server_first_t_s": 0.841,
+      "server_last_t_s": 194.661,
+      "server_samples": 194,
+      "snapshots_checked": 3,
+      "snapshots_without_server_sample": []
+    },
+    "findings": [
+      {
+        "category": "claim",
+        "code": "agent_server_mismatch",
+        "cost_s": 0.0,
+        "evidence": {
+          "dt_s": 0.061,
+          "field": "position"
+        },
+        "lines": [
+          7
+        ],
+        "message": "agent line 7 reports pos (-135.6, 41.0, 98.5) (the_nether); server line 234 (t=181.638) has (-124.5, 42.0, 97.5) (the_nether), 11.19 blocks apart",
+        "server_lines": [
+          234
+        ],
+        "severity": "high",
+        "t_end": 181.577,
+        "t_start": 181.577
+      }
+    ],
+    "server_log": "runs/live/demo-06/server.jsonl"
+  },
+  "splits": [
+    {
+      "event_type": "start",
+      "line": 1,
+      "split": "start",
+      "time_s": 0.0
+    }
+  ],
+  "summary": {
+    "attributed_waste_s": 180.144,
+    "efficiency": 0.0079,
+    "findings": 2,
+    "findings_by_category": {
+      "claim": 0,
+      "decision": 0,
+      "micro": 2,
+      "safety": 0
+    },
+    "findings_by_severity": {
+      "high": 1,
+      "low": 0,
+      "medium": 1
+    },
+    "log": "runs/live/demo-06/events.jsonl",
+    "milestones": {
+      "dragon_kill": false,
+      "end_entry": false,
+      "game_won": false,
+      "nether_entry": false,
+      "nether_exit": false
+    },
+    "source": "live_agent",
+    "total_time_s": 181.577
+  },
+  "waste_by_category": {
+    "claim": 0.0,
+    "decision": 0.0,
+    "micro": 180.144,
+    "safety": 0.0
+  }
+}

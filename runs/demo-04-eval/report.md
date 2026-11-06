@@ -67,7 +67,7 @@ The pro's RTA-IGT gap is 5.396 s, mostly portal loads that the agent's segments 
 
 ## RunEval summary
 
-Total 62.191 s, attributed waste (overlaps merged) 0.182 s, efficiency 0.997, milestones 0/5, findings 2. Full detail in runeval.json.
+Total 62.191 s, attributed waste (overlaps merged) 0.182 s, efficiency 0.997, milestones 0/5, findings 3. Full detail in runeval.json.
 
 ## Claims cross-check
 

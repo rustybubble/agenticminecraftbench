@@ -23,6 +23,7 @@
       "place_then_recover",
       "portal_method",
       "self_report_contradiction",
+      "skill_trouble",
       "stage_time",
       "unneeded_structure_visit"
     ],
@@ -161,6 +162,22 @@
       "severity": "medium",
       "t_end": 62.191,
       "t_start": 62.13
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "skill_warnings",
+      "cost_s": 0.0,
+      "evidence": {
+        "report_only": true
+      },
+      "lines": [
+        4
+      ],
+      "message": "agent logged 1 skill warning(s): 1x 'Took to long to decide path to goal!' (lines 4)",
+      "severity": "low",
+      "t_end": 0.0,
+      "t_start": 0.0
     }
   ],
   "progress": {
@@ -347,16 +364,16 @@
   "summary": {
     "attributed_waste_s": 0.182,
     "efficiency": 0.9971,
-    "findings": 2,
+    "findings": 3,
     "findings_by_category": {
       "claim": 0,
       "decision": 0,
-      "micro": 2,
+      "micro": 3,
       "safety": 0
     },
     "findings_by_severity": {
       "high": 0,
-      "low": 0,
+      "low": 1,
       "medium": 2
     },
     "log": "runs/live/demo-04/events.jsonl",

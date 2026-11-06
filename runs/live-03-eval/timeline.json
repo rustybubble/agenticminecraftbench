@@ -198,6 +198,7 @@
     }
   ],
   "waste_extra_unmapped_codes": {
-    "self_report_contradiction": 2
+    "self_report_contradiction": 2,
+    "skill_warnings": 1
   }
 }

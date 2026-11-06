@@ -425,7 +425,7 @@ Perception findings: portal_outcome_check, visible_feature_ignored
 
 - Outcome: **did not finish; failed at step `portal_built` (line 8: build_portal failed: no clear 4x5 site near the bot)**
 - Milestones reached: 0/5
-- Total time 62.191 s; attributed waste 0.182 s; efficiency 0.9971; findings 2 {"claim": 0, "decision": 0, "micro": 2, "safety": 0}
+- Total time 62.191 s; attributed waste 0.182 s; efficiency 0.9971; findings 3 {"claim": 0, "decision": 0, "micro": 3, "safety": 0}
 - Inputs: server log yes, perception no; full outputs in runs/demo-04-eval/
 
 **Claims findings**
@@ -488,6 +488,68 @@ Perception findings: portal_outcome_check, visible_feature_ignored
 | portal_built | no | - | 63 | - | build_portal failed: no clear 4x5 site near the bot |
 | portal_lit | no | - | 63-64 | - | not reached |
 | nether_entered | no | - | 66.7 | - | not reached |
+
+### demo-06
+
+- Outcome: **did not finish; failed at step `portal_built` (line 7: build_portal failed: None)**
+- Milestones reached: 0/5
+- Total time 181.577 s; attributed waste 180.144 s; efficiency 0.0079; findings 2 {"claim": 0, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-06-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 0
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 1
+  - agent line 7 reports pos (-135.6, 41.0, 98.5) (the_nether); server line 234 (t=181.638) has (-124.5, 42.0, 97.5) (the_nether), 11.19 blocks apart
+
+**Top waste findings**
+
+1. `failed_action` (micro, 180.143 s): line 7: action 'build_portal' failed (FAILED: not ok); 180.143 s lost
+2. `no_progress` (micro, 0.001 s): lines 3-4: 'travel_legs' succeeded but position and inventory are unchanged; 0.001 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not reached |
+| chest_2 | no | - | - | - | not reached |
+| chest_3 | no | - | - | - | not reached |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | yes | 1.434 | 55 | -53.566..-53.566 | build_portal skill started |
+| portal_built | no | - | 63 | - | build_portal failed: None |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### demo-07
+
+- Outcome: **did not finish**
+- Milestones reached: 0/5
+- Total time 91.652 s; attributed waste 0 s; efficiency 1; findings 2 {"claim": 0, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/demo-07-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 0
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+
+**Top waste findings**
+
+- none with cost > 0
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | no | - | - | - | not derivable from this log |
+| chest_2 | no | - | - | - | not derivable from this log |
+| chest_3 | no | - | - | - | not derivable from this log |
+| flint_and_steel | no | - | 60-61 | - | not derivable from this log |
+| portal_build_attempted | no | - | 55 | - | not derivable from this log |
+| portal_built | no | - | 63 | - | not derivable from this log |
+| portal_lit | no | - | 63-64 | - | not derivable from this log |
+| nether_entered | no | - | 66.7 | - | not derivable from this log |
 
 ### foot-01
 
@@ -685,7 +747,7 @@ Perception findings: portal_outcome_check, visible_feature_ignored
 
 - Outcome: **did not finish**
 - Milestones reached: 0/5
-- Total time 231.565 s; attributed waste 194.243 s; efficiency 0.1612; findings 12 {"claim": 2, "decision": 0, "micro": 10, "safety": 0}
+- Total time 231.565 s; attributed waste 194.243 s; efficiency 0.1612; findings 13 {"claim": 2, "decision": 0, "micro": 11, "safety": 0}
 - Inputs: server log yes, perception no; full outputs in runs/live-03-eval/
 
 **Claims findings**
@@ -785,4 +847,4 @@ python -m splitcheck.check --root <generic_root> --costs ../splits/time_costs.js
 cd .. && bash make_submission.sh
 ```
 
-Determinism: two packs built into separate temp dirs; 83 files compared with filecmp (shallow=False): **all byte-identical**
+Determinism: two packs built into separate temp dirs; 93 files compared with filecmp (shallow=False): **all byte-identical**

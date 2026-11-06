@@ -248,6 +248,22 @@ def no_progress(tl, ctx):
     return out
 
 
+def _open_skill_spans(tl):
+    """live_agent logs only report position when a skill RESULT is logged, so the time between a
+    skill_start and its skill_result (or the log end, if it never resolved) is 'executing', not idle.
+    Returns [(t0, t1, skill, line)]."""
+    m = (tl.meta or {}).get("live_agent") or {}
+    starts = sorted(m.get("skill_starts") or [], key=lambda x: x.get("t") or 0)
+    results = sorted(m.get("skill_results") or [], key=lambda x: x.get("t") or 0)
+    end_t = max((s.t for s in tl.samples), default=0.0)
+    spans = []
+    for st in starts:
+        t0 = st.get("t") or 0.0
+        nxt = next((r for r in results if (r.get("t") or 0) >= t0 and r.get("skill") in (None, st.get("skill"))), None)
+        spans.append((t0, (nxt.get("t") if nxt else end_t), st.get("skill"), st.get("line")))
+    return spans
+
+
 def idle(tl, ctx):
     """No position (> idle_move_blocks) or inventory change for >= idle_min_s, API-wait time excluded.
     Explicit wait/idle actions are flagged too. Windows containing world-effect actions are skipped."""
@@ -283,6 +299,9 @@ def idle(tl, ctx):
             if j + 1 < len(pts) and pts[j + 1].t - b.t <= 1.5 and any(
                     v > 0 for v in _delta(b.inv or {}, pts[j + 1].inv or {}).values()):
                 world = True
+            busy = sum(max(0.0, min(b.t, t1) - max(a.t, t0)) for t0, t1, _sk, _ln in _open_skill_spans(tl))
+            if span > 0 and busy / span > 0.5:
+                world = True  # a skill was executing (agent log has no positions until it returns)
             cost = span - _overlap(a.t, b.t, waits)
             portal = j + 1 < len(pts) and _norm_dim(pts[j + 1].dim) != _norm_dim(b.dim)
             if portal:  # standing in a nether portal for the 80-tick transfer is required
@@ -955,10 +974,48 @@ def inventory_loss_without_effect(tl, ctx):
 BUILD_RE = re.compile(r"build|place|portal_frame", re.I)
 
 
+def skill_trouble(tl, ctx):
+    """live_agent: report-only (cost 0) evidence of trouble the agent logged without failing a skill:
+    skill_warn lines (e.g. 'Took to long to decide path to goal!', 'lava ahead, sidestep') and skills
+    that started but never returned before the log ended (run stopped mid-action)."""
+    import json as _json
+    out = []
+    path = (tl.meta or {}).get("path")
+    warns = []
+    if path:
+        try:
+            for i, line in enumerate(open(path), 1):
+                try:
+                    e = _json.loads(line)
+                except ValueError:
+                    continue
+                if e.get("type") == "skill_warn":
+                    warns.append((i, e.get("skill"), str(e.get("error"))))
+        except OSError:
+            pass
+    if warns:
+        kinds = {}
+        for ln, sk, err in warns:
+            kinds.setdefault(err, []).append(ln)
+        msg = "; ".join(f"{len(v)}x '{k}' (lines {', '.join(map(str, v[:6]))})" for k, v in sorted(kinds.items()))
+        out.append(Finding("skill_warnings", "micro", "low", 0.0, 0.0, 0.0, [l for l, _, _ in warns][:20],
+                           f"agent logged {len(warns)} skill warning(s): {msg}", {"report_only": True}))
+    results = (tl.meta or {}).get("live_agent", {}).get("skill_results") or []
+    end_t = max((x.t for x in tl.samples), default=0.0)
+    for t0, t1, sk, ln in _open_skill_spans(tl):
+        if not any((r.get("t") or 0) >= t0 for r in results) and end_t - t0 > 5:
+            out.append(Finding("unfinished_skill", "micro", "medium", t0, end_t, 0.0, [ln] if ln else [],
+                               f"line {ln}: skill '{sk}' started at t={t0} s and never returned before the log "
+                               f"ended at t={round(end_t, 3)} s (run stopped mid-action; no result to verify)",
+                               {"report_only": True}))
+    return out
+
+
 REGISTRY = {
     "failed_action": failed_action,
     "no_progress": no_progress,
     "idle": idle,
+    "skill_trouble": skill_trouble,
     "action_loop": action_loop,
     "oscillation": oscillation,
     "place_then_recover": place_then_recover,

@@ -23,6 +23,7 @@
       "place_then_recover",
       "portal_method",
       "self_report_contradiction",
+      "skill_trouble",
       "stage_time",
       "unneeded_structure_visit"
     ],
@@ -497,6 +498,23 @@
       "severity": "medium",
       "t_end": 103.445,
       "t_start": 103.445
+    },
+    {
+      "attributed_s": 0.0,
+      "category": "micro",
+      "code": "skill_warnings",
+      "cost_s": 0.0,
+      "evidence": {
+        "report_only": true
+      },
+      "lines": [
+        6,
+        29
+      ],
+      "message": "agent logged 2 skill warning(s): 2x 'Path was stopped before it could be completed! Thus, the desired goal was not reached.' (lines 6, 29)",
+      "severity": "low",
+      "t_end": 0.0,
+      "t_start": 0.0
     }
   ],
   "progress": {
@@ -772,16 +790,16 @@
   "summary": {
     "attributed_waste_s": 194.243,
     "efficiency": 0.1612,
-    "findings": 12,
+    "findings": 13,
     "findings_by_category": {
       "claim": 2,
       "decision": 0,
-      "micro": 10,
+      "micro": 11,
       "safety": 0
     },
     "findings_by_severity": {
       "high": 3,
-      "low": 0,
+      "low": 1,
       "medium": 9
     },
     "log": "runs/live/live-03/events.jsonl",

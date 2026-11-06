@@ -194,16 +194,16 @@
  "summary": {
   "attributed_waste_s": 0.182,
   "efficiency": 0.9971,
-  "findings": 2,
+  "findings": 3,
   "findings_by_category": {
    "claim": 0,
    "decision": 0,
-   "micro": 2,
+   "micro": 3,
    "safety": 0
   },
   "findings_by_severity": {
    "high": 0,
-   "low": 0,
+   "low": 1,
    "medium": 2
   },
   "log": "runs/live/demo-04/events.jsonl",
