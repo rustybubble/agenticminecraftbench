@@ -19,7 +19,7 @@ import os
 import subprocess
 import sys
 
-TOP = "SplitCheck · {run} · MC {ver} · seed {seed} · difficulty {diff} · server-verified"
+TOP = "Minecraft {ver} · seed {seed} · difficulty {diff} · {run} · live agent · server-verified"
 
 
 def ts(value):

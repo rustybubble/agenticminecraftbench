@@ -70,6 +70,24 @@ function parseArgs (argv) {
     run.log({ type: 'route_portal', result: built.result, dimension: run.bot.game.dimension })
   }
 
+  if (args.nether && run.bot.game.dimension === 'the_nether') {
+    // reference route: nether-side travel points, then build the exit portal near the End portal
+    run.log({ type: 'route_step', step: 'nether_travel', action: 'goto', target: { x: -139, y: 41, z: 100 } })
+    await run.executor.run({ name: 'goto', args: { x: -139, y: 41, z: 100, range: 3 } }, { timeoutMs: 240000 })
+    run.log({ type: 'route_step', step: 'build_exit_portal', action: 'build_portal' })
+    const exit = await run.executor.run({ name: 'build_portal', args: {} }, { timeoutMs: 240000 })
+    console.log('exit portal:', JSON.stringify(exit.result))
+    run.log({ type: 'route_exit_portal', result: exit.result, dimension: run.bot.game.dimension })
+
+    if (run.bot.game.dimension === 'overworld') {
+      run.log({ type: 'route_step', step: 'end_portal', action: 'goto', target: { x: -1130, y: 34, z: 856 } })
+      await run.executor.run({ name: 'goto', args: { x: -1130, y: 34, z: 856, range: 3 } }, { timeoutMs: 180000 })
+      const end = await run.executor.run({ name: 'enter_portal', args: {} }, { timeoutMs: 45000 })
+      run.log({ type: 'route_end', result: end.result, dimension: run.bot.game.dimension })
+      console.log('end entry:', JSON.stringify(end.result), run.bot.game.dimension)
+    }
+  }
+
   // what the frame looks like now
   const frame = run.observer.snapshot().blocks
   run.log({ type: 'route_state', obsidian: frame.obsidian, netherPortal: frame.netherPortal })

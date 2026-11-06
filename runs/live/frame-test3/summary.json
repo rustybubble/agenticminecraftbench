@@ -1,0 +1,17 @@
+{
+  "runId": "frame-test3",
+  "startedAt": "2026-11-06T19:48:39.325Z",
+  "endedAt": "2026-11-06T19:49:57.000Z",
+  "elapsedS": 78,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": -279.7,
+    "y": 65,
+    "z": 264.40046599541904
+  },
+  "memory": []
+}

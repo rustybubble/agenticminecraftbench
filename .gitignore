@@ -23,3 +23,6 @@ evidence/footage/*.ass
 live/client/.cache/
 
 agent_runs/*/frames/
+
+runs/live/*/frames/
+runs/live/*/clipframes/

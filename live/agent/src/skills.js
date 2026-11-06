@@ -502,56 +502,89 @@ class Skills {
   async buildPortalFrame ({ x, y, z, plane = 'x' }) {
     this.check()
     if (!this.has('obsidian', 1)) return { ok: false, error: 'no obsidian in inventory' }
-    const at = (dz, dy) => plane === 'x'
-      ? { x: Math.round(x), y: Math.round(y + dy), z: Math.round(z + dz) }
-      : { x: Math.round(x + dz), y: Math.round(y + dy), z: Math.round(z) }
-    const targets = []
-    for (const dz of [0, 1, 2, 3]) targets.push(at(dz, 0))
-    for (const dz of [0, 1, 2, 3]) targets.push(at(dz, 4))
-    for (const dy of [1, 2, 3]) { targets.push(at(0, dy)); targets.push(at(3, dy)) }
+    const V = require('vec3')
+    const at = (d, h) => plane === 'x'
+      ? new V(Math.round(x), Math.round(y + h), Math.round(z + d))
+      : new V(Math.round(x + d), Math.round(y + h), Math.round(z))
+
+    // Frame: bottom 4, top 4, sides 3+3. Build bottom-up so every block rests on a placed
+    // block or the ground (that is the only face a player can reliably click).
+    const order = []
+    for (let d = 0; d <= 3; d++) order.push(at(d, 0))
+    for (let h = 1; h <= 3; h++) { order.push(at(0, h)); order.push(at(3, h)) }
+    // top row: corners first, then the middles (their only neighbour is the top row itself)
+    order.push(at(0, 4)); order.push(at(3, 4))
+    for (let d = 1; d <= 2; d++) order.push(at(d, 4))
+
+    // Stand two blocks off the plane, on the open side, and never walk into the frame.
+    const normal = plane === 'x' ? 'x' : 'z'
+    const base = plane === 'x' ? { x: Math.round(x), z: Math.round(z) } : { x: Math.round(x), z: Math.round(z) }
+    const probe = (sign) => {
+      const b = plane === 'x'
+        ? this.bot.blockAt(new V(base.x + sign, Math.round(y), base.z + 1))
+        : this.bot.blockAt(new V(base.x + 1, Math.round(y), base.z + sign))
+      return b && (b.name === 'air' || /grass|dirt|sand|stone/.test(b.name))
+    }
+    const sgn = probe(1) ? 1 : probe(-1) ? -1 : 1
+    const stand = plane === 'x'
+      ? { x: base.x + 2 * sgn, y: Math.round(y), z: base.z + 1.5 }
+      : { x: base.x + 1.5, y: Math.round(y), z: base.z + 2 * sgn }
 
     const placed = []
     const failed = []
-    for (const t of targets) {
+    for (const t of order) {
       this.check()
-      const cur = this.bot.blockAt(new (require('vec3'))(t.x, t.y, t.z))
+      const cur = this.bot.blockAt(t)
       if (cur && cur.name === 'obsidian') continue
-      if (cur && cur.name === 'crying_obsidian') { failed.push({ ...t, reason: 'crying_obsidian' }); continue }
       if (cur && cur.name !== 'air') {
-        // a tree or grass in the way: clear what a player could clear
-        if (/log|leaves|grass|fern|flower|dirt|gravel|snow/.test(cur.name)) {
-          try { await this.dig(cur) } catch (e) { failed.push({ ...t, reason: `clear failed: ${e.message}` }); continue }
-        } else { failed.push({ ...t, reason: `occupied by ${cur.name}` }); continue }
+        if (/log|leaves|grass|fern|flower|dirt|gravel|snow|tall_grass/.test(cur.name)) {
+          try { await this.dig(cur) } catch (e) { failed.push({ pos: t.toArray(), reason: `clear: ${e.message}` }); continue }
+        } else { failed.push({ pos: t.toArray(), reason: `occupied ${cur.name}` }); continue }
       }
-      if (this.bot.entity.position.distanceTo(new (require('vec3'))(t.x, t.y, t.z)) > 4) {
-        try { await this.goto(t.x, t.y, t.z, 3) } catch {}
+      // move along the stand line so every target is inside reach; never into the plane
+      try { await this.bot.pathfinder.goto(new (require('mineflayer-pathfinder').goals).GoalNear(
+        Math.round(stand.x), Math.round(stand.y), Math.round(plane === 'x' ? t.z : t.x), 1)) } catch {}
+
+      // Reference can be any solid neighbour: below for the bottom row, a placed side block for
+      // the top middle (its own below is the open interior).
+      const NEIGHBOURS = [
+        { d: [0, -1, 0], f: [0, 1, 0] }, { d: [0, 0, 1], f: [0, 0, -1] },
+        { d: [0, 0, -1], f: [0, 0, 1] }, { d: [1, 0, 0], f: [-1, 0, 0] },
+        { d: [-1, 0, 0], f: [1, 0, 0] }, { d: [0, 1, 0], f: [0, -1, 0] }
+      ]
+      let ref = null, face = null
+      for (const n of NEIGHBOURS) {
+        const b = this.bot.blockAt(t.offset(n.d[0], n.d[1], n.d[2]))
+        if (b && b.name !== 'air' && !/water|lava/.test(b.name)) { ref = b; face = n.f; break }
       }
-      let ok = false
+      if (!ref) { failed.push({ pos: t.toArray(), reason: 'no reference neighbour' }); continue }
+
       const before = this.count('obsidian')
-      for (let attempt = 0; attempt < 4 && !ok; attempt++) {
-        await this.equip('obsidian')
-        const faces = [[0, -1, 0, 0, 1, 0], [0, 1, 0, 0, -1, 0], [0, 0, 1, 0, 0, -1], [0, 0, -1, 0, 0, 1],
-          [1, 0, 0, -1, 0, 0], [-1, 0, 0, 1, 0, 0]]
-        const [ox, oy, oz, fx, fy, fz] = faces[attempt % faces.length]
-        const ref = this.bot.blockAt(new (require('vec3'))(t.x + ox, t.y + oy, t.z + oz))
-        if (!ref || ref.name === 'air' || ref.name === 'obsidian') continue
-        try {
-          await this.bot.lookAt(ref.position.offset(0.5 + fx, 0.5 + fy, 0.5 + fz))
-          await this.bot.placeBlock(ref, new (require('vec3'))(fx, fy, fz))
-          await sleep(180)
-        } catch {}
-        // The server's block update lands ~200-400ms late; a single read is the exact bug the
-        // reference repo fixed. Poll for it, and accept an inventory delta as secondary proof.
-        for (let wait = 0; wait < 6 && !ok; wait++) {
-          await sleep(150)
-          const got = this.bot.blockAt(new (require('vec3'))(t.x, t.y, t.z))
-          ok = !!got && got.name === 'obsidian'
-        }
-        if (!ok && this.count('obsidian') < before) ok = true // placed, state not yet echoed
+      await this.equip('obsidian')
+      // Reach is measured from the eye, not the feet: top row is 4 up and needs the jump a
+      // player uses. Vanilla reach is 4.5 blocks.
+      const needsJump = (t.y - this.bot.entity.position.y) >= 3
+      const eye = this.bot.entity.position.offset(0, 1.62 + (needsJump ? 1.2 : 0), 0)
+      const reach = eye.distanceTo(t.offset(0.5, 0.5, 0.5))
+      if (reach > 4.45) { failed.push({ pos: t.toArray(), reason: `out of reach ${reach.toFixed(1)}` }); continue }
+      if (needsJump) this.bot.setControlState('jump', true)
+      if (needsJump) await sleep(240)
+      try {
+        await this.bot.lookAt(ref.position.offset(0.5 + face[0] * 0.5, 0.5 + face[1] * 0.5, 0.5 + face[2] * 0.5), true)
+        await this.bot.placeBlock(ref, new V(face[0], face[1], face[2]))
+      } catch (e) { /* fall through to verification */ }
+      if (needsJump) { this.bot.setControlState('jump', false); await sleep(120) }
+
+      let ok = false
+      for (let w = 0; w < 6 && !ok; w++) {
+        await sleep(140)
+        const got = this.bot.blockAt(t)
+        ok = !!got && got.name === 'obsidian'
       }
-      if (ok) placed.push(t); else failed.push({ ...t, reason: 'placement failed' })
+      if (!ok && this.count('obsidian') < before) ok = true // server accepted, state not echoed
+      if (ok) placed.push(t.toArray()); else failed.push({ pos: t.toArray(), reason: 'place failed' })
     }
-    return { ok: failed.length === 0, placed: placed.length, failed, targets: targets.length }
+    return { ok: failed.length === 0, placed: placed.length, failed, targets: order.length, stand, sgn }
   }
 
   async buildAndLightPortal (args = {}) {
@@ -603,11 +636,27 @@ class Skills {
       })
     }
     if (!frame) return { ok: false, error: 'no obsidian frame' }
-    await this.goto(frame.position.x, frame.position.y, frame.position.z, 3)
-    await this.bot.lookAt(frame.position.offset(0, 1, 0), true)
-    await this.bot.activateItem()
-    await sleep(900)
-    return { ok: !!this.findBlock('nether_portal', 16), note: 'lit frame' }
+    // stand two blocks off the frame plane, not on top of it
+    const p = this.bot.entity.position
+    const dx = p.x - frame.position.x
+    const stand = frame.position.offset(dx >= 0 ? 2 : -2, 0, 0)
+    try { await this.goto(stand.x, stand.y, stand.z, 1) } catch {}
+    await this.bot.lookAt(frame.position.offset(0.5, 1.0, 0.5), true)
+    // flint & steel is an item *used on a block*: activateItem() only swings it at the air,
+    // which is why the frame stayed unlit. activateBlock sends the block_place packet.
+    let err = null
+    try { await this.bot.activateBlock(frame) } catch (e) { err = String(e.message) }
+    await sleep(700)
+    // interior check: 2x3 volume above the bottom row
+    const V = require('vec3')
+    const isPortal = () => !!this.findBlock('nether_portal', 8)
+    let lit = isPortal()
+    if (!lit) {
+      try { await this.bot.activateItem() } catch {}
+      await sleep(700)
+      lit = isPortal()
+    }
+    return { ok: lit, frame: frame.position.toArray(), note: lit ? 'lit' : `not lit${err ? ' (' + err + ')' : ''}` }
   }
 
   async enterPortal (ms = 15000) {
