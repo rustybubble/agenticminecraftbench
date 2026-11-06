@@ -306,6 +306,704 @@
       "t_start": 36.568
     }
   ],
+  "perception": {
+    "backend": "claude",
+    "backend_params": {
+      "backend": "claude",
+      "cli_version": "2.1.319 (Claude Code)",
+      "effort": null
+    },
+    "distinct_frames": 34,
+    "findings": [
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "lava_visible",
+          "frames": [
+            {
+              "frame_sha": "eeb9c3e69fb431f999f7ac7123184122bcecf3189a8189e6e7ec54d4d5a2e66c",
+              "run_t": 32.039,
+              "video_t": 32.039
+            },
+            {
+              "frame_sha": "59e9b1e98a7740d67cf78ebef6f1435119b61eaa7de3c44e3265f6ea8e13a7a1",
+              "run_t": 32.122,
+              "video_t": 32.122
+            },
+            {
+              "frame_sha": "1d1b4da2dedd17277df015778fd4ada98fa6f115a2d9c3f5c96623544cb8a6a3",
+              "run_t": 32.168,
+              "video_t": 32.168
+            },
+            {
+              "frame_sha": "096fcff9919a674b7d7680d7ffdb93eecfafadf043c115e9638e90462560d648",
+              "run_t": 32.618,
+              "video_t": 32.618
+            },
+            {
+              "frame_sha": "f9bc42fc7270be7be361f3c1e498b6cd5b1ef4fd4dd133ff197899a59e0420e3",
+              "run_t": 32.687,
+              "video_t": 32.687
+            },
+            {
+              "frame_sha": "c604409df0d3ee71733d36f50c6d1fe74d8e0c109b538fe37d54d897bc07d603",
+              "run_t": 32.986,
+              "video_t": 32.986
+            },
+            {
+              "frame_sha": "0bcd8d36d5e286d3a264f392f56b4c6b44e6e38df28d6419edb2daef4c70eec9",
+              "run_t": 33.12,
+              "video_t": 33.12
+            },
+            {
+              "frame_sha": "05fe99974b701de4aa6e5c0f301d8c9375b74af90c8301691197af18517226f9",
+              "run_t": 33.172,
+              "video_t": 33.172
+            },
+            {
+              "frame_sha": "4e5303efa24396b8ec7f2eb9602ea2d81aea265baff5b407c271720f7803a3fc",
+              "run_t": 33.651,
+              "video_t": 33.651
+            },
+            {
+              "frame_sha": "d8b5c44bc20b5964ff08f3300c05a80b7898e934491c3b41e58b8fd23f7fb90b",
+              "run_t": 33.686,
+              "video_t": 33.686
+            },
+            {
+              "frame_sha": "2f4bc1dd8ff13457fa4a5809011e2fd7e05ee14eb042d914df3f1471ddd53646",
+              "run_t": 34.007,
+              "video_t": 34.007
+            },
+            {
+              "frame_sha": "c5249c297048a45c8825f145d333ce0ef1b10241858d461ea7121dd7eb108d01",
+              "run_t": 34.154,
+              "video_t": 34.154
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.652,
+              "video_t": 34.652
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.689,
+              "video_t": 34.689
+            },
+            {
+              "frame_sha": "3fa1568322a299877af18a77b28a0527291bee52c6fa3acac556e92e9ea5a22d",
+              "run_t": 35.0,
+              "video_t": 35.0
+            },
+            {
+              "frame_sha": "0aa30c96657a9a97ab797d3f4c1a6dbec634c01e6d6ca0f2df2da419e89ce6bd",
+              "run_t": 35.134,
+              "video_t": 35.134
+            },
+            {
+              "frame_sha": "bcb73c2d64311d2e3e7c3df7d669935004a1a35a14c2d54c25efbceb67ab5141",
+              "run_t": 35.172,
+              "video_t": 35.172
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.637,
+              "video_t": 35.637
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.688,
+              "video_t": 35.688
+            },
+            {
+              "frame_sha": "13784ee9b0db9c69b5766f05398055c6a3efa5c60c97c64ed62930694e40fe06",
+              "run_t": 35.984,
+              "video_t": 35.984
+            },
+            {
+              "frame_sha": "094a64548b069fc24c636beacefb2c735c10b97ad0a46d455ef94f4abfb38ba3",
+              "run_t": 36.118,
+              "video_t": 36.118
+            },
+            {
+              "frame_sha": "a2f3928f3eaf5ff5be28bcf2010b4eb6d410954679702c0faed3332ece58647b",
+              "run_t": 36.184,
+              "video_t": 36.184
+            },
+            {
+              "frame_sha": "ae0c9a4545c66a49f46a1d7d248c0fcd0033f45e055362d60eb7ce6ac51df117",
+              "run_t": 36.635,
+              "video_t": 36.635
+            },
+            {
+              "frame_sha": "8865f0268f677f40d234c89a604c4fef393f3d9f780f1c64432932e8f1c56bfc",
+              "run_t": 36.685,
+              "video_t": 36.685
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.0,
+              "video_t": 37.0
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.151,
+              "video_t": 37.151
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.189,
+              "video_t": 37.189
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.634,
+              "video_t": 37.634
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.674,
+              "video_t": 37.674
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.985,
+              "video_t": 37.985
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.135,
+              "video_t": 38.135
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.167,
+              "video_t": 38.167
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.617,
+              "video_t": 38.617
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.654,
+              "video_t": 38.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.001,
+              "video_t": 39.001
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.12,
+              "video_t": 39.12
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.168,
+              "video_t": 39.168
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.654,
+              "video_t": 39.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 40.004,
+              "video_t": 40.004
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.134,
+              "video_t": 40.134
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.17,
+              "video_t": 40.17
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.654,
+              "video_t": 40.654
+            },
+            {
+              "frame_sha": "ab3012819865f982e2d3827c9b5b53a4861cf17aff4a1f2d0ff48cb5fe7cc750",
+              "run_t": 41.001,
+              "video_t": 41.001
+            },
+            {
+              "frame_sha": "c1dbb289f60d18dc9da23900807d71cead0920a76ba69204d2b5e9fba057ee83",
+              "run_t": 41.139,
+              "video_t": 41.139
+            },
+            {
+              "frame_sha": "4ecbc2829e84b7b3507431cc9a5c21b30fad9c8effb051feab4c9db7787cb4cd",
+              "run_t": 41.186,
+              "video_t": 41.186
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.636,
+              "video_t": 41.636
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.684,
+              "video_t": 41.684
+            },
+            {
+              "frame_sha": "52824faf9cc7b7676cc68137535244b935e4cb00b4c43d6e3eb884b0afa527ce",
+              "run_t": 42.0,
+              "video_t": 42.0
+            },
+            {
+              "frame_sha": "ea9e90a3541d435daaf9397effca0bbedc65f54efad0f6b1ea42cc2ce1a487c3",
+              "run_t": 42.134,
+              "video_t": 42.134
+            },
+            {
+              "frame_sha": "b7aea9da147f0ed46f3cb7e8896bc2d4fb9ab7406a64ab07cb614f0ad13b70f6",
+              "run_t": 42.168,
+              "video_t": 42.168
+            },
+            {
+              "frame_sha": "f6a6a89a0f955443f54ad1198ef43036399b572330965adb04f70d215e8925a8",
+              "run_t": 42.64,
+              "video_t": 42.64
+            },
+            {
+              "frame_sha": "d69f00ef9d20d7603e46efd938dbd10dc9da0c28657839899331ca2712ce1f72",
+              "run_t": 42.685,
+              "video_t": 42.685
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.019,
+              "video_t": 43.019
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.135,
+              "video_t": 43.135
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.166,
+              "video_t": 43.166
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.617,
+              "video_t": 43.617
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.684,
+              "video_t": 43.684
+            }
+          ],
+          "label": "perception-assisted",
+          "low_confidence": true,
+          "perception_assisted": true,
+          "reason": "unvalidated: no ground truth for lava_visible",
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=32.039-43.684 s) (unvalidated: no ground truth for lava_visible); not used as evidence",
+        "severity": "low",
+        "t_end": 43.684,
+        "t_start": 32.039
+      },
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "obsidian_frame",
+          "frames": [
+            {
+              "frame_sha": "eeb9c3e69fb431f999f7ac7123184122bcecf3189a8189e6e7ec54d4d5a2e66c",
+              "run_t": 32.039,
+              "video_t": 32.039
+            },
+            {
+              "frame_sha": "59e9b1e98a7740d67cf78ebef6f1435119b61eaa7de3c44e3265f6ea8e13a7a1",
+              "run_t": 32.122,
+              "video_t": 32.122
+            },
+            {
+              "frame_sha": "1d1b4da2dedd17277df015778fd4ada98fa6f115a2d9c3f5c96623544cb8a6a3",
+              "run_t": 32.168,
+              "video_t": 32.168
+            },
+            {
+              "frame_sha": "096fcff9919a674b7d7680d7ffdb93eecfafadf043c115e9638e90462560d648",
+              "run_t": 32.618,
+              "video_t": 32.618
+            },
+            {
+              "frame_sha": "f9bc42fc7270be7be361f3c1e498b6cd5b1ef4fd4dd133ff197899a59e0420e3",
+              "run_t": 32.687,
+              "video_t": 32.687
+            },
+            {
+              "frame_sha": "c604409df0d3ee71733d36f50c6d1fe74d8e0c109b538fe37d54d897bc07d603",
+              "run_t": 32.986,
+              "video_t": 32.986
+            },
+            {
+              "frame_sha": "0bcd8d36d5e286d3a264f392f56b4c6b44e6e38df28d6419edb2daef4c70eec9",
+              "run_t": 33.12,
+              "video_t": 33.12
+            },
+            {
+              "frame_sha": "05fe99974b701de4aa6e5c0f301d8c9375b74af90c8301691197af18517226f9",
+              "run_t": 33.172,
+              "video_t": 33.172
+            },
+            {
+              "frame_sha": "4e5303efa24396b8ec7f2eb9602ea2d81aea265baff5b407c271720f7803a3fc",
+              "run_t": 33.651,
+              "video_t": 33.651
+            },
+            {
+              "frame_sha": "d8b5c44bc20b5964ff08f3300c05a80b7898e934491c3b41e58b8fd23f7fb90b",
+              "run_t": 33.686,
+              "video_t": 33.686
+            },
+            {
+              "frame_sha": "2f4bc1dd8ff13457fa4a5809011e2fd7e05ee14eb042d914df3f1471ddd53646",
+              "run_t": 34.007,
+              "video_t": 34.007
+            },
+            {
+              "frame_sha": "c5249c297048a45c8825f145d333ce0ef1b10241858d461ea7121dd7eb108d01",
+              "run_t": 34.154,
+              "video_t": 34.154
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.652,
+              "video_t": 34.652
+            },
+            {
+              "frame_sha": "9ab8c8db3bba622384f9ed07345447e14ffb92bdffbd254c3a767859ec23a74d",
+              "run_t": 34.689,
+              "video_t": 34.689
+            },
+            {
+              "frame_sha": "3fa1568322a299877af18a77b28a0527291bee52c6fa3acac556e92e9ea5a22d",
+              "run_t": 35.0,
+              "video_t": 35.0
+            },
+            {
+              "frame_sha": "0aa30c96657a9a97ab797d3f4c1a6dbec634c01e6d6ca0f2df2da419e89ce6bd",
+              "run_t": 35.134,
+              "video_t": 35.134
+            },
+            {
+              "frame_sha": "bcb73c2d64311d2e3e7c3df7d669935004a1a35a14c2d54c25efbceb67ab5141",
+              "run_t": 35.172,
+              "video_t": 35.172
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.637,
+              "video_t": 35.637
+            },
+            {
+              "frame_sha": "219ce56ae2be118efea4fc528eb579f67c1c18c982542cb5610f2eecce62c0f3",
+              "run_t": 35.688,
+              "video_t": 35.688
+            },
+            {
+              "frame_sha": "13784ee9b0db9c69b5766f05398055c6a3efa5c60c97c64ed62930694e40fe06",
+              "run_t": 35.984,
+              "video_t": 35.984
+            },
+            {
+              "frame_sha": "094a64548b069fc24c636beacefb2c735c10b97ad0a46d455ef94f4abfb38ba3",
+              "run_t": 36.118,
+              "video_t": 36.118
+            },
+            {
+              "frame_sha": "a2f3928f3eaf5ff5be28bcf2010b4eb6d410954679702c0faed3332ece58647b",
+              "run_t": 36.184,
+              "video_t": 36.184
+            },
+            {
+              "frame_sha": "ae0c9a4545c66a49f46a1d7d248c0fcd0033f45e055362d60eb7ce6ac51df117",
+              "run_t": 36.635,
+              "video_t": 36.635
+            },
+            {
+              "frame_sha": "8865f0268f677f40d234c89a604c4fef393f3d9f780f1c64432932e8f1c56bfc",
+              "run_t": 36.685,
+              "video_t": 36.685
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.0,
+              "video_t": 37.0
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.151,
+              "video_t": 37.151
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.189,
+              "video_t": 37.189
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.634,
+              "video_t": 37.634
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.674,
+              "video_t": 37.674
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 37.985,
+              "video_t": 37.985
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.135,
+              "video_t": 38.135
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.167,
+              "video_t": 38.167
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.617,
+              "video_t": 38.617
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 38.654,
+              "video_t": 38.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.001,
+              "video_t": 39.001
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.12,
+              "video_t": 39.12
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.168,
+              "video_t": 39.168
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 39.654,
+              "video_t": 39.654
+            },
+            {
+              "frame_sha": "70550207be459b98c8f5d29b7220b24ef25400d162f1bd6d6af08544b1c9e7de",
+              "run_t": 40.004,
+              "video_t": 40.004
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.134,
+              "video_t": 40.134
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.17,
+              "video_t": 40.17
+            },
+            {
+              "frame_sha": "d3f36fe55842e5aadc5c67cfa7a9966b599d918bf09238e42d24c5887bb6e0ab",
+              "run_t": 40.654,
+              "video_t": 40.654
+            },
+            {
+              "frame_sha": "ab3012819865f982e2d3827c9b5b53a4861cf17aff4a1f2d0ff48cb5fe7cc750",
+              "run_t": 41.001,
+              "video_t": 41.001
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.636,
+              "video_t": 41.636
+            },
+            {
+              "frame_sha": "e811e42c70a4a39f3f2880d834ff00f422cbf3b9af8c7c68b699369bb74a2c5a",
+              "run_t": 41.684,
+              "video_t": 41.684
+            },
+            {
+              "frame_sha": "52824faf9cc7b7676cc68137535244b935e4cb00b4c43d6e3eb884b0afa527ce",
+              "run_t": 42.0,
+              "video_t": 42.0
+            },
+            {
+              "frame_sha": "ea9e90a3541d435daaf9397effca0bbedc65f54efad0f6b1ea42cc2ce1a487c3",
+              "run_t": 42.134,
+              "video_t": 42.134
+            },
+            {
+              "frame_sha": "f6a6a89a0f955443f54ad1198ef43036399b572330965adb04f70d215e8925a8",
+              "run_t": 42.64,
+              "video_t": 42.64
+            },
+            {
+              "frame_sha": "d69f00ef9d20d7603e46efd938dbd10dc9da0c28657839899331ca2712ce1f72",
+              "run_t": 42.685,
+              "video_t": 42.685
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.019,
+              "video_t": 43.019
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.135,
+              "video_t": 43.135
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.166,
+              "video_t": 43.166
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.617,
+              "video_t": 43.617
+            },
+            {
+              "frame_sha": "284d73c58079ce7f59385b636399af2217c5ec155a60027ea8e7abf89736df2c",
+              "run_t": 43.684,
+              "video_t": 43.684
+            }
+          ],
+          "label": "perception-assisted",
+          "perception_assisted": true,
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] obsidian frame (ruined portal) visible, but the agent never started a portal skill: first seen t=32.039-43.684 s in 54 confident frame(s) (obsidian_frame accuracy 1.0 (n=32)); report only, seeing a feature on camera does not mean the agent perceived it",
+        "severity": "low",
+        "t_end": 43.684,
+        "t_start": 32.039
+      }
+    ],
+    "frame_span_s": [
+      32.039,
+      43.684
+    ],
+    "frames": 57,
+    "frames_after_run_log_end": 0,
+    "frames_after_server_log": null,
+    "frames_aligned": 57,
+    "frames_in_run": 57,
+    "label": "perception-assisted",
+    "model": "claude-sonnet-5-5",
+    "perception": "runs/perception/agent-05_perception.json",
+    "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
+    "run_duration_s": 51.64,
+    "server_last_t_s": null,
+    "validation": {
+      "error": null,
+      "insufficient_fields": [],
+      "log_consistency": {
+        "obsidian_frame": {
+          "consistent": 25,
+          "n": 25,
+          "source": "agent log claim"
+        },
+        "portal_lit": {
+          "consistent": 57,
+          "n": 57,
+          "source": "agent log claim"
+        }
+      },
+      "min_n": 10,
+      "notes": [
+        "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+      ],
+      "per_field": {
+        "chest_visible": {
+          "accuracy": 0.0,
+          "ci95": [
+            0.0,
+            0.107
+          ],
+          "correct": 0,
+          "n": 32,
+          "sufficient": true
+        },
+        "obsidian_frame": {
+          "accuracy": 1.0,
+          "ci95": [
+            0.893,
+            1.0
+          ],
+          "correct": 32,
+          "n": 32,
+          "sufficient": true
+        },
+        "player_in_water": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "portal_lit": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        },
+        "village_visible": {
+          "accuracy": null,
+          "ci95": null,
+          "correct": 0,
+          "n": 0,
+          "sufficient": false
+        }
+      },
+      "unvalidated_fields": [
+        "portal_lit",
+        "village_visible",
+        "lava_visible",
+        "water_visible",
+        "player_visible",
+        "player_in_water",
+        "player_activity",
+        "confidence"
+      ],
+      "validated_fields": [
+        "chest_visible",
+        "obsidian_frame"
+      ]
+    }
+  },
   "progress": {
     "failed_at": {
       "line": 20,

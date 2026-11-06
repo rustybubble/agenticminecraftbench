@@ -393,13 +393,13 @@
     }
   ],
   "perception": {
-    "backend": "codex",
+    "backend": "claude",
     "backend_params": {
-      "backend": "codex",
-      "cli_version": "codex-cli 0.166.0",
-      "effort": "low"
+      "backend": "claude",
+      "cli_version": "2.1.319 (Claude Code)",
+      "effort": null
     },
-    "distinct_frames": 23,
+    "distinct_frames": 44,
     "findings": [
       {
         "category": "claim",
@@ -435,6 +435,81 @@
               "video_t": 1.99
             },
             {
+              "frame_sha": "bfdea4a0ddae927a08c602b3ef9038a5abfd4f4544709e152ddcf33289cf8872",
+              "run_t": 50.992,
+              "video_t": 2.432
+            },
+            {
+              "frame_sha": "09e5a1a8139a88640139836de47c4a8803846cbb235e87f8fa231f68a2ef1c7f",
+              "run_t": 51.656,
+              "video_t": 3.096
+            },
+            {
+              "frame_sha": "fb7480b43a1ed36cd40f5b317d5397e355fd108acf7009520e6f67bc396b1753",
+              "run_t": 52.098,
+              "video_t": 3.538
+            },
+            {
+              "frame_sha": "6752deef8226d6d4a7bf993c51a48fb344ce9b8d0f735ab1a1569e3fe83975f5",
+              "run_t": 52.54,
+              "video_t": 3.98
+            },
+            {
+              "frame_sha": "aa17127201901ba95f308fc32f4a784ca185ad6818af0e53caca91f50578221c",
+              "run_t": 52.982,
+              "video_t": 4.422
+            },
+            {
+              "frame_sha": "2833ce1c8816e3d95cf92b21eb2f18217c11f736845474814cfa883bc31b2d00",
+              "run_t": 53.646,
+              "video_t": 5.086
+            },
+            {
+              "frame_sha": "0ae537cbac3daa421f8425e0afec93154624512a9fe9b3cd28d20f317e96840c",
+              "run_t": 54.088,
+              "video_t": 5.528
+            },
+            {
+              "frame_sha": "8643d6b3b5162cdbbfddd95861915254168fad24a269a4ce0e4888b035dd063f",
+              "run_t": 54.53,
+              "video_t": 5.97
+            },
+            {
+              "frame_sha": "a86ea376e1e77204a26315d28109e7c56a7e1385dc4da34730d8886f56712b4d",
+              "run_t": 54.973,
+              "video_t": 6.413
+            },
+            {
+              "frame_sha": "afd0b974bb6991c179a0088d1e61ebe0f20e1a13c3302f22fdf52a4478271a41",
+              "run_t": 55.636,
+              "video_t": 7.076
+            },
+            {
+              "frame_sha": "259bc4f2adb37a3bf82dba8297ca46e7c3d7805ea19d14b50b1c5bcefd3c243c",
+              "run_t": 56.078,
+              "video_t": 7.518
+            },
+            {
+              "frame_sha": "08489f2e2fb399a8d1a7bc156d01ef0ec2a08695988301003b978607a3f964db",
+              "run_t": 56.52,
+              "video_t": 7.96
+            },
+            {
+              "frame_sha": "8ae5ace9eb6d0102b9cbf2c410a8c1f5b97786d560e99a22be5ea339cc9df7bc",
+              "run_t": 56.963,
+              "video_t": 8.403
+            },
+            {
+              "frame_sha": "ed58343e0d8898505992b1cd23f55ddc0b6b97484beb9c77a1d6c4d487dc7ae1",
+              "run_t": 57.626,
+              "video_t": 9.066
+            },
+            {
+              "frame_sha": "fd1086decbf60aea455468bff183a27bcc65d9e99614bb8a27e1245931ecbc08",
+              "run_t": 58.51,
+              "video_t": 9.95
+            },
+            {
               "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
               "run_t": 60.501,
               "video_t": 11.941
@@ -468,19 +543,200 @@
         "severity": "low",
         "t_end": 68.045,
         "t_start": 48.045
+      },
+      {
+        "category": "decision",
+        "code": "visible_feature_ignored",
+        "cost_s": 0.0,
+        "evidence": {
+          "detector": "visible_feature_ignored",
+          "field": "lava_visible",
+          "frames": [
+            {
+              "frame_sha": "a02aa26146662d4b79d17430476a7d9562c2c36a68411eee4b5948f95017da5e",
+              "run_t": 48.56,
+              "video_t": 0.0
+            },
+            {
+              "frame_sha": "d25da6096946a6a4115ce56056350da81c030bd0ad09dc0012de197b657e5998",
+              "run_t": 49.002,
+              "video_t": 0.442
+            },
+            {
+              "frame_sha": "7dc550b266a53a665ad573abe701b7756e2095d1cb946ad0bffa859af27dfd79",
+              "run_t": 49.666,
+              "video_t": 1.106
+            },
+            {
+              "frame_sha": "39ae0576ef489b53f2d68de0802ec49a91f8917edbcd136a435f44ad6fa5c64a",
+              "run_t": 50.108,
+              "video_t": 1.548
+            },
+            {
+              "frame_sha": "5913c75bee3d7863fe44a339079d34c108eaa4361550d773cdc099f6ab7664a6",
+              "run_t": 50.55,
+              "video_t": 1.99
+            },
+            {
+              "frame_sha": "bfdea4a0ddae927a08c602b3ef9038a5abfd4f4544709e152ddcf33289cf8872",
+              "run_t": 50.992,
+              "video_t": 2.432
+            },
+            {
+              "frame_sha": "09e5a1a8139a88640139836de47c4a8803846cbb235e87f8fa231f68a2ef1c7f",
+              "run_t": 51.656,
+              "video_t": 3.096
+            },
+            {
+              "frame_sha": "fb7480b43a1ed36cd40f5b317d5397e355fd108acf7009520e6f67bc396b1753",
+              "run_t": 52.098,
+              "video_t": 3.538
+            },
+            {
+              "frame_sha": "6752deef8226d6d4a7bf993c51a48fb344ce9b8d0f735ab1a1569e3fe83975f5",
+              "run_t": 52.54,
+              "video_t": 3.98
+            },
+            {
+              "frame_sha": "aa17127201901ba95f308fc32f4a784ca185ad6818af0e53caca91f50578221c",
+              "run_t": 52.982,
+              "video_t": 4.422
+            },
+            {
+              "frame_sha": "2833ce1c8816e3d95cf92b21eb2f18217c11f736845474814cfa883bc31b2d00",
+              "run_t": 53.646,
+              "video_t": 5.086
+            },
+            {
+              "frame_sha": "0ae537cbac3daa421f8425e0afec93154624512a9fe9b3cd28d20f317e96840c",
+              "run_t": 54.088,
+              "video_t": 5.528
+            },
+            {
+              "frame_sha": "8643d6b3b5162cdbbfddd95861915254168fad24a269a4ce0e4888b035dd063f",
+              "run_t": 54.53,
+              "video_t": 5.97
+            },
+            {
+              "frame_sha": "a86ea376e1e77204a26315d28109e7c56a7e1385dc4da34730d8886f56712b4d",
+              "run_t": 54.973,
+              "video_t": 6.413
+            },
+            {
+              "frame_sha": "afd0b974bb6991c179a0088d1e61ebe0f20e1a13c3302f22fdf52a4478271a41",
+              "run_t": 55.636,
+              "video_t": 7.076
+            },
+            {
+              "frame_sha": "259bc4f2adb37a3bf82dba8297ca46e7c3d7805ea19d14b50b1c5bcefd3c243c",
+              "run_t": 56.078,
+              "video_t": 7.518
+            },
+            {
+              "frame_sha": "08489f2e2fb399a8d1a7bc156d01ef0ec2a08695988301003b978607a3f964db",
+              "run_t": 56.52,
+              "video_t": 7.96
+            },
+            {
+              "frame_sha": "8ae5ace9eb6d0102b9cbf2c410a8c1f5b97786d560e99a22be5ea339cc9df7bc",
+              "run_t": 56.963,
+              "video_t": 8.403
+            },
+            {
+              "frame_sha": "ed58343e0d8898505992b1cd23f55ddc0b6b97484beb9c77a1d6c4d487dc7ae1",
+              "run_t": 57.626,
+              "video_t": 9.066
+            },
+            {
+              "frame_sha": "fd1086decbf60aea455468bff183a27bcc65d9e99614bb8a27e1245931ecbc08",
+              "run_t": 58.51,
+              "video_t": 9.95
+            },
+            {
+              "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
+              "run_t": 60.501,
+              "video_t": 11.941
+            },
+            {
+              "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
+              "run_t": 62.491,
+              "video_t": 13.931
+            },
+            {
+              "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
+              "run_t": 64.481,
+              "video_t": 15.921
+            },
+            {
+              "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
+              "run_t": 66.471,
+              "video_t": 17.911
+            },
+            {
+              "frame_sha": "036a3a0b7a0168b2c6b91af546214343a55a401533a9dbca38317fa97fcd307f",
+              "run_t": 68.461,
+              "video_t": 19.901
+            },
+            {
+              "frame_sha": "bf55d9aafb38614fd3155a1d23e2f8277fd0bf674a738ec84a09d7a9e50c0059",
+              "run_t": 70.451,
+              "video_t": 21.891
+            },
+            {
+              "frame_sha": "c422d3a4b28cb30e65570222a5bf7bb17fa7a1eca37e7ad5636a68eef2f6702e",
+              "run_t": 72.662,
+              "video_t": 24.102
+            },
+            {
+              "frame_sha": "56358574374e95153a7b4402a82965e812de86464d78b8feb9393c2021a8036b",
+              "run_t": 74.652,
+              "video_t": 26.092
+            },
+            {
+              "frame_sha": "ff61cea5dcf693ec3f9c110eb12d5fd722cde6b863061d844607b41b892cd415",
+              "run_t": 76.642,
+              "video_t": 28.082
+            },
+            {
+              "frame_sha": "53bd3af5d9c99a7b233f736ce9eda6119997fd7c5d7dde69ebebba4587ca4593",
+              "run_t": 78.633,
+              "video_t": 30.073
+            },
+            {
+              "frame_sha": "c63fc38af61a7cc6b1c4d9ef0243bbe22fc3df76a4c193dbc2d0717c0ee8c903",
+              "run_t": 80.623,
+              "video_t": 32.063
+            },
+            {
+              "frame_sha": "5b776fa7c2afc8b531dae5794f5803c0628b6ce58a63c5a029d9c5511944c359",
+              "run_t": 82.613,
+              "video_t": 34.053
+            }
+          ],
+          "label": "perception-assisted",
+          "low_confidence": true,
+          "perception_assisted": true,
+          "reason": "unvalidated: no ground truth for lava_visible",
+          "report_only": true
+        },
+        "lines": [],
+        "message": "[perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=48.56-82.613 s) (unvalidated: no ground truth for lava_visible); not used as evidence",
+        "severity": "low",
+        "t_end": 82.613,
+        "t_start": 48.56
       }
     ],
     "frame_span_s": [
       48.56,
       142.537
     ],
-    "frames": 41,
-    "frames_after_run_log_end": 28,
-    "frames_after_server_log": 13,
-    "frames_aligned": 41,
-    "frames_in_run": 13,
+    "frames": 62,
+    "frames_after_run_log_end": 30,
+    "frames_after_server_log": 32,
+    "frames_aligned": 62,
+    "frames_in_run": 32,
     "label": "perception-assisted",
-    "model": "gpt-6-astra",
+    "model": "claude-sonnet-5-5",
     "perception": "runs/perception/agent-01_perception.json",
     "prompt_sha": "3e63468ce05f470de3b6eea71d8553ba00f6dc9e4e28024e50ce4694463a24fa",
     "run_duration_s": 83.267,
@@ -493,40 +749,40 @@
       ],
       "log_consistency": {
         "obsidian_frame": {
-          "consistent": 39,
-          "n": 39,
+          "consistent": 59,
+          "n": 59,
           "source": "agent log claim"
         },
         "portal_lit": {
-          "consistent": 41,
-          "n": 41,
+          "consistent": 62,
+          "n": 62,
           "source": "agent log claim"
         }
       },
       "min_n": 10,
       "notes": [
-        "insufficient ground truth (n < 10) for: chest_visible (n=2), obsidian_frame (n=2); these accuracies must not gate findings",
+        "insufficient ground truth (n < 10) for: chest_visible (n=3), obsidian_frame (n=3); these accuracies must not gate findings",
         "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
       ],
       "per_field": {
         "chest_visible": {
-          "accuracy": 0.5,
+          "accuracy": 0.0,
           "ci95": [
-            0.095,
-            0.905
+            0.0,
+            0.562
           ],
-          "correct": 1,
-          "n": 2,
+          "correct": 0,
+          "n": 3,
           "sufficient": false
         },
         "obsidian_frame": {
           "accuracy": 1.0,
           "ci95": [
-            0.342,
+            0.438,
             1.0
           ],
-          "correct": 2,
-          "n": 2,
+          "correct": 3,
+          "n": 3,
           "sufficient": false
         },
         "player_in_water": {

@@ -43,7 +43,7 @@
   "spawn_to_nether": "NOT_REACHED"
  },
  "inputs": {
-  "perception": false,
+  "perception": true,
   "server_log": true
  },
  "milestones": {
@@ -56,7 +56,83 @@
  "milestones_reached": [],
  "ok": true,
  "outcome": "did not finish; failed at step `flint_and_steel` (line 20: never attempted after chest_3)",
- "perception_validation": null,
+ "perception_validation": {
+  "error": null,
+  "insufficient_fields": [],
+  "log_consistency": {
+   "obsidian_frame": {
+    "consistent": 25,
+    "n": 25,
+    "source": "agent log claim"
+   },
+   "portal_lit": {
+    "consistent": 57,
+    "n": 57,
+    "source": "agent log claim"
+   }
+  },
+  "min_n": 10,
+  "notes": [
+   "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
+  ],
+  "per_field": {
+   "chest_visible": {
+    "accuracy": 0.0,
+    "ci95": [
+     0.0,
+     0.107
+    ],
+    "correct": 0,
+    "n": 32,
+    "sufficient": true
+   },
+   "obsidian_frame": {
+    "accuracy": 1.0,
+    "ci95": [
+     0.893,
+     1.0
+    ],
+    "correct": 32,
+    "n": 32,
+    "sufficient": true
+   },
+   "player_in_water": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   },
+   "portal_lit": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   },
+   "village_visible": {
+    "accuracy": null,
+    "ci95": null,
+    "correct": 0,
+    "n": 0,
+    "sufficient": false
+   }
+  },
+  "unvalidated_fields": [
+   "portal_lit",
+   "village_visible",
+   "lava_visible",
+   "water_visible",
+   "player_visible",
+   "player_in_water",
+   "player_activity",
+   "confidence"
+  ],
+  "validated_fields": [
+   "chest_visible",
+   "obsidian_frame"
+  ]
+ },
  "progress": {
   "failed_at": {
    "line": 20,

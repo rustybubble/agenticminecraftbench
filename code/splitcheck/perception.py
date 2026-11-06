@@ -594,9 +594,17 @@ def run_perception(video: str, backend, every_s: float = 2.0, votes: int = 1,
     if frames_index:
         # Clean frames + explicit run times from the capture (preferred: no overlay, no offset guess).
         idx = json.load(open(frames_index))
+        if isinstance(idx, dict):  # {"frames": [...], ...} or a bare list
+            idx = idx.get("frames", [])
         base = os.path.dirname(os.path.abspath(frames_index))
-        allf = sorted(({"frame_path": os.path.join(base, e["file"]), "video_t": round(float(e["run_t"]), 3)}
-                       for e in idx if os.path.exists(os.path.join(base, e["file"]))), key=lambda f: f["video_t"])
+        def _resolve(name):  # next to the index, or in a frames*/ folder beside it
+            for d in [base] + sorted(os.path.join(base, x) for x in os.listdir(base)
+                                     if x.startswith("frames") and os.path.isdir(os.path.join(base, x))):
+                if os.path.exists(os.path.join(d, name)):
+                    return os.path.join(d, name)
+            return None
+        allf = sorted(({"frame_path": _resolve(e["file"]), "video_t": round(float(e["run_t"]), 3)}
+                       for e in idx if _resolve(e["file"])), key=lambda f: f["video_t"])
         want = sample_times(allf[-1]["video_t"] if allf else 0.0, every_s, 1000.0, dense, 0.5, 10.0)
         frames, j = [], 0
         for t in want:  # nearest captured frame to each wanted time, de-duplicated

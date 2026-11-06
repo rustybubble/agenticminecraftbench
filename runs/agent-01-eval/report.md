@@ -90,7 +90,7 @@ Server log: `agent_runs/agent-01/server_events.jsonl`, 88 samples, t=0.573-44.32
 
 A vision model was used ONLY to say what is visible in footage frames (overlay text cropped out); every finding below is a deterministic rule over those observations, labelled perception-assisted, cost 0 s. Headline verdicts above do not use perception.
 
-Perception file: `runs/perception/agent-01_perception.json`. Model: `gpt-6-astra`. Frames: 41 (41 aligned to run time, t=48.56-142.537 s; 23 distinct frame images). 28 of these frames fall after the agent run log ends (t=83.267 s) and are not used by any perception finding.
+Perception file: `runs/perception/agent-01_perception.json`. Model: `claude-sonnet-5-5`. Frames: 62 (62 aligned to run time, t=48.56-142.537 s; 44 distinct frame images). 30 of these frames fall after the agent run log ends (t=83.267 s) and are not used by any perception finding.
 
 No field has at least 10 non-circular ground-truth labels, so every perception result below is a low-confidence observation, not evidence.
 
@@ -98,16 +98,16 @@ No field has at least 10 non-circular ground-truth labels, so every perception r
 
 | Field | n | Correct | Accuracy | 95% CI | Status |
 |---|---|---|---|---|---|
-| chest_visible | 2 | 1 | 0.5 | 0.095-0.905 | insufficient (n < 10) |
+| chest_visible | 3 | 0 | 0.0 | 0.0-0.562 | insufficient (n < 10) |
 | village_visible | 0 | 0 | - |  | no labels |
-| obsidian_frame | 2 | 2 | 1.0 | 0.342-1.0 | insufficient (n < 10) |
+| obsidian_frame | 3 | 3 | 1.0 | 0.438-1.0 | insufficient (n < 10) |
 | portal_lit | 0 | 0 | - |  | no labels |
 | player_in_water | 0 | 0 | - |  | no labels |
 
-Consistent with the agent-log claim (circular, not ground truth, not used for gating): portal_lit 41/41.
-Consistent with the agent-log claim (circular, not ground truth, not used for gating): obsidian_frame 39/39.
+Consistent with the agent-log claim (circular, not ground truth, not used for gating): portal_lit 62/62.
+Consistent with the agent-log claim (circular, not ground truth, not used for gating): obsidian_frame 59/59.
 Unvalidated (no ground truth, findings using them say so): portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence.
-Note: insufficient ground truth (n < 10) for: chest_visible (n=2), obsidian_frame (n=2); these accuracies must not gate findings
+Note: insufficient ground truth (n < 10) for: chest_visible (n=3), obsidian_frame (n=3); these accuracies must not gate findings
 Note: log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field
 
 ### Perception-assisted findings
@@ -115,12 +115,13 @@ Note: log_consistency rows compare the model with the agent's own claim; they ar
 | Code | Category | Severity | t s | Lines | Finding |
 |---|---|---|---|---|---|
 | portal_outcome_check | claim | low | 48.045-68.045 | 27 | [perception-assisted] low-confidence observation: agent log line 27: build_portal FAILED (placed 0), error 'frame incomplete' (unvalidated: no ground truth for portal_lit); not used as evidence |
+| visible_feature_ignored | decision | low | 48.56-82.613 |  | [perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=48.56-82.613 s) (unvalidated: no ground truth for lava_visible); not used as evidence |
 
 ### With vs without perception
 
 - Without: verdicts, waste and claims come from the agent log and the server log only.
-- With: 0 perception-assisted finding(s) added, plus 1 low-confidence observation(s) not used as evidence.
-- Coverage: 13 frame(s) fall after the server log's last sample (t=44.322 s).
+- With: 0 perception-assisted finding(s) added, plus 2 low-confidence observation(s) not used as evidence.
+- Coverage: 32 frame(s) fall after the server log's last sample (t=44.322 s).
 - Headline verdicts and segment ratios: unchanged.
 
 ## This run

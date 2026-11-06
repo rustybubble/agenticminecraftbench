@@ -113,40 +113,40 @@
   ],
   "log_consistency": {
    "obsidian_frame": {
-    "consistent": 39,
-    "n": 39,
+    "consistent": 59,
+    "n": 59,
     "source": "agent log claim"
    },
    "portal_lit": {
-    "consistent": 41,
-    "n": 41,
+    "consistent": 62,
+    "n": 62,
     "source": "agent log claim"
    }
   },
   "min_n": 10,
   "notes": [
-   "insufficient ground truth (n < 10) for: chest_visible (n=2), obsidian_frame (n=2); these accuracies must not gate findings",
+   "insufficient ground truth (n < 10) for: chest_visible (n=3), obsidian_frame (n=3); these accuracies must not gate findings",
    "log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field"
   ],
   "per_field": {
    "chest_visible": {
-    "accuracy": 0.5,
+    "accuracy": 0.0,
     "ci95": [
-     0.095,
-     0.905
+     0.0,
+     0.562
     ],
-    "correct": 1,
-    "n": 2,
+    "correct": 0,
+    "n": 3,
     "sufficient": false
    },
    "obsidian_frame": {
     "accuracy": 1.0,
     "ci95": [
-     0.342,
+     0.438,
      1.0
     ],
-    "correct": 2,
-    "n": 2,
+    "correct": 3,
+    "n": 3,
     "sufficient": false
    },
    "player_in_water": {

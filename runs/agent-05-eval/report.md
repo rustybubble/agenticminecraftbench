@@ -79,6 +79,40 @@ Deterministic checks of what the agent reported against its own log and the serv
 Server log: `agent_runs/agent-05/server_events.jsonl`, 0 samples, t=--- s (agent run t=0.0-51.64 s). Agent snapshots checked against a server sample within +-1.5 s: 0; without one: 10 (lines 1, 6, 8, 12, 14, 18, 20, 24, 26, 28).
 - **no usable server samples** (log empty, unparsed format, or the player was never seen online): there is NO server-side evidence for this run; every finding rests on the agent's own log
 
+## Perception (AI-assisted, validated)
+
+A vision model was used ONLY to say what is visible in footage frames (overlay text cropped out); every finding below is a deterministic rule over those observations, labelled perception-assisted, cost 0 s. Headline verdicts above do not use perception.
+
+Perception file: `runs/perception/agent-05_perception.json`. Model: `claude-sonnet-5-5`. Frames: 57 (57 aligned to run time, t=32.039-43.684 s; 34 distinct frame images).
+
+### Validation against ground truth
+
+| Field | n | Correct | Accuracy | 95% CI | Status |
+|---|---|---|---|---|---|
+| chest_visible | 32 | 0 | 0.0 | 0.0-0.107 | validated |
+| village_visible | 0 | 0 | - |  | no labels |
+| obsidian_frame | 32 | 32 | 1.0 | 0.893-1.0 | validated |
+| portal_lit | 0 | 0 | - |  | no labels |
+| player_in_water | 0 | 0 | - |  | no labels |
+
+Consistent with the agent-log claim (circular, not ground truth, not used for gating): obsidian_frame 25/25.
+Consistent with the agent-log claim (circular, not ground truth, not used for gating): portal_lit 57/57.
+Unvalidated (no ground truth, findings using them say so): portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence.
+Note: log_consistency rows compare the model with the agent's own claim; they are not ground truth and are not in per_field
+
+### Perception-assisted findings
+
+| Code | Category | Severity | t s | Lines | Finding |
+|---|---|---|---|---|---|
+| visible_feature_ignored | decision | low | 32.039-43.684 |  | [perception-assisted] low-confidence observation: lava visible, but the agent log never mentions lava or a bucket (t=32.039-43.684 s) (unvalidated: no ground truth for lava_visible); not used as evidence |
+| visible_feature_ignored | decision | low | 32.039-43.684 |  | [perception-assisted] obsidian frame (ruined portal) visible, but the agent never started a portal skill: first seen t=32.039-43.684 s in 54 confident frame(s) (obsidian_frame accuracy 1.0 (n=32)); report only, seeing a feature on camera does not mean the agent perceived it |
+
+### With vs without perception
+
+- Without: verdicts, waste and claims come from the agent log and the server log only.
+- With: 1 perception-assisted finding(s) added (visible_feature_ignored), plus 1 low-confidence observation(s) not used as evidence.
+- Headline verdicts and segment ratios: unchanged.
+
 ## This run
 
 From `agent_runs/agent-05/RUN_NOTES.md` (operator notes, not checked against the log except where another section says so).

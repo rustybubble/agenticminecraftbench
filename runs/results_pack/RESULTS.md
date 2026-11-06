@@ -64,19 +64,19 @@ Total: agent 516.2-516.7 s vs pro 169.149 s; **ratio 3.052-3.055**; run median s
 | portal_lit | no | - | 63-64 | - | not reached |
 | nether_entered | no | - | 66.7 | - | not reached |
 
-**Perception validation** (model gpt-6-astra, 41 frames, 13 after the server log ends)
+**Perception validation** (model claude-sonnet-5-5, 62 frames, 32 after the server log ends)
 
 | field | n | correct | accuracy |
 |---|---|---|---|
-| chest_visible | 2 | 1 | 0.5 |
-| obsidian_frame | 2 | 2 | 1 |
+| chest_visible | 3 | 0 | 0 |
+| obsidian_frame | 3 | 3 | 1 |
 | player_in_water | 0 | 0 | - |
 | portal_lit | 0 | 0 | - |
 | village_visible | 0 | 0 | - |
 
 Unvalidated fields: portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence
 
-Perception findings: portal_outcome_check
+Perception findings: portal_outcome_check, visible_feature_ignored
 
 ### agent-02
 
@@ -210,7 +210,7 @@ Perception findings: portal_outcome_check
 - Outcome: **did not finish; failed at step `flint_and_steel` (line 20: never attempted after chest_3)**
 - Milestones reached: 0/5
 - Total time 51.64 s; attributed waste 0 s; efficiency 1; findings 3 {"claim": 1, "decision": 0, "micro": 2, "safety": 0}
-- Inputs: server log yes, perception no; full outputs in runs/agent-05-eval/
+- Inputs: server log yes, perception yes; full outputs in runs/agent-05-eval/
 
 **Claims findings**
 
@@ -235,6 +235,20 @@ Perception findings: portal_outcome_check
 | portal_built | no | - | 63 | - | not reached |
 | portal_lit | no | - | 63-64 | - | not reached |
 | nether_entered | no | - | 66.7 | - | not reached |
+
+**Perception validation** (model claude-sonnet-5-5, 57 frames, None after the server log ends)
+
+| field | n | correct | accuracy |
+|---|---|---|---|
+| chest_visible | 32 | 0 | 0 |
+| obsidian_frame | 32 | 32 | 1 |
+| player_in_water | 0 | 0 | - |
+| portal_lit | 0 | 0 | - |
+| village_visible | 0 | 0 | - |
+
+Unvalidated fields: portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence
+
+Perception findings: visible_feature_ignored
 
 ## 3. Decision tasks (splitcheck.check)
 
