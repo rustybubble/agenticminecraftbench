@@ -90,7 +90,7 @@
       ],
       "runeval_code": "failed_action",
       "seconds": 240.0,
-      "segment": "spawn_to_nether",
+      "segment": "nether",
       "t_start": 58.216,
       "tag": "failed_or_retried_action"
     },

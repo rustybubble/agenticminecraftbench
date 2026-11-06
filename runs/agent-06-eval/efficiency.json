@@ -15,13 +15,7 @@
       "pro_s": 66.683,
       "ratio_low": 0.873,
       "ratio_high": 0.873,
-      "waste": [
-        {
-          "tag": "failed_or_retried_action",
-          "seconds": 240.0,
-          "evidence": "RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost"
-        }
-      ],
+      "waste": [],
       "verdict": "OK"
     },
     {
@@ -32,6 +26,11 @@
       "ratio_low": null,
       "ratio_high": null,
       "waste": [
+        {
+          "tag": "failed_or_retried_action",
+          "seconds": 240.0,
+          "evidence": "RunEval failed_action at t=58.216 s (line 31): line 31: action 'goto' failed (FAILED: not ok); 240.0 s lost"
+        },
         {
           "tag": "failed_or_retried_action",
           "seconds": 58.975,
