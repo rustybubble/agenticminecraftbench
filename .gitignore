@@ -1,3 +1,23 @@
 code/tests/fixtures/runs/
 __pycache__/
 .pytest_cache/
+
+# Live agent runtime (Person C): binaries, worlds, frame dumps, node_modules
+live/agent/node_modules/
+live/agent/runs/
+live/agent/logs/
+live/java/
+live/server/server.jar
+live/server/world*/
+live/server/logs/
+live/server/console.in
+live/server/*.log
+live/server/usercache.json
+live/server/ops.json
+live/server/banned-*.json
+live/server/whitelist.json
+evidence/footage/frames-*/
+evidence/footage/overlay-frames/
+evidence/footage/*.ass
+
+live/client/.cache/

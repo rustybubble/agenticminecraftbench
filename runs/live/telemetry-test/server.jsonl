@@ -1,0 +1,13 @@
+{"ts":"2026-11-06T17:36:06.145Z","epoch":1793986566146,"runId":"telemetry-test","type":"start","player":"SplitAgent","intervalMs":1000,"note":"server-authoritative telemetry via RCON + log tail"}
+{"ts":"2026-11-06T17:36:06.150Z","epoch":1793986566150,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:07.151Z","epoch":1793986567151,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:08.152Z","epoch":1793986568152,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:09.149Z","epoch":1793986569149,"runId":"telemetry-test","type":"log","kind":"join","line":"SplitAgent joined the game"}
+{"ts":"2026-11-06T17:36:09.154Z","epoch":1793986569154,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":{"x":-210.35912984133677,"y":71,"z":225.61989982412342},"dimension":"overworld","health":20,"food":null,"selected":null}
+{"ts":"2026-11-06T17:36:10.149Z","epoch":1793986570149,"runId":"telemetry-test","type":"log","kind":"leave","line":"SplitAgent left the game"}
+{"ts":"2026-11-06T17:36:10.155Z","epoch":1793986570155,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:11.157Z","epoch":1793986571157,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:12.159Z","epoch":1793986572159,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:13.161Z","epoch":1793986573161,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:14.161Z","epoch":1793986574161,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}
+{"ts":"2026-11-06T17:36:15.163Z","epoch":1793986575163,"runId":"telemetry-test","type":"sample","player":"SplitAgent","pos":null,"dimension":null,"health":null,"food":null,"selected":null,"online":false}

@@ -1,0 +1,128 @@
+{
+  "checkedAt": "2026-11-06T17:57:45.135Z",
+  "radius": 4,
+  "results": [
+    {
+      "name": "end_portal",
+      "dim": "overworld",
+      "x": -1130,
+      "y": 34,
+      "z": 856,
+      "want": [
+        "end_portal",
+        "end_portal_frame"
+      ],
+      "exactBlock": "end_portal",
+      "found": true,
+      "nearest": [
+        {
+          "block": "end_portal_frame",
+          "x": -1132,
+          "y": 34,
+          "z": 856,
+          "dist": 2
+        },
+        {
+          "block": "end_portal_frame",
+          "x": -1132,
+          "y": 34,
+          "z": 855,
+          "dist": 2.2
+        },
+        {
+          "block": "end_portal_frame",
+          "x": -1132,
+          "y": 34,
+          "z": 857,
+          "dist": 2.2
+        }
+      ]
+    },
+    {
+      "name": "exit_portal",
+      "dim": "the_nether",
+      "x": -141,
+      "y": 40,
+      "z": 104,
+      "want": [
+        "nether_portal",
+        "obsidian"
+      ],
+      "exactBlock": "air",
+      "found": false,
+      "nearest": []
+    },
+    {
+      "name": "entry_portal",
+      "dim": "overworld",
+      "x": -285,
+      "y": 67,
+      "z": 259,
+      "want": [
+        "nether_portal",
+        "obsidian"
+      ],
+      "exactBlock": "air",
+      "found": true,
+      "nearest": [
+        {
+          "block": "obsidian",
+          "x": -285,
+          "y": 66,
+          "z": 259,
+          "dist": 1
+        },
+        {
+          "block": "obsidian",
+          "x": -285,
+          "y": 66,
+          "z": 258,
+          "dist": 1.4
+        },
+        {
+          "block": "obsidian",
+          "x": -285,
+          "y": 66,
+          "z": 260,
+          "dist": 1.4
+        },
+        {
+          "block": "obsidian",
+          "x": -285,
+          "y": 68,
+          "z": 261,
+          "dist": 2.2
+        },
+        {
+          "block": "obsidian",
+          "x": -285,
+          "y": 69,
+          "z": 261,
+          "dist": 2.8
+        }
+      ]
+    },
+    {
+      "name": "village_chest",
+      "dim": "overworld",
+      "x": -228,
+      "y": 71,
+      "z": 240,
+      "want": [
+        "chest",
+        "barrel"
+      ],
+      "exactBlock": "chest",
+      "found": true,
+      "nearest": [
+        {
+          "block": "chest",
+          "x": -228,
+          "y": 71,
+          "z": 240,
+          "dist": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+task_id,model,verdict,reason,miss_category,techniques_missed,time_s,pro_time_s
+T02_reset_keep_seed_spawn,gpt-6-astra,OK,choice 'keep' is in accepted ['keep'],,,,
+T04_nether_entry_seed_chests,gpt-6-astra,OK,"legal plan takes 29.1s, within pro 29.2s + 15s",,,29.11,29.20
+T05_nether_entry_ruined_portal_count,gpt-6-astra,OK,"all fields within tolerance: field 'obsidian_to_place': got 7, expected 7 ±0 (off by 0)",,,,
+T10_fortress_rods_seed,gpt-6-astra,OK,"all fields within tolerance: field 'blaze_rods': got 0, expected 0 ±0 (off by 0); field 'ender_pearls': got 0, expected 0 ±0 (off by 0)",,,,
+T12_blind_seed_nether_exit,gpt-6-astra,OK,"(-141.25, 107) is 0.0 blocks from reference (-141.25, 107); within 2",,,,
+T20_full_route_seed,gpt-6-astra,ILLEGAL,step 26 (travel): travel to dimension the_end while in the_nether: change dimension with enter_portal,detour_overprep,skip_fortress_active_portal;bed_one_cycle;no_peaceful_food,101.93,107.82
+T21_full_route_peaceful_prep,gpt-6-astra,OK,choice 'A' is in accepted ['A'],,,,

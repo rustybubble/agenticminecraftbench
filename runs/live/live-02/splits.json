@@ -1,0 +1,13 @@
+{
+  "runId": "live-02",
+  "startedAt": "2026-11-06T17:38:25.974Z",
+  "splits": [
+    {
+      "split": "wood",
+      "prev": null,
+      "elapsedS": 2,
+      "targetS": 25,
+      "at": "2026-11-06T17:38:27.851Z"
+    }
+  ]
+}

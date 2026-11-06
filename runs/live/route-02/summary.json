@@ -1,0 +1,17 @@
+{
+  "runId": "route-02",
+  "startedAt": "2026-11-06T18:26:43.726Z",
+  "endedAt": "2026-11-06T18:28:02.253Z",
+  "elapsedS": 79,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": -286.03061937839493,
+    "y": 56.199967548144635,
+    "z": 267.9745703412884
+  },
+  "memory": []
+}

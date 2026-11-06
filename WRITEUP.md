@@ -82,5 +82,13 @@ Full evidence, labelled confirmed or inferred: `analysis/agent_vs_pro.md`.
 
 ## Supplementary: decision tasks
 
-- **7 seed decision tasks** (`tasks/`, `reference/`): single decisions on the same seed, each with a sourced answer, alternates that must pass and broken answers that must fail. Examples: where to build the Nether exit (T12), how much obsidian the ruined frame needs (T05: 7), whether blaze rods are needed (T10: 0). AI results: TODO(C), if C ran them.
+- **7 seed decision tasks** (`tasks/`, `reference/`): single decisions on the same seed, each with a sourced answer, alternates that must pass and broken answers that must fail. Examples: where to build the Nether exit (T12), how much obsidian the ruined frame needs (T05: 7), whether blaze rods are needed (T10: 0).
+
+### AI attempts on the decision tasks (Person C)
+
+- **Model:** `gpt-6-astra` via `codex exec`, reasoning effort `high`, one fresh empty session per task, first answer kept (`run_ai.py`), 2026-11-06.
+- **Result:** **6 OK, 1 ILLEGAL** (of 7). `runs/results.csv`; the checker also rejected the retired-task files that no longer have a `tasks/` entry (listed, not scored).
+- **The catch (demo):** T20 full route. The plan is fast (101.9 s vs 107.8 s pro) but **illegal**: step 26 travels to `the_end` while still in `the_nether`. The checker names the fix (`enter_portal`) and the missed techniques (`skip_fortress_active_portal`, `bed_one_cycle`, `no_peaceful_food`) under `detour_overprep`.
+- **What the model got right:** the exact ruined-frame count (T05: 7 obsidian), the correct Nether-side exit for the End portal (T12: −141.25, 107, 0.0 blocks off), no rods needed on this seed (T10: 0), and the peaceful-prep choice (T21: A).
+- **Fairness note:** T01–T03 were first run with `deepseek-flash` as pilots while the runner was being set up; those three are kept under `attempts/_pilot/` and were re-run with `gpt-6-astra`, so the scored set is one model.
 - **14 generic decision tasks** (`extras/generic_tasks/`): **supplementary, not part of the headline result.** They cover the random-seed splits this seed skips (bastion barter tables for 1.16.1 vs 1.16.5, rod counts, triangulation, eye-break odds, the dragon method).

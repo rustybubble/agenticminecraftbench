@@ -1,0 +1,13 @@
+{
+  "runId": "live-01",
+  "startedAt": "2026-11-06T17:37:09.988Z",
+  "splits": [
+    {
+      "split": "stone",
+      "prev": null,
+      "elapsedS": 0,
+      "targetS": null,
+      "at": "2026-11-06T17:37:10.223Z"
+    }
+  ]
+}

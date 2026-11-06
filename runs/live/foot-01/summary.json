@@ -1,0 +1,35 @@
+{
+  "runId": "foot-01",
+  "startedAt": "2026-11-06T18:18:08.818Z",
+  "endedAt": "2026-11-06T18:22:10.494Z",
+  "elapsedS": 242,
+  "actions": 82,
+  "failures": 38,
+  "deaths": 0,
+  "splits": [
+    {
+      "split": "wood",
+      "prev": null,
+      "elapsedS": 2,
+      "targetS": 25,
+      "at": "2026-11-06T18:18:11.009Z"
+    }
+  ],
+  "finalSplit": "wood",
+  "positions": {
+    "x": -193.7,
+    "y": 69,
+    "z": 249.38208064389113
+  },
+  "memory": [
+    "no trees in view at spawn; sand desert-ish, need to search for wood",
+    "wood goal: logs done, pickaxe pending",
+    "logs done (6); craft planks then wooden pickaxe; no trees near spawn",
+    "logs done (9); sticks+planks ready; craft wooden pickaxe to finish goal",
+    "logs done (9); planks/sticks ready; craft wooden pickaxe now",
+    "logs done (9); planks+sticks ready; craft wooden pickaxe to close goal",
+    "goal: 6 logs + wooden pickaxe; logs done, craft pickaxe now",
+    "goal: 6 logs done; craft wooden pickaxe",
+    "goal: 6 logs done; craft wooden pickaxe"
+  ]
+}

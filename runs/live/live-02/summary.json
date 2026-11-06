@@ -1,0 +1,28 @@
+{
+  "runId": "live-02",
+  "startedAt": "2026-11-06T17:38:25.974Z",
+  "endedAt": "2026-11-06T17:40:57.444Z",
+  "elapsedS": 151,
+  "actions": 15,
+  "failures": 7,
+  "deaths": 0,
+  "splits": [
+    {
+      "split": "wood",
+      "prev": null,
+      "elapsedS": 2,
+      "targetS": 25,
+      "at": "2026-11-06T17:38:27.851Z"
+    }
+  ],
+  "finalSplit": "wood",
+  "positions": {
+    "x": -211.43954984422732,
+    "y": 73,
+    "z": 227.5
+  },
+  "memory": [
+    "wood: need 6 logs -> table, wooden pick, axe",
+    "wood: 4 logs in inv, mine 2 more then craft table,wood pick,axe"
+  ]
+}

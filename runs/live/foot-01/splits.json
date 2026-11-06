@@ -1,0 +1,13 @@
+{
+  "runId": "foot-01",
+  "startedAt": "2026-11-06T18:18:08.818Z",
+  "splits": [
+    {
+      "split": "wood",
+      "prev": null,
+      "elapsedS": 2,
+      "targetS": 25,
+      "at": "2026-11-06T18:18:11.009Z"
+    }
+  ]
+}

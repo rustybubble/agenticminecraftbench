@@ -1,0 +1,37 @@
+{
+  "runId": "live-03",
+  "startedAt": "2026-11-06T17:42:24.853Z",
+  "endedAt": "2026-11-06T17:46:16.615Z",
+  "elapsedS": 232,
+  "actions": 8,
+  "failures": 2,
+  "deaths": 0,
+  "splits": [
+    {
+      "split": "wood",
+      "prev": null,
+      "elapsedS": 2,
+      "targetS": 25,
+      "at": "2026-11-06T17:42:26.732Z"
+    },
+    {
+      "split": "stone",
+      "prev": "wood",
+      "elapsedS": 54,
+      "targetS": null,
+      "at": "2026-11-06T17:43:18.804Z"
+    }
+  ],
+  "finalSplit": "stone",
+  "positions": {
+    "x": -215.59843399831036,
+    "y": 64,
+    "z": 238.4996992561346
+  },
+  "memory": [
+    "need 6 logs then table+wooden pick+axe",
+    "need planks then sticks, wooden pick+axe",
+    "table+wooden pick+axe done; only need 6 oak logs then stop",
+    "goal: 6 logs+table+wooden pick+axe -> logs/pick/axe done, craft table then stop"
+  ]
+}

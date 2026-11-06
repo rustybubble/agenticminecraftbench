@@ -1,0 +1,17 @@
+{
+  "runId": "agent-01",
+  "startedAt": "2026-11-06T18:45:43.153Z",
+  "endedAt": "2026-11-06T18:47:06.685Z",
+  "elapsedS": 84,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [],
+  "finalSplit": null,
+  "positions": {
+    "x": -286.05773369146567,
+    "y": 62,
+    "z": 266.3
+  },
+  "memory": []
+}

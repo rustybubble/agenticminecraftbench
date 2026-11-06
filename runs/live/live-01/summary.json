@@ -1,0 +1,27 @@
+{
+  "runId": "live-01",
+  "startedAt": "2026-11-06T17:37:09.988Z",
+  "endedAt": "2026-11-06T17:37:13.469Z",
+  "elapsedS": 3,
+  "actions": 0,
+  "failures": 0,
+  "deaths": 0,
+  "splits": [
+    {
+      "split": "stone",
+      "prev": null,
+      "elapsedS": 0,
+      "targetS": null,
+      "at": "2026-11-06T17:37:10.223Z"
+    }
+  ],
+  "finalSplit": "stone",
+  "positions": {
+    "x": -210.35912984133677,
+    "y": 71,
+    "z": 225.61989982412342
+  },
+  "memory": [
+    "goal done at spawn; nothing else needed"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "splitcheck-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live Minecraft 1.16.5 speedrun agent: DeepSeek planner + fast action classifier + deterministic skill library on Mineflayer",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js",
+    "probe": "node scripts/probe.js",
+    "test:llm": "node scripts/test-llm.js"
+  },
+  "dependencies": {
+    "canvas": "^3.2.3",
+    "minecraft-data": "^3.119.0",
+    "mineflayer": "^4.39.0",
+    "mineflayer-pathfinder": "^2.4.5",
+    "prismarine-viewer": "^1.33.0"
+  }
+}
