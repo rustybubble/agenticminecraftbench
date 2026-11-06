@@ -399,7 +399,7 @@
       "cli_version": "codex-cli 0.166.0",
       "effort": "low"
     },
-    "distinct_frames": 29,
+    "distinct_frames": 23,
     "findings": [
       {
         "category": "claim",
@@ -415,49 +415,44 @@
               "video_t": 0.0
             },
             {
-              "frame_sha": "edbf00e6213558590bdeee3326f125faf96bd5392970fcae703f484927c15356",
-              "run_t": 50.56,
-              "video_t": 2.0
+              "frame_sha": "d25da6096946a6a4115ce56056350da81c030bd0ad09dc0012de197b657e5998",
+              "run_t": 49.002,
+              "video_t": 0.442
             },
             {
-              "frame_sha": "ac1a554d21013314bde4687defd8630a80625166b31f050b5e73ebafbb30485b",
-              "run_t": 52.56,
-              "video_t": 4.0
+              "frame_sha": "7dc550b266a53a665ad573abe701b7756e2095d1cb946ad0bffa859af27dfd79",
+              "run_t": 49.666,
+              "video_t": 1.106
             },
             {
-              "frame_sha": "ffde3cc0a05736eb34635b3d79dbb5a1f68c55975a065a4597eadbf56b4c8b5c",
-              "run_t": 54.56,
-              "video_t": 6.0
+              "frame_sha": "39ae0576ef489b53f2d68de0802ec49a91f8917edbcd136a435f44ad6fa5c64a",
+              "run_t": 50.108,
+              "video_t": 1.548
             },
             {
-              "frame_sha": "1fc28902a80bca242a2f0135b6f9c3bdb2dcc85440f48a3e5fa8dd05d059d6ca",
-              "run_t": 56.56,
-              "video_t": 8.0
-            },
-            {
-              "frame_sha": "295d31ba06db5994de1ac99b4b0b224d9d2b267e493c6f6ebfd43b0c0cf2f09f",
-              "run_t": 58.56,
-              "video_t": 10.0
+              "frame_sha": "5913c75bee3d7863fe44a339079d34c108eaa4361550d773cdc099f6ab7664a6",
+              "run_t": 50.55,
+              "video_t": 1.99
             },
             {
               "frame_sha": "4cc75e88ac9630a8310fc6f4d8b83f9f94a5b1fdfcff36f40442945329a00c3a",
-              "run_t": 60.56,
-              "video_t": 12.0
+              "run_t": 60.501,
+              "video_t": 11.941
             },
             {
               "frame_sha": "ec55a11e48c9afff0efe14f9a70f666af8d8e6ec28e4ed4d8f506b75084ada7e",
-              "run_t": 62.56,
-              "video_t": 14.0
+              "run_t": 62.491,
+              "video_t": 13.931
             },
             {
               "frame_sha": "4f601feab374388f045572e86f5cc4cee740693539ba4c27a4148af773fee9f0",
-              "run_t": 64.56,
-              "video_t": 16.0
+              "run_t": 64.481,
+              "video_t": 15.921
             },
             {
               "frame_sha": "79e12ff5adda795f04d587b016c2713249909bef2e2234d1cdc6da04c9f2418e",
-              "run_t": 66.56,
-              "video_t": 18.0
+              "run_t": 66.471,
+              "video_t": 17.911
             }
           ],
           "label": "perception-assisted",
@@ -477,13 +472,13 @@
     ],
     "frame_span_s": [
       48.56,
-      142.56
+      142.537
     ],
-    "frames": 48,
-    "frames_after_run_log_end": 30,
-    "frames_after_server_log": 18,
-    "frames_aligned": 48,
-    "frames_in_run": 18,
+    "frames": 41,
+    "frames_after_run_log_end": 28,
+    "frames_after_server_log": 13,
+    "frames_aligned": 41,
+    "frames_in_run": 13,
     "label": "perception-assisted",
     "model": "gpt-6-astra",
     "perception": "runs/perception/agent-01_perception.json",
@@ -498,13 +493,13 @@
       ],
       "log_consistency": {
         "obsidian_frame": {
-          "consistent": 46,
-          "n": 46,
+          "consistent": 39,
+          "n": 39,
           "source": "agent log claim"
         },
         "portal_lit": {
-          "consistent": 48,
-          "n": 48,
+          "consistent": 41,
+          "n": 41,
           "source": "agent log claim"
         }
       },
@@ -515,12 +510,12 @@
       ],
       "per_field": {
         "chest_visible": {
-          "accuracy": 1.0,
+          "accuracy": 0.5,
           "ci95": [
-            0.342,
-            1.0
+            0.095,
+            0.905
           ],
-          "correct": 2,
+          "correct": 1,
           "n": 2,
           "sufficient": false
         },

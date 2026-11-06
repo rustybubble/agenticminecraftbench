@@ -335,7 +335,11 @@ def _claims_lines(rep, xcheck, server_log) -> list:
               f"{c['snapshots_checked']}; without one: {len(c['snapshots_without_server_sample'])}"
               + (f" (lines {', '.join(map(str, c['snapshots_without_server_sample']))})"
                  if c["snapshots_without_server_sample"] else "") + "."]
-        L += [f"- {n}" for n in c["notes"]] or ["- server log covers the whole agent run"]
+        if not c.get("server_samples"):
+            L += ["- **no usable server samples** (log empty, unparsed format, or the player was never seen online): "
+                  "there is NO server-side evidence for this run; every finding rests on the agent's own log"]
+        else:
+            L += [f"- {n}" for n in c["notes"]] or ["- server log covers the whole agent run"]
         L.append("")
     return L
 

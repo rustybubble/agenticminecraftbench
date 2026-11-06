@@ -113,13 +113,13 @@
   ],
   "log_consistency": {
    "obsidian_frame": {
-    "consistent": 46,
-    "n": 46,
+    "consistent": 39,
+    "n": 39,
     "source": "agent log claim"
    },
    "portal_lit": {
-    "consistent": 48,
-    "n": 48,
+    "consistent": 41,
+    "n": 41,
     "source": "agent log claim"
    }
   },
@@ -130,12 +130,12 @@
   ],
   "per_field": {
    "chest_visible": {
-    "accuracy": 1.0,
+    "accuracy": 0.5,
     "ci95": [
-     0.342,
-     1.0
+     0.095,
+     0.905
     ],
-    "correct": 2,
+    "correct": 1,
     "n": 2,
     "sufficient": false
    },

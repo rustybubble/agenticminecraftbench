@@ -64,11 +64,11 @@ Total: agent 516.2-516.7 s vs pro 169.149 s; **ratio 3.052-3.055**; run median s
 | portal_lit | no | - | 63-64 | - | not reached |
 | nether_entered | no | - | 66.7 | - | not reached |
 
-**Perception validation** (model gpt-6-astra, 48 frames, 18 after the server log ends)
+**Perception validation** (model gpt-6-astra, 41 frames, 13 after the server log ends)
 
 | field | n | correct | accuracy |
 |---|---|---|---|
-| chest_visible | 2 | 2 | 1 |
+| chest_visible | 2 | 1 | 0.5 |
 | obsidian_frame | 2 | 2 | 1 |
 | player_in_water | 0 | 0 | - |
 | portal_lit | 0 | 0 | - |
@@ -77,6 +77,164 @@ Total: agent 516.2-516.7 s vs pro 169.149 s; **ratio 3.052-3.055**; run median s
 Unvalidated fields: portal_lit, village_visible, lava_visible, water_visible, player_visible, player_in_water, player_activity, confidence
 
 Perception findings: portal_outcome_check
+
+### agent-02
+
+- Outcome: **did not finish; failed at step `portal_built` (line 27: build_portal failed: need flint + iron_ingot for flint_and_steel)**
+- Milestones reached: 0/5
+- Total time 249.039 s; attributed waste 6.333 s; efficiency 0.9746; findings 10 {"claim": 3, "decision": 0, "micro": 7, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/agent-02-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 2
+  - line 64: summary claims actions=0, but the log shows 16 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24, 27, 38, 40, 44, 46, 50, 52, 56, 59)
+  - line 64: summary claims failures=0, but the log shows 5 (skill_result lines with ok:false: lines 8, 14, 20, 27, 59)
+- `inventory_loss_without_effect`: 1
+  - lines 57->62: obsidian 21 -> 17 (-4) across failed build_portal (line 59: placed 0, frame incomplete); items consumed, nothing built
+- `agent_server_mismatch`: 0
+- server coverage: server log ends at t=30.177 s, 218.862 s before the agent run ends (t=249.039 s)
+- server coverage: server log ends during the goto attempt (started t=27.955 s, line 11; result t=44.306 s, line 12)
+- server coverage: no server evidence for goto result at t=44.306 s (line 12)
+- server coverage: no server evidence for loot_chest result at t=44.963 s (line 14, FAILED)
+- server coverage: no server evidence for goto result at t=48.051 s (line 18)
+- server coverage: no server evidence for loot_chest result at t=48.102 s (line 20, FAILED)
+- server coverage: no server evidence for goto result at t=49.114 s (line 24)
+- server coverage: no server evidence for build_portal result at t=49.515 s (line 27, FAILED)
+- server coverage: no server evidence for goto result at t=185.781 s (line 38)
+- server coverage: no server evidence for loot_chest result at t=185.94 s (line 40)
+- server coverage: no server evidence for goto result at t=207.089 s (line 44)
+- server coverage: no server evidence for loot_chest result at t=208.121 s (line 46)
+- server coverage: no server evidence for goto result at t=212.583 s (line 50)
+- server coverage: no server evidence for loot_chest result at t=212.637 s (line 52)
+- server coverage: no server evidence for goto result at t=213.683 s (line 56)
+- server coverage: no server evidence for build_portal result at t=218.602 s (line 59, FAILED)
+- server coverage: no server evidence for the inventory snapshot at t=49.519 s (line 30)
+- server coverage: no server evidence for the inventory snapshot at t=218.606 s (line 62)
+
+**Top waste findings**
+
+1. `failed_action` (micro, 4.919 s): line 59: action 'build_portal' failed (FAILED: frame incomplete); 4.919 s lost
+2. `failed_action` (micro, 0.657 s): line 14: action 'loot_chest' failed (FAILED: not ok); 0.657 s lost
+3. `failed_action` (micro, 0.401 s): line 27: action 'build_portal' failed (FAILED: need flint + iron_ingot for flint_and_steel); 0.401 s lost
+4. `failed_action` (micro, 0.305 s): line 8: action 'loot_chest' failed (FAILED: not ok); 0.305 s lost
+5. `failed_action` (micro, 0.051 s): line 20: action 'loot_chest' failed (FAILED: not ok); 0.051 s lost
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 185.94 | 29-33 | 152.94..156.94 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 208.121 | 54 | 154.121..154.121 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 212.637 | 49-51 | 161.637..163.637 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | yes | 218.606 | 60-61 | 157.606..158.606 | first seen in inventory at line 62 (no craft event in the log); crafted after the flint pickup at t=212.637 (line 52) |
+| portal_build_attempted | yes | 49.515 | 55 | -5.485..-5.485 | build_portal skill started |
+| portal_built | no | - | 63 | - | build_portal failed: need flint + iron_ingot for flint_and_steel |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### agent-03
+
+- Outcome: **did not finish; failed at step `flint_and_steel` (line 20: never attempted after chest_3)**
+- Milestones reached: 0/5
+- Total time 54.178 s; attributed waste 0 s; efficiency 1; findings 3 {"claim": 1, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log no, perception no; full outputs in runs/agent-03-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 1
+  - line 28: summary claims actions=0, but the log shows 7 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+
+**Top waste findings**
+
+- none with cost > 0
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 12.731 | 29-33 | -20.269..-16.269 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 36.212 | 54 | -17.788..-17.788 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 40.738 | 49-51 | -10.262..-8.262 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | no | - | 55 | - | not reached |
+| portal_built | no | - | 63 | - | not reached |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### agent-04
+
+- Outcome: **did not finish; failed at step `flint_and_steel` (line 20: never attempted after chest_3)**
+- Milestones reached: 0/5
+- Total time 49.357 s; attributed waste 2.4 s; efficiency 0.9514; findings 4 {"claim": 1, "decision": 0, "micro": 3, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/agent-04-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 1
+  - line 28: summary claims actions=0, but the log shows 7 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+- server coverage: server log ends at t=2.496 s, 46.861 s before the agent run ends (t=49.357 s)
+- server coverage: server log ends during the goto attempt (started t=0.558 s, line 5; result t=10.078 s, line 6)
+- server coverage: no server evidence for goto result at t=10.078 s (line 6)
+- server coverage: no server evidence for loot_chest result at t=10.236 s (line 8)
+- server coverage: no server evidence for goto result at t=32.019 s (line 12)
+- server coverage: no server evidence for loot_chest result at t=33.032 s (line 14)
+- server coverage: no server evidence for goto result at t=37.48 s (line 18)
+- server coverage: no server evidence for loot_chest result at t=37.534 s (line 20)
+- server coverage: no server evidence for goto result at t=38.542 s (line 24)
+- server coverage: no server evidence for the inventory snapshot at t=38.948 s (line 26)
+
+**Top waste findings**
+
+1. `excess_materials` (micro, 2.4 s): stone: gathered 6 but 6 blocks were never consumed (slack 4); 2.4 s of gathering was surplus
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 10.236 | 29-33 | -22.764..-18.764 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 33.032 | 54 | -20.968..-20.968 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 37.534 | 49-51 | -13.466..-11.466 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | no | - | 55 | - | not reached |
+| portal_built | no | - | 63 | - | not reached |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
+
+### agent-05
+
+- Outcome: **did not finish; failed at step `flint_and_steel` (line 20: never attempted after chest_3)**
+- Milestones reached: 0/5
+- Total time 51.64 s; attributed waste 0 s; efficiency 1; findings 3 {"claim": 1, "decision": 0, "micro": 2, "safety": 0}
+- Inputs: server log yes, perception no; full outputs in runs/agent-05-eval/
+
+**Claims findings**
+
+- `self_report_contradiction`: 1
+  - line 28: summary claims actions=0, but the log shows 7 (skill_result lines: lines 6, 8, 12, 14, 18, 20, 24)
+- `inventory_loss_without_effect`: 0
+- `agent_server_mismatch`: 0
+
+**Top waste findings**
+
+- none with cost > 0
+
+**Progress before failure (agent vs pro, seconds from start)**
+
+| step | reached | agent t | pro t | delta | note |
+|---|---|---|---|---|---|
+| chest_1 | yes | 15.747 | 29-33 | -17.253..-13.253 | village chest (iron_pickaxe 1, obsidian 6) |
+| chest_2 | yes | 37.632 | 54 | -16.368..-16.368 | obsidian chest (iron_ingot 6, obsidian 11) |
+| chest_3 | yes | 42.173 | 49-51 | -8.827..-6.827 | flint chest (flint 1, obsidian 4) |
+| flint_and_steel | no | - | 60-61 | - | not reached |
+| portal_build_attempted | no | - | 55 | - | not reached |
+| portal_built | no | - | 63 | - | not reached |
+| portal_lit | no | - | 63-64 | - | not reached |
+| nether_entered | no | - | 66.7 | - | not reached |
 
 ## 3. Decision tasks (splitcheck.check)
 
@@ -139,4 +297,4 @@ python -m splitcheck.check --root <generic_root> --costs ../splits/time_costs.js
 cd .. && bash make_submission.sh
 ```
 
-Determinism: two packs built into separate temp dirs; 13 files compared with filecmp (shallow=False): **all byte-identical**
+Determinism: two packs built into separate temp dirs; 33 files compared with filecmp (shallow=False): **all byte-identical**
