@@ -39,3 +39,19 @@ A death, a crash and a stall are all results.
 - The full log by about **3:00 PM** at the latest. Submissions close at 4:00.
 
 The more honest the notes (restarts, interventions), the better we score on fairness.
+
+---
+
+## Update 2:25 PM: second take (agent-02)
+
+**Keep `agent-01` exactly as it is.** It's the first take, and its failure plus the false self-report (summary says 0 failures, log shows a failed `build_portal`) is already a strong result.
+
+**Goal for agent-02:** reach the Nether. Full log pushed by **about 3:15 PM**.
+
+1. **Fix first:** the placement verification reads stale block states. Use the epoch-counter approach the rmalde repo used.
+2. **Poller coverage:** start `capture/rcon_poller.py` **before** the agent and stop it **after** the agent process exits. In agent-01 it stopped about 4 s before the portal attempt, so the server never saw the key moment.
+3. **Same difficulty as agent-01 (Easy)**, or state the change clearly in RUN_NOTES.
+4. **Honest notes:** RUN_NOTES must say this is the second take, after a code fix. The evaluator now prints a "This run" section from RUN_NOTES, flags fairness notes that don't apply to the run, and checks what it can against the logs (difficulty, outcome, failures). Missing fields show as "not provided".
+5. **For the AI perception layer:** besides the overlay video (keep it for the demo), save **raw frames without the overlay** plus `frames_index.json` mapping each frame file to its run time in seconds since the agent's `spawn` event, for example `[{"file": "f0001.png", "run_t": 0.0}, ...]`.
+6. **Push `agent_runs/agent-02/`:** `events.jsonl`, `server_events.jsonl`, `RUN_NOTES.md`, the clean frames dir plus `frames_index.json`, and the clip.
+7. **If the Nether isn't reached by about 3:00, stop and push what you have.** A second failure at a different point is still useful evidence.
